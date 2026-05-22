@@ -488,6 +488,33 @@ export const SIDEBAR_BUNDLES = [
   { display_name: "Zep", name: "zep", icon: "ZepMemory" },
 ];
 
+/**
+ * Bundle names to hide from the sidebar.
+ * Useful for LAN deployments where cloud-dependent bundles are unavailable.
+ * Add or remove entries to control visibility.
+ */
+export const HIDDEN_BUNDLE_NAMES: Set<string> = new Set([
+  // ---- Cloud LLM APIs ----
+  "aiml", "amazon", "anthropic", "azure", "baidu", "cohere",
+  "cometapi", "deepseek", "google", "groq", "maritalk",
+  "mistral", "notdiamond", "novita", "nvidia", "openai",
+  "openrouter", "perplexity", "sambanova", "vertexai", "xai",
+  // ---- Search / Data APIs ----
+  "apify", "arxiv", "assemblyai", "bing", "cleanlab",
+  "cloudflare", "composio", "confluence", "datastax",
+  "docling", "duckduckgo", "exa", "firecrawl", "glean",
+  "gmail", "homeassistant", "huggingface", "ibm",
+  "icosacomputing", "jigsawstack", "langwatch", "mem0",
+  "needle", "notion", "olivya", "scrapegraph", "searchapi",
+  "serpapi", "serper", "supabase", "tavily", "twelvelabs",
+  "unstructured", "upstash", "vectara", "vlmrun",
+  "wikipedia", "wolframalpha", "yahoosearch", "youtube", "zep",
+  // ---- Other cloud services ----
+  "altk", "cuga",
+  // ---- Cloud Vector DBs (managed-only) ----
+  "pinecone",
+]);
+
 export const categoryIcons: Record<string, string> = {
   saved_components: "GradientSave",
   input_output: "Cable",

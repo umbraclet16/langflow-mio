@@ -34,6 +34,7 @@ import {
   nodeColors,
   SIDEBAR_BUNDLES,
   SIDEBAR_CATEGORIES,
+  HIDDEN_BUNDLE_NAMES,
 } from "@/utils/styleUtils";
 import { cn, getBooleanFromStorage } from "@/utils/utils";
 import useFlowStore from "../../../../stores/flowStore";
@@ -60,7 +61,9 @@ import sensitiveSort from "./helpers/sensitive-sort";
 import { traditionalSearchMetadata } from "./helpers/traditional-search-metadata";
 
 const CATEGORIES = SIDEBAR_CATEGORIES;
-const BUNDLES = SIDEBAR_BUNDLES;
+const BUNDLES = SIDEBAR_BUNDLES.filter(
+  (b) => !HIDDEN_BUNDLE_NAMES.has(b.name.toLowerCase()),
+);
 const MCP_COMPONENT_CATEGORY = "models_and_agents";
 
 // Search context for the sidebar
