@@ -247,7 +247,8 @@ function NodeOutputField({
 
     const sortedEdges = edges
       .filter((edge) => edge.source === data.id)
-      .toSorted((a, b) => {
+      .slice()
+      .sort((a, b) => {
         const indexA =
           data?.node?.outputs?.findIndex(
             (output) => output.name === a.data?.sourceHandle?.name,

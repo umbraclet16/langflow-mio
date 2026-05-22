@@ -84,7 +84,7 @@ export default function RecentFilesComponent({
   }, [searchQuery, filesWithDisabled, types]);
 
   const sortedSearchResults = useMemo(() => {
-    return searchResults.toSorted((a, b) => {
+    return searchResults.slice().sort((a, b) => {
       const selectedOrder = sortByBoolean(
         a.progress !== undefined,
         b.progress !== undefined,

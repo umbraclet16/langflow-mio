@@ -353,7 +353,7 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
   const sortedCategories = useMemo(() => {
     if (!searchResults || !searchFilteredData) return [];
 
-    return Object.keys(searchFilteredData).toSorted((a, b) =>
+    return Object.keys(searchFilteredData).sort((a, b) =>
       searchResults.fuseCategories.indexOf(b) <
       searchResults.fuseCategories.indexOf(a)
         ? 1

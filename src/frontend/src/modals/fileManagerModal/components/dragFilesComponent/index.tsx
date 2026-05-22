@@ -275,7 +275,7 @@ export default function DragFilesComponent({
           <span className="flex items-center gap-1">
             <span>{types.slice(0, 3).join(", ")}</span>
             {types.length > 3 && (
-              <ShadTooltip content={types.slice(3).toSorted().join(", ")}>
+              <ShadTooltip content={types.slice(3).sort().join(", ")}>
                 <span
                   className="text-muted-foreground flex items-center gap-1"
                   data-testid="info-types"

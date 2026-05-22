@@ -29,7 +29,7 @@ export const MemoizedSidebarGroup = memo(
   }: SidebarGroupProps) => {
     const { t } = useTranslation();
     const sortedBundles = useMemo(() => {
-      return BUNDLES.toSorted((a, b) => {
+      return BUNDLES.slice().sort((a, b) => {
         const referenceArray = search !== "" ? sortedCategories : BUNDLES;
         return (
           referenceArray.findIndex((value) => value === a.name) -
