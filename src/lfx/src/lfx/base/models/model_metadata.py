@@ -289,6 +289,15 @@ MODEL_PROVIDER_METADATA: dict[str, Any] = {
             "model_param": "model_id",
         },
     },
+    "Unified": {
+        "icon": "UnifiedModel",
+        "max_tokens_field_name": "max_tokens",
+        "variables": [],
+        "mapping": {
+            "model_class": "ChatOpenAI",
+            "model_param": "model",
+        },
+    },
 }
 
 

@@ -63,8 +63,8 @@ def get_llm(
     # Get API key from user input or global variables
     api_key = unified_models_module.get_api_key_for_provider(user_id, provider, api_key)
 
-    # Validate API key (Ollama doesn't require one)
-    if not api_key and provider != "Ollama":
+    # Validate API key (Ollama and Unified don't require one from global vars)
+    if not api_key and provider not in {"Ollama", "Unified"}:
         # Get the correct variable name from the provider variable mapping
         provider_variable_map = unified_models_module.get_model_provider_variable_mapping()
         variable_name = provider_variable_map.get(provider, f"{provider.upper().replace(' ', '_')}_API_KEY")
@@ -127,11 +127,21 @@ def get_llm(
             pass  # Skip invalid max_tokens (e.g. empty string from form input)
 
     # Enable streaming usage for providers that support it
-    if provider in ["OpenAI", "Anthropic"]:
+    if provider in ["OpenAI", "Anthropic", "Unified"]:
         kwargs["stream_usage"] = True
 
     # Add provider-specific parameters
-    if provider in {"IBM WatsonX", "IBM watsonx.ai"}:
+    if provider == "Unified":
+        # Unified agent platform: inject base_url and api_key from metadata.
+        # These are embedded by _get_unified_model_options when the model
+        # list is fetched from the external agent platform API.
+        unified_base_url = metadata.get("unified_base_url")
+        unified_api_key = metadata.get("unified_api_key")
+        if unified_base_url:
+            kwargs["base_url"] = unified_base_url
+        if unified_api_key:
+            kwargs["api_key"] = unified_api_key
+    elif provider in {"IBM WatsonX", "IBM watsonx.ai"}:
         # For watsonx, url and project_id are required parameters
         # Try database first, then component values, then environment variables
         url_param = metadata.get("url_param", "url")

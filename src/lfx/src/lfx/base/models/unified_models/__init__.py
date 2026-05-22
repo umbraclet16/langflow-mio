@@ -4,6 +4,12 @@ This package replaces the former monolithic ``unified_models.py`` module while
 preserving the import surface used across the codebase.
 """
 
+from .unified_model_fetcher import (
+    AGENT_PLATFORM_API_URL_ENV,
+    fetch_models_from_agent_platform,
+    get_agent_platform_api_url,
+    invalidate_agent_platform_cache,
+)
 from .build_config import (
     _MODEL_OPTIONS_CACHE_TTL_SECONDS,
     _get_all_provider_mapped_fields,
@@ -44,8 +50,12 @@ from .provider_queries import (
 )
 
 __all__ = [
+    "AGENT_PLATFORM_API_URL_ENV",
     "EMBEDDING_PROVIDER_CLASS_MAPPING",
     "MODELS_DETAILED",
+    "fetch_models_from_agent_platform",
+    "get_agent_platform_api_url",
+    "invalidate_agent_platform_cache",
     "_EMBEDDING_CLASS_IMPORTS",
     "_MODEL_CLASS_IMPORTS",
     "_MODEL_OPTIONS_CACHE_TTL_SECONDS",

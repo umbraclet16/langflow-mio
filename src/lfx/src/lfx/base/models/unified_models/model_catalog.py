@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import contextlib
+import os
 from typing import TYPE_CHECKING, Any
 
 from lfx.base.models.model_metadata import get_provider_param_mapping
 from lfx.base.models.model_utils import replace_with_live_models
+from lfx.log.logger import logger
 from lfx.utils.async_helpers import run_until_complete
 
 from .class_registry import EMBEDDING_PROVIDER_CLASS_MAPPING
@@ -125,7 +127,22 @@ def get_unified_models_detailed(
 def get_language_model_options(
     user_id: UUID | str | None = None, *, tool_calling: bool | None = None
 ) -> list[dict[str, Any]]:
-    """Return available language model providers with their configuration."""
+    """Return available language model providers with their configuration.
+
+    When ``AGENT_PLATFORM_API_URL`` is set, models are fetched from the
+    external agent platform API instead of the built-in provider catalogs.
+    """
+    # ------------------------------------------------------------------
+    # Unified agent platform path (bypasses built-in providers entirely)
+    # ------------------------------------------------------------------
+    agent_platform_url = os.environ.get("AGENT_PLATFORM_API_URL", "").strip()
+    if agent_platform_url:
+        logger.info(
+            "[AgentPlatform] Using unified API for model options (URL: %s)",
+            agent_platform_url,
+        )
+        return _get_unified_model_options(agent_platform_url, tool_calling=tool_calling)
+
     # Get all LLM models (excluding embeddings, deprecated, and unsupported by default)
     # Apply tool_calling filter if specified
     if tool_calling is not None:
@@ -235,6 +252,82 @@ def get_language_model_options(
 
             options.append(option)
 
+    return options
+
+
+def _get_unified_model_options(
+    api_url: str,
+    *,
+    tool_calling: bool | None = None,
+) -> list[dict[str, Any]]:
+    """Build model options from the external agent platform API.
+
+    Fetches models from ``GET {api_url}/models`` and converts each into
+    the standard Langflow option dict format understood by the frontend
+    model selector and the ``get_llm`` instantiation path.
+
+    Args:
+        api_url: Base URL of the agent platform API.
+        tool_calling: If set, filter models that support tool calling.
+            Currently a no-op for agent platform models (all passed through).
+
+    Returns:
+        List of model option dicts with keys: ``name``, ``icon``,
+        ``category``, ``provider``, ``metadata``.
+    """
+    from .unified_model_fetcher import fetch_models_from_agent_platform
+
+    raw_models = fetch_models_from_agent_platform(api_url)
+
+    if not raw_models:
+        logger.warning(
+            "[AgentPlatform] No models returned from %s", api_url
+        )
+        return []
+
+    logger.info(
+        "[AgentPlatform] Converting %d models to Langflow options", len(raw_models)
+    )
+    options: list[dict[str, Any]] = []
+    for m in raw_models:
+        model_id: str = m.get("id", "")
+        model_name: str = m.get("model_name", model_id)
+        base_url: str = m.get("base_url", "")
+        api_key: str = m.get("api_key", "")
+
+        if tool_calling is not None:
+            supports_tc = m.get("tool_calling", True)
+            if tool_calling and not supports_tc:
+                continue
+
+        option = {
+            "name": model_id,
+            "icon": "UnifiedModel",
+            "category": "Unified",
+            "provider": "Unified",
+            "metadata": {
+                "context_length": 128000,
+                "model_class": "ChatOpenAI",
+                "model_name_param": "model",
+                "api_key_param": "api_key",
+                "base_url_param": "base_url",
+                "max_tokens_field_name": "max_tokens",
+                # Embedded credentials from the agent platform
+                "unified_api_key": api_key,
+                "unified_base_url": base_url,
+            },
+        }
+        logger.info(
+            "[AgentPlatform]   %s → provider=Unified class=ChatOpenAI base_url=%s",
+            model_id,
+            base_url or "(none)",
+        )
+        options.append(option)
+
+    logger.info(
+        "[AgentPlatform] Built %d options, returning to frontend",
+        len(options),
+    )
     return options
 
 
