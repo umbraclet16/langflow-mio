@@ -384,5 +384,18 @@
   "table.noColumnDescription": "该表没有可用的列定义。",
   "table.noColumnTitle": "没有列定义",
   "table.noDataMessage": "糟糕！ 目前似乎没有数据可显示。 请稍后再试。",
-  "table.noDataTitle": "无可用数据"
+  "table.noDataTitle": "无可用数据",
+  "nodeToolbar.code": "代码",
+  "nodeToolbar.controls": "控件",
+  "nodeToolbar.freeze": "冻结",
+  "nodeToolbar.toolMode": "工具模式",
+  "nodeToolbar.save": "保存",
+  "nodeToolbar.duplicate": "复制",
+  "nodeToolbar.copy": "拷贝",
+  "nodeToolbar.docs": "文档",
+  "nodeToolbar.minimize": "最小化",
+  "nodeToolbar.expand": "展开",
+  "nodeToolbar.download": "下载",
+  "nodeToolbar.delete": "删除",
+  "nodeToolbar.showMore": "更多"
 }

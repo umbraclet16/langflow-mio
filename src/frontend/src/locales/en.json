@@ -384,5 +384,18 @@
   "sidebar.mcp.manage": "Manage Servers",
   "sidebar.newCustomComponent": "New Custom Component",
   "sidebar.download": "Download",
-  "sidebar.delete": "Delete"
+  "sidebar.delete": "Delete",
+  "nodeToolbar.code": "Code",
+  "nodeToolbar.controls": "Controls",
+  "nodeToolbar.freeze": "Freeze",
+  "nodeToolbar.toolMode": "Tool Mode",
+  "nodeToolbar.save": "Save",
+  "nodeToolbar.duplicate": "Duplicate",
+  "nodeToolbar.copy": "Copy",
+  "nodeToolbar.docs": "Docs",
+  "nodeToolbar.minimize": "Minimize",
+  "nodeToolbar.expand": "Expand",
+  "nodeToolbar.download": "Download",
+  "nodeToolbar.delete": "Delete",
+  "nodeToolbar.showMore": "Show More"
 }
