@@ -453,7 +453,7 @@
   "Text Output": "文本输出",
   "Text to SQL": "文本转SQL",
   "Type Convert": "类型转换",
-  "URL": "链接",
+  "URL": "URL提取",
   "Web Search": "网络搜索",
   "Write File": "写入文件",
   "Language Model": "语言模型",
@@ -475,5 +475,14 @@
   "Sentiment Analysis": "情感分析",
   "Text Translate": "文本翻译",
   "Video File": "视频文件",
-  "Parse JSON": "解析JSON"
+  "Parse JSON": "解析JSON",
+  "API Request": "API请求",
+  "SQL Database": "SQL查询",
+  "Prompt Template": "提示词模板",
+  "LLM Selector": "LLM选择器",
+  "Dynamic Create Data": "动态创建数据",
+  "JSON Operations": "JSON操作",
+  "Parser": "解析器",
+  "Split Text": "文本切分",
+  "Python Interpreter": "Python解释器"
 }
