@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { ForwardedIconComponent } from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
 import {
@@ -30,6 +31,7 @@ export default function OutputComponent({
   handleSelectOutput,
   outputName,
 }: outputComponentType) {
+  const { t } = useTranslation();
   const nodeType = useFlowStore(
     (state) => state.nodes.find((node) => node.id === nodeId)?.data?.type,
   );
@@ -54,7 +56,7 @@ export default function OutputComponent({
         frozen ? "text-ice" : "",
       )}
     >
-      {name}
+      {t(name, { defaultValue: name })}
     </span>,
   );
 
@@ -80,7 +82,7 @@ export default function OutputComponent({
               data-testid={`dropdown-output-${outputName?.toLowerCase()}`}
             >
               <div className="flex items-center gap-1 truncate rounded-md px-2 py-1 text-sm font-medium group-hover:bg-primary/10">
-                {name}
+                {t(name, { defaultValue: name })}
                 <ForwardedIconComponent
                   name="ChevronDown"
                   className="h-4 w-4 text-muted-foreground"
@@ -107,7 +109,7 @@ export default function OutputComponent({
                       value={output.name}
                     >
                       <span className="truncate text-[13px]">
-                        {output.display_name ?? output.name}
+                        {t(output.display_name ?? output.name, { defaultValue: output.display_name ?? output.name })}
                       </span>
                       <span className="ml-4 text-[13px] text-muted-foreground">
                         {output.types.join(", ")}

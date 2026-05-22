@@ -148,7 +148,7 @@ export default function NodeInputField({
                 {
                   <span>
                     {getCustomParameterTitle({
-                      title,
+                      title: t(title, { defaultValue: title }),
                       nodeId: data.id,
                       isFlexView,
                       required,
@@ -159,7 +159,7 @@ export default function NodeInputField({
             ) : (
               <span className="text-sm font-medium">
                 {getCustomParameterTitle({
-                  title,
+                  title: t(title, { defaultValue: title }),
                   nodeId: data.id,
                   isFlexView,
                   required,
@@ -167,7 +167,7 @@ export default function NodeInputField({
               </span>
             )}
             {info !== "" && (
-              <ShadTooltip content={<NodeInputInfo info={info} />}>
+              <ShadTooltip content={<NodeInputInfo info={t(info, { defaultValue: info })} />}>
                 <div className="cursor-help">
                   <IconComponent
                     name="Info"

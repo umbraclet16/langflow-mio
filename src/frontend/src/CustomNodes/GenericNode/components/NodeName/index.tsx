@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Input } from "@/components/ui/input";
@@ -27,6 +28,7 @@ export default function NodeName({
   toggleEditNameDescription: () => void;
   setHasChangedNodeDescription: (hasChanged: boolean) => void;
 }) {
+  const { t } = useTranslation();
   const [nodeName, setNodeName] = useState<string>(display_name ?? "");
   const takeSnapshot = useFlowsManagerStore((state) => state.takeSnapshot);
   const setNode = useFlowStore((state) => state.setNode);
@@ -101,7 +103,7 @@ export default function NodeName({
             className={cn("cursor-grab truncate text-base")}
             data-testid="node-name"
           >
-            {display_name}
+            {t(display_name!, { defaultValue: display_name })}
           </span>
           {legacy && (
             <div className="shrink-0">

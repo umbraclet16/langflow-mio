@@ -1,4 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,6 +19,7 @@ export default function EditableHeaderContent({
   editMode,
   setEditMode,
 }: EditableHeaderContentProps) {
+  const { t } = useTranslation();
   const [localName, setLocalName] = useState<string>(
     data.node?.display_name ?? data.type,
   );
@@ -176,7 +178,7 @@ export default function EditableHeaderContent({
             ),
           }}
         >
-          {String(description)}
+          {String(t(String(description), { defaultValue: String(description) }))}
         </MemoizedMarkdown>
       </div>
     );
@@ -196,7 +198,7 @@ export default function EditableHeaderContent({
       />
     ) : (
       <span className="font-medium text-sm">
-        {data.node?.display_name ?? data.type}
+        {t(data.node?.display_name ?? data.type, { defaultValue: data.node?.display_name ?? data.type })}
       </span>
     ),
     descriptionElement: editMode ? (
