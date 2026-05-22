@@ -312,9 +312,6 @@ def _get_unified_model_options(
                 "api_key_param": "api_key",
                 "base_url_param": "base_url",
                 "max_tokens_field_name": "max_tokens",
-                # Embedded credentials from the agent platform
-                "unified_api_key": api_key,
-                "unified_base_url": base_url,
             },
         }
         logger.info(

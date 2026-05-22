@@ -60,8 +60,11 @@ def get_llm(
     # Get model class and parameter names from metadata
     api_key_param = metadata.get("api_key_param", "api_key")
 
-    # Get API key from user input or global variables
-    api_key = unified_models_module.get_api_key_for_provider(user_id, provider, api_key)
+    # Get API key from user input or global variables.
+    # For the Unified provider, the api_key comes from metadata
+    # (embedded by the agent platform API) — skip credential resolution.
+    if provider != "Unified":
+        api_key = unified_models_module.get_api_key_for_provider(user_id, provider, api_key)
 
     # Validate API key (Ollama and Unified don't require one from global vars)
     if not api_key and provider not in {"Ollama", "Unified"}:
@@ -132,15 +135,19 @@ def get_llm(
 
     # Add provider-specific parameters
     if provider == "Unified":
-        # Unified agent platform: inject base_url and api_key from metadata.
-        # These are embedded by _get_unified_model_options when the model
-        # list is fetched from the external agent platform API.
-        unified_base_url = metadata.get("unified_base_url")
-        unified_api_key = metadata.get("unified_api_key")
+        from lfx.log.logger import logger  # noqa: PLC0415
+
+        # The agent platform model list changes independently of persisted
+        # flow data (flows embed metadata at save time).  Fetch fresh
+        # credentials so a stale api_key in a saved flow can't cause 401s.
+        unified_base_url, unified_api_key = _resolve_unified_credentials(
+            model_name, metadata
+        )
         if unified_base_url:
             kwargs["base_url"] = unified_base_url
         if unified_api_key:
             kwargs["api_key"] = unified_api_key
+        _log_unified_params(kwargs, unified_base_url, unified_api_key)
     elif provider in {"IBM WatsonX", "IBM watsonx.ai"}:
         # For watsonx, url and project_id are required parameters
         # Try database first, then component values, then environment variables
@@ -208,6 +215,64 @@ def get_llm(
             raise ValueError(msg) from e
         # Re-raise the original exception for other cases
         raise
+
+
+def _resolve_unified_credentials(
+    model_name: str,
+    metadata: dict,
+) -> tuple[str | None, str | None]:
+    """Return (base_url, api_key) for a Unified model.
+
+    Fetches the current model list from the agent platform API and looks
+    up *model_name* by its ``id`` field.  If the API is unreachable or the
+    model is no longer listed, falls back to stale values in *metadata*
+    (set by ``_get_unified_model_options`` before the flow was saved).
+    """
+    from .unified_model_fetcher import fetch_models_from_agent_platform
+
+    base_url = metadata.get("unified_base_url")
+    api_key = metadata.get("unified_api_key")
+
+    try:
+        fresh_models = fetch_models_from_agent_platform()
+    except Exception:
+        from lfx.log.logger import logger
+
+        logger.exception("[AgentPlatform] Failed to fetch fresh credentials; using persisted values")
+        return base_url, api_key
+
+    for fm in fresh_models:
+        if fm.get("id") == model_name:
+            base_url = fm.get("base_url", base_url)
+            api_key = fm.get("api_key", api_key)
+            return base_url, api_key
+
+    from lfx.log.logger import logger
+
+    logger.warning(
+        "[AgentPlatform] Model '%s' not found in fresh list; using persisted credentials",
+        model_name,
+    )
+    return base_url, api_key
+
+
+def _log_unified_params(kwargs: dict, base_url: str | None, api_key: str | None) -> None:
+    """Log the Unified provider parameters being used (with masked api_key)."""
+    from lfx.log.logger import logger
+
+    masked_key = ""
+    if api_key:
+        if len(api_key) > 8:
+            masked_key = api_key[:4] + "****" + api_key[-4:]
+        else:
+            masked_key = "****"
+
+    logger.info(
+        "[AgentPlatform] Instantiating ChatOpenAI base_url=%s api_key=%s model=%s",
+        base_url or "(none)",
+        masked_key or "(none)",
+        kwargs.get("model", "?"),
+    )
 
 
 def get_embeddings(
