@@ -601,5 +601,18 @@
   "LLMMathChain": "LLM数学链",
   "Regex Extractor": "正则提取器",
   "NSFW Detection": "NSFW检测",
-  "Parse DataFrame": "解析DataFrame"
+  "Parse DataFrame": "解析DataFrame",
+  "CSV Agent": "CSV智能体",
+  "SQLAgent": "SQL智能体",
+  "SQLDatabase": "SQL数据库",
+  "HTML Link Extractor": "HTML链接提取器",
+  "Fake Embeddings": "虚拟嵌入向量",
+  "JSON Cleaner": "JSON清理器",
+  "Python Function": "Python函数",
+  "Python Code Structured": "Python结构化代码",
+  "Python REPL": "Python交互解释器",
+  "RSS Reader": "RSS阅读器",
+  "Table": "表格",
+  "Webhook": "Webhook",
+  "MCP Tools": "MCP工具"
 }
