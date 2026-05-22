@@ -171,12 +171,12 @@ export const SidebarDraggableComponent = forwardRef(
                 className="h-[18px] w-[18px] shrink-0"
               />
               <div className="flex flex-1 items-center overflow-hidden">
-                <ShadTooltip content={display_name} styleClasses="z-50">
+                <ShadTooltip content={t(display_name, { defaultValue: display_name })} styleClasses="z-50">
                   <span
                     data-testid="display-name"
                     className="truncate text-sm font-normal"
                   >
-                    {display_name}
+                    {t(display_name, { defaultValue: display_name })}
                   </span>
                 </ShadTooltip>
                 {beta && (

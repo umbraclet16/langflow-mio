@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import useFlowStore from "@/stores/flowStore";
 import { checkChatInput, checkWebhookInput } from "@/utils/reactflowUtils";
@@ -15,6 +16,7 @@ const SidebarItemsList = ({
   onDragStart,
   sensitiveSort,
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-1 py-1">
       {Object.keys(dataFilter[item.name])
@@ -56,7 +58,7 @@ const SidebarItemsList = ({
           }
           return (
             <ShadTooltip
-              content={currentItem.display_name}
+              content={t(currentItem.display_name, { defaultValue: currentItem.display_name })}
               side="right"
               key={SBItemName}
             >
@@ -96,6 +98,7 @@ const UniqueInputsDraggableComponent = ({
   onDragStart,
   nodeColors,
 }) => {
+  const { t } = useTranslation();
   const nodes = useFlowStore((state) => state.nodes);
   const chatInputAdded = useMemo(() => checkChatInput(nodes), [nodes]);
   const webhookInputAdded = useMemo(() => checkWebhookInput(nodes), [nodes]);
@@ -108,7 +111,7 @@ const UniqueInputsDraggableComponent = ({
 
   return (
     <ShadTooltip
-      content={currentItem.display_name}
+      content={t(currentItem.display_name, { defaultValue: currentItem.display_name })}
       side="right"
       key={SBItemName}
     >
