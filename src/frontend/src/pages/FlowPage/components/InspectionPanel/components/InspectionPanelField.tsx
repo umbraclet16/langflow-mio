@@ -101,7 +101,7 @@ export default function InspectionPanelField({
               <ShadTooltip content={<span>{proxy.id}</span>}>
                 <span>
                   {getCustomParameterTitle({
-                    title,
+                    title: t(title, { defaultValue: title }),
                     nodeId: data.id,
                     isFlexView,
                     required,
@@ -113,7 +113,7 @@ export default function InspectionPanelField({
               <div className="flex gap-2">
                 <span className="text-sm font-medium">
                   {getCustomParameterTitle({
-                    title,
+                    title: t(title, { defaultValue: title }),
                     nodeId: data.id,
                     isFlexView,
                     required,
@@ -124,7 +124,7 @@ export default function InspectionPanelField({
             )}
             <div className="flex items-center">
               {info !== "" && (
-                <ShadTooltip content={<NodeInputInfo info={info} />}>
+                <ShadTooltip content={<NodeInputInfo info={t(info, { defaultValue: info })} />}>
                   <div className="cursor-help">
                     <IconComponent
                       name="Info"
