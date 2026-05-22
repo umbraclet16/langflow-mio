@@ -6,9 +6,11 @@ preserving the import surface used across the codebase.
 
 from .unified_model_fetcher import (
     AGENT_PLATFORM_API_URL_ENV,
+    fetch_embeddings_from_agent_platform,
     fetch_models_from_agent_platform,
     get_agent_platform_api_url,
     invalidate_agent_platform_cache,
+    invalidate_agent_platform_embeddings_cache,
 )
 from .build_config import (
     _MODEL_OPTIONS_CACHE_TTL_SECONDS,
@@ -53,9 +55,11 @@ __all__ = [
     "AGENT_PLATFORM_API_URL_ENV",
     "EMBEDDING_PROVIDER_CLASS_MAPPING",
     "MODELS_DETAILED",
+    "fetch_embeddings_from_agent_platform",
     "fetch_models_from_agent_platform",
     "get_agent_platform_api_url",
     "invalidate_agent_platform_cache",
+    "invalidate_agent_platform_embeddings_cache",
     "_EMBEDDING_CLASS_IMPORTS",
     "_MODEL_CLASS_IMPORTS",
     "_MODEL_OPTIONS_CACHE_TTL_SECONDS",

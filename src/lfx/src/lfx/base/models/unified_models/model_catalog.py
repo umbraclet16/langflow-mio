@@ -328,10 +328,77 @@ def _get_unified_model_options(
     return options
 
 
+def _get_unified_embedding_options(api_url: str) -> list[dict[str, Any]]:
+    """Build embedding model options from the agent platform API.
+
+    Fetches from ``GET {api_url}/embeddings`` and converts each into
+    the standard option dict using ``OpenAIEmbeddings`` (most embedding
+    APIs are OpenAI-compatible).
+    """
+    from .unified_model_fetcher import fetch_embeddings_from_agent_platform
+
+    raw_models = fetch_embeddings_from_agent_platform(api_url)
+
+    if not raw_models:
+        logger.warning("[AgentPlatform] No embeddings returned from %s", api_url)
+        return []
+
+    logger.info(
+        "[AgentPlatform] Converting %d embeddings to Langflow options",
+        len(raw_models),
+    )
+    options: list[dict[str, Any]] = []
+    for m in raw_models:
+        model_id: str = m.get("id", "")
+        base_url: str = m.get("base_url", "")
+        api_key: str = m.get("api_key", "")
+
+        option = {
+            "name": model_id,
+            "icon": "UnifiedModel",
+            "category": "Unified",
+            "provider": "Unified",
+            "metadata": {
+                "model_class": "OpenAIEmbeddings",
+                "model_name_param": "model",
+                "api_key_param": "api_key",
+                "base_url_param": "base_url",
+                "embedding_class": "OpenAIEmbeddings",
+                "model_type": "embeddings",
+                # Embedded credentials
+                "unified_api_key": api_key,
+                "unified_base_url": base_url,
+            },
+        }
+        logger.info(
+            "[AgentPlatform]   %s → provider=Unified class=OpenAIEmbeddings base_url=%s",
+            model_id,
+            base_url or "(none)",
+        )
+        options.append(option)
+
+    logger.info(
+        "[AgentPlatform] Built %d embedding options, returning to frontend",
+        len(options),
+    )
+    return options
+
+
 def get_embedding_model_options(
     user_id: UUID | str | None = None,
 ) -> list[dict[str, Any]]:
-    """Return available embedding model providers with their configuration."""
+    """Return available embedding model providers with their configuration.
+
+    When ``AGENT_PLATFORM_API_URL`` is set, embedding models are fetched
+    from the external agent platform API instead of built-in catalogs.
+    """
+    # ------------------------------------------------------------------
+    # Unified agent platform path
+    # ------------------------------------------------------------------
+    agent_platform_url = os.environ.get("AGENT_PLATFORM_API_URL", "").strip()
+    if agent_platform_url:
+        return _get_unified_embedding_options(agent_platform_url)
+
     # Get all embedding models (excluding deprecated and unsupported by default)
     all_models = get_unified_models_detailed(
         model_type="embeddings",

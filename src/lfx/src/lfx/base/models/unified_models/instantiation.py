@@ -323,8 +323,10 @@ def get_embeddings(
     metadata = model_dict.get("metadata", {})
 
     # --- resolve API key -----------------------------------------------------
-    api_key = unified_models_module.get_api_key_for_provider(user_id, provider, api_key)
-    if not api_key and provider != "Ollama":
+    # For Unified provider, credentials are resolved at runtime from metadata.
+    if provider != "Unified":
+        api_key = unified_models_module.get_api_key_for_provider(user_id, provider, api_key)
+    if not api_key and provider not in {"Ollama", "Unified"}:
         provider_variable_map = unified_models_module.get_model_provider_variable_mapping()
         variable_name = provider_variable_map.get(provider, f"{provider.upper().replace(' ', '_')}_API_KEY")
         msg = (
@@ -346,7 +348,8 @@ def get_embeddings(
 
     # --- build kwargs from param_mapping -------------------------------------
     param_mapping: dict[str, str] = metadata.get("param_mapping", {})
-    if not param_mapping:
+
+    if not param_mapping and provider != "Unified":
         msg = (
             f"Parameter mapping not found in metadata for model '{model_name}' (provider: {provider}). "
             "This usually means the model was saved with an older format that is no longer recognized. "
@@ -448,6 +451,28 @@ def get_embeddings(
                 kwargs[param_mapping[param_name]] = {"timeout": param_value}
             else:
                 kwargs[param_mapping[param_name]] = param_value
+
+    # Unified agent platform: inject base_url and api_key from metadata.
+    if provider == "Unified":
+        from lfx.log.logger import logger  # noqa: PLC0415
+
+        unified_base_url = metadata.get("unified_base_url")
+        unified_api_key = metadata.get("unified_api_key")
+        if unified_base_url:
+            kwargs["openai_api_base"] = unified_base_url
+        if unified_api_key:
+            kwargs["openai_api_key"] = unified_api_key
+        if "model" not in kwargs:
+            kwargs["model"] = model_name
+        masked = ""
+        if unified_api_key and len(unified_api_key) > 8:
+            masked = unified_api_key[:4] + "****" + unified_api_key[-4:]
+        logger.info(
+            "[AgentPlatform] Instantiating OpenAIEmbeddings base_url=%s api_key=%s model=%s",
+            unified_base_url or "(none)",
+            masked or "(none)",
+            model_name,
+        )
 
     try:
         return embedding_class(**kwargs)
