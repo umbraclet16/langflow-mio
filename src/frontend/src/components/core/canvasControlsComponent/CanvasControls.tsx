@@ -4,7 +4,7 @@ import { useShallow } from "zustand/react/shallow";
 import langflowAssistantIcon from "@/assets/langflow_assistant.svg";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
-import { ENABLE_INSPECTION_PANEL } from "@/customization/feature-flags";
+import { ENABLE_INSPECTION_PANEL, ENABLE_ASSISTANT } from "@/customization/feature-flags";
 import useAssistantManagerStore from "@/stores/assistantManagerStore";
 import useFlowStore from "@/stores/flowStore";
 import type { AllNodeType } from "@/types/flow";
@@ -71,6 +71,7 @@ const CanvasControls = ({
         className="react-flow__controls flex !flex-row items-center gap-1 !overflow-visible rounded-lg bg-background px-2 py-1 fill-foreground stroke-foreground text-primary [&>button]:border-0"
         position="bottom-center"
       >
+        {ENABLE_ASSISTANT && (
         <div className="group relative">
           <span
             className={`absolute -top-4 -left-1 z-10 flex items-center gap-0.5 rounded bg-pink-600 px-1 py-0.5 text-[9px] font-medium leading-none text-white transition-all duration-200 ${assistantSidebarOpen ? "hidden" : "opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100"}`}
@@ -110,6 +111,7 @@ const CanvasControls = ({
             />
           </Button>
         </div>
+        )}
         <CanvasControlsDropdown selectedNode={selectedNode} />
         <Button
           unstyled
@@ -128,7 +130,7 @@ const CanvasControls = ({
             }`}
           />
         </Button>
-        <HelpDropdown />
+        {ENABLE_ASSISTANT && <HelpDropdown />}
         {children}
         {ENABLE_INSPECTION_PANEL && (
           <Button
