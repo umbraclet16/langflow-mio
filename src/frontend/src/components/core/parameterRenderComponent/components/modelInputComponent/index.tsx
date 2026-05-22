@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import LoadingTextComponent from "@/components/common/loadingTextComponent";
+import { api } from "@/controllers/API/api";
+import { getURL } from "@/controllers/API/helpers/constants";
 import { useGetEnabledModels } from "@/controllers/API/queries/models/use-get-enabled-models";
 import { useGetModelProviders } from "@/controllers/API/queries/models/use-get-model-providers";
 import { usePostTemplateValue } from "@/controllers/API/queries/nodes/use-post-template-value";
@@ -219,6 +221,14 @@ export default function ModelInputComponent({
     [groupedOptions],
   );
 
+  // True when all model options come from the external agent platform
+  // ("Unified" provider). Used to hide provider-tier UI and route
+  // refresh through the agent platform rather than built-in endpoints.
+  const isUnifiedMode = useMemo(
+    () => options.length > 0 && options.every((o) => o.provider === "Unified"),
+    [options],
+  );
+
   // Derive the currently selected model from the value prop. If the saved
   // value isn't in the current ``flatOptions`` (typically because the
   // model was globally disabled), it's treated as if no model is selected
@@ -330,13 +340,20 @@ export default function ModelInputComponent({
     setOpen(false);
     setRefreshOptions(true);
     try {
-      await refreshAllModelInputs({ silent: true });
+      // Unified mode: clear agent platform cache before refreshing
+      if (isUnifiedMode) {
+        await api.post(`${getURL("MODEL_OPTIONS")}/refresh`);
+      }
+      await refreshAllModelInputs({
+        silent: true,
+        skipProviderRefresh: isUnifiedMode,
+      });
     } catch {
       // refreshAllModelInputs handles its own error notifications via alertStore
     } finally {
       setRefreshOptions(false);
     }
-  }, [refreshAllModelInputs]);
+  }, [refreshAllModelInputs, isUnifiedMode]);
 
   const handleManageProvidersDialogClose = useCallback(() => {
     setOpenManageProvidersDialog(false);
@@ -441,7 +458,7 @@ export default function ModelInputComponent({
             handleRefreshButtonPress,
             "refresh-model-list",
           )}
-          {renderManageProvidersButton()}
+          {!isUnifiedMode && renderManageProvidersButton()}
           {externalOptions?.fields?.data?.node && (
             <div className="border-t bg-background">
               {renderFooterButton(

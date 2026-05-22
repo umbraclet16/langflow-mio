@@ -1,5 +1,9 @@
 from fastapi import APIRouter
-from lfx.base.models.unified_models import get_embedding_model_options, get_language_model_options
+from lfx.base.models.unified_models import (
+    get_embedding_model_options,
+    get_language_model_options,
+    invalidate_agent_platform_cache,
+)
 
 from langflow.api.utils import CurrentActiveUser
 
@@ -20,3 +24,12 @@ async def get_embedding_model_options_endpoint(
 ):
     """Get embedding model options filtered by user's enabled providers and models."""
     return get_embedding_model_options(user_id=current_user.id)
+
+
+@router.post("/refresh", status_code=200)
+async def refresh_model_options(
+    current_user: CurrentActiveUser,
+):
+    """Clear the agent platform model cache so the next fetch is fresh."""
+    invalidate_agent_platform_cache()
+    return {"status": "ok"}

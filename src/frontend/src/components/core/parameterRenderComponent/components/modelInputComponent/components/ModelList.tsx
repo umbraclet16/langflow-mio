@@ -31,13 +31,18 @@ const ModelList = ({
     );
   }
 
+  const providerKeys = Object.keys(groupedOptions);
+  const isSingleProvider = providerKeys.length === 1;
+
   return (
     <CommandList className="max-h-[300px] overflow-y-auto">
       {Object.entries(groupedOptions).map(([provider, models]) => (
         <CommandGroup className="p-0" key={provider}>
-          <div className="text-xs font-semibold my-2 ml-4 text-muted-foreground flex items-center justify-between pr-4">
-            <div className="flex items-center">{provider}</div>
-          </div>
+          {!isSingleProvider && (
+            <div className="text-xs font-semibold my-2 ml-4 text-muted-foreground flex items-center justify-between pr-4">
+              <div className="flex items-center">{provider}</div>
+            </div>
+          )}
           {models.map((data) => (
             <CommandItem
               key={data.name}

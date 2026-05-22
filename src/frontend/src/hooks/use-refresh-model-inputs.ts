@@ -19,6 +19,9 @@ import {
 
 export interface RefreshOptions {
   silent?: boolean;
+  /** Skip invalidation of useGetModelProviders / useGetEnabledModels React Query caches.
+   *  Set to true when using the external agent platform API (Unified provider). */
+  skipProviderRefresh?: boolean;
 }
 
 // Prevents concurrent refresh operations; queues the latest request if busy
@@ -98,7 +101,7 @@ export async function refreshAllModelInputs(
     const flowId = useFlowsManagerStore.getState().currentFlowId;
     const folderId = useFlowsManagerStore.getState().currentFlow?.folder_id;
 
-    if (queryClient) {
+    if (queryClient && !options?.skipProviderRefresh) {
       await queryClient.invalidateQueries({
         queryKey: ["useGetModelProviders"],
       });
