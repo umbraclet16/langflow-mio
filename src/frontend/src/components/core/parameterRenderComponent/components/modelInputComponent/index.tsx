@@ -106,18 +106,39 @@ export default function ModelInputComponent({
       ? "llm"
       : "embeddings";
 
+  // True when all model options carry embedded agent-platform credentials
+  // (unified_api_key / unified_base_url in metadata).  Used to hide
+  // provider-tier UI and route refresh through the agent platform rather
+  // than built-in endpoints.  No longer checks for provider === "Unified"
+  // because the provider name is now dynamic (OpenAI, Ollama, …).
+  const isUnifiedMode = useMemo(
+    () =>
+      options.length > 0 &&
+      options.every((o) => {
+        const md = o.metadata ?? {};
+        return "unified_api_key" in md || "unified_base_url" in md;
+      }),
+    [options],
+  );
+
   const {
     data: providersData = [],
     isLoading: isLoadingProviders,
     isFetching: isFetchingProviders,
-  } = useGetModelProviders({});
+  } = useGetModelProviders({}, { enabled: !isUnifiedMode });
   const {
     data: enabledModelsData,
     isLoading: isLoadingEnabledModels,
     isFetching: isFetchingEnabledModels,
-  } = useGetEnabledModels();
+  } = useGetEnabledModels({ enabled: !isUnifiedMode });
 
-  const isLoading = isLoadingProviders || isLoadingEnabledModels;
+  // In unified mode, the agent platform details (isFetchingProviders /
+  // isFetchingEnabledModels) are irrelevant — we only consider the backend
+  // RPC that populates `options` finished once `options` is non-empty.
+  // An empty options list always shows the loading state.
+  const isLoading = isUnifiedMode
+    ? options.length === 0
+    : isLoadingProviders || isLoadingEnabledModels;
 
   // Groups models by their provider name for sectioned display in dropdown.
   // Filters out models from disabled providers AND disabled models, then
@@ -125,6 +146,21 @@ export default function ModelInputComponent({
   // component's saved `options` (e.g. after importing a flow whose exporter
   // only had a subset of the current user's enabled providers).
   const groupedOptions = useMemo(() => {
+    // Unified mode: options come from the agent platform API, not built-in
+    // catalogs. No client-side enabled/disabled filtering — the backend has
+    // already applied user-specific model availability in update_build_config.
+    if (isUnifiedMode) {
+      const grouped: Record<string, ModelOption[]> = {};
+      for (const option of options) {
+        const provider = option.provider || "Unknown";
+        if (!grouped[provider]) {
+          grouped[provider] = [];
+        }
+        grouped[provider].push(option);
+      }
+      return grouped;
+    }
+
     const grouped: Record<string, ModelOption[]> = {};
     const seen = new Set<string>();
 
@@ -204,7 +240,7 @@ export default function ModelInputComponent({
     }
 
     return grouped;
-  }, [options, enabledModelsData, providersData, modelType]);
+  }, [options, enabledModelsData, providersData, modelType, isUnifiedMode]);
 
   // True iff at least one model of this component's type is enabled across
   // any provider. Drives the Setup Provider CTA — a provider that is
@@ -219,14 +255,6 @@ export default function ModelInputComponent({
   const flatOptions = useMemo(
     () => Object.values(groupedOptions).flat(),
     [groupedOptions],
-  );
-
-  // True when all model options come from the external agent platform
-  // ("Unified" provider). Used to hide provider-tier UI and route
-  // refresh through the agent platform rather than built-in endpoints.
-  const isUnifiedMode = useMemo(
-    () => options.length > 0 && options.every((o) => o.provider === "Unified"),
-    [options],
   );
 
   // Derive the currently selected model from the value prop. If the saved
@@ -370,6 +398,8 @@ export default function ModelInputComponent({
   // fetch start so we don't clear prematurely before the invalidation has
   // even been triggered by refreshAllModelInputs.
   const hasSeenFetchStartRef = useRef(false);
+  // NOTE: In unified mode, isRefreshingAfterClose is never set to true because
+  // the Manage Providers button is hidden, so this effect is effectively a no-op.
   useEffect(() => {
     if (!isRefreshingAfterClose) {
       hasSeenFetchStartRef.current = false;

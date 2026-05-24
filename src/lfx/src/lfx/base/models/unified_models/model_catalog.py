@@ -255,6 +255,31 @@ def get_language_model_options(
     return options
 
 
+# ---------------------------------------------------------------------------
+# Provider mapping: agent-platform API "provider" field → (Langflow name, class)
+# ---------------------------------------------------------------------------
+_AGENT_LLM_PROVIDER_MAP: dict[str, tuple[str, str]] = {
+    "openai": ("OpenAI", "ChatOpenAI"),
+    "ollama": ("Ollama", "ChatOllama"),
+    "anthropic": ("Anthropic", "ChatAnthropic"),
+    "google": ("Google Generative AI", "ChatGoogleGenerativeAIFixed"),
+    "groq": ("Groq", "ChatGroq"),
+    "azure": ("Azure OpenAI", "AzureChatOpenAI"),
+    "watsonx": ("IBM WatsonX", "ChatWatsonx"),
+}
+_FALLBACK_LLM: tuple[str, str] = ("Unified", "ChatOpenAI")
+
+_AGENT_EMBEDDING_PROVIDER_MAP: dict[str, tuple[str, str]] = {
+    "openai": ("OpenAI", "OpenAIEmbeddings"),
+    "ollama": ("Ollama", "OllamaEmbeddings"),
+    "huggingface": ("HuggingFace", "HuggingFaceEmbeddings"),
+    "cohere": ("Cohere", "CohereEmbeddings"),
+    "google": ("Google Generative AI", "GoogleGenerativeAIEmbeddings"),
+    "watsonx": ("IBM WatsonX", "WatsonxEmbeddings"),
+}
+_FALLBACK_EMBEDDING: tuple[str, str] = ("Unified", "OpenAIEmbeddings")
+
+
 def _get_unified_model_options(
     api_url: str,
     *,
@@ -280,18 +305,14 @@ def _get_unified_model_options(
     raw_models = fetch_models_from_agent_platform(api_url)
 
     if not raw_models:
-        logger.warning(
-            "[AgentPlatform] No models returned from %s", api_url
-        )
+        logger.warning("[AgentPlatform] No models returned from %s", api_url)
         return []
 
-    logger.info(
-        "[AgentPlatform] Converting %d models to Langflow options", len(raw_models)
-    )
+    logger.info("[AgentPlatform] Converting %d models to Langflow options", len(raw_models))
     options: list[dict[str, Any]] = []
     for m in raw_models:
         model_id: str = m.get("id", "")
-        model_name: str = m.get("model_name", model_id)
+        _model_name: str = m.get("model_name", model_id)
         base_url: str = m.get("base_url", "")
         api_key: str = m.get("api_key", "")
 
@@ -300,23 +321,32 @@ def _get_unified_model_options(
             if tool_calling and not supports_tc:
                 continue
 
+        api_provider: str = m.get("provider", "").lower()
+        provider_info = _AGENT_LLM_PROVIDER_MAP.get(api_provider, _FALLBACK_LLM)
+        provider_name, model_class = provider_info
+
         option = {
             "name": model_id,
             "icon": "UnifiedModel",
-            "category": "Unified",
-            "provider": "Unified",
+            "category": provider_name,
+            "provider": provider_name,
             "metadata": {
                 "context_length": 128000,
-                "model_class": "ChatOpenAI",
+                "model_class": model_class,
                 "model_name_param": "model",
                 "api_key_param": "api_key",
                 "base_url_param": "base_url",
                 "max_tokens_field_name": "max_tokens",
+                # Embedded credentials from the agent platform
+                "unified_api_key": api_key,
+                "unified_base_url": base_url,
             },
         }
         logger.info(
-            "[AgentPlatform]   %s → provider=Unified class=ChatOpenAI base_url=%s",
+            "[AgentPlatform]   %s → provider=%s class=%s base_url=%s",
             model_id,
+            provider_name,
+            model_class,
             base_url or "(none)",
         )
         options.append(option)
@@ -353,17 +383,21 @@ def _get_unified_embedding_options(api_url: str) -> list[dict[str, Any]]:
         base_url: str = m.get("base_url", "")
         api_key: str = m.get("api_key", "")
 
+        api_provider: str = m.get("provider", "").lower()
+        provider_info = _AGENT_EMBEDDING_PROVIDER_MAP.get(api_provider, _FALLBACK_EMBEDDING)
+        provider_name, embedding_class = provider_info
+
         option = {
             "name": model_id,
             "icon": "UnifiedModel",
-            "category": "Unified",
-            "provider": "Unified",
+            "category": provider_name,
+            "provider": provider_name,
             "metadata": {
-                "model_class": "OpenAIEmbeddings",
+                "model_class": embedding_class,
                 "model_name_param": "model",
                 "api_key_param": "api_key",
                 "base_url_param": "base_url",
-                "embedding_class": "OpenAIEmbeddings",
+                "embedding_class": embedding_class,
                 "model_type": "embeddings",
                 # Embedded credentials
                 "unified_api_key": api_key,
@@ -371,8 +405,10 @@ def _get_unified_embedding_options(api_url: str) -> list[dict[str, Any]]:
             },
         }
         logger.info(
-            "[AgentPlatform]   %s → provider=Unified class=OpenAIEmbeddings base_url=%s",
+            "[AgentPlatform]   %s → provider=%s class=%s base_url=%s",
             model_id,
+            provider_name,
+            embedding_class,
             base_url or "(none)",
         )
         options.append(option)

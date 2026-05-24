@@ -13,6 +13,17 @@ if TYPE_CHECKING:
     from uuid import UUID
 
 
+def _has_embedded_credentials(metadata: dict) -> bool:
+    """Return True if the model metadata contains agent-platform embedded credentials.
+
+    Models sourced from the external agent platform API carry ``unified_api_key``
+    and/or ``unified_base_url`` in their metadata.  When these are present the
+    instantiation path must resolve credentials from metadata rather than from
+    global provider variables.
+    """
+    return "unified_api_key" in metadata or "unified_base_url" in metadata
+
+
 def get_llm(
     model,
     user_id: UUID | str | None,
@@ -61,13 +72,13 @@ def get_llm(
     api_key_param = metadata.get("api_key_param", "api_key")
 
     # Get API key from user input or global variables.
-    # For the Unified provider, the api_key comes from metadata
-    # (embedded by the agent platform API) — skip credential resolution.
-    if provider != "Unified":
+    # When the model was sourced from the agent platform API (embedded
+    # credentials in metadata), skip global provider resolution.
+    if not _has_embedded_credentials(metadata):
         api_key = unified_models_module.get_api_key_for_provider(user_id, provider, api_key)
 
-    # Validate API key (Ollama and Unified don't require one from global vars)
-    if not api_key and provider not in {"Ollama", "Unified"}:
+    # Validate API key (Ollama and embedded-credential models don't require one)
+    if not api_key and not _has_embedded_credentials(metadata) and provider not in {"Ollama"}:
         # Get the correct variable name from the provider variable mapping
         provider_variable_map = unified_models_module.get_model_provider_variable_mapping()
         variable_name = provider_variable_map.get(provider, f"{provider.upper().replace(' ', '_')}_API_KEY")
@@ -134,18 +145,16 @@ def get_llm(
         kwargs["stream_usage"] = True
 
     # Add provider-specific parameters
-    if provider == "Unified":
-        from lfx.log.logger import logger  # noqa: PLC0415
-
+    if _has_embedded_credentials(metadata):
         # The agent platform model list changes independently of persisted
         # flow data (flows embed metadata at save time).  Fetch fresh
         # credentials so a stale api_key in a saved flow can't cause 401s.
-        unified_base_url, unified_api_key = _resolve_unified_credentials(
-            model_name, metadata
-        )
-        if unified_base_url:
+        unified_base_url, unified_api_key = _resolve_unified_credentials(model_name, metadata)
+        # Use is-not-None so empty-string credentials (e.g. local models
+        # that don't require authentication) are still passed through.
+        if unified_base_url is not None:
             kwargs["base_url"] = unified_base_url
-        if unified_api_key:
+        if unified_api_key is not None:
             kwargs["api_key"] = unified_api_key
         _log_unified_params(kwargs, unified_base_url, unified_api_key)
     elif provider in {"IBM WatsonX", "IBM watsonx.ai"}:
@@ -235,7 +244,7 @@ def _resolve_unified_credentials(
 
     try:
         fresh_models = fetch_models_from_agent_platform()
-    except Exception:
+    except Exception:  # noqa: BLE001
         from lfx.log.logger import logger
 
         logger.exception("[AgentPlatform] Failed to fetch fresh credentials; using persisted values")
@@ -260,12 +269,7 @@ def _log_unified_params(kwargs: dict, base_url: str | None, api_key: str | None)
     """Log the Unified provider parameters being used (with masked api_key)."""
     from lfx.log.logger import logger
 
-    masked_key = ""
-    if api_key:
-        if len(api_key) > 8:
-            masked_key = api_key[:4] + "****" + api_key[-4:]
-        else:
-            masked_key = "****"
+    masked_key = api_key[:4] + "****" + api_key[-4:] if api_key and len(api_key) > 8 else "****" if api_key else ""  # noqa: PLR2004
 
     logger.info(
         "[AgentPlatform] Instantiating ChatOpenAI base_url=%s api_key=%s model=%s",
@@ -323,10 +327,11 @@ def get_embeddings(
     metadata = model_dict.get("metadata", {})
 
     # --- resolve API key -----------------------------------------------------
-    # For Unified provider, credentials are resolved at runtime from metadata.
-    if provider != "Unified":
+    # When the model was sourced from the agent platform API (embedded
+    # credentials in metadata), skip global provider resolution.
+    if not _has_embedded_credentials(metadata):
         api_key = unified_models_module.get_api_key_for_provider(user_id, provider, api_key)
-    if not api_key and provider not in {"Ollama", "Unified"}:
+    if not api_key and not _has_embedded_credentials(metadata) and provider not in {"Ollama"}:
         provider_variable_map = unified_models_module.get_model_provider_variable_mapping()
         variable_name = provider_variable_map.get(provider, f"{provider.upper().replace(' ', '_')}_API_KEY")
         msg = (
@@ -349,7 +354,7 @@ def get_embeddings(
     # --- build kwargs from param_mapping -------------------------------------
     param_mapping: dict[str, str] = metadata.get("param_mapping", {})
 
-    if not param_mapping and provider != "Unified":
+    if not param_mapping and not _has_embedded_credentials(metadata):
         msg = (
             f"Parameter mapping not found in metadata for model '{model_name}' (provider: {provider}). "
             "This usually means the model was saved with an older format that is no longer recognized. "
@@ -452,27 +457,20 @@ def get_embeddings(
             else:
                 kwargs[param_mapping[param_name]] = param_value
 
-    # Unified agent platform: inject base_url and api_key from metadata.
-    if provider == "Unified":
-        from lfx.log.logger import logger  # noqa: PLC0415
-
-        unified_base_url = metadata.get("unified_base_url")
-        unified_api_key = metadata.get("unified_api_key")
-        if unified_base_url:
-            kwargs["openai_api_base"] = unified_base_url
-        if unified_api_key:
-            kwargs["openai_api_key"] = unified_api_key
+    # Embedded credentials: inject base_url and api_key from metadata.
+    # Mirrors get_llm() — fetches fresh credentials from the agent platform
+    # API so a stale api_key in a saved flow can't cause 401s.
+    if _has_embedded_credentials(metadata):
+        unified_base_url, unified_api_key = _resolve_unified_credentials(model_name, metadata)
+        # Use is-not-None so empty-string credentials (e.g. local models
+        # that don't require authentication) are still passed through.
+        if unified_base_url is not None:
+            kwargs["base_url"] = unified_base_url
+        if unified_api_key is not None:
+            kwargs["api_key"] = unified_api_key
         if "model" not in kwargs:
             kwargs["model"] = model_name
-        masked = ""
-        if unified_api_key and len(unified_api_key) > 8:
-            masked = unified_api_key[:4] + "****" + unified_api_key[-4:]
-        logger.info(
-            "[AgentPlatform] Instantiating OpenAIEmbeddings base_url=%s api_key=%s model=%s",
-            unified_base_url or "(none)",
-            masked or "(none)",
-            model_name,
-        )
+        _log_unified_params(kwargs, unified_base_url, unified_api_key)
 
     try:
         return embedding_class(**kwargs)

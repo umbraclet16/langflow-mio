@@ -231,6 +231,29 @@ class KnowledgeBaseComponent(Component):
         model = metadata.get("embedding_model")
         chunk_size = metadata.get("chunk_size")
 
+        # ── Embedded credentials (agent platform models) ──────────────────
+        # Must be checked BEFORE the per-provider branches below, because
+        # the provider name is now dynamic (OpenAI, Ollama, …) and the
+        # api_key is embedded in model_selection.metadata, not in global vars.
+        model_selection = metadata.get("model_selection", {})
+        model_metadata = model_selection.get("metadata", {})
+        if "unified_api_key" in model_metadata or "unified_base_url" in model_metadata:
+            from lfx.base.models.unified_models.class_registry import get_embedding_class
+
+            embedding_cls_name = model_metadata.get("embedding_class", "OpenAIEmbeddings")
+            embedding_cls = get_embedding_class(embedding_cls_name)
+            unified_api_key = model_metadata.get("unified_api_key", "")
+            unified_base_url = model_metadata.get("unified_base_url", "")
+
+            kwargs: dict = {"model": model}
+            if unified_api_key is not None:
+                kwargs["api_key"] = unified_api_key
+            if unified_base_url is not None:
+                kwargs["base_url"] = unified_base_url
+            if chunk_size is not None:
+                kwargs["chunk_size"] = chunk_size
+            return embedding_cls(**kwargs)
+
         # Handle various providers
         if provider == "OpenAI":
             from langchain_openai import OpenAIEmbeddings

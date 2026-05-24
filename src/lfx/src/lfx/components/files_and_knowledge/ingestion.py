@@ -708,10 +708,26 @@ class KnowledgeIngestionComponent(Component):
                     msg = f"Invalid knowledge base name: {field_value['01_new_kb_name']}"
                     raise ValueError(msg)
 
-                # The model selection comes from ModelInput as a list of dicts
+                # The model selection comes from ModelInput as a list of dicts.
+                # The frontend may send a stripped-down version without credentials
+                # (e.g. name + provider only).  Enrich with the full option from
+                # the backend registry which includes embedded api_key/base_url from
+                # the agent platform.
                 model_selection = field_value["02_embedding_model"]
                 if isinstance(model_selection, dict):
                     model_selection = [model_selection]
+
+                # Look up the full option to ensure embedded credentials are present
+                if model_selection and isinstance(model_selection, list):
+                    model_name = model_selection[0].get("name")
+                    if model_name:
+                        all_options = get_embedding_model_options(user_id=self.user_id)
+                        full_option = next(
+                            (o for o in all_options if o.get("name") == model_name),
+                            None,
+                        )
+                        if full_option:
+                            model_selection = [full_option]
 
                 # Build and validate the embedding model via the shared utility
                 embed_model = get_embeddings(
