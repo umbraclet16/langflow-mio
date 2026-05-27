@@ -567,7 +567,7 @@ HIDDEN_TEMPLATES = {
     "Price Deal Finder",
     "Pokédex Agent",
     "SaaS Pricing",
-    "Youtube Analysis",
+    "YouTube Analysis",
     "NVIDIA RTX Remix",
 }
 
