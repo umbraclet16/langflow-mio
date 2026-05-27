@@ -80,7 +80,7 @@ export default function FilesContextMenuComponent({
               aria-hidden="true"
               className="mr-2 h-4 w-4"
             />
-            Rename
+            重命名
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={(e) => {
@@ -95,7 +95,7 @@ export default function FilesContextMenuComponent({
               aria-hidden="true"
               className="mr-2 h-4 w-4"
             />
-            Download
+            下载
           </DropdownMenuItem>
           {!simplified && (
             <DropdownMenuItem
@@ -111,7 +111,7 @@ export default function FilesContextMenuComponent({
                 aria-hidden="true"
                 className="mr-2 h-4 w-4"
               />
-              Duplicate
+              复制
             </DropdownMenuItem>
           )}
           <DropdownMenuItem
@@ -127,7 +127,7 @@ export default function FilesContextMenuComponent({
               aria-hidden="true"
               className="mr-2 h-4 w-4"
             />
-            {isLocal ? "Delete" : "Remove"}
+            {isLocal ? "删除" : "移除"}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -135,17 +135,17 @@ export default function FilesContextMenuComponent({
         open={showDeleteConfirmation}
         onClose={() => setShowDeleteConfirmation(false)}
         onCancel={() => setShowDeleteConfirmation(false)}
-        title={isLocal ? "Delete File" : "Remove File"}
-        titleHeader={`Are you sure you want to ${isLocal ? "delete" : "remove"} "${file.name}"?`}
-        cancelText="Cancel"
+        title={isLocal ? "删除文件" : "移除文件"}
+        titleHeader={`确定要${isLocal ? "删除" : "移除"} "${file.name}" 吗?`}
+        cancelText="取消"
         size="x-small"
-        confirmationText={isLocal ? "Delete" : "Remove"}
+        confirmationText={isLocal ? "删除" : "移除"}
         icon={isLocal ? "Trash2" : "ListX"}
         destructive
         onConfirm={() => {
           deleteFile();
           setSuccessData({
-            title: "The file has been deleted successfully",
+            title: "文件已成功删除",
           });
           setShowDeleteConfirmation(false);
         }}

@@ -64,7 +64,7 @@ export const FilesPage = () => {
                   </SidebarTrigger>
                 </div>
               </div>
-              Files
+              文件
             </div>
             <div className="flex h-full flex-col">
               <FilesTab {...tabProps} />

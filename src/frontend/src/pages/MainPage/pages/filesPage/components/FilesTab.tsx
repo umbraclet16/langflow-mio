@@ -76,12 +76,12 @@ const FilesTab = ({
         files: files,
       });
       setSuccessData({
-        title: `File${filesIds.length > 1 ? "s" : ""} uploaded successfully`,
+        title: `文件上传成功`,
       });
     } catch (error: any) {
       setErrorData({
-        title: "Error uploading file",
-        list: [error.message || "An error occurred while uploading the file"],
+        title: "上传文件失败",
+        list: [error.message || "上传文件时发生错误"],
       });
     }
   };
@@ -109,7 +109,7 @@ const FilesTab = ({
 
   const colDefs: ColDef[] = [
     {
-      headerName: "Name",
+      headerName: "名称",
       field: "name",
       flex: 2,
       headerCheckboxSelection: true,
@@ -153,7 +153,7 @@ const FilesTab = ({
             {params.data.progress !== undefined &&
             params.data.progress === -1 ? (
               <span className="text-xs text-primary">
-                Upload failed,{" "}
+                上传失败,{" "}
                 <span
                   className="cursor-pointer text-accent-pink-foreground underline"
                   onClick={(e) => {
@@ -163,7 +163,7 @@ const FilesTab = ({
                     }
                   }}
                 >
-                  try again?
+                  重试?
                 </span>
               </span>
             ) : (
@@ -174,7 +174,7 @@ const FilesTab = ({
       },
     },
     {
-      headerName: "Type",
+      headerName: "类型",
       field: "path",
       flex: 1,
       filter: "agTextColumnFilter",
@@ -186,7 +186,7 @@ const FilesTab = ({
         "text-muted-foreground cursor-text select-text group-[.no-select-cells]:cursor-default group-[.no-select-cells]:select-none",
     },
     {
-      headerName: "Size",
+      headerName: "大小",
       field: "size",
       flex: 1,
       valueFormatter: (params) => {
@@ -197,7 +197,7 @@ const FilesTab = ({
         "text-muted-foreground cursor-text select-text group-[.no-select-cells]:cursor-default group-[.no-select-cells]:select-none",
     },
     {
-      headerName: "Modified",
+      headerName: "修改时间",
       field: "updated_at",
       valueFormatter: (params) => {
         return params.data.progress
@@ -256,10 +256,8 @@ const FilesTab = ({
         },
         onError: (error) => {
           setErrorData({
-            title: "Error deleting files",
-            list: [
-              error.message || "An error occurred while deleting the files",
-            ],
+            title: "删除文件失败",
+            list: [error.message || "删除文件时发生错误"],
           });
         },
       },
@@ -268,7 +266,7 @@ const FilesTab = ({
 
   const UploadButtonComponent = useMemo(() => {
     return (
-      <ShadTooltip content="Upload File" side="bottom">
+      <ShadTooltip content="上传文件" side="bottom">
         <Button
           className="!px-3 md:!px-4 md:!pl-3.5"
           onClick={async () => {
@@ -283,7 +281,7 @@ const FilesTab = ({
             className="h-4 w-4"
           />
           <span className="hidden whitespace-nowrap font-semibold md:inline">
-            Upload Files
+            上传文件
           </span>
         </Button>
       </ShadTooltip>
@@ -299,7 +297,7 @@ const FilesTab = ({
               icon="Search"
               data-testid="search-store-input"
               type="text"
-              placeholder={`Search files...`}
+              placeholder={`搜索文件...`}
               className="mr-2 w-full"
               value={quickFilterText || ""}
               onChange={(event) => {
@@ -311,7 +309,7 @@ const FilesTab = ({
             {quantitySelected > 0 ? (
               <DeleteConfirmationModal
                 onConfirm={handleDelete}
-                description={"file" + (quantitySelected > 1 ? "s" : "")}
+                description={"文件"}
               >
                 <Button
                   variant="destructive"
@@ -321,7 +319,7 @@ const FilesTab = ({
                 >
                   <ForwardedIconComponent name="Trash2" className="h-4 w-4" />
                   <span className="hidden whitespace-nowrap md:inline">
-                    Delete ({quantitySelected})
+                    删除 ({quantitySelected})
                   </span>
                 </Button>
               </DeleteConfirmationModal>
@@ -384,13 +382,13 @@ const FilesTab = ({
         ) : (
           <CardsWrapComponent
             onFileDrop={onFileDrop}
-            dragMessage="Drop files to upload"
+            dragMessage="拖放文件以上传"
           >
             <div className="flex h-full w-full flex-col items-center justify-center gap-8 pb-8">
               <div className="flex flex-col items-center gap-2">
-                <h3 className="text-2xl font-semibold">No files</h3>
+                <h3 className="text-2xl font-semibold">暂无文件</h3>
                 <p className="text-lg text-secondary-foreground">
-                  Upload files or import from your preferred cloud.
+                  上传文件或从云端导入。
                 </p>
               </div>
               <div className="flex items-center gap-2">
