@@ -52,25 +52,7 @@ const SidebarMenuButtons = ({
           </span>
         </Button>
       </SidebarMenuButton>
-      <SidebarMenuButton asChild>
-        <Button
-          unstyled
-          disabled={isLoading}
-          onClick={() => {
-            navigate("/settings/mcp-servers");
-          }}
-          data-testid="sidebar-manage-servers-button"
-          className="flex items-center w-full h-full gap-3 hover:bg-muted"
-        >
-          <ForwardedIconComponent
-            name="ArrowUpRight"
-            className="h-4 w-4 text-muted-foreground"
-          />
-          <span className="group-data-[state=open]/collapsible:font-semibold">
-            {t("sidebar.mcp.manage")}
-          </span>
-        </Button>
-      </SidebarMenuButton>
+      {/* 管理服务器按钮已隐藏 */}
       <AddMcpServerModal open={addMcpOpen} setOpen={setAddMcpOpen} />
     </>
   ) : (
