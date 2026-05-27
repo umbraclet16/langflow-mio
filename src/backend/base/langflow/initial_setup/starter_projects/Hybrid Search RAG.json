@@ -2385,7 +2385,7 @@
       "zoom": 0.5624895523548105
     }
   },
-  "description": "Explore Hybrid Search with a vector database.",
+  "description": "使用向量数据库探索混合搜索。",
   "endpoint_name": null,
   "id": "4c82d6d5-fffe-4c1c-a0f5-4248308a454c",
   "is_component": false,

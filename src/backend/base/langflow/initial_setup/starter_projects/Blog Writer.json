@@ -1782,7 +1782,7 @@
       "zoom": 0.5264644230411742
     }
   },
-  "description": "Auto-generate a customized blog post from instructions and referenced articles.",
+  "description": "根据指令和参考文章自动生成定制博客文章。",
   "endpoint_name": null,
   "id": "428f69c6-43ea-4ea3-83cf-0032b5aab816",
   "is_component": false,

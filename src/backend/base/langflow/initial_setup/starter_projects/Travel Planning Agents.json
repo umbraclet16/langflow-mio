@@ -3422,7 +3422,7 @@
       "zoom": 0.4425927036021963
     }
   },
-  "description": "Create a travel planning chatbot that uses specialized agents to craft personalized trip itineraries.",
+  "description": "旅行规划智能体，帮助规划和组织旅行行程。",
   "endpoint_name": null,
   "id": "240131dc-390a-4d6a-9ef4-39b810e4165d",
   "is_component": false,

@@ -2384,7 +2384,7 @@
       "zoom": 0.8215186746706123
     }
   },
-  "description": "This template transforms PDF or TXT resume documents into structured JSON, generating a portfolio website HTML code from the structured data.",
+  "description": "此模板将 PDF 或 TXT 简历文档转换为结构化的投资组合网站代码。",
   "endpoint_name": null,
   "id": "fe462826-a577-42b2-ba09-d665d502c6de",
   "is_component": false,

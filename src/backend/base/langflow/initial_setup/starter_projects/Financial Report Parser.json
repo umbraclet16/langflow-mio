@@ -1249,7 +1249,7 @@
       "zoom": 1.9944600091750162
     }
   },
-  "description": "Extracts key financial metrics like Gross Profit, EBITDA, and Net Income from financial reports and structures them for easy analysis, using Structured Output Component",
+  "description": "从财务报告中提取关键财务指标（如毛利润、EBITDA 和净利润），并将其结构化以便于分析。",
   "endpoint_name": null,
   "id": "696f1320-1483-4950-87bb-14d7edf7b6e5",
   "is_component": false,

@@ -1639,7 +1639,7 @@
       "zoom": 0.48565229862392995
     }
   },
-  "description": "This template iterates over search results using LoopComponent and translates each result into Portuguese automatically. 🚀",
+  "description": "研究和翻译循环，支持多语言内容处理和翻译。",
   "endpoint_name": null,
   "id": "70f6d78d-41ad-42a3-854d-405e161ee563",
   "is_component": false,

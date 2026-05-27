@@ -1255,7 +1255,7 @@
       "zoom": 0.8960810767526934
     }
   },
-  "description": "Perform basic prompting with an OpenAI model.",
+  "description": "使用 OpenAI 模型进行基本提示。",
   "endpoint_name": null,
   "id": "c1cb7b3c-2589-4754-ac61-8cf88df4a07e",
   "is_component": false,

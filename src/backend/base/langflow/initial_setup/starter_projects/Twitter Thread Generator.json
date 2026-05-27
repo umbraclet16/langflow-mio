@@ -2367,7 +2367,7 @@
       "zoom": 0.5526991979710968
     }
   },
-  "description": "Transform structured inputs into engaging Twitter threads with this prompt-based flow, maintaining brand voice and technical accuracy.",
+  "description": "Twitter 帖子生成器，帮助创建吸引人的 Twitter 帖子系列。",
   "endpoint_name": null,
   "id": "0c3995a1-e452-43cf-8fc9-a3d3338e5eca",
   "is_component": false,

@@ -3361,7 +3361,7 @@
       "zoom": 0.8435310976168224
     }
   },
-  "description": "Agent that generates focused plans, conducts web searches, and synthesizes findings into comprehensive reports.",
+  "description": "使用智能体进行深度研究，收集和分析信息并生成报告。",
   "endpoint_name": null,
   "id": "d482ec13-1d17-4be1-a904-5b7ad55619fe",
   "is_component": false,

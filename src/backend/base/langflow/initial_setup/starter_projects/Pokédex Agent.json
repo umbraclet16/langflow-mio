@@ -1789,7 +1789,7 @@
       "zoom": 0.7631043470073409
     }
   },
-  "description": "Research Pokémon with a specialized Agent and the Pokédex API.",
+  "description": "使用专业智能体和宝可梦 API 研究宝可梦。",
   "endpoint_name": null,
   "id": "618225b9-a6b6-473b-98b8-b012eafb5193",
   "is_component": false,

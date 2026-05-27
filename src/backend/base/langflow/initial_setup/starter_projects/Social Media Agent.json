@@ -1840,7 +1840,7 @@
       "zoom": 0.6868478679218015
     }
   },
-  "description": "Utilize Apify Actors as agent tools to search and analyze social media profiles.",
+  "description": "社交媒体智能体，帮助管理和生成社交媒体内容。",
   "endpoint_name": null,
   "id": "6c13c359-1078-452d-acdb-863aedd98e23",
   "is_component": false,

@@ -1926,7 +1926,7 @@
       "zoom": 0.7755583291049821
     }
   },
-  "description": "A simple but powerful starter agent.",
+  "description": "简单智能体，展示基本的智能体功能和工具使用。",
   "endpoint_name": null,
   "id": "5ead1bd5-bd5a-4b40-a0bb-20c15a72f561",
   "is_component": false,

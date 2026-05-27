@@ -2469,7 +2469,7 @@
       "zoom": 0.48312915168855225
     }
   },
-  "description": "Connect multiple prompts in sequence where each output becomes the next stage's input, enabling step-by-step text processing.",
+  "description": "将多个提示按顺序连接，每个输出成为下一阶段的输入，实现分步文本处理。",
   "endpoint_name": null,
   "id": "52c2f293-f061-4de4-b85d-1797345315cd",
   "is_component": false,

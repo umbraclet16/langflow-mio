@@ -3274,7 +3274,7 @@
       "zoom": 0.7405738114948355
     }
   },
-  "description": "Load text data from various file formats, process it into structured messages, and analyze sentiment using AI-powered classification.",
+  "description": "文本情感分析，使用自然语言处理技术分析文本的情感倾向。",
   "endpoint_name": null,
   "id": "fb5e5f07-0f59-4b24-af65-94c3ae1d87ed",
   "is_component": false,

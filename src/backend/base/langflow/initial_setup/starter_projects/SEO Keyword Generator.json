@@ -1283,7 +1283,7 @@
       "zoom": 0.6859801102324296
     }
   },
-  "description": "Generates targeted SEO keywords based on product information, pain points, and customer profiles for strategic marketing.",
+  "description": "SEO 关键词生成器，帮助优化网站内容以提高搜索引擎排名。",
   "endpoint_name": null,
   "id": "77064cce-d437-42be-a7bb-f0dedf93a75a",
   "is_component": false,

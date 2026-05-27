@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,7 @@ export default function TemplatesModal({
   open,
   setOpen,
 }: newFlowModalPropsType): JSX.Element {
+  const { t } = useTranslation();
   const [currentTab, setCurrentTab] = useState("get-started");
   const [loading, setLoading] = useState(false);
   const addFlow = useAddFlow();
@@ -46,34 +48,54 @@ export default function TemplatesModal({
   // Define categories and their items
   const categories: Category[] = [
     {
-      title: "Templates",
+      title: t("templates.title"),
       items: [
-        { title: "Get started", icon: "SquarePlay", id: "get-started" },
-        { title: "All templates", icon: "LayoutPanelTop", id: "all-templates" },
+        {
+          title: t("templates.getStarted"),
+          icon: "SquarePlay",
+          id: "get-started",
+        },
+        {
+          title: t("templates.allTemplates"),
+          icon: "LayoutPanelTop",
+          id: "all-templates",
+        },
       ],
     },
     {
-      title: "Use Cases",
+      title: t("templates.useCases"),
       items: [
-        { title: "Assistants", icon: "BotMessageSquare", id: "assistants" },
-        { title: "Classification", icon: "Tags", id: "classification" },
-        { title: "Coding", icon: "TerminalIcon", id: "coding" },
         {
-          title: "Content Generation",
+          title: t("templates.assistants"),
+          icon: "BotMessageSquare",
+          id: "assistants",
+        },
+        {
+          title: t("templates.classification"),
+          icon: "Tags",
+          id: "classification",
+        },
+        { title: t("templates.coding"), icon: "TerminalIcon", id: "coding" },
+        {
+          title: t("templates.contentGeneration"),
           icon: "Newspaper",
           id: "content-generation",
         },
-        { title: "Q&A", icon: "Database", id: "q-a" },
+        { title: t("templates.qa"), icon: "Database", id: "q-a" },
         // { title: "Summarization", icon: "Bot", id: "summarization" },
         // { title: "Web Scraping", icon: "CodeXml", id: "web-scraping" },
       ],
     },
     {
-      title: "Methodology",
+      title: t("templates.methodology"),
       items: [
-        { title: "Prompting", icon: "MessagesSquare", id: "chatbots" },
-        { title: "RAG", icon: "Database", id: "rag" },
-        { title: "Agents", icon: "Bot", id: "agents" },
+        {
+          title: t("templates.prompting"),
+          icon: "MessagesSquare",
+          id: "chatbots",
+        },
+        { title: t("templates.rag"), icon: "Database", id: "rag" },
+        { title: t("templates.agents"), icon: "Bot", id: "agents" },
       ],
     },
   ];
@@ -105,9 +127,11 @@ export default function TemplatesModal({
               <BaseModal.Footer>
                 <div className="flex w-full flex-col justify-between gap-4 pb-4 sm:flex-row sm:items-center">
                   <div className="flex flex-col items-start justify-center">
-                    <div className="font-semibold">Start from scratch</div>
+                    <div className="font-semibold">
+                      {t("templates.startFromScratch")}
+                    </div>
                     <div className="text-sm text-muted-foreground">
-                      Begin with a fresh flow to build from scratch.
+                      {t("templates.beginWithFreshFlow")}
                     </div>
                   </div>
                   <Button
@@ -123,7 +147,7 @@ export default function TemplatesModal({
                       name="Plus"
                       className="h-4 w-4 shrink-0"
                     />
-                    Blank Flow
+                    {t("templates.blankFlow")}
                   </Button>
                 </div>
               </BaseModal.Footer>

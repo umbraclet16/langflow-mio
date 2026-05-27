@@ -3030,7 +3030,7 @@
       "zoom": 0.5114416779009183
     }
   },
-  "description": "Generates well-structured code for custom components following Langflow's specifications.",
+  "description": "根据 Langflow 规范生成结构良好的自定义组件代码。",
   "endpoint_name": null,
   "id": "a1bdea51-5dc4-44af-a8d2-d07cdafa8f31",
   "is_component": false,

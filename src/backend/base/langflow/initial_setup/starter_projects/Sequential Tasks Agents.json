@@ -4047,7 +4047,7 @@
       "zoom": 0.6664527015753855
     }
   },
-  "description": "This Agent is designed to systematically execute a series of tasks following a meticulously predefined sequence. By adhering to this structured order, the Agent ensures that each task is completed efficiently and effectively, optimizing overall performance and maintaining a high level of accuracy.",
+  "description": "顺序任务智能体，按顺序执行多个任务以完成复杂工作流。",
   "endpoint_name": null,
   "id": "764f4084-d58d-4817-9673-e4ec5b78f3dc",
   "is_component": false,

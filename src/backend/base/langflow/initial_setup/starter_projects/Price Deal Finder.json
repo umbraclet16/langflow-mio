@@ -2158,7 +2158,7 @@
       "zoom": 0.6920869578393206
     }
   },
-  "description": "Searches and compares product prices across multiple e-commerce platforms. ",
+  "description": "使用智能体搜索和比较产品价格，找到最优惠的价格。",
   "endpoint_name": null,
   "id": "e60f747f-c5c4-4581-b3cb-d320af9f7dce",
   "is_component": false,

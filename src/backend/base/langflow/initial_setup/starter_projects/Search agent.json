@@ -1490,7 +1490,7 @@
       "zoom": 0.9959993167224503
     }
   },
-  "description": "Search the web for information.",
+  "description": "搜索智能体，使用多种搜索引擎进行信息检索和整合。",
   "endpoint_name": null,
   "id": "33595f43-7565-44ff-a55e-02655b0a7cb9",
   "is_component": false,

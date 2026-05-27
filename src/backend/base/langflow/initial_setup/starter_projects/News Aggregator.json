@@ -2178,7 +2178,7 @@
       "zoom": 0.7295800981010054
     }
   },
-  "description": "Extracts data and information from webpages.",
+  "description": "从网页中提取数据和信息。",
   "endpoint_name": null,
   "id": "10090ba4-02d7-4c07-bc44-c635c4d4e7d3",
   "is_component": false,

@@ -1805,7 +1805,7 @@
       "zoom": 0.6104392467426164
     }
   },
-  "description": "Analyzes images and categorizes them as positive, negative, or neutral using zero-shot learning.",
+  "description": "分析图像并使用零样本学习将其分类为正面、负面或中性。",
   "endpoint_name": null,
   "id": "c3b4019e-b2fe-4b7e-8df7-c85a47b5188b",
   "is_component": false,

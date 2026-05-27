@@ -2759,7 +2759,7 @@
       "zoom": 0.47976595047503817
     }
   },
-  "description": "Agent to integrate the NVIDIA RTX Remix Toolkit REST API and RTX Remix Documentation",
+  "description": "集成 NVIDIA RTX Remix Toolkit REST API 和 RTX Remix 文档的智能体。",
   "endpoint_name": null,
   "id": "246b2594-ab07-45b3-b133-13f9df159dea",
   "is_component": false,

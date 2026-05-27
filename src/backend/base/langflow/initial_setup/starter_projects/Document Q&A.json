@@ -1961,7 +1961,7 @@
       "zoom": 0.7396221600663749
     }
   },
-  "description": "Integrates PDF reading with a language model to answer document-specific questions. Ideal for small-scale texts, it facilitates direct queries with immediate insights.",
+  "description": "集成 PDF 阅读与语言模型，回答文档特定问题。适用于小规模文本，支持直接查询并获取即时洞察。",
   "endpoint_name": null,
   "id": "f313f4f1-d0bf-43df-8d7f-2efc99d7d553",
   "is_component": false,

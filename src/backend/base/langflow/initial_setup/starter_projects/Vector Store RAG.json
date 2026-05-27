@@ -3299,7 +3299,7 @@
       "zoom": 0.4822811237334345
     }
   },
-  "description": "Load your data for chat context with Retrieval Augmented Generation.",
+  "description": "向量存储 RAG，使用向量数据库进行检索增强生成。",
   "endpoint_name": null,
   "id": "b638aa7b-d928-4b0c-9b2b-4f3b0c5343a3",
   "is_component": false,

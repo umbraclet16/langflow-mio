@@ -1443,7 +1443,7 @@
       "zoom": 0.5406818687693208
     }
   },
-  "description": "Calculate SaaS subscription price based on costs, profit margin, and subscribers using step-by-step method and Chain-of-Thought prompting. ",
+  "description": "SaaS 定价分析工具，帮助分析和比较不同 SaaS 产品的定价策略。",
   "endpoint_name": null,
   "id": "2fdf0fb0-bc36-428a-8f68-6c694b2d05c6",
   "is_component": false,

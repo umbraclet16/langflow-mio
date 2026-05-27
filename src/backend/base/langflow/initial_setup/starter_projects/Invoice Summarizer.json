@@ -712,7 +712,7 @@
               }
             ],
             "pinned": false,
-            "score": 7.568328950209746e-6,
+            "score": 7.568328950209746e-06,
             "template": {
               "_type": "Component",
               "code": {
@@ -1730,7 +1730,7 @@
       "zoom": 0.7214379621227387
     }
   },
-  "description": "Your AI Agent Accountant - Leverage Needle with Langflows Agent.",
+  "description": "您的 AI 智能会计师 - 利用 Needle 与 Langflow 智能体。",
   "endpoint_name": null,
   "id": "4c77bc1e-3ef0-4ea2-8192-ee3a8b1c5522",
   "is_component": false,

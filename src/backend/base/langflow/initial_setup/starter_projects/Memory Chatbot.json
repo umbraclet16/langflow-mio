@@ -1650,7 +1650,7 @@
       "zoom": 0.6492225868554724
     }
   },
-  "description": "Create a chatbot that saves and references previous messages, enabling the model to maintain context throughout the conversation.",
+  "description": "创建一个保存和引用先前消息的聊天机器人，使模型能够在对话中保持上下文。",
   "endpoint_name": null,
   "id": "abdc8216-e400-48c4-8d11-0f21441b50ea",
   "is_component": false,

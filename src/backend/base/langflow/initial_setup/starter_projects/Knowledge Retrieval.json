@@ -774,7 +774,7 @@
       "zoom": 1.0053880437940252
     }
   },
-  "description": "An example of performing a vector search against data in a Knowledge Base to retrieve relevant documents.",
+  "description": "对知识库中的数据执行向量搜索以检索相关文档的示例。",
   "endpoint_name": null,
   "id": "e262d49f-c800-4962-948b-c94f79eb5fb8",
   "is_component": false,
