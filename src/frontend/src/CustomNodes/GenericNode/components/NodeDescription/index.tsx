@@ -1,4 +1,5 @@
 import { memo, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import { Textarea } from "@/components/ui/textarea";
 import useFlowStore from "@/stores/flowStore";
@@ -35,6 +36,7 @@ export default function NodeDescription({
   stickyNote?: boolean;
   setHasChangedNodeDescription?: (value: boolean) => void;
 }) {
+  const { t } = useTranslation();
   const [nodeDescription, setNodeDescription] = useState<string>(
     description ?? "",
   );
@@ -91,7 +93,7 @@ export default function NodeDescription({
           ),
         }}
       >
-        {String(description)}
+        {String(t(String(description), { defaultValue: String(description) }))}
       </MemoizedMarkdown>
     );
   }, [description, emptyPlaceholder, mdClassName]);

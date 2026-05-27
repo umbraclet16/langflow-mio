@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import type { APIClassType } from "@/types/api";
 import { customStringify } from "@/utils/reactflowUtils";
 import { Badge } from "../../components/ui/badge";
@@ -17,6 +18,7 @@ const EditNodeModal = ({
   setOpen: (open: boolean) => void;
   data: NodeDataType;
 }) => {
+  const { t } = useTranslation();
   const isDark = useDarkStore((state) => state.dark);
 
   const [nodeClass, setNodeClass] = useState<APIClassType>(data.node!);
@@ -35,7 +37,11 @@ const EditNodeModal = ({
       <BaseModal.Trigger>
         <></>
       </BaseModal.Trigger>
-      <BaseModal.Header description={data.node?.description!}>
+      <BaseModal.Header
+        description={t(String(data.node?.description), {
+          defaultValue: String(data.node?.description),
+        })}
+      >
         <span data-testid="node-modal-title" className="pr-2">
           {data.node?.display_name ?? data.type}
         </span>
