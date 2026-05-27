@@ -560,6 +560,18 @@ def log_node_changes(node_changes_log) -> None:
         logger.debug("\n".join(formatted_messages))
 
 
+# Templates to hide (require external APIs that may not be available)
+HIDDEN_TEMPLATES = {
+    "Instagram Copywriter",
+    "Twitter Thread Generator",
+    "Price Deal Finder",
+    "Pokédex Agent",
+    "SaaS Pricing",
+    "Youtube Analysis",
+    "NVIDIA RTX Remix",
+}
+
+
 async def load_starter_projects(retries=3, delay=1) -> list[tuple[anyio.Path, dict]]:
     starter_projects = []
     folder = anyio.Path(__file__).parent / "starter_projects"
@@ -570,6 +582,11 @@ async def load_starter_projects(retries=3, delay=1) -> list[tuple[anyio.Path, di
             content = await file.read_text(encoding="utf-8")
             try:
                 project = orjson.loads(content)
+                # Skip hidden templates
+                project_name = project.get("name", "")
+                if project_name in HIDDEN_TEMPLATES:
+                    await logger.adebug(f"Skipping hidden template: {project_name}")
+                    break
                 starter_projects.append((file, project))
                 break  # Break if load is successful
             except orjson.JSONDecodeError as e:
