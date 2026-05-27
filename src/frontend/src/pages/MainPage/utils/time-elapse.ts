@@ -15,16 +15,16 @@ export const timeElapsed = (dateTimeString: string | undefined): string => {
   const years = Math.floor(months / 12);
 
   if (years > 0) {
-    return years === 1 ? `${years} year` : `${years} years`;
+    return `${years}年`;
   } else if (months > 0) {
-    return months === 1 ? `${months} month` : `${months} months`;
+    return `${months}个月`;
   } else if (days > 0) {
-    return days === 1 ? `${days} day` : `${days} days`;
+    return `${days}天`;
   } else if (hours > 0) {
-    return hours === 1 ? `${hours} hour` : `${hours} hours`;
+    return `${hours}小时`;
   } else if (minutes > 0) {
-    return minutes === 1 ? `${minutes} minute` : `${minutes} minutes`;
+    return `${minutes}分钟`;
   } else {
-    return "less than a minute";
+    return "不到1分钟";
   }
 };

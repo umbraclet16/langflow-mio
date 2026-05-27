@@ -171,7 +171,7 @@ const ListComponent = ({
               </div>
               <div className="flex min-w-0 flex-shrink text-xs text-muted-foreground">
                 <span className="truncate">
-                  Edited {timeElapsed(flowData.updated_at)} ago
+                  编辑于 {timeElapsed(flowData.updated_at)}前
                 </span>
               </div>
             </div>
