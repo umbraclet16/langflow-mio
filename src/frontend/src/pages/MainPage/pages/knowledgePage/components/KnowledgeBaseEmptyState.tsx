@@ -17,10 +17,9 @@ const KnowledgeBaseEmptyState = ({
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-8 pb-8">
       <div className="flex flex-col items-center gap-2">
-        <h3 className="text-2xl font-semibold">No knowledge bases</h3>
+        <h3 className="text-2xl font-semibold">暂无知识库</h3>
         <p className="text-lg text-secondary-foreground">
-          Create powerful AI experiences by connecting your documents to
-          intelligent workflows.
+          通过将文档连接到智能工作流，创建强大的AI体验。
         </p>
       </div>
       <div className="flex items-center gap-2">
@@ -29,7 +28,7 @@ const KnowledgeBaseEmptyState = ({
           onClick={() => setIsUploadModalOpen(true)}
         >
           <ForwardedIconComponent name="Plus" className="h-4 w-4" />
-          Add Knowledge
+          添加知识库
         </Button>
       </div>
 
@@ -44,7 +43,7 @@ const KnowledgeBaseEmptyState = ({
         onSubmit={(data) => {
           captureSubmit(data);
           setSuccessData({
-            title: `Knowledge base "${data.sourceName}" created`,
+            title: `知识库 "${data.sourceName}" 已创建`,
           });
         }}
       />

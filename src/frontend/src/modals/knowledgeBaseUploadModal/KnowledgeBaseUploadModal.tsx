@@ -96,11 +96,11 @@ export default function KnowledgeBaseUploadModal({
       currentStep={form.currentStep}
       totalSteps={2}
       title={
-        form.isAddSourcesMode ? "Add Sources" : STEP_TITLES[form.currentStep]
+        form.isAddSourcesMode ? "添加文件源" : STEP_TITLES[form.currentStep]
       }
       description={
         form.isAddSourcesMode && form.currentStep === 1
-          ? "Upload files and configure chunking settings"
+          ? "上传文件并配置分块设置"
           : STEP_DESCRIPTIONS[form.currentStep]
       }
       icon="Database"
@@ -129,12 +129,12 @@ export default function KnowledgeBaseUploadModal({
           }
           isSubmitting={form.isSubmitting}
           submitTestId="kb-create-button"
-          submitLabel={form.isAddSourcesMode ? "Add Sources" : "Create"}
+          submitLabel={form.isAddSourcesMode ? "添加文件源" : "创建"}
           helpLabel={
             !hideAdvanced && form.currentStep === 1
               ? form.showAdvanced
-                ? "Hide Configuration"
-                : "Configure Sources"
+                ? "隐藏配置"
+                : "配置文件源"
               : undefined
           }
           onHelp={

@@ -30,15 +30,13 @@ const KnowledgeBaseDrawer = ({
       <div className="flex-1 overflow-y-auto pt-3">
         <div className="flex flex-col gap-4">
           <div className="px-4">
-            <div className="text-sm text-muted-foreground">
-              No description available.
-            </div>
+            <div className="text-sm text-muted-foreground">暂无描述。</div>
           </div>
 
           <Separator />
 
           <div className="space-y-2 px-4">
-            <label className="text-sm font-medium">Embedding Provider</label>
+            <label className="text-sm font-medium">嵌入提供商</label>
             <div className="flex items-center gap-2">
               <div className="text-sm font-medium text-muted-foreground">
                 {knowledgeBase.embedding_model || "Unknown"}
@@ -47,16 +45,14 @@ const KnowledgeBaseDrawer = ({
           </div>
 
           <div className="space-y-3 px-4">
-            <h4 className="text-sm font-medium">Source Files</h4>
-            <div className="text-sm text-muted-foreground">
-              No source files available.
-            </div>
+            <h4 className="text-sm font-medium">源文件</h4>
+            <div className="text-sm text-muted-foreground">暂无源文件。</div>
           </div>
 
           <div className="space-y-3 px-4">
-            <h4 className="text-sm font-medium">Linked Flows</h4>
+            <h4 className="text-sm font-medium">关联工作流</h4>
             <div className="text-sm text-muted-foreground">
-              No linked flows available.
+              暂无关联工作流。
             </div>
           </div>
         </div>

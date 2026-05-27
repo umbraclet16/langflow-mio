@@ -138,7 +138,7 @@ export const SourceChunksPage = () => {
                 className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
               />
               <Input
-                placeholder="Search chunks..."
+                placeholder="搜索分块..."
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
                 data-testid="chunks-search-input"
@@ -152,16 +152,16 @@ export const SourceChunksPage = () => {
             <div className="flex flex-1 w-full flex-col items-center justify-center gap-3">
               <Loading size={36} />
               <span className="text-sm text-muted-foreground pt-3">
-                Loading Chunks...
+                正在加载分块...
               </span>
             </div>
           ) : error ? (
             <div className="flex flex-1 items-center justify-center text-muted-foreground">
-              Failed to load chunks
+              加载分块失败
             </div>
           ) : chunks.length === 0 ? (
             <div className="flex flex-1 items-center justify-center text-muted-foreground">
-              No chunks found
+              未找到分块
             </div>
           ) : (
             <div className="flex flex-1 flex-col overflow-hidden">
@@ -187,7 +187,7 @@ export const SourceChunksPage = () => {
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-2">
                           <span className="text-sm text-muted-foreground whitespace-nowrap">
-                            Per page:
+                            每页显示：
                           </span>
                           <Select
                             value={String(pageSize)}
@@ -211,9 +211,9 @@ export const SourceChunksPage = () => {
                           </Select>
                         </div>
                         <span className="text-sm text-muted-foreground">
-                          Showing {startIndex + 1}-
-                          {Math.min(startIndex + pageSize, total)} of {total}{" "}
-                          chunks
+                          显示 {startIndex + 1}-
+                          {Math.min(startIndex + pageSize, total)} 共 {total}{" "}
+                          个分块
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -249,7 +249,7 @@ export const SourceChunksPage = () => {
                           />
                         </Button>
                         <div className="flex items-center gap-1.5 px-2 text-sm">
-                          <span>Page</span>
+                          <span>第</span>
                           <input
                             type="number"
                             min={1}
@@ -262,7 +262,7 @@ export const SourceChunksPage = () => {
                             onKeyDown={handlePageInputKeyDown}
                             className="h-7 w-16 rounded border border-input bg-background px-2 text-center text-sm focus:outline-none focus:ring-1 focus:ring-ring [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-inner-spin-button]:opacity-100 [&::-webkit-inner-spin-button]:[filter:invert(1)] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-outer-spin-button]:opacity-100 [&::-webkit-outer-spin-button]:[filter:invert(1)]"
                           />
-                          <span>of {totalPages}</span>
+                          <span>页 共 {totalPages} 页</span>
                         </div>
                         <Button
                           variant="outline"

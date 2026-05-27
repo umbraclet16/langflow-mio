@@ -255,8 +255,8 @@ export function useKnowledgeBaseForm({
     } catch (error: unknown) {
       const err = error as AxiosError<{ detail?: string }>;
       setErrorData({
-        title: "Failed to generate chunk preview",
-        list: [err?.response?.data?.detail || err?.message || "Unknown error"],
+        title: "生成分块预览失败",
+        list: [err?.response?.data?.detail || err?.message || "未知错误"],
       });
       setChunkPreviews([]);
     } finally {
@@ -275,26 +275,26 @@ export function useKnowledgeBaseForm({
     const errors: Record<string, string> = {};
     const trimmedName = sourceName.trim().replace(/\s+/g, "_");
     if (!trimmedName) {
-      errors.sourceName = "Name is required";
+      errors.sourceName = "名称为必填项";
     } else if (trimmedName.length < 3 || trimmedName.length > 512) {
-      errors.sourceName = "Name must be between 3 and 512 characters";
+      errors.sourceName = "名称长度必须在3到512个字符之间";
     } else if (!KB_NAME_REGEX.test(trimmedName)) {
       errors.sourceName =
-        "Name must only contain [a-zA-Z0-9._-] and start/end with [a-zA-Z0-9]";
+        "名称只能包含 [a-zA-Z0-9._-] 且必须以 [a-zA-Z0-9] 开头和结尾";
     } else if (
       !isAddSourcesMode &&
       existingKnowledgeBaseNames?.some(
         (name) => name.toLowerCase() === trimmedName.toLowerCase(),
       )
     ) {
-      errors.sourceName = "A knowledge base with this name already exists";
+      errors.sourceName = "已存在同名的知识库";
     }
     if (!isAddSourcesMode && selectedEmbeddingModel.length === 0) {
-      errors.embeddingModel = "Embedding model is required";
+      errors.embeddingModel = "嵌入模型为必填项";
     }
     const totalBytes = files.reduce((acc, file) => acc + file.size, 0);
     if (totalBytes > MAX_TOTAL_FILE_SIZE) {
-      errors.files = "Total file size exceeds the 1 GB limit";
+      errors.files = "文件总大小超过1 GB限制";
     }
     return errors;
   }, [
@@ -341,7 +341,7 @@ export function useKnowledgeBaseForm({
         };
 
         setSuccessData({
-          title: `Knowledge base "${sourceName}" created`,
+          title: `知识库 "${sourceName}" 已创建`,
         });
 
         onSubmit?.(callbackData);
@@ -370,7 +370,7 @@ export function useKnowledgeBaseForm({
           .catch((ingestError: unknown) => {
             const err = ingestError as AxiosError<{ detail?: string }>;
             setErrorData({
-              title: `Failed to start ingestion for "${sourceName}"`,
+              title: `启动 "${sourceName}" 的摄入失败`,
               list: [
                 err?.response?.data?.detail || err?.message || "Unknown error",
               ],
@@ -390,11 +390,11 @@ export function useKnowledgeBaseForm({
 
       if (isAddSourcesMode) {
         setSuccessData({
-          title: `Sources added to "${sourceName}"`,
+          title: `文件源已添加到 "${sourceName}"`,
         });
       } else {
         setSuccessData({
-          title: `Knowledge base "${sourceName}" created`,
+          title: `知识库 "${sourceName}" 已创建`,
         });
       }
 
@@ -404,9 +404,7 @@ export function useKnowledgeBaseForm({
     } catch (error: unknown) {
       const err = error as AxiosError<{ detail?: string }>;
       const errorMessage =
-        err?.response?.data?.detail ||
-        err?.message ||
-        "Failed to create knowledge base";
+        err?.response?.data?.detail || err?.message || "创建知识库失败";
       setErrorData({ title: errorMessage });
     } finally {
       setIsSubmitting(false);

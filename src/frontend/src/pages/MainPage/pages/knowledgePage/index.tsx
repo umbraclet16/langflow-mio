@@ -111,7 +111,7 @@ export const KnowledgePage = () => {
                     </SidebarTrigger>
                   </div>
                 </div>
-                Knowledge
+                知识库
               </div>
               <div className="flex h-full flex-col">
                 <KnowledgeBasesTab {...tabProps} />

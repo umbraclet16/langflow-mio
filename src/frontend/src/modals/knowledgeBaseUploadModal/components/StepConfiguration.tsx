@@ -21,7 +21,6 @@ import {
 import { cn } from "@/utils/utils";
 import { ACCEPTED_FILE_TYPES } from "../constants";
 import type { ColumnConfigRow } from "../types";
-import { ColumnConfig } from "./columnConfig/ColumnConfig";
 
 interface StepConfigurationProps {
   isAddSourcesMode: boolean;
@@ -78,11 +77,11 @@ export function StepConfiguration({
         {/* Name */}
         <div className="flex flex-col gap-2">
           <Label htmlFor="source-name" className="text-sm font-medium">
-            Name <span className="text-destructive">*</span>
+            名称 <span className="text-destructive">*</span>
           </Label>
           <Input
             id="source-name"
-            placeholder="Enter a name for this knowledge base"
+            placeholder="输入知识库名称"
             value={sourceName}
             onChange={(e) => {
               onSourceNameChange(e.target.value);
@@ -102,7 +101,7 @@ export function StepConfiguration({
         {/* Model Selection */}
         <div className="flex flex-col gap-2 pt-4">
           <Label className="text-sm font-medium">
-            Embedding Model <span className="text-destructive">*</span>
+            嵌入模型 <span className="text-destructive">*</span>
           </Label>
           {isAddSourcesMode ? (
             <div className="flex h-10 w-full items-center gap-2 rounded-md border border-input bg-muted px-3 py-2 text-sm">
@@ -132,7 +131,7 @@ export function StepConfiguration({
                   onFieldChange?.();
                 }}
                 options={embeddingModelOptions}
-                placeholder="Select embedding model"
+                placeholder="选择嵌入模型"
                 showEmptyState
               />
             </div>
@@ -184,9 +183,9 @@ export function StepConfiguration({
                   className="h-4 w-4 text-muted-foreground"
                 />
                 <span className="text-sm font-medium">
-                  Configure Sources
+                  配置文件源
                   <span className="text-xs text-muted-foreground ml-1">
-                    (1 GB max upload)
+                    (最大上传1 GB)
                   </span>
                 </span>
               </div>
@@ -194,7 +193,7 @@ export function StepConfiguration({
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
                   <Label className="text-xs text-muted-foreground">
-                    Sources
+                    文件源
                   </Label>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -211,7 +210,7 @@ export function StepConfiguration({
                             name="Upload"
                             className="h-4 w-4"
                           />
-                          Add Sources
+                          添加文件源
                         </span>
                         <ForwardedIconComponent
                           name="ChevronDown"
@@ -229,7 +228,7 @@ export function StepConfiguration({
                           name="FileText"
                           className="mr-2 h-4 w-4"
                         />
-                        Upload Files
+                        上传文件
                       </DropdownMenuItem>
                       <DropdownMenuItem
                         onClick={() =>
@@ -240,7 +239,7 @@ export function StepConfiguration({
                           name="Folder"
                           className="mr-2 h-4 w-4"
                         />
-                        Upload Folder
+                        上传文件夹
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -297,7 +296,7 @@ export function StepConfiguration({
                   name="Settings2"
                   className="h-4 w-4 text-muted-foreground"
                 />
-                <span className="text-sm font-medium">Chunking Settings</span>
+                <span className="text-sm font-medium">分块设置</span>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
@@ -307,7 +306,7 @@ export function StepConfiguration({
                     htmlFor="chunk-size"
                     className="flex items-center gap-1 text-xs text-muted-foreground"
                   >
-                    Chunk Size
+                    分块大小
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -319,8 +318,7 @@ export function StepConfiguration({
                           </span>
                         </TooltipTrigger>
                         <TooltipContent className="max-w-[260px]">
-                          The maximum length of each chunk. Text is first split
-                          by separator, then chunks are merged up to this size.
+                          每个分块的最大长度。文本先按分隔符拆分，然后合并分块至此大小。
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -344,7 +342,7 @@ export function StepConfiguration({
                     htmlFor="chunk-overlap"
                     className="flex items-center gap-1 text-xs text-muted-foreground"
                   >
-                    Chunk Overlap
+                    分块重叠
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -356,7 +354,7 @@ export function StepConfiguration({
                           </span>
                         </TooltipTrigger>
                         <TooltipContent className="max-w-[260px]">
-                          Number of characters to overlap between chunks.
+                          分块之间的重叠字符数。
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -381,7 +379,7 @@ export function StepConfiguration({
                   htmlFor="separator"
                   className="flex items-center gap-1 text-xs text-muted-foreground"
                 >
-                  Separator
+                  分隔符
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -393,9 +391,8 @@ export function StepConfiguration({
                         </span>
                       </TooltipTrigger>
                       <TooltipContent className="max-w-[260px]">
-                        The character to split on. Use \n for newline. Examples:
-                        \n\n for paragraphs, \n for lines, . for sentences.
-                        Leave blank for no separator.
+                        用于拆分的字符。使用 \n 表示换行。示例：\n\n
+                        用于段落，\n 用于行，. 用于句子。留空表示无分隔符。
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>

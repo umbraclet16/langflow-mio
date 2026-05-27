@@ -35,7 +35,7 @@ export const createKnowledgeBaseColumns = (
 
   return [
     {
-      headerName: "Name",
+      headerName: "名称",
       field: "name",
       flex: 2,
       sortable: true,
@@ -77,7 +77,7 @@ export const createKnowledgeBaseColumns = (
       },
     },
     {
-      headerName: "Size",
+      headerName: "大小",
       field: "size",
       flex: 1,
       sortable: false,
@@ -86,7 +86,7 @@ export const createKnowledgeBaseColumns = (
       cellClass: baseCellClass,
     },
     {
-      headerName: "Embedding Model",
+      headerName: "嵌入模型",
       field: "embedding_model",
       flex: 1.5,
       sortable: false,
@@ -119,7 +119,7 @@ export const createKnowledgeBaseColumns = (
       },
     },
     {
-      headerName: "Chunks",
+      headerName: "分块数",
       field: "chunks",
       flex: 1,
       sortable: false,
@@ -128,7 +128,7 @@ export const createKnowledgeBaseColumns = (
       valueFormatter: (params) => formatNumber(params.value),
     },
     {
-      headerName: "Avg Chunk Size",
+      headerName: "平均分块大小",
       field: "avg_chunk_size",
       flex: 1,
       sortable: false,
@@ -137,7 +137,7 @@ export const createKnowledgeBaseColumns = (
       valueFormatter: (params) => formatAverageChunkSize(params.value),
     },
     {
-      headerName: "Status",
+      headerName: "状态",
       field: "status",
       flex: 1,
       sortable: false,
@@ -201,7 +201,7 @@ export const createKnowledgeBaseColumns = (
                   name="RefreshCw"
                   className="mr-2 h-4 w-4"
                 />
-                Update Knowledge
+                更新知识库
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={(e) => {
@@ -213,7 +213,7 @@ export const createKnowledgeBaseColumns = (
                   name="Layers"
                   className="mr-2 h-4 w-4"
                 />
-                View Chunks
+                查看分块
               </DropdownMenuItem>
               {isBusy ? (
                 <DropdownMenuItem
@@ -228,7 +228,7 @@ export const createKnowledgeBaseColumns = (
                     name="Square"
                     className="mr-2 h-4 w-4"
                   />
-                  Stop Ingestion
+                  停止摄入
                 </DropdownMenuItem>
               ) : (
                 <DropdownMenuItem
@@ -242,7 +242,7 @@ export const createKnowledgeBaseColumns = (
                     name="Trash2"
                     className="mr-2 h-4 w-4"
                   />
-                  Delete
+                  删除
                 </DropdownMenuItem>
               )}
             </DropdownMenuContent>

@@ -150,8 +150,8 @@ export function ColumnConfig({
         }
         setIsTableModalOpen(open);
       }}
-      tableTitle="Column Configuration"
-      description="Configure column behavior for the knowledge base."
+      tableTitle="列配置"
+      description="配置知识库的列行为。"
       ref={agGrid}
       onSelectionChanged={() => {}}
       rowSelection="multiple"
@@ -177,7 +177,7 @@ export function ColumnConfig({
       <Button variant="outline" className="w-full justify-center">
         <span className="flex items-center gap-2">
           <ForwardedIconComponent name="Columns" className="h-4 w-4" />
-          Open Table
+          打开表格
         </span>
       </Button>
     </TableModal>

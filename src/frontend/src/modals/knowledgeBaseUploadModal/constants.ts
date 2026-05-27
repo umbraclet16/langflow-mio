@@ -1,13 +1,13 @@
 import type { WizardStep } from "./types";
 
 export const STEP_TITLES: Record<WizardStep, string> = {
-  1: "Create Knowledge Base",
-  2: "Review & Build",
+  1: "创建知识库",
+  2: "审核与构建",
 };
 
 export const STEP_DESCRIPTIONS: Record<WizardStep, string> = {
-  1: "Name your knowledge base, upload sources, and select an embedding model",
-  2: "Preview how your files will be chunked and confirm your settings",
+  1: "命名知识库、上传文件源并选择嵌入模型",
+  2: "预览文件分块效果并确认设置",
 };
 
 export const DEFAULT_CHUNK_SIZE = 100;

@@ -483,12 +483,11 @@ export default function ModelInputComponent({
             onSelect={handleModelSelect}
           />
           {renderFooterButton(
-            "Refresh List",
+            "刷新列表",
             "RotateCw",
             handleRefreshButtonPress,
             "refresh-model-list",
           )}
-          {!isUnifiedMode && renderManageProvidersButton()}
           {externalOptions?.fields?.data?.node && (
             <div className="border-t bg-background">
               {renderFooterButton(

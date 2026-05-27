@@ -90,9 +90,7 @@ const ModelTrigger = ({
               {disabled ? (
                 t("component.receivingInput")
               ) : isEmptyStateMode ? (
-                <div className="truncate text-muted-foreground">
-                  No models enabled
-                </div>
+                <div className="truncate text-muted-foreground">未启用模型</div>
               ) : (
                 <div
                   className={cn(
@@ -100,7 +98,7 @@ const ModelTrigger = ({
                     !selectedModel?.name && "text-muted-foreground",
                   )}
                 >
-                  {selectedModel?.name || "Select a model"}
+                  {selectedModel?.name || "选择模型"}
                 </div>
               )}
             </span>

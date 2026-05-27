@@ -25,7 +25,6 @@ import { useKnowledgeBasePolling } from "../hooks/useKnowledgeBasePolling";
 import { useOptimisticKnowledgeBase } from "../hooks/useOptimisticKnowledgeBase";
 import type { KnowledgeBasesTabProps } from "../types";
 import KnowledgeBaseEmptyState from "./KnowledgeBaseEmptyState";
-import KnowledgeBaseSelectionOverlay from "./KnowledgeBaseSelectionOverlay";
 
 const KnowledgeBasesTab = ({
   quickFilterText,
@@ -171,8 +170,8 @@ const KnowledgeBasesTab = ({
 
   if (error) {
     setErrorData({
-      title: "Failed to load knowledge bases",
-      list: [error?.message || "An unknown error occurred"],
+      title: "加载知识库失败",
+      list: [error?.message || "发生未知错误"],
     });
   }
 
@@ -183,7 +182,7 @@ const KnowledgeBasesTab = ({
       <div className="flex flex-1 w-full flex-col items-center justify-center gap-3">
         <Loading size={36} />
         <span className="text-sm text-muted-foreground pt-3">
-          Loading Knowledge Bases...
+          正在加载知识库...
         </span>
       </div>
     );
@@ -203,7 +202,7 @@ const KnowledgeBasesTab = ({
             icon="Search"
             data-testid="search-kb-input"
             type="text"
-            placeholder="Search knowledge bases..."
+            placeholder="搜索知识库..."
             className="w-full"
             value={quickFilterText || ""}
             onChange={(event) => setQuickFilterText(event.target.value)}
@@ -216,7 +215,7 @@ const KnowledgeBasesTab = ({
             onClick={() => actions.setIsBulkDeleteModalOpen(true)}
           >
             <ForwardedIconComponent name="Trash2" className="h-4 w-4" />
-            Delete ({quantitySelected})
+            删除 ({quantitySelected})
           </Button>
         ) : (
           <Button
@@ -224,7 +223,7 @@ const KnowledgeBasesTab = ({
             onClick={() => setIsUploadModalOpen(true)}
           >
             <ForwardedIconComponent name="Plus" className="h-4 w-4" />
-            Add Knowledge
+            添加知识库
           </Button>
         )}
       </div>
@@ -265,8 +264,8 @@ const KnowledgeBasesTab = ({
         open={actions.isDeleteModalOpen}
         setOpen={actions.setIsDeleteModalOpen}
         onConfirm={actions.confirmDelete}
-        description={`knowledge base "${actions.knowledgeBaseToDelete?.name || ""}"`}
-        note="This action cannot be undone"
+        description={`知识库 "${actions.knowledgeBaseToDelete?.name || ""}"`}
+        note="此操作无法撤销"
       >
         <></>
       </DeleteConfirmationModal>
@@ -275,11 +274,11 @@ const KnowledgeBasesTab = ({
         open={actions.isBulkDeleteModalOpen}
         setOpen={actions.setIsBulkDeleteModalOpen}
         onConfirm={actions.confirmBulkDelete}
-        description={`${actions.deletableSelected.length} knowledge base(s)`}
+        description={`${actions.deletableSelected.length} 个知识库`}
         note={
           actions.deletableSelected.length < selectedFiles.length
-            ? `${selectedFiles.length - actions.deletableSelected.length} ingesting knowledge base(s) will be skipped. This action cannot be undone.`
-            : "This action cannot be undone"
+            ? `${selectedFiles.length - actions.deletableSelected.length} 个正在摄入的知识库将被跳过。此操作无法撤销。`
+            : "此操作无法撤销"
         }
       >
         <></>

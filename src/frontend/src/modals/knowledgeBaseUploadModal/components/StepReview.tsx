@@ -52,7 +52,7 @@ export function StepReview({
             name="Layers"
             className="h-4 w-4 text-muted-foreground"
           />
-          <span className="text-sm font-medium">Chunk Preview</span>
+          <span className="text-sm font-medium">分块预览</span>
         </div>
         <div className="flex items-center gap-1">
           {files.length > 1 && (
@@ -139,7 +139,7 @@ export function StepReview({
               className="mb-2 h-8 w-8 text-muted-foreground"
             />
             <p className="text-sm text-muted-foreground">
-              No files selected. Go back to add files.
+              未选择文件。请返回添加文件。
             </p>
           </div>
         ) : isGeneratingPreview ? (
@@ -148,9 +148,7 @@ export function StepReview({
               name="Loader2"
               className="mb-2 h-8 w-8 animate-spin text-muted-foreground"
             />
-            <p className="text-sm text-muted-foreground">
-              Generating preview...
-            </p>
+            <p className="text-sm text-muted-foreground">正在生成预览...</p>
           </div>
         ) : chunkPreviews.length > 0 ? (
           <ChunkPreviewCard
@@ -165,7 +163,7 @@ export function StepReview({
               className="mb-2 h-8 w-8 text-muted-foreground"
             />
             <p className="text-sm text-muted-foreground">
-              Could not generate preview. Try adjusting your settings.
+              无法生成预览。请尝试调整设置。
             </p>
           </div>
         )}
@@ -177,35 +175,35 @@ export function StepReview({
           name="FileStack"
           className="h-4 w-4 text-muted-foreground"
         />
-        <span className="text-sm font-medium">Summary</span>
+        <span className="text-sm font-medium">摘要</span>
       </div>
 
       <div className="shrink-0">
-        <SummaryItem icon="Type" label="Name" value={sourceName} />
+        <SummaryItem icon="Type" label="名称" value={sourceName} />
         <SummaryItem
           icon="Files"
-          label="Files"
+          label="文件"
           value={`${files.length} file${files.length !== 1 ? "s" : ""} (${totalFileSize})`}
         />
         <SummaryItem
           icon="Ruler"
-          label="Chunk Size"
+          label="分块大小"
           value={`${chunkSize} chars`}
         />
         <SummaryItem
           icon="Layers"
-          label="Chunk Overlap"
+          label="分块重叠"
           value={`${chunkOverlap} chars`}
         />
         <SummaryItem
           icon="SplitSquareHorizontal"
-          label="Separator"
+          label="分隔符"
           value={separator || "None"}
         />
         <div className="flex items-center justify-between py-1.5">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <ForwardedIconComponent name="Cpu" className="h-4 w-4" />
-            <span>Embedding Model</span>
+            <span>嵌入模型</span>
           </div>
           <div className="flex items-center gap-1.5">
             {selectedEmbeddingModel[0]?.icon && (

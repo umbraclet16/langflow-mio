@@ -41,13 +41,13 @@ const ChunkCard = ({ chunk, index, onCopy }: ChunkCardProps) => {
     >
       <div className="mb-2 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="text-sm font-medium">Chunk {index}</span>
+          <span className="text-sm font-medium">分块 {index}</span>
           <Badge
             variant="secondary"
             size="sq"
             className="text-xs text-muted-foreground"
           >
-            {chunk.char_count} chars
+            {chunk.char_count} 字符
           </Badge>
           <Button
             variant="ghost"

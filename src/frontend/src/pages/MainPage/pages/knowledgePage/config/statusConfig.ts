@@ -5,23 +5,23 @@ export interface StatusConfigEntry {
 
 export const STATUS_CONFIG: Record<string, StatusConfigEntry> = {
   ready: {
-    label: "Ready",
+    label: "就绪",
     textClass: "text-accent-emerald-foreground",
   },
   ingesting: {
-    label: "Ingesting",
+    label: "摄入中",
     textClass: "text-accent-amber-foreground",
   },
   failed: {
-    label: "Failed",
+    label: "失败",
     textClass: "text-destructive",
   },
   cancelling: {
-    label: "Cancelling",
+    label: "取消中",
     textClass: "text-accent-amber-foreground",
   },
   empty: {
-    label: "Empty",
+    label: "空",
     textClass: "text-muted-foreground",
   },
 };

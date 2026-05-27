@@ -28,17 +28,15 @@ const KnowledgeBaseSelectionOverlay = ({
   const deleteMutation = useDeleteKnowledgeBase({
     onSuccess: (data) => {
       setSuccessData({
-        title: `${data.deleted_count} knowledge base(s) deleted`,
+        title: `已删除 ${data.deleted_count} 个知识库`,
       });
       onClearSelection();
     },
     onError: (error: AxiosError<{ detail?: string }>) => {
       setErrorData({
-        title: "Failed to delete knowledge bases",
+        title: "删除知识库失败",
         list: [
-          error?.response?.data?.detail ||
-            error?.message ||
-            "An unknown error occurred",
+          error?.response?.data?.detail || error?.message || "发生未知错误",
         ],
       });
       onClearSelection();
@@ -73,12 +71,12 @@ const KnowledgeBaseSelectionOverlay = ({
         )}
       >
         <span className="text-xs text-muted-foreground">
-          {quantitySelected} selected
+          已选择 {quantitySelected} 项
         </span>
         <div className="flex items-center gap-2">
           <DeleteConfirmationModal
             onConfirm={handleBulkDelete}
-            description={`knowledge base${pluralSuffix}`}
+            description={`知识库`}
           >
             <Button
               variant="destructive"
@@ -87,7 +85,7 @@ const KnowledgeBaseSelectionOverlay = ({
               data-testid="bulk-delete-kb-btn"
             >
               <ForwardedIconComponent name="Trash2" />
-              Delete
+              删除
             </Button>
           </DeleteConfirmationModal>
         </div>
