@@ -954,5 +954,7 @@
   "Change visibility of the field": "更改字段的可见性",
   "Hide field": "隐藏字段",
   "Show field": "显示字段",
-  "Select an option": "选择一个选项"
+  "Select an option": "选择一个选项",
+  "Cancel": "取消",
+  "Close": "关闭"
 }
