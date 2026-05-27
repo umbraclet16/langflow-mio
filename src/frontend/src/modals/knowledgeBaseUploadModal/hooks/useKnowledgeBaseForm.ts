@@ -5,7 +5,7 @@ import { api } from "@/controllers/API/api";
 import { getURL } from "@/controllers/API/helpers/constants";
 import { useCreateKnowledgeBase } from "@/controllers/API/queries/knowledge-bases/use-create-knowledge-base";
 import { useGetIngestionJobStatus } from "@/controllers/API/queries/knowledge-bases/use-get-ingestion-job-status";
-import { useGetModelProviders } from "@/controllers/API/queries/models/use-get-model-providers";
+import { useGetEmbeddingModelOptions } from "@/controllers/API/queries/models/use-get-embedding-model-options";
 import useAlertStore from "@/stores/alertStore";
 import {
   DEFAULT_CHUNK_OVERLAP,
@@ -44,27 +44,8 @@ export function useKnowledgeBaseForm({
   // Wizard state
   const [currentStep, setCurrentStep] = useState<WizardStep>(1);
 
-  // Fetch embedding model data from API
-  const { data: modelProviders = [] } = useGetModelProviders({});
-
-  // Transform provider data into ModelOption[] for embedding models only
-  const embeddingModelOptions = useMemo<ModelOption[]>(() => {
-    const options: ModelOption[] = [];
-    for (const provider of modelProviders) {
-      if (!provider.is_enabled) continue;
-      for (const model of provider.models) {
-        if (model.metadata?.model_type !== "embeddings") continue;
-        options.push({
-          id: model.model_name,
-          name: model.model_name,
-          icon: provider.icon || "Bot",
-          provider: provider.provider,
-          metadata: model.metadata,
-        });
-      }
-    }
-    return options;
-  }, [modelProviders]);
+  // Fetch embedding model options from external API (supports agent platform)
+  const { data: embeddingModelOptions = [] } = useGetEmbeddingModelOptions();
 
   // Form state - Step 1
   const [sourceName, setSourceName] = useState("");
