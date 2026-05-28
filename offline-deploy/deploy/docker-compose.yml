@@ -36,6 +36,9 @@ services:
       - LANGFLOW_CONFIG_DIR=/app/langflow
       - LANGFLOW_AUTO_LOGIN=false
       - AGENT_PLATFORM_API_URL=http://192.168.31.146:18888/v1
+      # 禁用启动时自动创建和更新 Starter Projects（删除后不会再自动恢复）
+      - LANGFLOW_CREATE_STARTER_PROJECTS=false
+      - LANGFLOW_UPDATE_STARTER_PROJECTS=false
     volumes:
       - langflow-data:/app/langflow
     networks:
