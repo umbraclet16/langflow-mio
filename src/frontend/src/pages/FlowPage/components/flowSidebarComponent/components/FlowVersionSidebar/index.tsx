@@ -10,10 +10,12 @@ import VersionListItem from "./components/VersionListItem";
 import { CURRENT_DRAFT_ID } from "./constants";
 import type { FlowVersionSidebarContentProps } from "./types";
 import { useFlowVersionSidebar } from "./use-flow-version-sidebar";
+import { useTranslation } from "react-i18next";
 
 export default function FlowVersionSidebarContent({
   flowId,
 }: FlowVersionSidebarContentProps) {
+  const { t } = useTranslation();
   const {
     selectedId,
     deleteDialogEntry,
@@ -36,7 +38,7 @@ export default function FlowVersionSidebarContent({
     <>
       <div className="flex h-full flex-col">
         <SidebarGroupLabel className="flex items-center justify-between px-3 pt-3">
-          <span>Version History</span>
+          <span>{t("sidebar.nav.versionHistory")}</span>
           {versions && versions.length > 0 && (
             <span className="font-normal text-foreground/50">
               {versions.length}
@@ -48,7 +50,7 @@ export default function FlowVersionSidebarContent({
         {isEntryError && (
           <div className="flex items-center gap-2 bg-destructive/10 px-2 py-2">
             <span className="text-xs text-destructive">
-              Failed to load version data
+              {t("sidebar.versionHistory.loadError")}
             </span>
           </div>
         )}
@@ -56,7 +58,7 @@ export default function FlowVersionSidebarContent({
         {processedPreview?.error && (
           <div className="flex items-center gap-2 bg-destructive/10 px-2 py-2">
             <span className="text-xs text-destructive">
-              This version's data could not be rendered for preview
+              {t("sidebar.versionHistory.previewError")}
             </span>
           </div>
         )}
@@ -71,15 +73,20 @@ export default function FlowVersionSidebarContent({
               >
                 <div className="flex w-full items-center justify-between">
                   <div className="flex flex-col items-start">
-                    <span className="font-medium text-sm pb-1">Current</span>
-                    <span className="text-xs text-muted-foreground">
-                      Working version
+                    <span className="text-xs font-semibold">
+                      {t("sidebar.versionHistory.current")}
+                    </span>
+                    <span className="text-[11px] text-foreground/60">
+                      {t("sidebar.versionHistory.workingVersion")}
                     </span>
                   </div>
-                  {isViewingDraft && (
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-[#6366F1]" />
-                  )}
+                  <div className="text-[11px] text-foreground/50">
+                    {t("sidebar.versionHistory.autoSaving")}
+                  </div>
                 </div>
+                {isViewingDraft && (
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-[#6366F1]" />
+                )}
               </SidebarMenuButton>
             </SidebarMenuItem>
 
@@ -93,14 +100,14 @@ export default function FlowVersionSidebarContent({
             )}
             {isListError && (
               <div className="px-2 py-6 text-center text-xs text-destructive">
-                Failed to load versions
+                {t("sidebar.versionHistory.loadVersionsError")}
               </div>
             )}
             {!isLoading &&
               !isListError &&
               (!versions || versions.length === 0) && (
                 <div className="px-2 py-6 text-center text-xs text-muted-foreground">
-                  No saved versions yet
+                  {t("sidebar.versionHistory.noSavedVersions")}
                 </div>
               )}
 

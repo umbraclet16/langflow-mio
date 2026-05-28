@@ -4,8 +4,10 @@ import useVersionPreviewStore from "@/stores/versionPreviewStore";
 import { CanvasBadge } from "./CanvasBanner";
 import RestoreVersionButton from "./RestoreVersionButton";
 import SaveSnapshotButton from "./SaveSnapshotButton";
+import { useTranslation } from "react-i18next";
 
 export default function VersionPreviewOverlay() {
+  const { t } = useTranslation();
   const previewLabel = useVersionPreviewStore((s) => s.previewLabel);
   const previewId = useVersionPreviewStore((s) => s.previewId);
   const isPreviewLoading = useVersionPreviewStore((s) => s.isPreviewLoading);
@@ -19,10 +21,10 @@ export default function VersionPreviewOverlay() {
         <span className="h-2 w-2 shrink-0 rounded-lg bg-[#6366F1]" />
         <span className="text-sm">
           {previewLabel === "Current Draft"
-            ? "Current Flow"
-            : `Previewing ${previewLabel}`}
+            ? t("versionPreview.currentFlow")
+            : `${t("versionPreview.previewing")} ${previewLabel}`}
         </span>
-        <span className="text-muted-foreground text-sm">(Read-Only)</span>
+        <span className="text-muted-foreground text-sm">({t("versionPreview.readOnly")})</span>
       </CanvasBadge>
 
       {isPreviewLoading && (
@@ -33,7 +35,7 @@ export default function VersionPreviewOverlay() {
               className="h-4 w-4 animate-spin text-muted-foreground"
             />
             <span className="text-sm text-muted-foreground">
-              Loading preview...
+              {t("versionPreview.loadingPreview")}
             </span>
           </div>
         </div>
