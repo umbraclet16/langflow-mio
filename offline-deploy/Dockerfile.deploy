@@ -1,0 +1,59 @@
+# 基于官方镜像的二次开发部署 Dockerfile
+# 用法: docker build -t langflow-custom:latest -f offline-deploy/Dockerfile.deploy .
+# 注意: 需要在项目根目录执行
+
+FROM langflowai/langflow:1.9.3 AS base
+
+# ==========================================
+# 前端构建阶段
+# ==========================================
+FROM base AS frontend-builder
+
+USER root
+
+COPY src/frontend /tmp/frontend
+WORKDIR /tmp/frontend
+
+RUN npm config set registry https://registry.npmmirror.com
+RUN npm ci && npm run build
+
+# ==========================================
+# 最终构建阶段
+# ==========================================
+FROM base
+
+USER root
+
+# 保存官方镜像自带的原始前端构建产物（防止被后端重装覆盖）
+RUN cp -r /app/.venv/lib/python3.14/site-packages/langflow/frontend /tmp/original-frontend
+
+# 复制修改后的工程代码
+COPY . /app/project
+
+# 只覆盖后端代码（--no-deps 不重新解析依赖）
+RUN uv pip install --no-cache --no-deps --reinstall \
+    /app/project/src/backend/base \
+    /app/project/src/lfx \
+    /app/project/src/sdk
+
+# 恢复前端：优先用新构建的，失败则用原来的
+COPY --from=frontend-builder /tmp/frontend/build /tmp/new-frontend
+RUN if [ -d /tmp/new-frontend ]; then \
+      rm -rf /app/.venv/lib/python3.14/site-packages/langflow/frontend && \
+      cp -r /tmp/new-frontend /app/.venv/lib/python3.14/site-packages/langflow/frontend; \
+    else \
+      rm -rf /app/.venv/lib/python3.14/site-packages/langflow/frontend && \
+      cp -r /tmp/original-frontend /app/.venv/lib/python3.14/site-packages/langflow/frontend; \
+    fi
+
+# 清理临时文件
+RUN rm -rf /app/project /tmp/original-frontend /tmp/new-frontend /tmp/frontend
+
+# 不使用非 root 用户，避免 volume 挂载权限问题
+# 删除 chown - 不需要了
+# 不切 USER user，全程 root 运行
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD curl -f http://localhost:7860/health || exit 1
+
+CMD ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]

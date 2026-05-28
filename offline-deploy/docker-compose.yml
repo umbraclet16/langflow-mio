@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  langflow:
+    image: langflow-offline:latest
+    container_name: langflow
+    restart: unless-stopped
+    ports:
+      - "7860:7860"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
+      - LANGFLOW_CONFIG_DIR=/app/langflow
+      # 禁用自动更新检查
+      - LANGFLOW_AUTO_LOGIN=false
+    volumes:
+      - langflow-data:/app/langflow
+    networks:
+      - langflow-net
+
+  postgres:
+    image: postgres:16-bookworm
+    container_name: langflow-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: langflow
+      POSTGRES_PASSWORD: langflow
+      POSTGRES_DB: langflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - langflow-postgres:/var/lib/postgresql/data
+    networks:
+      - langflow-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U langflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  langflow-postgres:
+  langflow-data:
+
+networks:
+  langflow-net:
+    driver: bridge
