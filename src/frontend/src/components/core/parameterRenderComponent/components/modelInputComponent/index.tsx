@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import LoadingTextComponent from "@/components/common/loadingTextComponent";
 import { api } from "@/controllers/API/api";
@@ -47,6 +48,7 @@ export default function ModelInputComponent({
   showEmptyState = false,
 }: BaseInputProps<SelectedModel[]> &
   ModelInputComponentType): JSX.Element | null {
+  const { t } = useTranslation();
   const { setErrorData } = useAlertStore();
   const refButton = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
@@ -265,9 +267,7 @@ export default function ModelInputComponent({
   const selectedModel = useMemo(() => {
     if (isConnectionMode) {
       return {
-        name:
-          externalOptions?.fields?.data?.node?.display_name ||
-          "Connect other models",
+        name: t("Connect other models"),
         icon: externalOptions?.fields?.data?.node?.icon || "CornerDownLeft",
         provider: "",
       } as SelectedModel;
@@ -491,8 +491,7 @@ export default function ModelInputComponent({
           {externalOptions?.fields?.data?.node && (
             <div className="border-t bg-background">
               {renderFooterButton(
-                externalOptions.fields.data.node.display_name ||
-                  "Connect other models",
+                t("Connect other models"),
                 externalOptions.fields.data.node.icon || "CornerDownLeft",
                 () => handleExternalOptions("connect_other_models"),
                 "connect-other-models",

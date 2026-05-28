@@ -869,6 +869,7 @@
   "Get chat inputs from the Playground.": "从游乐场获取聊天输入。",
   "Display a chat message in the Playground.": "在游乐场显示聊天消息。",
   "Create a prompt template with dynamic variables.": "创建包含动态变量的提示词模板。",
+  "Connect other models": "连接其他模型",
   "Returns the current date and time in the selected timezone.": "返回所选时区的当前日期和时间。",
   "Perform basic arithmetic operations on a given expression.": "对给定表达式执行基本算术运算。",
   "Generates a unique ID.": "生成唯一ID。",
