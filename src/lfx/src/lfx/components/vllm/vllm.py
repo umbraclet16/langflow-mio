@@ -94,11 +94,13 @@ class VllmComponent(LCModelComponent):
 
     def build_model(self) -> LanguageModel:  # type: ignore[type-var]
         logger.debug(f"Executing request with vLLM model: {self.model_name}")
+        model_kwargs = self.model_kwargs or {}
+        model_kwargs = {k: v for k, v in model_kwargs.items() if k}
         parameters = {
             "api_key": SecretStr(self.api_key).get_secret_value() if self.api_key else None,
             "model_name": self.model_name,
             "max_tokens": self.max_tokens or None,
-            "model_kwargs": self.model_kwargs or {},
+            "model_kwargs": model_kwargs,
             "base_url": self.api_base or "http://localhost:8000/v1",
             "temperature": self.temperature if self.temperature is not None else 0.1,
         }

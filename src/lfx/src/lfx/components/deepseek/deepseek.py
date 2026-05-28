@@ -106,11 +106,13 @@ class DeepSeekModelComponent(LCModelComponent):
             raise ImportError(msg) from e
 
         api_key = SecretStr(self.api_key).get_secret_value() if self.api_key else None
+        model_kwargs = self.model_kwargs or {}
+        model_kwargs = {k: v for k, v in model_kwargs.items() if k}
         output = ChatOpenAI(
             model=self.model_name,
             temperature=self.temperature if self.temperature is not None else 0.1,
             max_tokens=self.max_tokens or None,
-            model_kwargs=self.model_kwargs or {},
+            model_kwargs=model_kwargs,
             base_url=self.api_base,
             api_key=api_key,
             streaming=self.stream if hasattr(self, "stream") else False,

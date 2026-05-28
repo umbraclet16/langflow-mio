@@ -112,6 +112,10 @@ class OpenAIModelComponent(LCModelComponent):
             logger.warning("api_key found in model_kwargs, removing to prevent conflicts")
             model_kwargs = dict(model_kwargs)  # Make a copy
             del model_kwargs["api_key"]
+        # Strip empty string keys which would cause "unexpected keyword argument ''" errors
+        if "" in model_kwargs:
+            logger.warning("Empty string key found in model_kwargs, removing to prevent API errors")
+            model_kwargs = {k: v for k, v in model_kwargs.items() if k}
 
         parameters = {
             "api_key": api_key_value,

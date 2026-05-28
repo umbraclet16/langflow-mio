@@ -126,6 +126,7 @@ class XAIModelComponent(LCModelComponent):
         model_name: str = self.model_name
         max_tokens = self.max_tokens
         model_kwargs = self.model_kwargs or {}
+        model_kwargs = {k: v for k, v in model_kwargs.items() if k}
         base_url = self.base_url or "https://api.x.ai/v1"
         json_mode = self.json_mode
         seed = self.seed

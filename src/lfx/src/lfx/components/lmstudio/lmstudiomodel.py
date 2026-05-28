@@ -100,6 +100,7 @@ class LMStudioModelComponent(LCModelComponent):
         model_name: str = self.model_name
         max_tokens = self.max_tokens
         model_kwargs = self.model_kwargs or {}
+        model_kwargs = {k: v for k, v in model_kwargs.items() if k}
         base_url = self.base_url or "http://localhost:1234/v1"
         seed = self.seed
 
