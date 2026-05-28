@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../../ui/select";
+import { useTranslation } from "react-i18next";
 
 export default function PaginatorComponent({
   pageSize = PAGINATION_SIZE,
@@ -24,6 +25,7 @@ export default function PaginatorComponent({
   pages,
   isComponent,
 }: PaginatorComponentType) {
+  const { t } = useTranslation();
   const [size, setPageSize] = useState(pageSize);
   const [maxIndex, setMaxPageIndex] = useState(
     Math.ceil(totalRowsCount / pageSize),
@@ -48,12 +50,12 @@ export default function PaginatorComponent({
         {(pageIndex - 1) * pageSize + 1}-
         {Math.min(totalRowsCount, (pageIndex - 1) * pageSize + pageSize)}{" "}
         <span className="text-muted-foreground">
-          of {totalRowsCount}{" "}
+          {t("paginator.of")} {totalRowsCount}{" "}
           {isComponent === undefined
-            ? "items"
+            ? t("paginator.items")
             : isComponent
-              ? "components"
-              : "flows"}
+              ? t("paginator.components")
+              : t("paginator.flows")}
         </span>
       </div>
       <div className={"flex items-center gap-2"}>
@@ -76,7 +78,7 @@ export default function PaginatorComponent({
               ))}
             </SelectContent>
           </Select>
-          <span className="text-muted-foreground">of {maxIndex} pages</span>
+          <span className="text-muted-foreground">{t("paginator.ofPages", { pages: maxIndex })}</span>
         </div>
         <div className="flex items-center gap-1">
           <Button
@@ -89,7 +91,7 @@ export default function PaginatorComponent({
             variant="ghost"
             size={"iconMd"}
           >
-            <span className="sr-only">Go to previous page</span>
+            <span className="sr-only">{t("paginator.goToPreviousPage")}</span>
             <IconComponent name="ChevronLeft" className="h-4 w-4" />
           </Button>
           <Button
@@ -100,7 +102,7 @@ export default function PaginatorComponent({
             variant="ghost"
             size={"iconMd"}
           >
-            <span className="sr-only">Go to next page</span>
+            <span className="sr-only">{t("paginator.goToNextPage")}</span>
             <IconComponent name="ChevronRight" className="h-4 w-4" />
           </Button>
         </div>

@@ -7,6 +7,7 @@ import {
   formatRunValue,
   pickFirstNumber,
 } from "./flowTraceColumnsHelpers";
+import { t } from "i18next";
 
 export function createFlowTracesColumns({
   flowId,
@@ -17,7 +18,7 @@ export function createFlowTracesColumns({
 } = {}): ColDef[] {
   return [
     {
-      headerName: "Run",
+      headerName: t("traces.column.run"),
       field: "run",
       flex: 1.0,
       minWidth: 240,
@@ -27,7 +28,7 @@ export function createFlowTracesColumns({
       valueGetter: () => formatRunValue(flowName, flowId),
     },
     {
-      headerName: "Trace ID",
+      headerName: t("traces.column.traceId"),
       field: "id",
       flex: 0.3,
       minWidth: 240,
@@ -37,7 +38,7 @@ export function createFlowTracesColumns({
     },
 
     {
-      headerName: "Timestamp (UTC)",
+      headerName: t("traces.column.timestamp"),
       field: "startTime",
       flex: 0.5,
       minWidth: 70,
@@ -47,7 +48,7 @@ export function createFlowTracesColumns({
       valueGetter: (params) => formatSmartTimestamp(params.data?.startTime),
     },
     {
-      headerName: "Input",
+      headerName: t("traces.column.input"),
       field: "input",
       flex: 1,
       minWidth: 150,
@@ -57,7 +58,7 @@ export function createFlowTracesColumns({
       valueGetter: (params) => formatObjectValue(params.data?.input),
     },
     {
-      headerName: "Output",
+      headerName: t("traces.column.output"),
       field: "output",
       flex: 1,
       minWidth: 150,
@@ -67,7 +68,7 @@ export function createFlowTracesColumns({
       valueGetter: (params) => formatObjectValue(params.data?.output),
     },
     {
-      headerName: "Token",
+      headerName: t("traces.column.token"),
       field: "totalTokens",
       flex: 0.5,
       minWidth: 50,
@@ -83,7 +84,7 @@ export function createFlowTracesColumns({
       },
     },
     {
-      headerName: "Latency",
+      headerName: t("traces.column.latency"),
       field: "totalLatencyMs",
       flex: 0.6,
       minWidth: 50,
@@ -99,7 +100,7 @@ export function createFlowTracesColumns({
       },
     },
     {
-      headerName: "Status",
+      headerName: t("traces.column.status"),
       field: "status",
       flex: 0.6,
       minWidth: 100,
