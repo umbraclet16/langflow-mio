@@ -7,18 +7,18 @@ const useDescriptionModal = (
   const getDescriptionModal = useMemo(() => {
     const getTypeLabel = (type) => {
       const labels = {
-        all: "item",
-        component: "component",
-        flow: "flow",
+        all: "项目",
+        component: "组件",
+        flow: "流程",
       };
       return labels[type] || "";
     };
 
     const getPluralizedLabel = (type) => {
       const labels = {
-        all: "items",
-        component: "components",
-        flow: "flows",
+        all: "项目",
+        component: "组件",
+        flow: "流程",
       };
       return labels[type] || "";
     };
