@@ -7,7 +7,7 @@ from lfx.schema.message import Message
 
 class ConditionalRouterComponent(Component):
     display_name = "If-Else"
-    description = "Routes an input message to a corresponding output based on text comparison."
+    description = "根据文本比较将输入消息路由到相应输出。"
     documentation: str = "https://docs.langflow.org/if-else"
     icon = "split"
     name = "ConditionalRouter"
@@ -25,7 +25,7 @@ class ConditionalRouterComponent(Component):
         ),
         DropdownInput(
             name="operator",
-            display_name="Operator",
+            display_name="运算符",
             options=[
                 "equals",
                 "not equals",
@@ -38,14 +38,14 @@ class ConditionalRouterComponent(Component):
                 "greater than",
                 "greater than or equal",
             ],
-            info="The operator to apply for comparing the texts.",
+            info="用于比较文本的运算符。",
             value="equals",
             real_time_refresh=True,
         ),
         MessageTextInput(
             name="match_text",
-            display_name="Match Text",
-            info="The text input to compare against.",
+            display_name="匹配文本",
+            info="要比较的文本输入。",
             required=True,
         ),
         BoolInput(

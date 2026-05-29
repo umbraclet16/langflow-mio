@@ -394,7 +394,7 @@ export default function Dropdown({
                 <>
                   {
                     options?.includes(value) ? (
-                      value
+                      t(value, { defaultValue: value })
                     ) : // this logic is used for the agents component, if you update make sure to test the agent component
                     sourceOptions?.fields?.data?.node?.name ===
                       "connect_other_models" ? (
@@ -498,7 +498,7 @@ export default function Dropdown({
                       })}
                     >
                       <div className="text-[13px] mr-2 whitespace-nowrap flex-shrink-0">
-                        {option}
+                        {t(option, { defaultValue: option })}
                       </div>
                       {filteredMetadata?.[index]?.status && (
                         <span
@@ -703,7 +703,9 @@ export default function Dropdown({
               className="h-4 w-4 flex-shrink-0"
             />
           )}
-          <span className="truncate text-sm">{value}</span>
+          <span className="truncate text-sm">
+            {t(value, { defaultValue: value })}
+          </span>
         </div>
       ) : (
         <div className="w-full truncate">{renderTriggerButton()}</div>
