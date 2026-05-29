@@ -64,7 +64,7 @@ export function useFlowEvents(flowId: string | undefined): UseFlowEventsReturn {
         { params: { since: cursorRef.current } },
       );
 
-      if (!mountedRef.current) return;
+      if (!mountedRef.current || !response?.data) return;
 
       const { events: newEvents, settled } = response.data;
 
