@@ -35,7 +35,7 @@ export const useKnowledgeBaseActions = ({
 
   const cancelIngestionMutation = useCancelIngestion({
     onSuccess: () => {
-      setSuccessData({ title: "Ingestion cancelled" });
+      setSuccessData({ title: "入库已取消" });
       refetch();
     },
     onError: (error: AxiosError<{ detail?: string }>) => {
@@ -54,7 +54,7 @@ export const useKnowledgeBaseActions = ({
 
   const deleteKnowledgeBaseMutation = useDeleteKnowledgeBase({
     onSuccess: () => {
-      setSuccessData({ title: "Knowledge base deleted" });
+      setSuccessData({ title: "知识库已删除" });
     },
     onError: (error: AxiosError<{ detail?: string }>) => {
       setErrorData({
@@ -73,7 +73,7 @@ export const useKnowledgeBaseActions = ({
 
   const deleteKnowledgeBasesMutation = useDeleteKnowledgeBase({
     onSuccess: () => {
-      setSuccessData({ title: "Knowledge base(s) deleted" });
+      setSuccessData({ title: "知识库已删除" });
     },
     onError: (error: AxiosError<{ detail?: string }>) => {
       setErrorData({

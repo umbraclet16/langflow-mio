@@ -65,7 +65,7 @@ const ListComponent = ({
     deleteFlow({ id: [flowData.id] })
       .then(() => {
         setSuccessData({
-          title: "Selected items deleted successfully",
+          title: "选中项目已成功删除",
         });
       })
       .catch((err) => {
@@ -92,7 +92,7 @@ const ListComponent = ({
   const handleExport = () => {
     if (flowData.is_component) {
       downloadFlow(flowData, flowData.name, flowData.description);
-      setSuccessData({ title: `${flowData.name} exported successfully` });
+      setSuccessData({ title: `${flowData.name} 导出成功` });
     } else {
       setOpenExportModal(true);
     }
@@ -217,7 +217,7 @@ const ListComponent = ({
           setOpen={setOpenDelete}
           onConfirm={handleDelete}
           description={descriptionModal}
-          note={!flowData.is_component ? "and its message history" : ""}
+          note={!flowData.is_component ? "及其消息历史" : ""}
         />
       )}
       <ExportModal

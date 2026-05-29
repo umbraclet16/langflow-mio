@@ -265,7 +265,7 @@ const NodeToolbarComponent = memo(
         flow: flowComponent,
         override: false,
       });
-      setSuccessData({ title: `${data.id} saved successfully` });
+      setSuccessData({ title: `${data.id} 保存成功` });
     }, [isSaved, data.id, flowComponent, addFlow]);
 
     const openDocs = useCallback(() => {
@@ -583,7 +583,9 @@ const NodeToolbarComponent = memo(
                       toolMode ? "text-primary" : "",
                     )}
                   />
-                  <span className="text-mmd font-medium">{t("nodeToolbar.toolMode")}</span>
+                  <span className="text-mmd font-medium">
+                    {t("nodeToolbar.toolMode")}
+                  </span>
                   <ToggleShadComponent
                     value={toolMode}
                     editNode={false}
@@ -718,19 +720,19 @@ const NodeToolbarComponent = memo(
                 )}
 
                 {import.meta.env.DEV && (
-                <SelectItem
-                  value={"documentation"}
-                  disabled={data.node?.documentation === ""}
-                >
-                  <ToolbarSelectItem
-                    shortcut={
-                      shortcuts.find((obj) => obj.name === "Docs")?.shortcut!
-                    }
-                    value={t("nodeToolbar.docs")}
-                    icon={"FileText"}
-                    dataTestId="docs-button-modal"
-                  />
-                </SelectItem>
+                  <SelectItem
+                    value={"documentation"}
+                    disabled={data.node?.documentation === ""}
+                  >
+                    <ToolbarSelectItem
+                      shortcut={
+                        shortcuts.find((obj) => obj.name === "Docs")?.shortcut!
+                      }
+                      value={t("nodeToolbar.docs")}
+                      icon={"FileText"}
+                      dataTestId="docs-button-modal"
+                    />
+                  </SelectItem>
                 )}
 
                 {(isMinimal || !showNode) && (
@@ -745,7 +747,11 @@ const NodeToolbarComponent = memo(
                         shortcuts.find((obj) => obj.name === "Minimize")
                           ?.shortcut!
                       }
-                      value={showNode ? t("nodeToolbar.minimize") : t("nodeToolbar.expand")}
+                      value={
+                        showNode
+                          ? t("nodeToolbar.minimize")
+                          : t("nodeToolbar.expand")
+                      }
                       icon={showNode ? "Minimize2" : "Maximize2"}
                     />
                   </SelectItem>

@@ -4,7 +4,7 @@ import ConfirmationModal from "@/modals/confirmationModal";
 import EditNodeModal from "@/modals/editNodeModal";
 import ShareModal from "@/modals/shareModal";
 import type { APIClassType } from "@/types/api";
-import type { FlowType } from "@/types/flow";
+import type { FlowType, NodeDataType } from "@/types/flow";
 
 interface ToolbarModalsProps {
   // Modal visibility states
@@ -21,7 +21,7 @@ interface ToolbarModalsProps {
   setOpenModal: (value: boolean) => void;
 
   // Data and handlers
-  data: any;
+  data: NodeDataType;
   flowComponent: FlowType;
   handleOnNewValue: (value: string | string[]) => void;
   handleNodeClass: (apiClassType: APIClassType, type: string) => void;
@@ -57,7 +57,7 @@ const ToolbarModals = memo(
         flow: flowComponent,
         override: true,
       });
-      setSuccessData({ title: `${data.id} successfully overridden!` });
+      setSuccessData({ title: `${data.id} 已成功覆盖！` });
       setShowOverrideModal(false);
     };
 
@@ -70,7 +70,7 @@ const ToolbarModals = memo(
         flow: flowComponent,
         override: true,
       });
-      setSuccessData({ title: "New component successfully saved!" });
+      setSuccessData({ title: "新组件保存成功！" });
       setShowOverrideModal(false);
     };
 
