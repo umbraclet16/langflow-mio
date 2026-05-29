@@ -89,7 +89,7 @@ const FlowSettingsComponent = ({
       saveFlow(newFlow)
         ?.then(() => {
           setIsSaving(false);
-          setSuccessData({ title: "Changes saved successfully" });
+          setSuccessData({ title: "更改已成功保存" });
           close();
         })
         .catch(() => {
@@ -138,7 +138,7 @@ const FlowSettingsComponent = ({
             type="button"
             onClick={() => close()}
           >
-            Cancel
+            取消
           </Button>
           <Form.Submit asChild>
             <Button
@@ -148,7 +148,7 @@ const FlowSettingsComponent = ({
               loading={isSaving}
               disabled={disableSave}
             >
-              Save
+              保存
             </Button>
           </Form.Submit>
         </div>

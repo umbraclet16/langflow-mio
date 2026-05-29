@@ -16,7 +16,7 @@ export default function FlowSettingsModal({
       className="p-4"
     >
       <BaseModal.Header>
-        <span className="text-base font-semibold">Flow Details</span>
+        <span className="text-base font-semibold">流程详情</span>
       </BaseModal.Header>
       <BaseModal.Content>
         <FlowSettingsComponent

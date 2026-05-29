@@ -92,18 +92,16 @@ export const EditFlowSettings: React.FC<
       <Form.Field name="name">
         <div className="edit-flow-arrangement">
           <Form.Label className="text-mmd font-medium">
-            Name{setName ? "" : ":"}
+            名称{setName ? "" : "："}
           </Form.Label>
           {isMaxLength && (
-            <span className="edit-flow-span">Character limit reached</span>
+            <span className="edit-flow-span">已达到字符上限</span>
           )}
           {isMinLength && (
-            <span className="edit-flow-span">
-              Minimum {minLength} character(s) required
-            </span>
+            <span className="edit-flow-span">最少需要 {minLength} 个字符</span>
           )}
           {isInvalidName && (
-            <span className="edit-flow-span">Flow name already exists</span>
+            <span className="edit-flow-span">流程名称已存在</span>
           )}
         </div>
         {setName ? (
@@ -114,7 +112,7 @@ export const EditFlowSettings: React.FC<
               type="text"
               name="name"
               value={name ?? ""}
-              placeholder="Flow name"
+              placeholder="流程名称"
               id="name"
               maxLength={maxLength}
               minLength={minLength}
@@ -131,22 +129,22 @@ export const EditFlowSettings: React.FC<
           </span>
         )}
         <Form.Message match="valueMissing" className="field-invalid">
-          Please enter a name
+          请输入名称
         </Form.Message>
         <Form.Message
           match={(value) => !!(value && invalidNameList.includes(value))}
           className="field-invalid"
         >
-          Flow name already exists
+          流程名称已存在
         </Form.Message>
       </Form.Field>
       <Form.Field name="description">
         <div className="edit-flow-arrangement mt-2">
           <Form.Label className="text-mmd font-medium">
-            Description{setDescription ? "" : ":"}
+            描述{setDescription ? "" : "："}
           </Form.Label>
           {isMaxDescriptionLength && (
-            <span className="edit-flow-span">Character limit reached</span>
+            <span className="edit-flow-span">已达到字符上限</span>
           )}
         </div>
         {setDescription ? (
@@ -156,7 +154,7 @@ export const EditFlowSettings: React.FC<
               id="description"
               onChange={handleDescriptionChange}
               value={description!}
-              placeholder="Flow description"
+              placeholder="流程描述"
               data-testid="input-flow-description"
               className="mt-2 max-h-[250px] resize-none font-normal"
               rows={5}
@@ -173,18 +171,18 @@ export const EditFlowSettings: React.FC<
               description === "" ? "font-light italic" : "",
             )}
           >
-            {description === "" ? "No description" : description}
+            {description === "" ? "无描述" : description}
           </div>
         )}
         <Form.Message match="valueMissing" className="field-invalid">
-          Please enter a description
+          请输入描述
         </Form.Message>
         <div className="mt-3">
           <div className="flex items-center gap-2">
             <div>
               <div className="flex items-center gap-2">
                 <Form.Label className="text-mmd font-medium">
-                  Lock Flow
+                  锁定流程
                 </Form.Label>
 
                 <ForwardedIconComponent
@@ -194,7 +192,7 @@ export const EditFlowSettings: React.FC<
               </div>
 
               <p className="text-xs text-muted-foreground/70 mt-1 font-normal">
-                Lock your flow to prevent edits or accidental changes.
+                锁定流程以防止编辑或意外更改。
               </p>
             </div>
 
