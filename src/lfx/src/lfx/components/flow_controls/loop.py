@@ -16,33 +16,30 @@ from lfx.template.field.base import Output
 
 
 class LoopComponent(Component):
-    display_name = "Loop"
-    description = (
-        "Iterates through Data or Message objects, processing items individually "
-        "and aggregating results from loop inputs."
-    )
+    display_name = "循环"
+    description = "遍历Data或Message对象，逐个处理项目并聚合循环输入的结果。"  # noqa: RUF001
     documentation: str = "https://docs.langflow.org/loop"
     icon = "infinity"
 
     inputs = [
         HandleInput(
             name="data",
-            display_name="Inputs",
-            info="The initial DataFrame to iterate over.",
+            display_name="输入",
+            info="要遍历的初始DataFrame。",
             input_types=["DataFrame", "Table"],
         ),
     ]
 
     outputs = [
         Output(
-            display_name="Item",
+            display_name="条目",
             name="item",
             method="item_output",
             allows_loop=True,
             loop_types=["Message"],
             group_outputs=True,
         ),
-        Output(display_name="Done", name="done", method="done_output", group_outputs=True),
+        Output(display_name="完成", name="done", method="done_output", group_outputs=True),
     ]
 
     def initialize_data(self) -> None:
