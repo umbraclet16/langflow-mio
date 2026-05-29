@@ -42,6 +42,7 @@ export default defineConfig(({ mode }) => {
     base: BASENAME || "",
     build: {
       outDir: "build",
+      target: "chrome108",
     },
     define: {
       "import.meta.env.BACKEND_URL": JSON.stringify(

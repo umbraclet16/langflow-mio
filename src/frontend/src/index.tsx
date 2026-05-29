@@ -1,3 +1,24 @@
+// Polyfills for Chrome 108 compatibility
+// Promise.withResolvers - Chrome 119+
+if (typeof Promise.withResolvers !== "function") {
+  Promise.withResolvers = function () {
+    let resolve!: (value: unknown) => void;
+    let reject!: (reason?: unknown) => void;
+    const promise = new Promise((res, rej) => {
+      resolve = res as (value: unknown) => void;
+      reject = rej;
+    });
+    return { promise, resolve, reject };
+  };
+}
+
+// Array.prototype.toReversed - Chrome 110+
+if (typeof Array.prototype.toReversed !== "function") {
+  Array.prototype.toReversed = function () {
+    return [...this].reverse();
+  };
+}
+
 import "./i18n";
 import i18n from "./i18n";
 import { loadLanguage } from "./i18n";
