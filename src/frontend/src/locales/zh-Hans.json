@@ -493,6 +493,7 @@
   "success.codeReady": "代码已准备就绪",
   "success.fileUploaded": "文件已成功上传",
   "success.flowBuilt": "流程已成功建立",
+  "success.flowSaved": "流程已成功保存！",
   "success.keyDeleted": "成功！ 密钥已删除！",
   "success.keysDeleted": "成功！ 密钥已删除！",
   "success.promptReady": "提示词已准备就绪",

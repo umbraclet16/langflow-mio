@@ -42,6 +42,7 @@
   "success.keyDeleted": "Success! Key deleted!",
   "success.keysDeleted": "Success! Keys deleted!",
   "success.flowBuilt": "Flow built successfully",
+  "success.flowSaved": "Flow saved successfully!",
   "success.changesSaved": "Changes saved successfully!",
   "alerts.noChatOutput": "There is no ChatOutput Component in the flow.",
   "alerts.criticalDataWarning": "Warning: Critical data, JSON file may include API keys.",

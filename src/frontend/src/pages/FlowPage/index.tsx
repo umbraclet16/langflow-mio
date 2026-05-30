@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
+import { useTranslation } from "react-i18next";
 import { useBlocker, useParams } from "react-router-dom";
 import { AssistantPanel } from "@/components/core/assistantPanel";
 import { FlowPageSlidingContainerContent } from "@/components/core/playgroundComponent/sliding-container/components/flow-page-sliding-container";
@@ -62,6 +63,7 @@ function FlowPageMainContent({
 }
 
 export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
+  const { t } = useTranslation();
   const types = useTypesStore((state) => state.types);
 
   useGetTypes({
@@ -107,7 +109,7 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
       if (proceed) {
         blocker.proceed && blocker.proceed();
         setSuccessData({
-          title: "Flow saved successfully!",
+          title: t("success.flowSaved"),
         });
       }
     }, 1200);
@@ -115,7 +117,7 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
       if (!autoSaving || saving === false) {
         blocker.proceed && blocker.proceed();
         setSuccessData({
-          title: "Flow saved successfully!",
+          title: t("success.flowSaved"),
         });
       }
       proceed = true;
