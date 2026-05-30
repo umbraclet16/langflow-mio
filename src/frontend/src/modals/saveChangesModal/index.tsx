@@ -1,5 +1,6 @@
 import { truncate } from "lodash";
 import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import Loading from "@/components/ui/loading";
 import ConfirmationModal from "../confirmationModal";
@@ -19,6 +20,7 @@ export function SaveChangesModal({
   lastSaved: string | undefined;
   autoSave: boolean;
 }): JSX.Element {
+  const { t } = useTranslation();
   const [saving, setSaving] = useState(false);
 
   const handleOpenAutoFocus = useCallback((e: Event) => {
@@ -33,12 +35,11 @@ export function SaveChangesModal({
       open={true}
       onClose={onCancel}
       destructiveCancel
-      title={
-        (autoSave ? "Flow" : truncate(flowName, { length: 32 })) +
-        " has unsaved changes"
-      }
-      cancelText={autoSave ? undefined : "Exit anyway"}
-      confirmationText={autoSave ? undefined : "Save and Exit"}
+      title={t("saveChanges.unsavedChanges", {
+        flowName: autoSave ? "Flow" : truncate(flowName, { length: 32 }),
+      })}
+      cancelText={autoSave ? undefined : t("saveChanges.exitAnyway")}
+      confirmationText={autoSave ? undefined : t("saveChanges.saveAndExit")}
       onConfirm={
         autoSave
           ? undefined
@@ -56,24 +57,26 @@ export function SaveChangesModal({
         {autoSave ? (
           <div className="mb-4 flex w-full items-center gap-3 rounded-md bg-muted px-4 py-2 text-muted-foreground">
             <Loading className="h-5 w-5" />
-            Saving your changes...
+            {t("saveChanges.saving")}
           </div>
         ) : (
           <>
             <div className="mb-4 flex w-full items-center gap-3 rounded-md bg-warning px-4 py-2 text-warning-foreground">
               <ForwardedIconComponent name="Info" className="h-5 w-5" />
-              Last saved: {lastSaved ?? "Never"}
+              {t("saveChanges.lastSaved", {
+                time: lastSaved ?? t("saveChanges.never"),
+              })}
             </div>
-            Unsaved changes will be permanently lost.{" "}
+            {t("saveChanges.warning")}{" "}
             <a
               target="_blank"
               className="text-accent-pink-foreground hover:underline"
               href="https://docs.langflow.org/environment-variables#visual-editor-and-playground-behavior"
               rel="noopener"
             >
-              Enable auto-saving
+              {t("saveChanges.enableAutoSave")}
             </a>{" "}
-            to avoid losing progress.
+            {t("saveChanges.toAvoidLosing")}
           </>
         )}
       </ConfirmationModal.Content>
