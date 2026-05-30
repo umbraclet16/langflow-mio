@@ -1,7 +1,8 @@
 import { useUpdateNodeInternals } from "@xyflow/react";
-import { cloneDeep } from "lodash";
 import { AnimatePresence, motion } from "framer-motion";
+import { cloneDeep } from "lodash";
 import { useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { processNodeAdvancedFields } from "@/CustomNodes/helpers/process-node-advanced-fields";
 import useUpdateAllNodes, {
   type UpdateNodesType,
@@ -11,8 +12,8 @@ import { usePostValidateComponentCode } from "@/controllers/API/queries/nodes/us
 import UpdateComponentModal from "@/modals/updateComponentModal";
 import useAlertStore from "@/stores/alertStore";
 import useFlowStore, {
-  registerNodeUpdate,
   completeNodeUpdate,
+  registerNodeUpdate,
 } from "@/stores/flowStore";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
 import { useTypesStore } from "@/stores/typesStore";
@@ -20,13 +21,12 @@ import { useUtilityStore } from "@/stores/utilityStore";
 import type { NodeDataType } from "@/types/flow";
 import { cn } from "@/utils/utils";
 
-const ERROR_MESSAGE_UPDATING_COMPONENTS = "Error updating components";
-const ERROR_MESSAGE_UPDATING_COMPONENTS_LIST = [
-  "There was an error updating the components.",
-  "If the error persists, please report it on our Discord or GitHub.",
+const ERROR_MESSAGE_UPDATING_COMPONENTS = "updateAll.errorUpdatingComponents";
+const ERROR_MESSAGE_UPDATING_COMPONENTS_LIST_KEYS = [
+  "updateAll.errorUpdatingComponentsMessage",
+  "updateAll.errorReportOnDiscord",
 ];
-const ERROR_MESSAGE_EDGES_LOST =
-  "Some edges were lost after updating the components. Please review the flow and reconnect them.";
+const ERROR_MESSAGE_EDGES_LOST_KEY = "updateAll.edgesLostWarning";
 
 const CONTAINER_VARIANTS = {
   hidden: { opacity: 0, y: 20 },
@@ -35,6 +35,7 @@ const CONTAINER_VARIANTS = {
 };
 
 export default function UpdateAllComponents() {
+  const { t } = useTranslation();
   const { componentsToUpdate, nodes, edges, setNodes } = useFlowStore();
   const templates = useTypesStore((state) => state.templates);
   const setErrorData = useAlertStore((state) => state.setErrorData);
@@ -103,7 +104,7 @@ export default function UpdateAllComponents() {
       edgesUpdateRef.current.updateComponent
     ) {
       useAlertStore.getState().setNoticeData({
-        title: ERROR_MESSAGE_EDGES_LOST,
+        title: t(ERROR_MESSAGE_EDGES_LOST_KEY),
       });
 
       resetEdgesUpdateRef();
@@ -112,9 +113,7 @@ export default function UpdateAllComponents() {
 
   const getSuccessTitle = (updatedCount: number) => {
     resetEdgesUpdateRef();
-    return `Successfully updated ${updatedCount} component${
-      updatedCount > 1 ? "s" : ""
-    }`;
+    return t("updateAll.successUpdated", { count: updatedCount });
   };
 
   const breakingChanges = updatableComponents.filter(
@@ -208,8 +207,10 @@ export default function UpdateAllComponents() {
       })
       .catch((error) => {
         setErrorData({
-          title: ERROR_MESSAGE_UPDATING_COMPONENTS,
-          list: ERROR_MESSAGE_UPDATING_COMPONENTS_LIST,
+          title: t(ERROR_MESSAGE_UPDATING_COMPONENTS),
+          list: ERROR_MESSAGE_UPDATING_COMPONENTS_LIST_KEYS.map((key) =>
+            t(key),
+          ),
         });
         console.error(error);
       })
@@ -265,15 +266,25 @@ export default function UpdateAllComponents() {
   const showDismissedWarning = !allowCustomComponents && allDismissed;
   const summaryMessage = showDismissedWarning
     ? blockedComponents.length > 0
-      ? "Custom components are disabled"
-      : "Upgrade is required to execute flow"
+      ? t("updateAll.customComponentsDisabled")
+      : t("updateAll.upgradeRequired")
     : !allowCustomComponents
       ? blockedComponents.length > 0 && updatableComponents.length > 0
-        ? `${blockedComponents.length} custom component${blockedComponents.length > 1 ? "s cannot" : " cannot"} run and ${updatableComponents.length} component${updatableComponents.length > 1 ? "s must" : " must"} be updated before this flow can run`
+        ? t("updateAll.blockedAndUpdatable", {
+            count: blockedComponents.length,
+            blockedCount: blockedComponents.length,
+            updatableCount: updatableComponents.length,
+          })
         : blockedComponents.length > 0
-          ? `${blockedComponents.length} custom component${blockedComponents.length > 1 ? "s cannot" : " cannot"} run while custom components are disabled`
-          : `${updatableComponents.length} component${updatableComponents.length > 1 ? "s must" : " must"} be updated before this flow can run`
-      : `Update${updatableComponents.length > 1 ? "s are" : " is"} available for ${updatableComponents.length} component${updatableComponents.length > 1 ? "s" : ""}`;
+          ? t("updateAll.blockedOnly", {
+              count: blockedComponents.length,
+              blockedCount: blockedComponents.length,
+            })
+          : t("updateAll.updatableOnly", {
+              count: updatableComponents.length,
+              updatableCount: updatableComponents.length,
+            })
+      : t("updateAll.updatesAvailable", { count: updatableComponents.length });
 
   return (
     <AnimatePresence mode="wait">
@@ -306,7 +317,9 @@ export default function UpdateAllComponents() {
                   className="shrink-0 text-sm"
                   onClick={handleDismissAllComponents}
                 >
-                  Dismiss {componentsToUpdateFiltered.length > 1 ? "All" : ""}
+                  {componentsToUpdateFiltered.length > 1
+                    ? t("updateAll.dismissAll")
+                    : t("updateAll.dismiss")}
                 </Button>
               )}
               {updatableComponents.length > 0 && (
@@ -317,7 +330,9 @@ export default function UpdateAllComponents() {
                   loading={loadingUpdate}
                   data-testid="update-all-button"
                 >
-                  {breakingChanges.length > 0 ? "Review All" : "Update All"}
+                  {breakingChanges.length > 0
+                    ? t("updateAll.reviewAll")
+                    : t("updateAll.updateAll")}
                 </Button>
               )}
             </div>

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import useFlowStore from "@/stores/flowStore";
 import { cn } from "@/utils/utils";
@@ -12,6 +13,7 @@ export default function NodeLegacyComponent({
   replacement?: string[];
   setDismissAll: (value: boolean) => void;
 }) {
+  const { t } = useTranslation();
   const setFilterComponent = useFlowStore((state) => state.setFilterComponent);
   const setFilterType = useFlowStore((state) => state.setFilterType);
   const setFilterEdge = useFlowStore((state) => state.setFilterEdge);
@@ -32,7 +34,9 @@ export default function NodeLegacyComponent({
     >
       <div className="flex items-center gap-3 w-full">
         <div className="h-2.5 w-2.5 rounded-full bg-warning" />
-        <div className="mb-px flex-1 truncate text-mmd font-medium">Legacy</div>
+        <div className="mb-px flex-1 truncate text-mmd font-medium">
+          {t("nodeLegacy.legacy")}
+        </div>
 
         <Button
           variant="ghost"
@@ -42,10 +46,10 @@ export default function NodeLegacyComponent({
             e.stopPropagation();
             setDismissAll(true);
           }}
-          aria-label="Dismiss warning bar"
+          aria-label={t("nodeUpdate.dismissWarning")}
           data-testid="dismiss-warning-bar"
         >
-          Dismiss
+          {t("updateAll.dismiss")}
         </Button>
       </div>
       <div className="text-mmd text-muted-foreground w-full">
@@ -54,13 +58,12 @@ export default function NodeLegacyComponent({
         replacement.length > 0 &&
         foundComponents.some((component) => component) ? (
           <span className="block items-center">
-            Use{" "}
-            {foundComponents.map((component, index) => (
-              <>
-                {component && (
-                  <>
-                    {index > 0 && ", "}
+            {t("nodeLegacy.useReplacement", {
+              components: foundComponents
+                .map((component, index) =>
+                  component ? (
                     <Button
+                      key={index}
                       variant="link"
                       className=" !text-accent-pink-foreground !text-mmd !inline-block"
                       size={null}
@@ -68,14 +71,18 @@ export default function NodeLegacyComponent({
                     >
                       <span>{component}</span>
                     </Button>
-                  </>
-                )}
-              </>
-            ))}
-            .
+                  ) : null,
+                )
+                .filter(Boolean)
+                .reduce(
+                  (prev, curr, index) =>
+                    index === 0 ? [curr] : [...prev, ", ", curr],
+                  [] as React.ReactNode[],
+                ),
+            })}
           </span>
         ) : (
-          "No direct replacement."
+          t("nodeLegacy.noReplacement")
         )}
       </div>
     </div>
