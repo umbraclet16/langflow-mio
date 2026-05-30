@@ -24,7 +24,6 @@ from typing import Any
 from lfx.base.data.base_file import BaseFileComponent
 from lfx.base.data.storage_utils import parse_storage_path, read_file_bytes, validate_image_content_type
 from lfx.base.data.utils import TEXT_FILE_TYPES, parallel_load_data, parse_text_file_to_data
-from lfx.inputs import SortableListInput
 from lfx.inputs.inputs import DropdownInput, MessageTextInput, StrInput
 from lfx.io import BoolInput, FileInput, IntInput, Output, SecretStrInput
 from lfx.schema.data import Data
@@ -102,17 +101,18 @@ class FileComponent(BaseFileComponent):
             break
 
     inputs = [
-        SortableListInput(
-            name="storage_location",
-            display_name="Storage Location",
-            placeholder="Select Location",
-            info="Choose where to read the file from.",
-            options=_get_storage_location_options(),
-            real_time_refresh=True,
-            limit=1,
-            value=[{"name": "Local", "icon": "hard-drive"}],
-            advanced=True,
-        ),
+        # Storage Location disabled - only using local storage
+        # SortableListInput(
+        #     name="storage_location",
+        #     display_name="Storage Location",
+        #     placeholder="Select Location",
+        #     info="Choose where to read the file from.",
+        #     options=_get_storage_location_options(),
+        #     real_time_refresh=True,
+        #     limit=1,
+        #     value=[{"name": "Local", "icon": "hard-drive"}],
+        #     advanced=True,
+        # ),
         *_base_inputs,
         StrInput(
             name="file_path_str",
