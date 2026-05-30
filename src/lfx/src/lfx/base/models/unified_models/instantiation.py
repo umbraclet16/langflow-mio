@@ -265,6 +265,43 @@ def _resolve_unified_credentials(
     return base_url, api_key
 
 
+def _resolve_unified_embedding_credentials(
+    model_name: str,
+    metadata: dict,
+) -> tuple[str | None, str | None]:
+    """Return (base_url, api_key) for a Unified embedding model.
+
+    Same as _resolve_unified_credentials but fetches from the /embeddings
+    endpoint instead of /models.
+    """
+    from .unified_model_fetcher import fetch_embeddings_from_agent_platform
+
+    base_url = metadata.get("unified_base_url")
+    api_key = metadata.get("unified_api_key")
+
+    try:
+        fresh_models = fetch_embeddings_from_agent_platform()
+    except Exception:  # noqa: BLE001
+        from lfx.log.logger import logger
+
+        logger.exception("[AgentPlatform] Failed to fetch fresh embedding credentials; using persisted values")
+        return base_url, api_key
+
+    for fm in fresh_models:
+        if fm.get("id") == model_name:
+            base_url = fm.get("base_url", base_url)
+            api_key = fm.get("api_key", api_key)
+            return base_url, api_key
+
+    from lfx.log.logger import logger
+
+    logger.warning(
+        "[AgentPlatform] Embedding model '%s' not found in fresh list; using persisted credentials",
+        model_name,
+    )
+    return base_url, api_key
+
+
 def _log_unified_params(kwargs: dict, base_url: str | None, api_key: str | None) -> None:
     """Log the Unified provider parameters being used (with masked api_key)."""
     from lfx.log.logger import logger
@@ -461,16 +498,19 @@ def get_embeddings(
     # Mirrors get_llm() — fetches fresh credentials from the agent platform
     # API so a stale api_key in a saved flow can't cause 401s.
     if _has_embedded_credentials(metadata):
-        unified_base_url, unified_api_key = _resolve_unified_credentials(model_name, metadata)
+        unified_base_url, unified_api_key = _resolve_unified_embedding_credentials(model_name, metadata)
         # Use is-not-None so empty-string credentials (e.g. local models
         # that don't require authentication) are still passed through.
         if unified_base_url is not None:
             kwargs["base_url"] = unified_base_url
-        if unified_api_key is not None:
+        if unified_api_key is not None and provider != "Ollama":
             kwargs["api_key"] = unified_api_key
         if "model" not in kwargs:
             kwargs["model"] = model_name
         _log_unified_params(kwargs, unified_base_url, unified_api_key)
+
+    if "check_embedding_ctx_length" in metadata:
+        kwargs["check_embedding_ctx_length"] = metadata["check_embedding_ctx_length"]
 
     try:
         return embedding_class(**kwargs)

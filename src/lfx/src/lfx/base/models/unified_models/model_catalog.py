@@ -404,6 +404,9 @@ def _get_unified_embedding_options(api_url: str) -> list[dict[str, Any]]:
                 "unified_base_url": base_url,
             },
         }
+
+        if embedding_class == "OpenAIEmbeddings":
+            option["metadata"]["check_embedding_ctx_length"] = False
         logger.info(
             "[AgentPlatform]   %s → provider=%s class=%s base_url=%s",
             model_id,
