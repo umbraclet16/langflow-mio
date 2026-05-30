@@ -1,6 +1,7 @@
 import type { RowClickedEvent, SelectionChangedEvent } from "ag-grid-community";
 import type { AgGridReact } from "ag-grid-react";
 import { useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import TableComponent from "@/components/core/parameterRenderComponent/components/tableComponent";
@@ -36,6 +37,7 @@ const KnowledgeBasesTab = ({
   isShiftPressed,
   onRowClick,
 }: KnowledgeBasesTabProps) => {
+  const { t } = useTranslation();
   const tableRef = useRef<AgGridReact<unknown>>(null);
   const { setErrorData, setSuccessData } = useAlertStore((state) => ({
     setErrorData: state.setErrorData,
@@ -67,12 +69,15 @@ const KnowledgeBasesTab = ({
       for (const { kb, previousStatus } of transitions) {
         if (kb.status === "failed" && previousStatus !== "failed") {
           setErrorData({
-            title: `Ingestion failed for "${kb.name}"`,
+            title: t("knowledgeBases.ingestionFailed", { name: kb.name }),
             list: kb.failure_reason ? [kb.failure_reason] : undefined,
           });
         } else if (kb.status === "ready" && previousStatus === "ingesting") {
           setSuccessData({
-            title: `"${kb.name}" ingestion complete — ${kb.chunks} chunks ready`,
+            title: t("knowledgeBases.ingestionComplete", {
+              name: kb.name,
+              chunks: kb.chunks,
+            }),
           });
         }
       }
