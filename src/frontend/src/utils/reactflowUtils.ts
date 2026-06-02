@@ -27,7 +27,6 @@ import {
   getLeftHandleId,
   getRightHandleId,
 } from "@/CustomNodes/utils/get-handle-id";
-import i18n from "../i18n";
 import { customDownloadNodeJson } from "@/customization/utils/custom-download-json";
 import { customDownloadFlow } from "@/customization/utils/custom-reactFlowUtils";
 import useFlowStore from "@/stores/flowStore";
@@ -40,6 +39,7 @@ import {
   specialCharsRegex,
 } from "../constants/constants";
 import { DESCRIPTIONS } from "../flow_constants";
+import i18n from "../i18n";
 import type {
   APIClassType,
   APIKindType,
@@ -725,7 +725,10 @@ export function validateNode(node: AllNodeType, edges: Edge[]): Array<string> {
       )
     ) {
       errors.push(
-        `${displayName || type} is missing ${getFieldTitle(template, t)}.`,
+        i18n.t("errors.missingField", {
+          componentName: displayName || type,
+          fieldName: getFieldTitle(template, t),
+        }),
       );
     } else if (
       template[t].type === "dict" &&
@@ -737,17 +740,17 @@ export function validateNode(node: AllNodeType, edges: Edge[]): Array<string> {
     ) {
       if (hasDuplicateKeys(template[t].value))
         errors.push(
-          `${displayName || type} (${getFieldTitle(
-            template,
-            t,
-          )}) contains duplicate keys with the same values.`,
+          i18n.t("errors.duplicateKeys", {
+            componentName: displayName || type,
+            fieldName: getFieldTitle(template, t),
+          }),
         );
       if (hasEmptyKey(template[t].value))
         errors.push(
-          `${displayName || type} (${getFieldTitle(
-            template,
-            t,
-          )}) field must not be empty.`,
+          i18n.t("errors.emptyKey", {
+            componentName: displayName || type,
+            fieldName: getFieldTitle(template, t),
+          }),
         );
     }
     return errors;
@@ -763,9 +766,7 @@ Array<{ id: string; errors: Array<string> }> {
     return [
       {
         id: "",
-        errors: [
-          "No components found in the flow. Please add at least one component to the flow.",
-        ],
+        errors: [i18n.t("errors.noComponents")],
       },
     ];
   }

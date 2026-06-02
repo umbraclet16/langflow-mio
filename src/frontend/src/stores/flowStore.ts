@@ -9,7 +9,6 @@ import {
 import { cloneDeep, zip } from "lodash";
 import { create } from "zustand";
 import { checkCodeValidity } from "@/CustomNodes/helpers/check-code-validity";
-import i18n from "../i18n";
 import {
   ENABLE_DATASTAX_LANGFLOW,
   ENABLE_INSPECTION_PANEL,
@@ -21,6 +20,7 @@ import {
 } from "@/customization/utils/analytics";
 import { brokenEdgeMessage } from "@/utils/utils";
 import { BuildStatus, EventDeliveryType } from "../constants/enums";
+import i18n from "../i18n";
 import type { LogsLogType, VertexBuildTypeAPI } from "../types/api";
 import type { ChatInputType, ChatOutputType } from "../types/chat";
 import type {
@@ -1060,8 +1060,7 @@ const useFlowStore = create<FlowStoreType>((set, get) => ({
         );
         if (!isCustomComponentBlocked && get().componentsToUpdate.length > 0)
           setErrorData({
-            title:
-              "There are blocked or outdated components in the flow. The error could be related to them.",
+            title: i18n.t("flow.blockedOrOutdated"),
           });
         get().updateEdgesRunningByNodes(
           get().nodes.map((n) => n.id),
