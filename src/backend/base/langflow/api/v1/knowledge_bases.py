@@ -11,6 +11,7 @@ from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Upload
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from lfx.base.data.utils import extract_text_from_bytes
+from lfx.base.models.unified_models import get_embedding_model_options
 from lfx.log import logger
 
 from langflow.api.utils import CurrentActiveUser
@@ -33,6 +34,24 @@ from langflow.utils.kb_constants import (
 )
 
 router = APIRouter(tags=["Knowledge Bases"], prefix="/knowledge_bases", include_in_schema=False)
+
+
+def _lookup_model_selection_with_credentials(embedding_model_name: str, user_id: uuid.UUID) -> dict[str, Any] | None:
+    """Find the full model option dict that includes embedded credentials.
+
+    Agent platform models carry unified_api_key/unified_base_url inside
+    model_selection.metadata. This lookup ensures those credentials are
+    persisted in embedding_metadata.json so retrieval can use them.
+    """
+    try:
+        all_options = get_embedding_model_options(user_id=user_id)
+        return next(
+            (o for o in all_options if o.get("name") == embedding_model_name),
+            None,
+        )
+    except (ValueError, KeyError, TypeError) as e:
+        logger.warning("Could not fetch embedding model options for metadata enrichment: %s", e)
+        return None
 
 
 def _validate_kb_path_containment(kb_user_path: Path, kb_path: Path, kb_name: str, username: str) -> None:
@@ -120,7 +139,10 @@ async def create_knowledge_base(
         if request.column_config:
             column_config_dicts = [item.model_dump() for item in request.column_config]
 
-        # Save full embedding metadata to prevent immediate backfill
+        model_selection_with_credentials = _lookup_model_selection_with_credentials(
+            request.embedding_model, current_user.id
+        )
+
         embedding_metadata = {
             "id": str(kb_id),
             "embedding_provider": request.embedding_provider,
@@ -132,7 +154,10 @@ async def create_knowledge_base(
             "avg_chunk_size": 0.0,
             "size": 0,
             "column_config": column_config_dicts,
+            "chunk_size": 100,
         }
+        if model_selection_with_credentials:
+            embedding_metadata["model_selection"] = model_selection_with_credentials
         metadata_path = kb_path / "embedding_metadata.json"
         metadata_path.write_text(json.dumps(embedding_metadata, indent=2))
 
