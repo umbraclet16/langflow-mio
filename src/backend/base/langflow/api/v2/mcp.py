@@ -4,6 +4,7 @@ from collections import defaultdict
 from io import BytesIO
 from typing import Annotated
 
+import httpx
 from fastapi import APIRouter, Body, Depends, HTTPException, UploadFile
 from lfx.base.agents.utils import safe_cache_get, safe_cache_set
 from lfx.base.mcp.util import update_tools
@@ -17,7 +18,7 @@ from langflow.api.v2.files import (
     get_mcp_file,
     upload_user_file,
 )
-from langflow.api.v2.mcp_proxy import fetch_mcp_servers_from_agent_platform
+from langflow.api.v2.mcp_proxy import fetch_mcp_server_tools_from_agent_platform, fetch_mcp_servers_from_agent_platform
 from langflow.api.v2.schemas import MCPServerConfig
 from langflow.logging import logger
 from langflow.services.deps import get_settings_service, get_shared_component_cache_service, get_storage_service
@@ -155,14 +156,33 @@ async def get_servers(
 
     from lfx.base.mcp.util import MCPStdioClient, MCPStreamableHttpClient
 
-    if settings_service.settings.mcp_server_source == "agent_platform":
+    is_agent_platform = settings_service.settings.mcp_server_source == "agent_platform"
+
+    if is_agent_platform:
         server_list = await fetch_mcp_servers_from_agent_platform()
     else:
         server_list = await get_server_list(current_user, session, storage_service, settings_service)
 
     if not action_count:
-        # Return only the server names, with mode and toolsCount as None
         return [{"name": server_name, "mode": None, "toolsCount": None} for server_name in server_list["mcpServers"]]
+
+    if is_agent_platform:
+
+        async def check_server_from_agent_platform(server_name: str) -> dict:
+            server_info: dict[str, str | int | None] = {"name": server_name, "mode": None, "toolsCount": None}
+            try:
+                tools = await fetch_mcp_server_tools_from_agent_platform(server_name)
+                server_config = server_list["mcpServers"].get(server_name, {})
+                server_info["mode"] = server_config.get("transport", "stdio")
+                server_info["toolsCount"] = len(tools)
+                if len(tools) == 0:
+                    server_info["error"] = "No tools found"
+            except (httpx.RequestError, httpx.HTTPStatusError, json.JSONDecodeError) as e:
+                server_info["error"] = f"Error: {e}"
+            return server_info
+
+        tasks = [check_server_from_agent_platform(name) for name in server_list["mcpServers"]]
+        return await asyncio.gather(*tasks)
 
     # Check all of the tool counts for each server concurrently
     async def check_server(server_name: str) -> dict:
