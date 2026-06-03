@@ -342,6 +342,9 @@ class Settings(BaseSettings):
     """If set to False, Langflow will not enable the MCP server."""
     mcp_server_enable_progress_notifications: bool = False
     """If set to False, Langflow will not send progress notifications in the MCP server."""
+    mcp_server_source: Literal["local", "agent_platform"] = "local"
+    """Source for MCP server configurations. 'local' uses Langflow's built-in MCP management.
+    'agent_platform' fetches MCP servers from the Agent Platform API (AGENT_PLATFORM_API_URL)."""
 
     # Add projects to MCP servers automatically on creation
     add_projects_to_mcp_servers: bool = True

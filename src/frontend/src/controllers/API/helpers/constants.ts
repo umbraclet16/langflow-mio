@@ -32,6 +32,7 @@ export const URLs = {
   PUBLIC_FLOW: `flows/public_flow`,
   MCP: `mcp/project`,
   MCP_SERVERS: `mcp/servers`,
+  MCP_CONFIG: `mcp/config`,
   KNOWLEDGE_BASES: `knowledge_bases`,
   MODELS: `models`,
   MODEL_OPTIONS: `model_options`,

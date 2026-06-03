@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
 import { SidebarMenuButton, useSidebar } from "@/components/ui/sidebar";
+import { useGetMCPConfig } from "@/controllers/API/queries/mcp/use-get-mcp-config";
 import { ENABLE_NEW_SIDEBAR } from "@/customization/feature-flags";
 import { useCustomNavigate } from "@/customization/hooks/use-custom-navigate";
 import AddMcpServerModal from "@/modals/addMcpServerModal";
@@ -20,6 +21,8 @@ const SidebarMenuButtons = ({
   const allowCustomComponents = useUtilityStore(
     (state) => state.allowCustomComponents,
   );
+  const { data: mcpConfig } = useGetMCPConfig();
+  const isAgentPlatform = mcpConfig?.source === "agent_platform";
 
   const handleAddMcpServerClick = () => {
     setAddMcpOpen(true);
@@ -30,6 +33,10 @@ const SidebarMenuButtons = ({
     !allowCustomComponents &&
     !(ENABLE_NEW_SIDEBAR && activeSection === "mcp")
   ) {
+    return null;
+  }
+
+  if (ENABLE_NEW_SIDEBAR && activeSection === "mcp" && isAgentPlatform) {
     return null;
   }
 

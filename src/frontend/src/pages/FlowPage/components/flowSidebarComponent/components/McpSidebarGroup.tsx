@@ -9,6 +9,7 @@ import {
   SidebarMenu,
 } from "@/components/ui/sidebar";
 import { useDeleteMCPServer } from "@/controllers/API/queries/mcp/use-delete-mcp-server";
+import { useGetMCPConfig } from "@/controllers/API/queries/mcp/use-get-mcp-config";
 import AddMcpServerModal from "@/modals/addMcpServerModal";
 import DeleteConfirmationModal from "@/modals/deleteConfirmationModal";
 import useAlertStore from "@/stores/alertStore";
@@ -37,6 +38,8 @@ type McpSidebarGroupProps = {
 const McpEmptyState = ({ isLoading }: { isLoading?: boolean }) => {
   const { t } = useTranslation();
   const [addMcpOpen, setAddMcpOpen] = useState(false);
+  const { data: mcpConfig } = useGetMCPConfig();
+  const isAgentPlatform = mcpConfig?.source === "agent_platform";
 
   const handleAddMcpServerClick = () => {
     setAddMcpOpen(true);
@@ -46,15 +49,17 @@ const McpEmptyState = ({ isLoading }: { isLoading?: boolean }) => {
     <>
       <div className="flex flex-col h-full w-full items-center justify-center py-8 px-4 text-center min-h-[200px]">
         <p className="text-muted-foreground mb-4">{t("sidebar.mcp.empty")}</p>
-        <Button
-          variant="outline"
-          size="sm"
-          disabled={isLoading}
-          onClick={handleAddMcpServerClick}
-          data-testid="add-mcp-server-button-sidebar"
-        >
-          <span>{t("sidebar.mcp.add")}</span>
-        </Button>
+        {!isAgentPlatform && (
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={isLoading}
+            onClick={handleAddMcpServerClick}
+            data-testid="add-mcp-server-button-sidebar"
+          >
+            <span>{t("sidebar.mcp.add")}</span>
+          </Button>
+        )}
       </div>
       <AddMcpServerModal open={addMcpOpen} setOpen={setAddMcpOpen} />
     </>

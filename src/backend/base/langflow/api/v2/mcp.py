@@ -17,6 +17,7 @@ from langflow.api.v2.files import (
     get_mcp_file,
     upload_user_file,
 )
+from langflow.api.v2.mcp_proxy import fetch_mcp_servers_from_agent_platform
 from langflow.api.v2.schemas import MCPServerConfig
 from langflow.logging import logger
 from langflow.services.deps import get_settings_service, get_shared_component_cache_service, get_storage_service
@@ -154,7 +155,10 @@ async def get_servers(
 
     from lfx.base.mcp.util import MCPStdioClient, MCPStreamableHttpClient
 
-    server_list = await get_server_list(current_user, session, storage_service, settings_service)
+    if settings_service.settings.mcp_server_source == "agent_platform":
+        server_list = await fetch_mcp_servers_from_agent_platform()
+    else:
+        server_list = await get_server_list(current_user, session, storage_service, settings_service)
 
     if not action_count:
         # Return only the server names, with mode and toolsCount as None
@@ -379,3 +383,18 @@ async def delete_server(
         settings_service,
         delete=True,
     )
+
+
+@router.get("/config")
+async def get_mcp_config(
+    settings_service: Annotated[SettingsService, Depends(get_settings_service)],
+):
+    """Get MCP configuration for frontend."""
+    from langflow.api.v2.mcp_proxy import get_agent_platform_url
+
+    return {
+        "source": settings_service.settings.mcp_server_source,
+        "agent_platform_url": get_agent_platform_url()
+        if settings_service.settings.mcp_server_source == "agent_platform"
+        else None,
+    }

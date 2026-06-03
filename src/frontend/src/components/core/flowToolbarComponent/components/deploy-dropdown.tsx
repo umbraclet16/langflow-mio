@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Switch } from "@/components/ui/switch";
 import { usePatchUpdateFlow } from "@/controllers/API/queries/flows/use-patch-update-flow";
+import { useGetMCPConfig } from "@/controllers/API/queries/mcp/use-get-mcp-config";
 import { CustomLink } from "@/customization/components/custom-link";
 import { ENABLE_PUBLISH, ENABLE_WIDGET } from "@/customization/feature-flags";
 import { customMcpOpen } from "@/customization/utils/custom-mcp-open";
@@ -57,6 +58,8 @@ export default function PublishDropdown({
   const hasIO = useFlowStore((state) => state.hasIO);
   const isAuth = useAuthStore((state) => !!state.autoLogin);
   const [openExportModal, setOpenExportModal] = useState(false);
+  const { data: mcpConfig } = useGetMCPConfig();
+  const isAgentPlatform = mcpConfig?.source === "agent_platform";
 
   const handlePublishedSwitch = async (checked: boolean) => {
     mutateAsync(
@@ -130,24 +133,26 @@ export default function PublishDropdown({
             <IconComponent name="Download" className={`icon-size mr-2`} />
             <span>{t("deploy.export")}</span>
           </DropdownMenuItem>
-          <CustomLink
-            className={cn("flex-1")}
-            to={`/mcp/folder/${folderId}`}
-            target={customMcpOpen()}
-          >
-            <DropdownMenuItem
-              className="deploy-dropdown-item group"
-              onClick={() => {}}
-              data-testid="mcp-server-item"
+          {!isAgentPlatform && (
+            <CustomLink
+              className={cn("flex-1")}
+              to={`/mcp/folder/${folderId}`}
+              target={customMcpOpen()}
             >
-              <IconComponent name="Mcp" className={`icon-size mr-2`} />
-              <span>{t("deploy.mcpServer")}</span>
-              <IconComponent
-                name="ExternalLink"
-                className={`icon-size ml-auto hidden group-hover:block`}
-              />
-            </DropdownMenuItem>
-          </CustomLink>
+              <DropdownMenuItem
+                className="deploy-dropdown-item group"
+                onClick={() => {}}
+                data-testid="mcp-server-item"
+              >
+                <IconComponent name="Mcp" className={`icon-size mr-2`} />
+                <span>{t("deploy.mcpServer")}</span>
+                <IconComponent
+                  name="ExternalLink"
+                  className={`icon-size ml-auto hidden group-hover:block`}
+                />
+              </DropdownMenuItem>
+            </CustomLink>
+          )}
           {ENABLE_WIDGET && (
             <DropdownMenuItem
               onClick={() => setOpenEmbedModal(true)}

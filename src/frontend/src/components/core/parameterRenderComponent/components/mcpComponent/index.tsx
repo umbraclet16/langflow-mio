@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useAddMCPServer } from "@/controllers/API/queries/mcp/use-add-mcp-server";
+import { useGetMCPConfig } from "@/controllers/API/queries/mcp/use-get-mcp-config";
 import { useGetMCPServers } from "@/controllers/API/queries/mcp/use-get-mcp-servers";
 import AddMcpServerModal from "@/modals/addMcpServerModal";
 import useAlertStore from "@/stores/alertStore";
@@ -19,8 +20,10 @@ export default function McpComponent({
 }: InputProps<string, any>): JSX.Element | null {
   const [open, setOpen] = useState(false);
   const { data: mcpServers } = useGetMCPServers({ withCounts: true });
+  const { data: mcpConfig } = useGetMCPConfig();
   const { mutate: addMcpServer } = useAddMCPServer();
   const setErrorData = useAlertStore((state) => state.setErrorData);
+  const isAgentPlatform = mcpConfig?.source === "agent_platform";
   const options = useMemo(
     () =>
       mcpServers?.map((server) => ({
@@ -191,7 +194,7 @@ export default function McpComponent({
             </Button>
           )}
         </div>
-      ) : (
+      ) : !isAgentPlatform ? (
         <Button
           size="sm"
           onClick={handleAddButtonClick}
@@ -199,7 +202,7 @@ export default function McpComponent({
         >
           <span>Add MCP Server</span>
         </Button>
-      )}
+      ) : null}
       {options && (
         <>
           <ListSelectionComponent
@@ -216,8 +219,10 @@ export default function McpComponent({
             headerSearchPlaceholder="Search MCP Servers..."
             handleOnNewValue={handleOnNewValue}
             disabled={disabled}
-            addButtonText="Add MCP Server"
-            onAddButtonClick={handleAddButtonClick}
+            addButtonText={isAgentPlatform ? undefined : "Add MCP Server"}
+            onAddButtonClick={
+              isAgentPlatform ? undefined : handleAddButtonClick
+            }
           />
           <AddMcpServerModal
             open={addOpen}

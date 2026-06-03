@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useDeleteDeleteFlows } from "@/controllers/API/queries/flows/use-delete-delete-flows";
 import { useGetDownloadFlows } from "@/controllers/API/queries/flows/use-get-download-flows";
+import { useGetMCPConfig } from "@/controllers/API/queries/mcp/use-get-mcp-config";
 import { ENABLE_MCP } from "@/customization/feature-flags";
 import DeleteConfirmationModal from "@/modals/deleteConfirmationModal";
 import useAlertStore from "@/stores/alertStore";
@@ -43,7 +44,9 @@ const HeaderComponent = ({
 }: HeaderComponentProps) => {
   const { t } = useTranslation();
   const [debouncedSearch, setDebouncedSearch] = useState("");
-  const isMCPEnabled = ENABLE_MCP;
+  const { data: mcpConfig } = useGetMCPConfig();
+  const isAgentPlatform = mcpConfig?.source === "agent_platform";
+  const isMCPEnabled = ENABLE_MCP && !isAgentPlatform;
   const setSuccessData = useAlertStore((state) => state.setSuccessData);
   // Debounce the setSearch function from the parent
   const debouncedSetSearch = useCallback(
