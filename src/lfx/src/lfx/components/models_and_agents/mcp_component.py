@@ -351,8 +351,12 @@ class MCPToolsComponent(ComponentWithCache):
             await logger.aexception(msg)
             raise TimeoutError(msg) from e
         except Exception as e:
-            msg = f"Error updating tool list: {e!s}"
-            await logger.aexception(msg)
+            if hasattr(e, "exceptions"):
+                sub_exceptions = "\n".join(f"  - {ex!r}" for ex in e.exceptions)
+                msg = f"Error updating tool list ({len(e.exceptions)} sub-exception(s)):\n{sub_exceptions}"
+            else:
+                msg = f"Error updating tool list: {e!s}"
+            await logger.aerror(msg)
             raise ValueError(msg) from e
         else:
             return tool_list, {"name": server_name, "config": server_config}
@@ -565,8 +569,12 @@ class MCPToolsComponent(ComponentWithCache):
                 self._not_load_actions = False
 
         except Exception as e:
-            msg = f"Error in update_build_config: {e!s}"
-            await logger.aexception(msg)
+            if hasattr(e, "exceptions"):
+                sub_exceptions = "\n".join(f"  - {ex!r}" for ex in e.exceptions)
+                msg = f"Error in update_build_config ({len(e.exceptions)} sub-exception(s)):\n{sub_exceptions}"
+            else:
+                msg = f"Error in update_build_config: {e!s}"
+            await logger.aerror(msg)
             raise ValueError(msg) from e
         else:
             return build_config
