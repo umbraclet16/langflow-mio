@@ -34,13 +34,26 @@ services:
     environment:
       - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
       - LANGFLOW_CONFIG_DIR=/app/langflow
-      - LANGFLOW_AUTO_LOGIN=false
-      - AGENT_PLATFORM_API_URL=http://192.168.31.146:18888/v1
+      - LANGFLOW_AUTO_LOGIN=true
+      - AGENT_PLATFORM_API_URL=http://192.168.31.147:18888/v1
       # 禁用启动时自动创建和更新 Starter Projects（删除后不会再自动恢复）
-      - LANGFLOW_CREATE_STARTER_PROJECTS=false
+      - LANGFLOW_CREATE_STARTER_PROJECTS=true
       - LANGFLOW_UPDATE_STARTER_PROJECTS=false
+      - HIDE_GETTING_STARTED_PROGRESS=true
+      # 让系统自动更新模板
+      - LANGFLOW_UPDATE_STARTER_PROJECTS=true
+      - LANGFLOW_MCP_SERVER_SOURCE=agent_platform  # / local
+      - MCP_SERVER_WORKDIR=/root/projects/mock-agent-platform  # for stdio mcp servers
     volumes:
       - langflow-data:/app/langflow
+      # ========== 后端代码 mounts ==========
+      # 把本地修改的后端代码覆盖到容器的 site-packages
+      - ../../src/backend/base/langflow/:/app/.venv/lib/python3.14/site-packages/langflow/
+      # 如果修改了 lfx 或 sdk，也 mount 上：
+      - ../../src/lfx/src/lfx/:/app/.venv/lib/python3.14/site-packages/lfx/
+      #- ../../src/sdk/src/langflow_sdk/:/app/.venv/lib/python3.14/site-packages/langflow_sdk/
+      # ========== 前端产物 mount ==========
+      - ../../src/frontend/build/:/app/.venv/lib/python3.14/site-packages/langflow/frontend/
     networks:
       - langflow-net
 
