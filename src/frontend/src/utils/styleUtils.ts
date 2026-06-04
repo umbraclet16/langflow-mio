@@ -500,7 +500,7 @@ export const HIDDEN_BUNDLE_NAMES: Set<string> = new Set([
   "mistral", "notdiamond", "novita", "nvidia", "openai",
   "openrouter", "perplexity", "sambanova", "vertexai", "xai",
   // ---- Search / Data APIs ----
-  "apify", "arxiv", "assemblyai", "bing", "cleanlab",
+  "agentql", "apify", "arxiv", "assemblyai", "bing", "cleanlab",
   "cloudflare", "composio", "confluence", "datastax",
   "docling", "duckduckgo", "exa", "firecrawl", "glean",
   "gmail", "homeassistant", "huggingface", "ibm",
