@@ -132,7 +132,9 @@ async def get_server(
     server_list: dict | None = None,
 ):
     """Get a specific server configuration."""
-    if server_list is None:
+    if settings_service.settings.mcp_server_source == "agent_platform":
+        server_list = await fetch_mcp_servers_from_agent_platform()
+    elif server_list is None:
         server_list = await get_server_list(current_user, session, storage_service, settings_service)
 
     if server_name not in server_list["mcpServers"]:

@@ -242,6 +242,8 @@ class MCPToolsComponent(ComponentWithCache):
                 )
                 raise ImportError(msg) from e
 
+            settings_service = get_settings_service()
+
             server_config_from_db = None
             async with session_scope() as db:
                 if not self.user_id:
@@ -255,7 +257,7 @@ class MCPToolsComponent(ComponentWithCache):
                     current_user,
                     db,
                     storage_service=get_storage_service(),
-                    settings_service=get_settings_service(),
+                    settings_service=settings_service,
                 )
 
             # Resolve config with proper precedence: DB takes priority, falls back to value
@@ -268,6 +270,12 @@ class MCPToolsComponent(ComponentWithCache):
             if not server_config:
                 self.tools = []
                 return [], {"name": server_name, "config": server_config}
+
+            # Convert transport to mode for update_tools compatibility
+            if "transport" in server_config and "mode" not in server_config:
+                transport = server_config["transport"]
+                mode_map = {"stdio": "Stdio", "streamable_http": "Streamable_HTTP", "sse": "SSE"}
+                server_config["mode"] = mode_map.get(transport, transport)
 
             # Add verify_ssl option to server config if not present
             if "verify_ssl" not in server_config:
@@ -350,13 +358,14 @@ class MCPToolsComponent(ComponentWithCache):
             msg = f"Timeout updating tool list: {e!s}"
             await logger.aexception(msg)
             raise TimeoutError(msg) from e
-        except Exception as e:
-            if hasattr(e, "exceptions"):
-                sub_exceptions = "\n".join(f"  - {ex!r}" for ex in e.exceptions)
-                msg = f"Error updating tool list ({len(e.exceptions)} sub-exception(s)):\n{sub_exceptions}"
-            else:
-                msg = f"Error updating tool list: {e!s}"
+        except ExceptionGroup as eg:
+            sub_exceptions = "\n".join(f"  - {ex!r}" for ex in eg.exceptions)
+            msg = f"Error updating tool list ({len(eg.exceptions)} sub-exception(s)):\n{sub_exceptions}"
             await logger.aerror(msg)
+            raise ValueError(msg) from eg
+        except Exception as e:
+            msg = f"Error updating tool list: {e!s}"
+            await logger.aexception(msg)
             raise ValueError(msg) from e
         else:
             return tool_list, {"name": server_name, "config": server_config}
@@ -568,13 +577,14 @@ class MCPToolsComponent(ComponentWithCache):
             elif field_name == "tools_metadata":
                 self._not_load_actions = False
 
-        except Exception as e:
-            if hasattr(e, "exceptions"):
-                sub_exceptions = "\n".join(f"  - {ex!r}" for ex in e.exceptions)
-                msg = f"Error in update_build_config ({len(e.exceptions)} sub-exception(s)):\n{sub_exceptions}"
-            else:
-                msg = f"Error in update_build_config: {e!s}"
+        except ExceptionGroup as eg:
+            sub_exceptions = "\n".join(f"  - {ex!r}" for ex in eg.exceptions)
+            msg = f"Error in update_build_config ({len(eg.exceptions)} sub-exception(s)):\n{sub_exceptions}"
             await logger.aerror(msg)
+            raise ValueError(msg) from eg
+        except Exception as e:
+            msg = f"Error in update_build_config: {e!s}"
+            await logger.aexception(msg)
             raise ValueError(msg) from e
         else:
             return build_config

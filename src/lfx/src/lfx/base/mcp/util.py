@@ -1292,7 +1292,9 @@ class MCPStdioClient:
         self._session_context: str | None = None
         self._component_cache = component_cache
 
-    async def _connect_to_server(self, command_str: str, env: dict[str, str] | None = None) -> list[StructuredTool]:
+    async def _connect_to_server(
+        self, command_str: str, env: dict[str, str] | None = None, cwd: str | None = None
+    ) -> list[StructuredTool]:
         """Connect to MCP server using stdio transport (SDK style).
 
         .. todo:: Remove the ``bash -c`` / ``cmd /c`` shell wrapper and pass
@@ -1323,12 +1325,14 @@ class MCPStdioClient:
                     f"{subprocess.list2cmdline(command)} || echo Command failed with exit code %errorlevel% 1>&2",
                 ],
                 env=env_data,
+                cwd=cwd,
             )
         else:
             server_params = StdioServerParameters(
                 command="bash",
                 args=["-c", f"exec {command_str} || echo 'Command failed with exit code $?' >&2"],
                 env=env_data,
+                cwd=cwd,
             )
 
         # Store connection parameters for later use in run_tool
@@ -1348,10 +1352,13 @@ class MCPStdioClient:
         self._connected = True
         return response.tools
 
-    async def connect_to_server(self, command_str: str, env: dict[str, str] | None = None) -> list[StructuredTool]:
+    async def connect_to_server(
+        self, command_str: str, env: dict[str, str] | None = None, cwd: str | None = None
+    ) -> list[StructuredTool]:
         """Connect to MCP server using stdio transport (SDK style)."""
         return await asyncio.wait_for(
-            self._connect_to_server(command_str, env), timeout=get_settings_service().settings.mcp_server_timeout
+            self._connect_to_server(command_str, env, cwd=cwd),
+            timeout=get_settings_service().settings.mcp_server_timeout,
         )
 
     def set_session_context(self, context_id: str):
@@ -1888,7 +1895,9 @@ async def update_tools(
                 else:
                     args.extend(extra_args)
         full_command = shlex.join([*shlex.split(command), *args])
-        tools = await mcp_stdio_client.connect_to_server(full_command, env)
+        # Resolve working directory: server config 'cwd' > env var MCP_SERVER_WORKDIR > None
+        cwd = server_config.get("cwd") or os.environ.get("MCP_SERVER_WORKDIR")
+        tools = await mcp_stdio_client.connect_to_server(full_command, env, cwd=cwd)
         client = mcp_stdio_client
     elif mode in ["Streamable_HTTP", "SSE"]:
         # Streamable HTTP connection with SSE fallback
