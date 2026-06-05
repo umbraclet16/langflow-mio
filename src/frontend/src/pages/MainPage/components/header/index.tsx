@@ -89,7 +89,7 @@ const HeaderComponent = ({
   // Determine which tabs to show based on feature flags
   const tabTypes = [
     ...(isDeploymentsEnabled ? ["deployments"] : []),
-    ...(isMCPEnabled ? ["mcp"] : ["components"]),
+    ...(isMCPEnabled ? ["mcp"] : []),
     "flows",
   ];
 
