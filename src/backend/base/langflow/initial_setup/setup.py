@@ -569,6 +569,17 @@ HIDDEN_TEMPLATES = {
     "SaaS Pricing",
     "YouTube Analysis",
     "NVIDIA RTX Remix",
+    "Invoice Summarizer",
+    "Market Research",
+    "Research Agent",
+    "Search agent",
+    "Sequential Tasks Agents",
+    "Social Media Agent",
+    "Meeting Summary",
+    "Research Translation Loop",
+    "Hybrid Search RAG",
+    "Travel Planning Agents",
+    "News Aggregator",
 }
 
 
