@@ -19,8 +19,8 @@ from lfx.utils.request_utils import get_user_agent
 
 
 class WebSearchComponent(Component):
-    display_name = "Web Search"
-    description = "Search the web, news, or RSS feeds."
+    display_name = "网络搜索"
+    description = "搜索网页、新闻或RSS订阅源。"
     documentation: str = "https://docs.langflow.org/web-search"
     icon = "search"
     name = "UnifiedWebSearch"
@@ -28,24 +28,24 @@ class WebSearchComponent(Component):
     inputs = [
         TabInput(
             name="search_mode",
-            display_name="Search Mode",
+            display_name="搜索模式",
             options=["Web", "News", "RSS"],
-            info="Choose search mode: Web (DuckDuckGo), News (Google News), or RSS (Feed Reader)",
+            info="选择搜索模式：Web（DuckDuckGo）、News（Google新闻）或 RSS（订阅源阅读器）",  # noqa: RUF001
             value="Web",
             real_time_refresh=True,
             tool_mode=True,
         ),
         MessageTextInput(
             name="query",
-            display_name="Search Query",
-            info="Search keywords for news articles.",
+            display_name="搜索查询",
+            info="搜索新闻文章的关键词。",
             tool_mode=True,
             required=True,
         ),
         MessageTextInput(
             name="hl",
-            display_name="Language (hl)",
-            info="Language code, e.g. en-US, fr, de. Default: en-US.",
+            display_name="语言 (hl)",
+            info="语言代码，例如 en-US、fr、de。默认：en-US。",  # noqa: RUF001
             tool_mode=False,
             input_types=[],
             required=False,
@@ -53,8 +53,8 @@ class WebSearchComponent(Component):
         ),
         MessageTextInput(
             name="gl",
-            display_name="Country (gl)",
-            info="Country code, e.g. US, FR, DE. Default: US.",
+            display_name="国家 (gl)",
+            info="国家代码，例如 US、FR、DE。默认：US。",  # noqa: RUF001
             tool_mode=False,
             input_types=[],
             required=False,
@@ -62,8 +62,8 @@ class WebSearchComponent(Component):
         ),
         MessageTextInput(
             name="ceid",
-            display_name="Country:Language (ceid)",
-            info="e.g. US:en, FR:fr. Default: US:en.",
+            display_name="国家:语言 (ceid)",
+            info="例如 US:en、FR:fr。默认：US:en。",  # noqa: RUF001
             tool_mode=False,
             value="US:en",
             input_types=[],
@@ -72,8 +72,8 @@ class WebSearchComponent(Component):
         ),
         MessageTextInput(
             name="topic",
-            display_name="Topic",
-            info="One of: WORLD, NATION, BUSINESS, TECHNOLOGY, ENTERTAINMENT, SCIENCE, SPORTS, HEALTH.",
+            display_name="主题",
+            info="可选：WORLD、NATION、BUSINESS、TECHNOLOGY、ENTERTAINMENT、SCIENCE、SPORTS、HEALTH。",  # noqa: RUF001
             tool_mode=False,
             input_types=[],
             required=False,
@@ -81,8 +81,8 @@ class WebSearchComponent(Component):
         ),
         MessageTextInput(
             name="location",
-            display_name="Location (Geo)",
-            info="City, state, or country for location-based news. Leave blank for keyword search.",
+            display_name="位置 (Geo)",
+            info="城市、州或国家，用于基于位置的新闻搜索。留空则按关键词搜索。",  # noqa: RUF001
             tool_mode=False,
             input_types=[],
             required=False,
@@ -90,15 +90,15 @@ class WebSearchComponent(Component):
         ),
         IntInput(
             name="timeout",
-            display_name="Timeout",
-            info="Timeout for the request in seconds.",
+            display_name="超时",
+            info="请求超时时间（秒）。",  # noqa: RUF001
             value=5,
             required=False,
             advanced=True,
         ),
     ]
 
-    outputs = [Output(name="results", display_name="Results", method="perform_search")]
+    outputs = [Output(name="results", display_name="结果", method="perform_search")]
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -112,14 +112,14 @@ class WebSearchComponent(Component):
 
             # Update query field info based on mode
             if is_rss:
-                build_config["query"]["info"] = "RSS feed URL to parse"
-                build_config["query"]["display_name"] = "RSS Feed URL"
+                build_config["query"]["info"] = "要解析的RSS订阅源URL"
+                build_config["query"]["display_name"] = "RSS订阅源URL"
             elif is_news:
-                build_config["query"]["info"] = "Search keywords for news articles."
-                build_config["query"]["display_name"] = "Search Query"
+                build_config["query"]["info"] = "搜索新闻文章的关键词。"
+                build_config["query"]["display_name"] = "搜索查询"
             else:  # Web
-                build_config["query"]["info"] = "Keywords to search for"
-                build_config["query"]["display_name"] = "Search Query"
+                build_config["query"]["info"] = "要搜索的关键词"
+                build_config["query"]["display_name"] = "搜索查询"
 
             # Keep news-specific fields as advanced (matching original News Search component)
             # They remain advanced=True in all modes, just like in the original component

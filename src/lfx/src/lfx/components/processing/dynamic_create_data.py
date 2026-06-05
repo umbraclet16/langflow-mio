@@ -16,8 +16,8 @@ from lfx.schema.message import Message
 
 
 class DynamicCreateDataComponent(Component):
-    display_name: str = "Dynamic Create Data"
-    description: str = "Dynamically create a Data with a specified number of fields."
+    display_name: str = "动态创建数据"
+    description: str = "动态创建具有指定数量字段的Data对象。"
     name: str = "DynamicCreateData"
     MAX_FIELDS = 15  # Define a constant for maximum number of fields
     icon = "ListFilter"
@@ -28,23 +28,20 @@ class DynamicCreateDataComponent(Component):
     inputs = [
         TableInput(
             name="form_fields",
-            display_name="Input Configuration",
-            info=(
-                "Define the dynamic form fields. Each row creates a new input field "
-                "that can connect to other components."
-            ),
+            display_name="输入配置",
+            info=("定义动态表单字段。每行创建一个新的输入字段，可以连接到其他组件。"),  # noqa: RUF001
             table_schema=[
                 {
                     "name": "field_name",
-                    "display_name": "Field Name",
+                    "display_name": "字段名称",
                     "type": "str",
-                    "description": "Name for the field (used as both internal name and display label)",
+                    "description": "字段的名称（用作内部名称和显示标签）",  # noqa: RUF001
                 },
                 {
                     "name": "field_type",
-                    "display_name": "Field Type",
+                    "display_name": "字段类型",
                     "type": "str",
-                    "description": "Type of input field to create",
+                    "description": "要创建的输入字段类型",
                     "options": ["Text", "Data", "Number", "Handle", "Boolean"],
                     "value": "Text",
                 },
@@ -54,8 +51,8 @@ class DynamicCreateDataComponent(Component):
         ),
         BoolInput(
             name="include_metadata",
-            display_name="Include Metadata",
-            info="Include form configuration metadata in the output.",
+            display_name="包含元数据",
+            info="在输出中包含表单配置元数据。",
             value=False,
             advanced=True,
         ),
@@ -63,7 +60,7 @@ class DynamicCreateDataComponent(Component):
 
     outputs = [
         Output(display_name="JSON", name="form_data", method="process_form"),
-        Output(display_name="Message", name="message", method="get_message"),
+        Output(display_name="消息", name="message", method="get_message"),
     ]
 
     def update_build_config(self, build_config: dict, field_value: Any, field_name: str | None = None) -> dict:
