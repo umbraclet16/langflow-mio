@@ -75,7 +75,8 @@ function ApiInterceptor() {
           (isAuthenticationError && !IS_AUTO_LOGIN) ||
           (isAuthenticationError && !autoLogin && autoLogin !== undefined);
 
-        if (shouldRetryRefresh) {
+        //if (shouldRetryRefresh) {
+        if (false) {
           if (
             error?.config?.url?.includes("github") ||
             error?.config?.url?.includes("public")
