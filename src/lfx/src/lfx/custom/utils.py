@@ -146,7 +146,7 @@ def extract_type_from_optional(field_type):
 def get_field_properties(extra_field):
     """Get the properties of an extra field."""
     field_name = extra_field["name"]
-    field_type = extra_field.get("type", "str")
+    field_type = extra_field.get("type", "str") or "str"
     field_value = extra_field.get("default", "")
     # a required field is a field that does not contain
     # optional in field_type
