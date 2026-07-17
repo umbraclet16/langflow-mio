@@ -308,6 +308,8 @@ def _get_unified_model_options(
         logger.warning("[AgentPlatform] No models returned from %s", api_url)
         return []
 
+    # Filter out models with null/missing provider to avoid AttributeError on .lower()
+    raw_models = [m for m in raw_models if m.get("provider")]
     logger.info("[AgentPlatform] Converting %d models to Langflow options", len(raw_models))
     options: list[dict[str, Any]] = []
     for m in raw_models:
@@ -373,6 +375,8 @@ def _get_unified_embedding_options(api_url: str) -> list[dict[str, Any]]:
         logger.warning("[AgentPlatform] No embeddings returned from %s", api_url)
         return []
 
+    # Filter out embeddings with null/missing provider to avoid AttributeError on .lower()
+    raw_models = [m for m in raw_models if m.get("provider")]
     logger.info(
         "[AgentPlatform] Converting %d embeddings to Langflow options",
         len(raw_models),
