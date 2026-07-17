@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-iYW45{œdataTypeœ:œChatInputœ,œidœ:œChatInput-iYW45œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-aHVYv{œfieldNameœ:œinput_valueœ,œidœ:œPrompt-aHVYvœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-iYW45{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-iYW45\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-aHVYv{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Prompt-aHVYv\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-iYW45",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-iYW45œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-iYW45\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-aHVYv",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œPrompt-aHVYvœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Prompt-aHVYv\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -52,12 +52,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-TZiUW{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-TZiUWœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-Prompt-rQ5Up{œfieldNameœ:œprevious_responseœ,œidœ:œPrompt-rQ5Upœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-LanguageModelComponent-TZiUW{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-TZiUW\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-rQ5Up{\u0153fieldName\u0153:\u0153previous_response\u0153,\u0153id\u0153:\u0153Prompt-rQ5Up\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "LanguageModelComponent-TZiUW",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-TZiUWœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-TZiUW\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-rQ5Up",
-        "targetHandle": "{œfieldNameœ: œprevious_responseœ, œidœ: œPrompt-rQ5Upœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153previous_response\u0153, \u0153id\u0153: \u0153Prompt-rQ5Up\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -80,12 +80,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-F8cZX{œdataTypeœ:œPromptœ,œidœ:œPrompt-F8cZXœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-TZiUW{œfieldNameœ:œsystem_messageœ,œidœ:œLanguageModelComponent-TZiUWœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-F8cZX{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-F8cZX\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-TZiUW{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153LanguageModelComponent-TZiUW\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-F8cZX",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-F8cZXœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-F8cZX\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-TZiUW",
-        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œLanguageModelComponent-TZiUWœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153LanguageModelComponent-TZiUW\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -108,12 +108,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-iYW45{œdataTypeœ:œChatInputœ,œidœ:œChatInput-iYW45œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-TZiUW{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-TZiUWœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-iYW45{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-iYW45\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-TZiUW{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-TZiUW\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-iYW45",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-iYW45œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-iYW45\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-TZiUW",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-TZiUWœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-TZiUW\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -136,12 +136,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-TbFFl{œdataTypeœ:œPromptœ,œidœ:œPrompt-TbFFlœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-80mt4{œfieldNameœ:œsystem_messageœ,œidœ:œLanguageModelComponent-80mt4œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-TbFFl{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-TbFFl\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-80mt4{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153LanguageModelComponent-80mt4\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-TbFFl",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-TbFFlœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-TbFFl\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-80mt4",
-        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œLanguageModelComponent-80mt4œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153LanguageModelComponent-80mt4\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -164,12 +164,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-aHVYv{œdataTypeœ:œPromptœ,œidœ:œPrompt-aHVYvœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-80mt4{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-80mt4œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-aHVYv{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-aHVYv\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-80mt4{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-80mt4\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-aHVYv",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-aHVYvœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-aHVYv\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-80mt4",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-80mt4œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-80mt4\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -196,12 +196,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-80mt4{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-80mt4œ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-gZuRk{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-gZuRkœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-LanguageModelComponent-80mt4{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-80mt4\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-gZuRk{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-gZuRk\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "LanguageModelComponent-80mt4",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-80mt4œ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-80mt4\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-gZuRk",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-gZuRkœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-gZuRk\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -224,12 +224,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-rQ5Up{œdataTypeœ:œPromptœ,œidœ:œPrompt-rQ5Upœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-Agent-mIgZ5{œfieldNameœ:œinput_valueœ,œidœ:œAgent-mIgZ5œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-rQ5Up{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-rQ5Up\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-mIgZ5{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-mIgZ5\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-rQ5Up",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-rQ5Upœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-rQ5Up\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-mIgZ5",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-mIgZ5œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-mIgZ5\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -252,12 +252,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-TavilySearchComponent-bJRoU{œdataTypeœ:œTavilySearchComponentœ,œidœ:œTavilySearchComponent-bJRoUœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-mIgZ5{œfieldNameœ:œtoolsœ,œidœ:œAgent-mIgZ5œ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-TavilySearchComponent-bJRoU{\u0153dataType\u0153:\u0153TavilySearchComponent\u0153,\u0153id\u0153:\u0153TavilySearchComponent-bJRoU\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-mIgZ5{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-mIgZ5\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "TavilySearchComponent-bJRoU",
-        "sourceHandle": "{œdataTypeœ: œTavilySearchComponentœ, œidœ: œTavilySearchComponent-bJRoUœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TavilySearchComponent\u0153, \u0153id\u0153: \u0153TavilySearchComponent-bJRoU\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-mIgZ5",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-mIgZ5œ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-mIgZ5\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -281,12 +281,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-mIgZ5{œdataTypeœ:œAgentœ,œidœ:œAgent-mIgZ5œ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-Prompt-aHVYv{œfieldNameœ:œsearch_resultsœ,œidœ:œPrompt-aHVYvœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-mIgZ5{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-mIgZ5\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-aHVYv{\u0153fieldName\u0153:\u0153search_results\u0153,\u0153id\u0153:\u0153Prompt-aHVYv\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Agent-mIgZ5",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-mIgZ5œ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-mIgZ5\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-aHVYv",
-        "targetHandle": "{œfieldNameœ: œsearch_resultsœ, œidœ: œPrompt-aHVYvœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153search_results\u0153, \u0153id\u0153: \u0153Prompt-aHVYv\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -958,7 +958,7 @@
         "data": {
           "id": "note-RH5AH",
           "node": {
-            "description": "# 📖 README\n\nWelcome to the Research Agent! This flow helps you conduct in-depth research on various topics using AI-powered tools and analysis.\n\n## Quick start\n- Configure your **Model Provider** with your API credentials.\n- Add your **Tavily API Key** to the Tavily AI Search component.\n \n## Using the Flow\n   - Type your research question or topic into the Chat Input node.\n   - Be specific and clear about what you want to investigate.",
+            "description": "# \ud83d\udcd6 README\n\nWelcome to the Research Agent! This flow helps you conduct in-depth research on various topics using AI-powered tools and analysis.\n\n## Quick start\n- Configure your **Model Provider** with your API credentials.\n- Add your **Tavily API Key** to the Tavily AI Search component.\n \n## Using the Flow\n   - Type your research question or topic into the Chat Input node.\n   - Be specific and clear about what you want to investigate.",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1403,7 +1403,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": "TAVILY_API_KEY"
@@ -2129,7 +2129,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -2507,7 +2507,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -2914,7 +2914,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -3361,7 +3361,7 @@
       "zoom": 0.8435310976168224
     }
   },
-  "description": "使用智能体进行深度研究，收集和分析信息并生成报告。",
+  "description": "\u4f7f\u7528\u667a\u80fd\u4f53\u8fdb\u884c\u6df1\u5ea6\u7814\u7a76\uff0c\u6536\u96c6\u548c\u5206\u6790\u4fe1\u606f\u5e76\u751f\u6210\u62a5\u544a\u3002",
   "endpoint_name": null,
   "id": "d482ec13-1d17-4be1-a904-5b7ad55619fe",
   "is_component": false,

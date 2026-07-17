@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-4RTs6{œdataTypeœ:œTextInputœ,œidœ:œTextInput-4RTs6œ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-irBTi{œfieldNameœ:œguidelinesœ,œidœ:œPrompt-irBTiœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-4RTs6{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-4RTs6\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-irBTi{\u0153fieldName\u0153:\u0153guidelines\u0153,\u0153id\u0153:\u0153Prompt-irBTi\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TextInput-4RTs6",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-4RTs6œ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-4RTs6\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-irBTi",
-        "targetHandle": "{œfieldNameœ: œguidelinesœ, œidœ: œPrompt-irBTiœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153guidelines\u0153, \u0153id\u0153: \u0153Prompt-irBTi\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -55,12 +55,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-vj0Ef{œdataTypeœ:œPromptœ,œidœ:œPrompt-vj0Efœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-xm3UQ{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-xm3UQœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-vj0Ef{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-vj0Ef\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-xm3UQ{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-xm3UQ\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-vj0Ef",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-vj0Efœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-vj0Ef\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-xm3UQ",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-xm3UQœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-xm3UQ\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -83,12 +83,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-jcKwH{œdataTypeœ:œChatInputœ,œidœ:œChatInput-jcKwHœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-DYPjp{œfieldNameœ:œinput_valueœ,œidœ:œAgent-DYPjpœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-jcKwH{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-jcKwH\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-DYPjp{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-DYPjp\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-jcKwH",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-jcKwHœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-jcKwH\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-DYPjp",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-DYPjpœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-DYPjp\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -111,12 +111,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-TavilySearchComponent-WmiId{œdataTypeœ:œTavilySearchComponentœ,œidœ:œTavilySearchComponent-WmiIdœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-DYPjp{œfieldNameœ:œtoolsœ,œidœ:œAgent-DYPjpœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-TavilySearchComponent-WmiId{\u0153dataType\u0153:\u0153TavilySearchComponent\u0153,\u0153id\u0153:\u0153TavilySearchComponent-WmiId\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-DYPjp{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-DYPjp\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "TavilySearchComponent-WmiId",
-        "sourceHandle": "{œdataTypeœ: œTavilySearchComponentœ, œidœ: œTavilySearchComponent-WmiIdœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TavilySearchComponent\u0153, \u0153id\u0153: \u0153TavilySearchComponent-WmiId\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-DYPjp",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-DYPjpœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-DYPjp\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -139,12 +139,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-irBTi{œdataTypeœ:œPromptœ,œidœ:œPrompt-irBTiœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-CWWr8{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-CWWr8œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-irBTi{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-irBTi\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-CWWr8{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-CWWr8\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-irBTi",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-irBTiœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-irBTi\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-CWWr8",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-CWWr8œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-CWWr8\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -168,12 +168,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-CWWr8{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-CWWr8œ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-Prompt-vj0Ef{œfieldNameœ:œpostœ,œidœ:œPrompt-vj0Efœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-LanguageModelComponent-CWWr8{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-CWWr8\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-vj0Ef{\u0153fieldName\u0153:\u0153post\u0153,\u0153id\u0153:\u0153Prompt-vj0Ef\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "LanguageModelComponent-CWWr8",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-CWWr8œ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-CWWr8\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-vj0Ef",
-        "targetHandle": "{œfieldNameœ: œpostœ, œidœ: œPrompt-vj0Efœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153post\u0153, \u0153id\u0153: \u0153Prompt-vj0Ef\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -197,12 +197,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-CWWr8{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-CWWr8œ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-Prompt-6Lx3u{œfieldNameœ:œpostœ,œidœ:œPrompt-6Lx3uœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-LanguageModelComponent-CWWr8{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-CWWr8\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-6Lx3u{\u0153fieldName\u0153:\u0153post\u0153,\u0153id\u0153:\u0153Prompt-6Lx3u\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "LanguageModelComponent-CWWr8",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-CWWr8œ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-CWWr8\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-6Lx3u",
-        "targetHandle": "{œfieldNameœ: œpostœ, œidœ: œPrompt-6Lx3uœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153post\u0153, \u0153id\u0153: \u0153Prompt-6Lx3u\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -225,12 +225,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-6Lx3u{œdataTypeœ:œPromptœ,œidœ:œPrompt-6Lx3uœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-JhaTG{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-JhaTGœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-6Lx3u{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-6Lx3u\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-JhaTG{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-JhaTG\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-6Lx3u",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-6Lx3uœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-6Lx3u\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-JhaTG",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-JhaTGœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-JhaTG\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -254,12 +254,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-JhaTG{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-JhaTGœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-Prompt-vj0Ef{œfieldNameœ:œimage_descriptionœ,œidœ:œPrompt-vj0Efœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-LanguageModelComponent-JhaTG{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-JhaTG\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-vj0Ef{\u0153fieldName\u0153:\u0153image_description\u0153,\u0153id\u0153:\u0153Prompt-vj0Ef\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "LanguageModelComponent-JhaTG",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-JhaTGœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-JhaTG\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-vj0Ef",
-        "targetHandle": "{œfieldNameœ: œimage_descriptionœ, œidœ: œPrompt-vj0Efœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153image_description\u0153, \u0153id\u0153: \u0153Prompt-vj0Ef\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "data": {
@@ -281,11 +281,11 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__Agent-DYPjp{œdataTypeœ:œAgentœ,œidœ:œAgent-DYPjpœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-Prompt-irBTi{œfieldNameœ:œcontextœ,œidœ:œPrompt-irBTiœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Agent-DYPjp{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-DYPjp\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-irBTi{\u0153fieldName\u0153:\u0153context\u0153,\u0153id\u0153:\u0153Prompt-irBTi\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-DYPjp",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-DYPjpœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-DYPjp\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-irBTi",
-        "targetHandle": "{œfieldNameœ: œcontextœ, œidœ: œPrompt-irBTiœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153context\u0153, \u0153id\u0153: \u0153Prompt-irBTi\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -857,7 +857,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "Build a post for Instagram:\n\n1. **Opening Line**: Start with a powerful, intriguing question or statement to grab attention. Example: \"Ever wondered what it feels like to fly?\"\n\n2. **Main Content**: \n   - Briefly share a personal story or insight related to the opening line. Keep it engaging and relatable.\n   - Include valuable information or a lesson learned that your audience can benefit from.\n\n3. **Emojis**: Integrate emojis naturally within your text to emphasize key points and add a playful tone.\n\n4. **Call to Action (CTA)**: End with a clear CTA. Encourage your audience to share their thoughts, experiences, or to take a specific action. Example: \"Share your dream adventure in the comments! 🌍✈️\"\n\n5. **Hashtags**: Conclude with a selection of relevant hashtags. Place them at the end of your post to maintain focus on your message."
+                "value": "Build a post for Instagram:\n\n1. **Opening Line**: Start with a powerful, intriguing question or statement to grab attention. Example: \"Ever wondered what it feels like to fly?\"\n\n2. **Main Content**: \n   - Briefly share a personal story or insight related to the opening line. Keep it engaging and relatable.\n   - Include valuable information or a lesson learned that your audience can benefit from.\n\n3. **Emojis**: Integrate emojis naturally within your text to emphasize key points and add a playful tone.\n\n4. **Call to Action (CTA)**: End with a clear CTA. Encourage your audience to share their thoughts, experiences, or to take a specific action. Example: \"Share your dream adventure in the comments! \ud83c\udf0d\u2708\ufe0f\"\n\n5. **Hashtags**: Conclude with a selection of relevant hashtags. Place them at the end of your post to maintain focus on your message."
               },
               "use_global_variable": {
                 "_input_type": "BoolInput",
@@ -1583,7 +1583,7 @@
         "data": {
           "id": "note-rWxDr",
           "node": {
-            "description": "# 📖 README\n\nWelcome to the Instagram Copywriter! This flow helps you create compelling Instagram posts with AI-generated content and image prompts.\n\n## Quick start\n- Configure your **Model Provider** with your API credentials.\n- Add your **Tavily API Key** to the **Tavily AI Search** component.\n\n## Using the Flow\n**Enter Your Topic**\n   - In the Chat Input, enter a brief description of the topic you want to post about.\n   - Example: \"Create a post about meditation and its benefits\"",
+            "description": "# \ud83d\udcd6 README\n\nWelcome to the Instagram Copywriter! This flow helps you create compelling Instagram posts with AI-generated content and image prompts.\n\n## Quick start\n- Configure your **Model Provider** with your API credentials.\n- Add your **Tavily API Key** to the **Tavily AI Search** component.\n\n## Using the Flow\n**Enter Your Topic**\n   - In the Chat Input, enter a brief description of the topic you want to post about.\n   - Example: \"Create a post about meditation and its benefits\"",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1704,7 +1704,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": ""
@@ -2175,7 +2175,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -2729,7 +2729,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -3107,7 +3107,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -3379,7 +3379,7 @@
       "zoom": 0.7771018347789292
     }
   },
-  "description": "使用 AI 生成的内容和图片提示创建吸引人的 Instagram 帖子，简化社交媒体内容创作。",
+  "description": "\u4f7f\u7528 AI \u751f\u6210\u7684\u5185\u5bb9\u548c\u56fe\u7247\u63d0\u793a\u521b\u5efa\u5438\u5f15\u4eba\u7684 Instagram \u5e16\u5b50\uff0c\u7b80\u5316\u793e\u4ea4\u5a92\u4f53\u5185\u5bb9\u521b\u4f5c\u3002",
   "endpoint_name": null,
   "id": "8cf3456f-9f06-4e0e-9c50-a9d45d6c1ac9",
   "is_component": false,

@@ -22,12 +22,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-2lY00{œdataTypeœ:œPromptœ,œidœ:œPrompt-2lY00œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-Agent-2FN2V{œfieldNameœ:œinput_valueœ,œidœ:œAgent-2FN2Vœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-2lY00{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-2lY00\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-2FN2V{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-2FN2V\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-2lY00",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-2lY00œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-2lY00\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-2FN2V",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-2FN2Vœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-2FN2V\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -54,12 +54,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-2FN2V{œdataTypeœ:œAgentœ,œidœ:œAgent-2FN2Vœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-JZAp9{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-JZAp9œ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-2FN2V{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-2FN2V\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-JZAp9{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-JZAp9\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Agent-2FN2V",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-2FN2Vœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-2FN2V\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-JZAp9",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-JZAp9œ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-JZAp9\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -82,12 +82,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-YouTubeTranscripts-fnDOA{œdataTypeœ:œYouTubeTranscriptsœ,œidœ:œYouTubeTranscripts-fnDOAœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-2FN2V{œfieldNameœ:œtoolsœ,œidœ:œAgent-2FN2Vœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-YouTubeTranscripts-fnDOA{\u0153dataType\u0153:\u0153YouTubeTranscripts\u0153,\u0153id\u0153:\u0153YouTubeTranscripts-fnDOA\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-2FN2V{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-2FN2V\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "YouTubeTranscripts-fnDOA",
-        "sourceHandle": "{œdataTypeœ: œYouTubeTranscriptsœ, œidœ: œYouTubeTranscripts-fnDOAœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153YouTubeTranscripts\u0153, \u0153id\u0153: \u0153YouTubeTranscripts-fnDOA\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-2FN2V",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-2FN2Vœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-2FN2V\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -110,12 +110,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-parser-ogxGV{œdataTypeœ:œparserœ,œidœ:œparser-ogxGVœ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}-Prompt-2lY00{œfieldNameœ:œanalysisœ,œidœ:œPrompt-2lY00œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-parser-ogxGV{\u0153dataType\u0153:\u0153parser\u0153,\u0153id\u0153:\u0153parser-ogxGV\u0153,\u0153name\u0153:\u0153parsed_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-2lY00{\u0153fieldName\u0153:\u0153analysis\u0153,\u0153id\u0153:\u0153Prompt-2lY00\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "parser-ogxGV",
-        "sourceHandle": "{œdataTypeœ: œparserœ, œidœ: œparser-ogxGVœ, œnameœ: œparsed_textœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153parser\u0153, \u0153id\u0153: \u0153parser-ogxGV\u0153, \u0153name\u0153: \u0153parsed_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-2lY00",
-        "targetHandle": "{œfieldNameœ: œanalysisœ, œidœ: œPrompt-2lY00œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153analysis\u0153, \u0153id\u0153: \u0153Prompt-2lY00\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -138,12 +138,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-1LEQy{œdataTypeœ:œChatInputœ,œidœ:œChatInput-1LEQyœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-YouTubeCommentsComponent-ZkD9X{œfieldNameœ:œvideo_urlœ,œidœ:œYouTubeCommentsComponent-ZkD9Xœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-1LEQy{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-1LEQy\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-YouTubeCommentsComponent-ZkD9X{\u0153fieldName\u0153:\u0153video_url\u0153,\u0153id\u0153:\u0153YouTubeCommentsComponent-ZkD9X\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-1LEQy",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-1LEQyœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-1LEQy\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "YouTubeCommentsComponent-ZkD9X",
-        "targetHandle": "{œfieldNameœ: œvideo_urlœ, œidœ: œYouTubeCommentsComponent-ZkD9Xœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153video_url\u0153, \u0153id\u0153: \u0153YouTubeCommentsComponent-ZkD9X\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -166,12 +166,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-1LEQy{œdataTypeœ:œChatInputœ,œidœ:œChatInput-1LEQyœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-2lY00{œfieldNameœ:œurlœ,œidœ:œPrompt-2lY00œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-1LEQy{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-1LEQy\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-2lY00{\u0153fieldName\u0153:\u0153url\u0153,\u0153id\u0153:\u0153Prompt-2lY00\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-1LEQy",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-1LEQyœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-1LEQy\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-2lY00",
-        "targetHandle": "{œfieldNameœ: œurlœ, œidœ: œPrompt-2lY00œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153url\u0153, \u0153id\u0153: \u0153Prompt-2lY00\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -195,12 +195,12 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__YouTubeCommentsComponent-ZkD9X{œdataTypeœ:œYouTubeCommentsComponentœ,œidœ:œYouTubeCommentsComponent-ZkD9Xœ,œnameœ:œcommentsœ,œoutput_typesœ:[œTableœ]}-BatchRunComponent-hJ8qJ{œfieldNameœ:œdfœ,œidœ:œBatchRunComponent-hJ8qJœ,œinputTypesœ:[œDataFrameœ,œTableœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__YouTubeCommentsComponent-ZkD9X{\u0153dataType\u0153:\u0153YouTubeCommentsComponent\u0153,\u0153id\u0153:\u0153YouTubeCommentsComponent-ZkD9X\u0153,\u0153name\u0153:\u0153comments\u0153,\u0153output_types\u0153:[\u0153Table\u0153]}-BatchRunComponent-hJ8qJ{\u0153fieldName\u0153:\u0153df\u0153,\u0153id\u0153:\u0153BatchRunComponent-hJ8qJ\u0153,\u0153inputTypes\u0153:[\u0153DataFrame\u0153,\u0153Table\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "YouTubeCommentsComponent-ZkD9X",
-        "sourceHandle": "{œdataTypeœ: œYouTubeCommentsComponentœ, œidœ: œYouTubeCommentsComponent-ZkD9Xœ, œnameœ: œcommentsœ, œoutput_typesœ: [œTableœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153YouTubeCommentsComponent\u0153, \u0153id\u0153: \u0153YouTubeCommentsComponent-ZkD9X\u0153, \u0153name\u0153: \u0153comments\u0153, \u0153output_types\u0153: [\u0153Table\u0153]}",
         "target": "BatchRunComponent-hJ8qJ",
-        "targetHandle": "{œfieldNameœ: œdfœ, œidœ: œBatchRunComponent-hJ8qJœ, œinputTypesœ: [œDataFrameœ, œTableœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153df\u0153, \u0153id\u0153: \u0153BatchRunComponent-hJ8qJ\u0153, \u0153inputTypes\u0153: [\u0153DataFrame\u0153, \u0153Table\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -226,12 +226,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-BatchRunComponent-hJ8qJ{œdataTypeœ:œBatchRunComponentœ,œidœ:œBatchRunComponent-hJ8qJœ,œnameœ:œbatch_resultsœ,œoutput_typesœ:[œTableœ]}-parser-ogxGV{œfieldNameœ:œinput_dataœ,œidœ:œparser-ogxGVœ,œinputTypesœ:[œDataFrameœ,œTableœ,œDataœ,œJSONœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-BatchRunComponent-hJ8qJ{\u0153dataType\u0153:\u0153BatchRunComponent\u0153,\u0153id\u0153:\u0153BatchRunComponent-hJ8qJ\u0153,\u0153name\u0153:\u0153batch_results\u0153,\u0153output_types\u0153:[\u0153Table\u0153]}-parser-ogxGV{\u0153fieldName\u0153:\u0153input_data\u0153,\u0153id\u0153:\u0153parser-ogxGV\u0153,\u0153inputTypes\u0153:[\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Data\u0153,\u0153JSON\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "BatchRunComponent-hJ8qJ",
-        "sourceHandle": "{œdataTypeœ: œBatchRunComponentœ, œidœ: œBatchRunComponent-hJ8qJœ, œnameœ: œbatch_resultsœ, œoutput_typesœ: [œTableœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153BatchRunComponent\u0153, \u0153id\u0153: \u0153BatchRunComponent-hJ8qJ\u0153, \u0153name\u0153: \u0153batch_results\u0153, \u0153output_types\u0153: [\u0153Table\u0153]}",
         "target": "parser-ogxGV",
-        "targetHandle": "{œfieldNameœ: œinput_dataœ, œidœ: œparser-ogxGVœ, œinputTypesœ: [œDataFrameœ, œTableœ, œDataœ, œJSONœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_data\u0153, \u0153id\u0153: \u0153parser-ogxGV\u0153, \u0153inputTypes\u0153: [\u0153DataFrame\u0153, \u0153Table\u0153, \u0153Data\u0153, \u0153JSON\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -319,7 +319,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": ""
@@ -604,7 +604,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -1813,7 +1813,7 @@
         "data": {
           "id": "note-01q9d",
           "node": {
-            "description": "# 📖 README\nThis flow performs comprehensive analysis of YouTube videos.\n1.  Extract video comments and transcripts.\n2.  Run sentiment analysis on comments using LLM.\n3.  Combine transcript content and comment sentiment for comprehensive video analysis.\n## Quick start\n- Configure your **Model Provider** with your API credentials.\n- Add your **YouTube Data API v3 key**\n- If you don't have a YoutTube API key, create one in the [Google Cloud Console](https://console.cloud.google.com).\n- Ensure the chat input is a valid YouTube video URL. A sample URL is provided in the chat input component.\n",
+            "description": "# \ud83d\udcd6 README\nThis flow performs comprehensive analysis of YouTube videos.\n1.  Extract video comments and transcripts.\n2.  Run sentiment analysis on comments using LLM.\n3.  Combine transcript content and comment sentiment for comprehensive video analysis.\n## Quick start\n- Configure your **Model Provider** with your API credentials.\n- Add your **YouTube Data API v3 key**\n- If you don't have a YoutTube API key, create one in the [Google Cloud Console](https://console.cloud.google.com).\n- Ensure the chat input is a valid YouTube video URL. A sample URL is provided in the chat input component.\n",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2390,7 +2390,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -2626,7 +2626,7 @@
                 "trace_as_metadata": true,
                 "track_in_telemetry": false,
                 "type": "str",
-                "value": "You are a sentiment analysis AI specialized in analyzing YouTube comments. Your task is to determine the emotional tone of each comment.\n\nAnalyze:\n- Word choice and tone\n- Emotional language \n- Context clues (emojis, punctuation, caps)\n\nClassify sentiment as:\n- Positive\n- Negative  \n- Neutral\n- Mixed\n- Sarcastic\n\nFormat:\n<sentiment_analysis>\n<concise_reasoning>\n[Brief 1-2 sentence analysis focusing on key emotional indicators]\n</concise_reasoning>\n<sentiment_type>\n[Sentiment category]\n</sentiment_type>\n</sentiment_analysis>\n\nExample:\nComment: \"Wow, this video is absolutely amazing! The creator did an incredible job explaining complex topics so clearly. 👏👏👏\"\n<sentiment_analysis>\n<concise_reasoning>\nUses enthusiastic words (\"amazing\", \"incredible\") with applause emojis, showing strong appreciation for the content's clarity.\n</concise_reasoning>\n<sentiment_type>\nPositive\n</sentiment_type>\n</sentiment_analysis>"
+                "value": "You are a sentiment analysis AI specialized in analyzing YouTube comments. Your task is to determine the emotional tone of each comment.\n\nAnalyze:\n- Word choice and tone\n- Emotional language \n- Context clues (emojis, punctuation, caps)\n\nClassify sentiment as:\n- Positive\n- Negative  \n- Neutral\n- Mixed\n- Sarcastic\n\nFormat:\n<sentiment_analysis>\n<concise_reasoning>\n[Brief 1-2 sentence analysis focusing on key emotional indicators]\n</concise_reasoning>\n<sentiment_type>\n[Sentiment category]\n</sentiment_type>\n</sentiment_analysis>\n\nExample:\nComment: \"Wow, this video is absolutely amazing! The creator did an incredible job explaining complex topics so clearly. \ud83d\udc4f\ud83d\udc4f\ud83d\udc4f\"\n<sentiment_analysis>\n<concise_reasoning>\nUses enthusiastic words (\"amazing\", \"incredible\") with applause emojis, showing strong appreciation for the content's clarity.\n</concise_reasoning>\n<sentiment_type>\nPositive\n</sentiment_type>\n</sentiment_analysis>"
               }
             },
             "tool_mode": false

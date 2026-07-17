@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-y1N5A{œdataTypeœ:œChatInputœ,œidœ:œChatInput-y1N5Aœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-36nA8{œfieldNameœ:œinputœ,œidœ:œPrompt-36nA8œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-y1N5A{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-y1N5A\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-36nA8{\u0153fieldName\u0153:\u0153input\u0153,\u0153id\u0153:\u0153Prompt-36nA8\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-y1N5A",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-y1N5Aœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-y1N5A\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-36nA8",
-        "targetHandle": "{œfieldNameœ: œinputœ, œidœ: œPrompt-36nA8œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input\u0153, \u0153id\u0153: \u0153Prompt-36nA8\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -52,12 +52,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-AssemblyAITranscriptionJobCreator-Nu1dV{œdataTypeœ:œAssemblyAITranscriptionJobCreatorœ,œidœ:œAssemblyAITranscriptionJobCreator-Nu1dVœ,œnameœ:œtranscript_idœ,œoutput_typesœ:[œJSONœ]}-AssemblyAITranscriptionJobPoller-sCJsy{œfieldNameœ:œtranscript_idœ,œidœ:œAssemblyAITranscriptionJobPoller-sCJsyœ,œinputTypesœ:[œDataœ,œJSONœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AssemblyAITranscriptionJobCreator-Nu1dV{\u0153dataType\u0153:\u0153AssemblyAITranscriptionJobCreator\u0153,\u0153id\u0153:\u0153AssemblyAITranscriptionJobCreator-Nu1dV\u0153,\u0153name\u0153:\u0153transcript_id\u0153,\u0153output_types\u0153:[\u0153JSON\u0153]}-AssemblyAITranscriptionJobPoller-sCJsy{\u0153fieldName\u0153:\u0153transcript_id\u0153,\u0153id\u0153:\u0153AssemblyAITranscriptionJobPoller-sCJsy\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "AssemblyAITranscriptionJobCreator-Nu1dV",
-        "sourceHandle": "{œdataTypeœ: œAssemblyAITranscriptionJobCreatorœ, œidœ: œAssemblyAITranscriptionJobCreator-Nu1dVœ, œnameœ: œtranscript_idœ, œoutput_typesœ: [œJSONœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153AssemblyAITranscriptionJobCreator\u0153, \u0153id\u0153: \u0153AssemblyAITranscriptionJobCreator-Nu1dV\u0153, \u0153name\u0153: \u0153transcript_id\u0153, \u0153output_types\u0153: [\u0153JSON\u0153]}",
         "target": "AssemblyAITranscriptionJobPoller-sCJsy",
-        "targetHandle": "{œfieldNameœ: œtranscript_idœ, œidœ: œAssemblyAITranscriptionJobPoller-sCJsyœ, œinputTypesœ: [œDataœ, œJSONœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153transcript_id\u0153, \u0153id\u0153: \u0153AssemblyAITranscriptionJobPoller-sCJsy\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -83,12 +83,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-AssemblyAITranscriptionJobPoller-sCJsy{œdataTypeœ:œAssemblyAITranscriptionJobPollerœ,œidœ:œAssemblyAITranscriptionJobPoller-sCJsyœ,œnameœ:œtranscription_resultœ,œoutput_typesœ:[œJSONœ]}-parser-6bJ9b{œfieldNameœ:œinput_dataœ,œidœ:œparser-6bJ9bœ,œinputTypesœ:[œDataFrameœ,œTableœ,œDataœ,œJSONœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AssemblyAITranscriptionJobPoller-sCJsy{\u0153dataType\u0153:\u0153AssemblyAITranscriptionJobPoller\u0153,\u0153id\u0153:\u0153AssemblyAITranscriptionJobPoller-sCJsy\u0153,\u0153name\u0153:\u0153transcription_result\u0153,\u0153output_types\u0153:[\u0153JSON\u0153]}-parser-6bJ9b{\u0153fieldName\u0153:\u0153input_data\u0153,\u0153id\u0153:\u0153parser-6bJ9b\u0153,\u0153inputTypes\u0153:[\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Data\u0153,\u0153JSON\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "AssemblyAITranscriptionJobPoller-sCJsy",
-        "sourceHandle": "{œdataTypeœ: œAssemblyAITranscriptionJobPollerœ, œidœ: œAssemblyAITranscriptionJobPoller-sCJsyœ, œnameœ: œtranscription_resultœ, œoutput_typesœ: [œJSONœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153AssemblyAITranscriptionJobPoller\u0153, \u0153id\u0153: \u0153AssemblyAITranscriptionJobPoller-sCJsy\u0153, \u0153name\u0153: \u0153transcription_result\u0153, \u0153output_types\u0153: [\u0153JSON\u0153]}",
         "target": "parser-6bJ9b",
-        "targetHandle": "{œfieldNameœ: œinput_dataœ, œidœ: œparser-6bJ9bœ, œinputTypesœ: [œDataFrameœ, œTableœ, œDataœ, œJSONœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_data\u0153, \u0153id\u0153: \u0153parser-6bJ9b\u0153, \u0153inputTypes\u0153: [\u0153DataFrame\u0153, \u0153Table\u0153, \u0153Data\u0153, \u0153JSON\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -112,12 +112,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-parser-6bJ9b{œdataTypeœ:œparserœ,œidœ:œparser-6bJ9bœ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}-Prompt-AMW8y{œfieldNameœ:œtranscriptœ,œidœ:œPrompt-AMW8yœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-parser-6bJ9b{\u0153dataType\u0153:\u0153parser\u0153,\u0153id\u0153:\u0153parser-6bJ9b\u0153,\u0153name\u0153:\u0153parsed_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-AMW8y{\u0153fieldName\u0153:\u0153transcript\u0153,\u0153id\u0153:\u0153Prompt-AMW8y\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "parser-6bJ9b",
-        "sourceHandle": "{œdataTypeœ: œparserœ, œidœ: œparser-6bJ9bœ, œnameœ: œparsed_textœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153parser\u0153, \u0153id\u0153: \u0153parser-6bJ9b\u0153, \u0153name\u0153: \u0153parsed_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-AMW8y",
-        "targetHandle": "{œfieldNameœ: œtranscriptœ, œidœ: œPrompt-AMW8yœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153transcript\u0153, \u0153id\u0153: \u0153Prompt-AMW8y\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -144,12 +144,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-parser-6bJ9b{œdataTypeœ:œparserœ,œidœ:œparser-6bJ9bœ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-iChI5{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-iChI5œ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-parser-6bJ9b{\u0153dataType\u0153:\u0153parser\u0153,\u0153id\u0153:\u0153parser-6bJ9b\u0153,\u0153name\u0153:\u0153parsed_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-iChI5{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-iChI5\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "parser-6bJ9b",
-        "sourceHandle": "{œdataTypeœ: œparserœ, œidœ: œparser-6bJ9bœ, œnameœ: œparsed_textœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153parser\u0153, \u0153id\u0153: \u0153parser-6bJ9b\u0153, \u0153name\u0153: \u0153parsed_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-iChI5",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-iChI5œ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-iChI5\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -172,12 +172,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-AMW8y{œdataTypeœ:œPromptœ,œidœ:œPrompt-AMW8yœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-cPCaH{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-cPCaHœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-AMW8y{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-AMW8y\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-cPCaH{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-cPCaH\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-AMW8y",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-AMW8yœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-AMW8y\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-cPCaH",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-cPCaHœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-cPCaH\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -204,12 +204,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-cPCaH{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-cPCaHœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-9KeOi{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-9KeOiœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-LanguageModelComponent-cPCaH{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-cPCaH\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-9KeOi{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-9KeOi\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "LanguageModelComponent-cPCaH",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-cPCaHœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-cPCaH\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-9KeOi",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-9KeOiœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-9KeOi\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -232,12 +232,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-36nA8{œdataTypeœ:œPromptœ,œidœ:œPrompt-36nA8œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-mMKmF{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-mMKmFœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-36nA8{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-36nA8\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-mMKmF{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-mMKmF\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-36nA8",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-36nA8œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-36nA8\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-mMKmF",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-mMKmFœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-mMKmF\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -264,12 +264,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-mMKmF{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-mMKmFœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-R039P{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-R039Pœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-LanguageModelComponent-mMKmF{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-mMKmF\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-R039P{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-R039P\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "LanguageModelComponent-mMKmF",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-mMKmFœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-mMKmF\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-R039P",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-R039Pœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-R039P\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "data": {
@@ -291,11 +291,11 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__Memory-dFlpS{œdataTypeœ:œMemoryœ,œidœ:œMemory-dFlpSœ,œnameœ:œmessages_textœ,œoutput_typesœ:[œMessageœ]}-Prompt-36nA8{œfieldNameœ:œhistoryœ,œidœ:œPrompt-36nA8œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Memory-dFlpS{\u0153dataType\u0153:\u0153Memory\u0153,\u0153id\u0153:\u0153Memory-dFlpS\u0153,\u0153name\u0153:\u0153messages_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-36nA8{\u0153fieldName\u0153:\u0153history\u0153,\u0153id\u0153:\u0153Prompt-36nA8\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Memory-dFlpS",
-        "sourceHandle": "{œdataTypeœ: œMemoryœ, œidœ: œMemory-dFlpSœ, œnameœ: œmessages_textœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Memory\u0153, \u0153id\u0153: \u0153Memory-dFlpS\u0153, \u0153name\u0153: \u0153messages_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-36nA8",
-        "targetHandle": "{œfieldNameœ: œhistoryœ, œidœ: œPrompt-36nA8œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153history\u0153, \u0153id\u0153: \u0153Prompt-36nA8\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -373,7 +373,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": "ASSEMBLYAI_API_KEY"
@@ -2529,7 +2529,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": "ASSEMBLYAI_API_KEY"
@@ -2799,7 +2799,7 @@
         "data": {
           "id": "note-a9dFN",
           "node": {
-            "description": "# 📖 README\nThis flow automatically transcribes and summarizes meetings by converting audio recordings into concise summaries using **AssemblyAI** and **OpenAI GPT-4**. \n\n## Prerequisites\n\n- **[AssemblyAI API Key](https://www.assemblyai.com/)**\n- **[OpenAI API Key](https://platform.openai.com/)**\n\n## Quick start\n\n1. Upload an audio file. Most common audio file formats are [supported](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/components/assemblyai/assemblyai_start_transcript.py#L27).\n2. To run the summary generator flow, click **Playground**.\n\nThe flow transcribes the audio using **AssemblyAI**.\nThe transcript is formatted for AI processing.\nThe **GPT-4** model extracts key points and insights.\nThe summarized meeting details are displayed in a chat-friendly format.\n\n\n\n",
+            "description": "# \ud83d\udcd6 README\nThis flow automatically transcribes and summarizes meetings by converting audio recordings into concise summaries using **AssemblyAI** and **OpenAI GPT-4**. \n\n## Prerequisites\n\n- **[AssemblyAI API Key](https://www.assemblyai.com/)**\n- **[OpenAI API Key](https://platform.openai.com/)**\n\n## Quick start\n\n1. Upload an audio file. Most common audio file formats are [supported](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/components/assemblyai/assemblyai_start_transcript.py#L27).\n2. To run the summary generator flow, click **Playground**.\n\nThe flow transcribes the audio using **AssemblyAI**.\nThe transcript is formatted for AI processing.\nThe **GPT-4** model extracts key points and insights.\nThe summarized meeting details are displayed in a chat-friendly format.\n\n\n\n",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -3125,7 +3125,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -3502,7 +3502,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -3773,7 +3773,7 @@
       "zoom": 0.5620453086026018
     }
   },
-  "description": "AI 驱动的会议摘要生成器，使用 AssemblyAI 和 OpenAI 转录和总结会议以获取快速洞察。",
+  "description": "AI \u9a71\u52a8\u7684\u4f1a\u8bae\u6458\u8981\u751f\u6210\u5668\uff0c\u4f7f\u7528 AssemblyAI \u548c OpenAI \u8f6c\u5f55\u548c\u603b\u7ed3\u4f1a\u8bae\u4ee5\u83b7\u53d6\u5feb\u901f\u6d1e\u5bdf\u3002",
   "endpoint_name": null,
   "id": "5f6a79a4-2a18-4754-b8fb-cbfabce79cc9",
   "is_component": false,

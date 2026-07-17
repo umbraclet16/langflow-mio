@@ -24,11 +24,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__Agent-9JGgQ{œdataTypeœ:œAgentœ,œidœ:œAgent-9JGgQœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-Pygov{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-Pygovœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__Agent-9JGgQ{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-9JGgQ\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-Pygov{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-Pygov\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "Agent-9JGgQ",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-9JGgQœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-9JGgQ\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-Pygov",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-Pygovœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-Pygov\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "data": {
@@ -49,11 +49,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__ScrapeGraphSearchApi-ww6QN{œdataTypeœ:œScrapeGraphSearchApiœ,œidœ:œScrapeGraphSearchApi-ww6QNœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-9JGgQ{œfieldNameœ:œtoolsœ,œidœ:œAgent-9JGgQœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__ScrapeGraphSearchApi-ww6QN{\u0153dataType\u0153:\u0153ScrapeGraphSearchApi\u0153,\u0153id\u0153:\u0153ScrapeGraphSearchApi-ww6QN\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-9JGgQ{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-9JGgQ\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "ScrapeGraphSearchApi-ww6QN",
-        "sourceHandle": "{œdataTypeœ: œScrapeGraphSearchApiœ, œidœ: œScrapeGraphSearchApi-ww6QNœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ScrapeGraphSearchApi\u0153, \u0153id\u0153: \u0153ScrapeGraphSearchApi-ww6QN\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-9JGgQ",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-9JGgQœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-9JGgQ\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "data": {
@@ -74,11 +74,11 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__ChatInput-TzjdQ{œdataTypeœ:œChatInputœ,œidœ:œChatInput-TzjdQœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-9JGgQ{œfieldNameœ:œinput_valueœ,œidœ:œAgent-9JGgQœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__ChatInput-TzjdQ{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-TzjdQ\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-9JGgQ{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-9JGgQ\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "ChatInput-TzjdQ",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-TzjdQœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-TzjdQ\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-9JGgQ",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-9JGgQœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-9JGgQ\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -158,7 +158,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": "SCRAPEGRAPH_API_KEY"
@@ -823,7 +823,7 @@
         "data": {
           "id": "note-Fffq1",
           "node": {
-            "description": "# � README\nThis template connects the **Search Point** endpoint from [ScrapeGraphAI](https://scrapegraphai.com) to an **Agent** component.\n\n## Prerequisites\n\n* [OpenAI API key](https://platform.openai.com/docs/overview)\n* [ScrapeGraphAI API key](https://dashboard.scrapegraphai.com)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n\n2. Add your **ScrapeGraphAI API key** to the **ScrapeGraphSearchApi** component.\n\n3. Open the **Playground** and ask your Agent a question. The Agent uses ScrapeGraph as a tool to answer you.",
+            "description": "# \ufffd README\nThis template connects the **Search Point** endpoint from [ScrapeGraphAI](https://scrapegraphai.com) to an **Agent** component.\n\n## Prerequisites\n\n* [OpenAI API key](https://platform.openai.com/docs/overview)\n* [ScrapeGraphAI API key](https://dashboard.scrapegraphai.com)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n\n2. Add your **ScrapeGraphAI API key** to the **ScrapeGraphSearchApi** component.\n\n3. Open the **Playground** and ask your Agent a question. The Agent uses ScrapeGraph as a tool to answer you.",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -876,7 +876,7 @@
         "data": {
           "id": "note-zpH8d",
           "node": {
-            "description": "### Add your ScrapeGraphAI API key here 👇",
+            "description": "### Add your ScrapeGraphAI API key here \ud83d\udc47",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1043,7 +1043,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -1490,7 +1490,7 @@
       "zoom": 0.9959993167224503
     }
   },
-  "description": "搜索智能体，使用多种搜索引擎进行信息检索和整合。",
+  "description": "\u641c\u7d22\u667a\u80fd\u4f53\uff0c\u4f7f\u7528\u591a\u79cd\u641c\u7d22\u5f15\u64ce\u8fdb\u884c\u4fe1\u606f\u68c0\u7d22\u548c\u6574\u5408\u3002",
   "endpoint_name": null,
   "id": "33595f43-7565-44ff-a55e-02655b0a7cb9",
   "is_component": false,

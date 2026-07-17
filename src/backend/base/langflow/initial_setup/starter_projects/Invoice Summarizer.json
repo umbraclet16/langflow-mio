@@ -21,12 +21,12 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__Prompt-MK7WY{œdataTypeœ:œPromptœ,œidœ:œPrompt-MK7WYœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-Agent-CBCVT{œfieldNameœ:œsystem_promptœ,œidœ:œAgent-CBCVTœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Prompt-MK7WY{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-MK7WY\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-CBCVT{\u0153fieldName\u0153:\u0153system_prompt\u0153,\u0153id\u0153:\u0153Agent-CBCVT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-MK7WY",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-MK7WYœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-MK7WY\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-CBCVT",
-        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-CBCVTœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_prompt\u0153, \u0153id\u0153: \u0153Agent-CBCVT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -48,12 +48,12 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__needle-3GWxP{œdataTypeœ:œneedleœ,œidœ:œneedle-3GWxPœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-CBCVT{œfieldNameœ:œtoolsœ,œidœ:œAgent-CBCVTœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__needle-3GWxP{\u0153dataType\u0153:\u0153needle\u0153,\u0153id\u0153:\u0153needle-3GWxP\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-CBCVT{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-CBCVT\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "needle-3GWxP",
-        "sourceHandle": "{œdataTypeœ: œneedleœ, œidœ: œneedle-3GWxPœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153needle\u0153, \u0153id\u0153: \u0153needle-3GWxP\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-CBCVT",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-CBCVTœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-CBCVT\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -75,12 +75,12 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__ChatInput-rqXHX{œdataTypeœ:œChatInputœ,œidœ:œChatInput-rqXHXœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-CBCVT{œfieldNameœ:œinput_valueœ,œidœ:œAgent-CBCVTœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__ChatInput-rqXHX{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-rqXHX\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-CBCVT{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-CBCVT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-rqXHX",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-rqXHXœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-rqXHX\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-CBCVT",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-CBCVTœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-CBCVT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -106,12 +106,12 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__Agent-CBCVT{œdataTypeœ:œAgentœ,œidœ:œAgent-CBCVTœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-Acmbw{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-Acmbwœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Agent-CBCVT{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-CBCVT\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-Acmbw{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-Acmbw\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Agent-CBCVT",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-CBCVTœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-CBCVT\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-Acmbw",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-Acmbwœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-Acmbw\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -119,7 +119,7 @@
         "data": {
           "id": "note-v8JKB",
           "node": {
-            "description": "# 📖 README\nLeverage the **Needle Search API** and an **Agent** to gather and summarize your invoice data quickly and accurately.\n\n## Prerequisites\n\n* A **Collection** and an **API Key** from your [Needle.ai](https://needle-ai.com) deployment\n* An [OpenAI API key](https://platform.openai.com/)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n\n2. Load your invoices into your Needle Collection. \n\n3. In the **Needle Search** tool, add your **Needle Collection ID** and **Needle API Key**.\n\n4. Open the **Playground** and query your invoices. The **Agent** component determines the correct query and search size for data retrieval.\n",
+            "description": "# \ud83d\udcd6 README\nLeverage the **Needle Search API** and an **Agent** to gather and summarize your invoice data quickly and accurately.\n\n## Prerequisites\n\n* A **Collection** and an **API Key** from your [Needle.ai](https://needle-ai.com) deployment\n* An [OpenAI API key](https://platform.openai.com/)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n\n2. Load your invoices into your Needle Collection. \n\n3. In the **Needle Search** tool, add your **Needle Collection ID** and **Needle API Key**.\n\n4. Open the **Playground** and query your invoices. The **Agent** component determines the correct query and search size for data retrieval.\n",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -623,7 +623,7 @@
         "data": {
           "id": "note-jxdmT",
           "node": {
-            "description": "### Add your Needle Search API key here 👇",
+            "description": "### Add your Needle Search API key here \ud83d\udc47",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1283,7 +1283,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -1730,7 +1730,7 @@
       "zoom": 0.7214379621227387
     }
   },
-  "description": "您的 AI 智能会计师 - 利用 Needle 与 Langflow 智能体。",
+  "description": "\u60a8\u7684 AI \u667a\u80fd\u4f1a\u8ba1\u5e08 - \u5229\u7528 Needle \u4e0e Langflow \u667a\u80fd\u4f53\u3002",
   "endpoint_name": null,
   "id": "4c77bc1e-3ef0-4ea2-8192-ee3a8b1c5522",
   "is_component": false,

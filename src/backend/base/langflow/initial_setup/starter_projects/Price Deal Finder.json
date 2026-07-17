@@ -20,11 +20,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__AgentQL-qCiM5{œdataTypeœ:œAgentQLœ,œidœ:œAgentQL-qCiM5œ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-03SGo{œfieldNameœ:œtoolsœ,œidœ:œAgent-03SGoœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__AgentQL-qCiM5{\u0153dataType\u0153:\u0153AgentQL\u0153,\u0153id\u0153:\u0153AgentQL-qCiM5\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-03SGo{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-03SGo\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "AgentQL-qCiM5",
-        "sourceHandle": "{œdataTypeœ: œAgentQLœ, œidœ: œAgentQL-qCiM5œ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153AgentQL\u0153, \u0153id\u0153: \u0153AgentQL-qCiM5\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-03SGo",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-03SGoœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-03SGo\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "data": {
@@ -45,11 +45,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__TavilySearchComponent-nWDnP{œdataTypeœ:œTavilySearchComponentœ,œidœ:œTavilySearchComponent-nWDnPœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-03SGo{œfieldNameœ:œtoolsœ,œidœ:œAgent-03SGoœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__TavilySearchComponent-nWDnP{\u0153dataType\u0153:\u0153TavilySearchComponent\u0153,\u0153id\u0153:\u0153TavilySearchComponent-nWDnP\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-03SGo{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-03SGo\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "TavilySearchComponent-nWDnP",
-        "sourceHandle": "{œdataTypeœ: œTavilySearchComponentœ, œidœ: œTavilySearchComponent-nWDnPœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TavilySearchComponent\u0153, \u0153id\u0153: \u0153TavilySearchComponent-nWDnP\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-03SGo",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-03SGoœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-03SGo\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "data": {
@@ -70,11 +70,11 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__ChatInput-fJHKg{œdataTypeœ:œChatInputœ,œidœ:œChatInput-fJHKgœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-03SGo{œfieldNameœ:œinput_valueœ,œidœ:œAgent-03SGoœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__ChatInput-fJHKg{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-fJHKg\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-03SGo{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-03SGo\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "ChatInput-fJHKg",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-fJHKgœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-fJHKg\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-03SGo",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-03SGoœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-03SGo\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "data": {
@@ -99,11 +99,11 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__Agent-03SGo{œdataTypeœ:œAgentœ,œidœ:œAgent-03SGoœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-ykhew{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-ykhewœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Agent-03SGo{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-03SGo\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-ykhew{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-ykhew\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-03SGo",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-03SGoœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-03SGo\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-ykhew",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-ykhewœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-ykhew\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -760,7 +760,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": "TAVILY_API_KEY"
@@ -1175,7 +1175,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": "AGENTQL_API_KEY"
@@ -1490,7 +1490,7 @@
         "data": {
           "id": "note-3fanj",
           "node": {
-            "description": "### 💡 Add your AgentQL API key here",
+            "description": "### \ud83d\udca1 Add your AgentQL API key here",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1517,7 +1517,7 @@
         "data": {
           "id": "note-L77iu",
           "node": {
-            "description": "# 📖 README\nThis flow searches and compares prices of a product on the web.\n## Prerequisites\n\n* **[AgentQL API Key](https://dev.agentql.com/api-keys)**\n* **[OpenAI API Key](https://platform.openai.com/)**\n* **[TavilyAI Search API Key](https://tavily.com/)**\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n2. Add your [AgentQL API Key](https://dev.agentql.com/api-keys) to the **AgentQL** component.\n3. Add your [TavilyAI Search API Key](https://tavily.com/) to the **Tavily AI Search** component.\n4. Click **Playground** and enter a product in chat. For example, search \"iPhone 16 Pro 512 GB\")\n* The **Agent** component populates the **Tavily AI Search** component's **Search Query** field, and the **Agent QL** component's **URL** and **Query** fields. \n\n* The **Agent** returns a structured response to your searcn in the chat.",
+            "description": "# \ud83d\udcd6 README\nThis flow searches and compares prices of a product on the web.\n## Prerequisites\n\n* **[AgentQL API Key](https://dev.agentql.com/api-keys)**\n* **[OpenAI API Key](https://platform.openai.com/)**\n* **[TavilyAI Search API Key](https://tavily.com/)**\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n2. Add your [AgentQL API Key](https://dev.agentql.com/api-keys) to the **AgentQL** component.\n3. Add your [TavilyAI Search API Key](https://tavily.com/) to the **Tavily AI Search** component.\n4. Click **Playground** and enter a product in chat. For example, search \"iPhone 16 Pro 512 GB\")\n* The **Agent** component populates the **Tavily AI Search** component's **Search Query** field, and the **Agent QL** component's **URL** and **Query** fields. \n\n* The **Agent** returns a structured response to your searcn in the chat.",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -1544,7 +1544,7 @@
         "data": {
           "id": "note-Op67v",
           "node": {
-            "description": "### 💡 Add your Tavily AI Search key here",
+            "description": "### \ud83d\udca1 Add your Tavily AI Search key here",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1711,7 +1711,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -2158,7 +2158,7 @@
       "zoom": 0.6920869578393206
     }
   },
-  "description": "使用智能体搜索和比较产品价格，找到最优惠的价格。",
+  "description": "\u4f7f\u7528\u667a\u80fd\u4f53\u641c\u7d22\u548c\u6bd4\u8f83\u4ea7\u54c1\u4ef7\u683c\uff0c\u627e\u5230\u6700\u4f18\u60e0\u7684\u4ef7\u683c\u3002",
   "endpoint_name": null,
   "id": "e60f747f-c5c4-4581-b3cb-d320af9f7dce",
   "is_component": false,

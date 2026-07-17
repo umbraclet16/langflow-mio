@@ -22,12 +22,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-nr0Vp{œdataTypeœ:œChatInputœ,œidœ:œChatInput-nr0Vpœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-ArXivComponent-tAHR5{œfieldNameœ:œsearch_queryœ,œidœ:œArXivComponent-tAHR5œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-nr0Vp{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-nr0Vp\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ArXivComponent-tAHR5{\u0153fieldName\u0153:\u0153search_query\u0153,\u0153id\u0153:\u0153ArXivComponent-tAHR5\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-nr0Vp",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-nr0Vpœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-nr0Vp\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ArXivComponent-tAHR5",
-        "targetHandle": "{œfieldNameœ: œsearch_queryœ, œidœ: œArXivComponent-tAHR5œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153search_query\u0153, \u0153id\u0153: \u0153ArXivComponent-tAHR5\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -52,11 +52,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__LoopComponent-GtPZT{œdataTypeœ:œLoopComponentœ,œidœ:œLoopComponent-GtPZTœ,œnameœ:œitemœ,œoutput_typesœ:[œTableœ]}-ParserComponent-pXAMb{œfieldNameœ:œinput_dataœ,œidœ:œParserComponent-pXAMbœ,œinputTypesœ:[œDataFrameœ,œTableœ,œDataœ,œJSONœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__LoopComponent-GtPZT{\u0153dataType\u0153:\u0153LoopComponent\u0153,\u0153id\u0153:\u0153LoopComponent-GtPZT\u0153,\u0153name\u0153:\u0153item\u0153,\u0153output_types\u0153:[\u0153Table\u0153]}-ParserComponent-pXAMb{\u0153fieldName\u0153:\u0153input_data\u0153,\u0153id\u0153:\u0153ParserComponent-pXAMb\u0153,\u0153inputTypes\u0153:[\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Data\u0153,\u0153JSON\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "LoopComponent-GtPZT",
-        "sourceHandle": "{œdataTypeœ: œLoopComponentœ, œidœ: œLoopComponent-GtPZTœ, œnameœ: œitemœ, œoutput_typesœ: [œJSONœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LoopComponent\u0153, \u0153id\u0153: \u0153LoopComponent-GtPZT\u0153, \u0153name\u0153: \u0153item\u0153, \u0153output_types\u0153: [\u0153JSON\u0153]}",
         "target": "ParserComponent-pXAMb",
-        "targetHandle": "{œfieldNameœ: œinput_dataœ, œidœ: œParserComponent-pXAMbœ, œinputTypesœ: [œDataFrameœ, œTableœ, œDataœ, œJSONœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_data\u0153, \u0153id\u0153: \u0153ParserComponent-pXAMb\u0153, \u0153inputTypes\u0153: [\u0153DataFrame\u0153, \u0153Table\u0153, \u0153Data\u0153, \u0153JSON\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "className": "",
@@ -78,11 +78,11 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__ParserComponent-pXAMb{œdataTypeœ:œParserComponentœ,œidœ:œParserComponent-pXAMbœ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-XKvly{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-XKvlyœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__ParserComponent-pXAMb{\u0153dataType\u0153:\u0153ParserComponent\u0153,\u0153id\u0153:\u0153ParserComponent-pXAMb\u0153,\u0153name\u0153:\u0153parsed_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-XKvly{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-XKvly\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "ParserComponent-pXAMb",
-        "sourceHandle": "{œdataTypeœ: œParserComponentœ, œidœ: œParserComponent-pXAMbœ, œnameœ: œparsed_textœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ParserComponent\u0153, \u0153id\u0153: \u0153ParserComponent-pXAMb\u0153, \u0153name\u0153: \u0153parsed_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-XKvly",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-XKvlyœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-XKvly\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -105,11 +105,11 @@
             ]
           }
         },
-        "id": "xy-edge__LanguageModelComponent-XKvly{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-XKvlyœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-LoopComponent-GtPZT{œdataTypeœ:œLoopComponentœ,œidœ:œLoopComponent-GtPZTœ,œnameœ:œitemœ,œoutput_typesœ:[œDataœ,œMessageœ]}",
+        "id": "xy-edge__LanguageModelComponent-XKvly{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-XKvly\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LoopComponent-GtPZT{\u0153dataType\u0153:\u0153LoopComponent\u0153,\u0153id\u0153:\u0153LoopComponent-GtPZT\u0153,\u0153name\u0153:\u0153item\u0153,\u0153output_types\u0153:[\u0153Data\u0153,\u0153Message\u0153]}",
         "source": "LanguageModelComponent-XKvly",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-XKvlyœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-XKvly\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LoopComponent-GtPZT",
-        "targetHandle": "{œdataTypeœ: œLoopComponentœ, œidœ: œLoopComponent-GtPZTœ, œnameœ: œitemœ, œoutput_typesœ: [œDataœ, œMessageœ]}"
+        "targetHandle": "{\u0153dataType\u0153: \u0153LoopComponent\u0153, \u0153id\u0153: \u0153LoopComponent-GtPZT\u0153, \u0153name\u0153: \u0153item\u0153, \u0153output_types\u0153: [\u0153Data\u0153, \u0153Message\u0153]}"
       },
       {
         "className": "",
@@ -132,11 +132,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__ArXivComponent-tAHR5{œdataTypeœ:œArXivComponentœ,œidœ:œArXivComponent-tAHR5œ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}-LoopComponent-GtPZT{œfieldNameœ:œdataœ,œidœ:œLoopComponent-GtPZTœ,œinputTypesœ:[œDataFrameœ,œTableœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__ArXivComponent-tAHR5{\u0153dataType\u0153:\u0153ArXivComponent\u0153,\u0153id\u0153:\u0153ArXivComponent-tAHR5\u0153,\u0153name\u0153:\u0153dataframe\u0153,\u0153output_types\u0153:[\u0153Table\u0153]}-LoopComponent-GtPZT{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153LoopComponent-GtPZT\u0153,\u0153inputTypes\u0153:[\u0153DataFrame\u0153,\u0153Table\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "ArXivComponent-tAHR5",
-        "sourceHandle": "{œdataTypeœ: œArXivComponentœ, œidœ: œArXivComponent-tAHR5œ, œnameœ: œdataframeœ, œoutput_typesœ: [œTableœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ArXivComponent\u0153, \u0153id\u0153: \u0153ArXivComponent-tAHR5\u0153, \u0153name\u0153: \u0153dataframe\u0153, \u0153output_types\u0153: [\u0153Table\u0153]}",
         "target": "LoopComponent-GtPZT",
-        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œLoopComponent-GtPZTœ, œinputTypesœ: [œDataFrameœ, œTableœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153LoopComponent-GtPZT\u0153, \u0153inputTypes\u0153: [\u0153DataFrame\u0153, \u0153Table\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "className": "",
@@ -162,11 +162,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__LoopComponent-GtPZT{œdataTypeœ:œLoopComponentœ,œidœ:œLoopComponent-GtPZTœ,œnameœ:œdoneœ,œoutput_typesœ:[œTableœ]}-ChatOutput-YAED9{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-YAED9œ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__LoopComponent-GtPZT{\u0153dataType\u0153:\u0153LoopComponent\u0153,\u0153id\u0153:\u0153LoopComponent-GtPZT\u0153,\u0153name\u0153:\u0153done\u0153,\u0153output_types\u0153:[\u0153Table\u0153]}-ChatOutput-YAED9{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-YAED9\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "LoopComponent-GtPZT",
-        "sourceHandle": "{œdataTypeœ: œLoopComponentœ, œidœ: œLoopComponent-GtPZTœ, œnameœ: œdoneœ, œoutput_typesœ: [œTableœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LoopComponent\u0153, \u0153id\u0153: \u0153LoopComponent-GtPZT\u0153, \u0153name\u0153: \u0153done\u0153, \u0153output_types\u0153: [\u0153Table\u0153]}",
         "target": "ChatOutput-YAED9",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-YAED9œ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-YAED9\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -901,7 +901,7 @@
         "data": {
           "id": "note-nrMOM",
           "node": {
-            "description": "# 📖 README\nThis template translates research paper summaries on ArXiv into Portuguese and summarizes them. \n Using **Langflow’s looping mechanism**, the template iterates through multiple research papers, translates them with the **OpenAI** model component, and outputs an aggregated version of all translated papers.  \n\n## Quick start\n1. Configure your **Model Provider** with your API credentials. \n2. In the **Playground**, enter a query related to a research topic (for example, “Quantum Computing Advancements”).  \n\n  The flow fetches a list of research papers from ArXiv matching the query. Each paper in the retrieved list is processed one-by-one using the Langflow **Loop component**. \n\n  The abstract of each paper is translated into Portuguese by the **OpenAI** model component. \n\n Once all papers are translated, the system aggregates them into a **single structured output**.",
+            "description": "# \ud83d\udcd6 README\nThis template translates research paper summaries on ArXiv into Portuguese and summarizes them. \n Using **Langflow\u2019s looping mechanism**, the template iterates through multiple research papers, translates them with the **OpenAI** model component, and outputs an aggregated version of all translated papers.  \n\n## Quick start\n1. Configure your **Model Provider** with your API credentials. \n2. In the **Playground**, enter a query related to a research topic (for example, \u201cQuantum Computing Advancements\u201d).  \n\n  The flow fetches a list of research papers from ArXiv matching the query. Each paper in the retrieved list is processed one-by-one using the Langflow **Loop component**. \n\n  The abstract of each paper is translated into Portuguese by the **OpenAI** model component. \n\n Once all papers are translated, the system aggregates them into a **single structured output**.",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -1039,7 +1039,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -1639,7 +1639,7 @@
       "zoom": 0.48565229862392995
     }
   },
-  "description": "研究和翻译循环，支持多语言内容处理和翻译。",
+  "description": "\u7814\u7a76\u548c\u7ffb\u8bd1\u5faa\u73af\uff0c\u652f\u6301\u591a\u8bed\u8a00\u5185\u5bb9\u5904\u7406\u548c\u7ffb\u8bd1\u3002",
   "endpoint_name": null,
   "id": "70f6d78d-41ad-42a3-854d-405e161ee563",
   "is_component": false,

@@ -22,12 +22,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-AgentQL-064NO{œdataTypeœ:œAgentQLœ,œidœ:œAgentQL-064NOœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-ZH2Rd{œfieldNameœ:œtoolsœ,œidœ:œAgent-ZH2Rdœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AgentQL-064NO{\u0153dataType\u0153:\u0153AgentQL\u0153,\u0153id\u0153:\u0153AgentQL-064NO\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-ZH2Rd{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-ZH2Rd\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "AgentQL-064NO",
-        "sourceHandle": "{œdataTypeœ: œAgentQLœ, œidœ: œAgentQL-064NOœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153AgentQL\u0153, \u0153id\u0153: \u0153AgentQL-064NO\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-ZH2Rd",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-ZH2Rdœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-ZH2Rd\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -50,12 +50,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-S2wgk{œdataTypeœ:œChatInputœ,œidœ:œChatInput-S2wgkœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-ZH2Rd{œfieldNameœ:œinput_valueœ,œidœ:œAgent-ZH2Rdœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-S2wgk{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-S2wgk\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-ZH2Rd{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-ZH2Rd\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-S2wgk",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-S2wgkœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-S2wgk\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-ZH2Rd",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-ZH2Rdœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-ZH2Rd\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -82,12 +82,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-Agent-ZH2Rd{œdataTypeœ:œAgentœ,œidœ:œAgent-ZH2Rdœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-jNfAw{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-jNfAwœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-Agent-ZH2Rd{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-ZH2Rd\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-jNfAw{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-jNfAw\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "Agent-ZH2Rd",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-ZH2Rdœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-ZH2Rd\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-jNfAw",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-jNfAwœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-jNfAw\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -114,12 +114,12 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__ChatOutput-jNfAw{œdataTypeœ:œChatOutputœ,œidœ:œChatOutput-jNfAwœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-SaveToFile-VVVVb{œfieldNameœ:œinputœ,œidœ:œSaveToFile-VVVVbœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__ChatOutput-jNfAw{\u0153dataType\u0153:\u0153ChatOutput\u0153,\u0153id\u0153:\u0153ChatOutput-jNfAw\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-SaveToFile-VVVVb{\u0153fieldName\u0153:\u0153input\u0153,\u0153id\u0153:\u0153SaveToFile-VVVVb\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "ChatOutput-jNfAw",
-        "sourceHandle": "{œdataTypeœ: œChatOutputœ, œidœ: œChatOutput-jNfAwœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatOutput\u0153, \u0153id\u0153: \u0153ChatOutput-jNfAw\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "SaveToFile-VVVVb",
-        "targetHandle": "{œfieldNameœ: œinputœ, œidœ: œSaveToFile-VVVVbœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input\u0153, \u0153id\u0153: \u0153SaveToFile-VVVVb\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -263,7 +263,7 @@
                 "password": true,
                 "placeholder": "",
                 "required": true,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "type": "str",
                 "value": "AGENTQL_API_KEY"
@@ -830,7 +830,7 @@
         "data": {
           "id": "note-reU70",
           "node": {
-            "description": "# 📖 README\nThis flow extracts structured data from a URL and saves it into a JSON file.\n\n## Prerequisites\n\n* **[AgentQL API Key](https://dev.agentql.com/api-keys)**\n* **[OpenAI API Key](https://platform.openai.com/)**\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n2. Add your [AgentQL API Key](https://dev.agentql.com/api-keys) to the **AgentQL** component.\n3. Click **Playground** and enter a question.\n\nThe **Agent** component populates the **AgentQL** component's **URL** and **Query** fields, and returns a structured response to your question. Then the extracted data is saved into a JSON file `news-aggregated.json`, which can be found in your current project directory.",
+            "description": "# \ud83d\udcd6 README\nThis flow extracts structured data from a URL and saves it into a JSON file.\n\n## Prerequisites\n\n* **[AgentQL API Key](https://dev.agentql.com/api-keys)**\n* **[OpenAI API Key](https://platform.openai.com/)**\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n2. Add your [AgentQL API Key](https://dev.agentql.com/api-keys) to the **AgentQL** component.\n3. Click **Playground** and enter a question.\n\nThe **Agent** component populates the **AgentQL** component's **URL** and **Query** fields, and returns a structured response to your question. Then the extracted data is saved into a JSON file `news-aggregated.json`, which can be found in your current project directory.",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1277,7 +1277,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -2178,7 +2178,7 @@
       "zoom": 0.7295800981010054
     }
   },
-  "description": "从网页中提取数据和信息。",
+  "description": "\u4ece\u7f51\u9875\u4e2d\u63d0\u53d6\u6570\u636e\u548c\u4fe1\u606f\u3002",
   "endpoint_name": null,
   "id": "10090ba4-02d7-4c07-bc44-c635c4d4e7d3",
   "is_component": false,

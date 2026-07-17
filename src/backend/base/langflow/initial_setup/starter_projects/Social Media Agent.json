@@ -22,12 +22,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-ApifyActors-Zrjnz{œdataTypeœ:œApifyActorsœ,œidœ:œApifyActors-Zrjnzœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}-Agent-0vMrI{œfieldNameœ:œtoolsœ,œidœ:œAgent-0vMrIœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-ApifyActors-Zrjnz{\u0153dataType\u0153:\u0153ApifyActors\u0153,\u0153id\u0153:\u0153ApifyActors-Zrjnz\u0153,\u0153name\u0153:\u0153tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-0vMrI{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-0vMrI\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "ApifyActors-Zrjnz",
-        "sourceHandle": "{œdataTypeœ: œApifyActorsœ, œidœ: œApifyActors-Zrjnzœ, œnameœ: œtoolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ApifyActors\u0153, \u0153id\u0153: \u0153ApifyActors-Zrjnz\u0153, \u0153name\u0153: \u0153tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-0vMrI",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-0vMrIœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-0vMrI\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -50,12 +50,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-ApifyActors-8WoKJ{œdataTypeœ:œApifyActorsœ,œidœ:œApifyActors-8WoKJœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}-Agent-0vMrI{œfieldNameœ:œtoolsœ,œidœ:œAgent-0vMrIœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-ApifyActors-8WoKJ{\u0153dataType\u0153:\u0153ApifyActors\u0153,\u0153id\u0153:\u0153ApifyActors-8WoKJ\u0153,\u0153name\u0153:\u0153tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-0vMrI{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-0vMrI\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "ApifyActors-8WoKJ",
-        "sourceHandle": "{œdataTypeœ: œApifyActorsœ, œidœ: œApifyActors-8WoKJœ, œnameœ: œtoolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ApifyActors\u0153, \u0153id\u0153: \u0153ApifyActors-8WoKJ\u0153, \u0153name\u0153: \u0153tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-0vMrI",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-0vMrIœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-0vMrI\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -78,12 +78,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-RBrnT{œdataTypeœ:œChatInputœ,œidœ:œChatInput-RBrnTœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-0vMrI{œfieldNameœ:œinput_valueœ,œidœ:œAgent-0vMrIœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-RBrnT{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-RBrnT\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-0vMrI{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-0vMrI\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-RBrnT",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-RBrnTœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-RBrnT\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-0vMrI",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-0vMrIœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-0vMrI\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -110,12 +110,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-Agent-0vMrI{œdataTypeœ:œAgentœ,œidœ:œAgent-0vMrIœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-Lgpwq{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-Lgpwqœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-Agent-0vMrI{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-0vMrI\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-Lgpwq{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-Lgpwq\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "Agent-0vMrI",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-0vMrIœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-0vMrI\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-Lgpwq",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-Lgpwqœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-Lgpwq\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -587,7 +587,7 @@
         "data": {
           "id": "note-do2Nq",
           "node": {
-            "description": "### 💡 Add your Apify API key here ",
+            "description": "### \ud83d\udca1 Add your Apify API key here ",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -613,7 +613,7 @@
         "data": {
           "id": "note-7z6Er",
           "node": {
-            "description": "### 💡 Add your Apify API key here ",
+            "description": "### \ud83d\udca1 Add your Apify API key here ",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -642,7 +642,7 @@
         "data": {
           "id": "note-NZDOa",
           "node": {
-            "description": "# 📖 README\nExtract data with **Apify Actors** and analyze the data with an **Agent**.\n\n## Prerequisites\n\n* An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token)\n* An [OpenAI API key](https://platform.openai.com/)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n2. Enter your **Apify** API token in the **Apify Token** fields of the **Apify Actors** components.\n3. Open the **Playground** and chat with the agent. For example, task it with retrieving a profile bio and the latest video by using this prompt:  \n   ```\n   Find the TikTok profile of the company OpenAI using Google search, then show me the profile bio and their latest video.\n   ```",
+            "description": "# \ud83d\udcd6 README\nExtract data with **Apify Actors** and analyze the data with an **Agent**.\n\n## Prerequisites\n\n* An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token)\n* An [OpenAI API key](https://platform.openai.com/)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n2. Enter your **Apify** API token in the **Apify Token** fields of the **Apify Actors** components.\n3. Open the **Playground** and chat with the agent. For example, task it with retrieving a profile bio and the latest video by using this prompt:  \n   ```\n   Find the TikTok profile of the company OpenAI using Google search, then show me the profile bio and their latest video.\n   ```",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1392,7 +1392,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -1840,7 +1840,7 @@
       "zoom": 0.6868478679218015
     }
   },
-  "description": "社交媒体智能体，帮助管理和生成社交媒体内容。",
+  "description": "\u793e\u4ea4\u5a92\u4f53\u667a\u80fd\u4f53\uff0c\u5e2e\u52a9\u7ba1\u7406\u548c\u751f\u6210\u793e\u4ea4\u5a92\u4f53\u5185\u5bb9\u3002",
   "endpoint_name": null,
   "id": "6c13c359-1078-452d-acdb-863aedd98e23",
   "is_component": false,

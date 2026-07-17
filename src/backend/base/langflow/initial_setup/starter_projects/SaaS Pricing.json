@@ -21,12 +21,12 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__Prompt-fkLY7{œdataTypeœ:œPromptœ,œidœ:œPrompt-fkLY7œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-Agent-bNGtH{œfieldNameœ:œinput_valueœ,œidœ:œAgent-bNGtHœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Prompt-fkLY7{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-fkLY7\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-bNGtH{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-bNGtH\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-fkLY7",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-fkLY7œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-fkLY7\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-bNGtH",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-bNGtHœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-bNGtH\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -48,12 +48,12 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__CalculatorComponent-nctUz{œdataTypeœ:œCalculatorComponentœ,œidœ:œCalculatorComponent-nctUzœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-bNGtH{œfieldNameœ:œtoolsœ,œidœ:œAgent-bNGtHœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__CalculatorComponent-nctUz{\u0153dataType\u0153:\u0153CalculatorComponent\u0153,\u0153id\u0153:\u0153CalculatorComponent-nctUz\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-bNGtH{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-bNGtH\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "CalculatorComponent-nctUz",
-        "sourceHandle": "{œdataTypeœ: œCalculatorComponentœ, œidœ: œCalculatorComponent-nctUzœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153CalculatorComponent\u0153, \u0153id\u0153: \u0153CalculatorComponent-nctUz\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-bNGtH",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-bNGtHœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-bNGtH\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "data": {
@@ -78,11 +78,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__Agent-bNGtH{œdataTypeœ:œAgentœ,œidœ:œAgent-bNGtHœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-Bdpjz{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-Bdpjzœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__Agent-bNGtH{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-bNGtH\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-Bdpjz{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-Bdpjz\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "Agent-bNGtH",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-bNGtHœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-bNGtH\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-Bdpjz",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-Bdpjzœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-Bdpjz\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -661,7 +661,7 @@
         "data": {
           "id": "note-EkBec",
           "node": {
-            "description": "# 📖 README\nWelcome to the SaaS Pricing Calculator! This flow helps you determine the optimal monthly subscription price for your software service.\n\n## Instructions\n\n1. Prepare Your Data\n   - Gather information on monthly infrastructure costs\n   - Calculate customer support expenses\n   - Estimate continuous development costs\n   - Decide on your desired profit margin\n   - Determine the estimated number of subscribers\n\n2. Input Values\n   - Enter the gathered data into the respective fields in the Prompt node\n   - Double-check the accuracy of your inputs\n\n3. Run the Flow\n   - Click the \"Run\" button to start the calculation process\n   - The flow will use Chain-of-Thought prompting to guide the AI through the steps\n\n4. Review the Results\n   - Examine the output in the Chat Output node\n   - The result will show a breakdown of costs and the final subscription price\n\n5. Adjust and Refine\n   - If needed, modify your inputs to explore different pricing scenarios\n   - Re-run the flow to see how changes affect the final price\n\nRemember: Regularly update your costs and subscriber estimates to keep your pricing model accurate and competitive! 💼📊",
+            "description": "# \ud83d\udcd6 README\nWelcome to the SaaS Pricing Calculator! This flow helps you determine the optimal monthly subscription price for your software service.\n\n## Instructions\n\n1. Prepare Your Data\n   - Gather information on monthly infrastructure costs\n   - Calculate customer support expenses\n   - Estimate continuous development costs\n   - Decide on your desired profit margin\n   - Determine the estimated number of subscribers\n\n2. Input Values\n   - Enter the gathered data into the respective fields in the Prompt node\n   - Double-check the accuracy of your inputs\n\n3. Run the Flow\n   - Click the \"Run\" button to start the calculation process\n   - The flow will use Chain-of-Thought prompting to guide the AI through the steps\n\n4. Review the Results\n   - Examine the output in the Chat Output node\n   - The result will show a breakdown of costs and the final subscription price\n\n5. Adjust and Refine\n   - If needed, modify your inputs to explore different pricing scenarios\n   - Re-run the flow to see how changes affect the final price\n\nRemember: Regularly update your costs and subscriber estimates to keep your pricing model accurate and competitive! \ud83d\udcbc\ud83d\udcca",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -996,7 +996,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -1443,7 +1443,7 @@
       "zoom": 0.5406818687693208
     }
   },
-  "description": "SaaS 定价分析工具，帮助分析和比较不同 SaaS 产品的定价策略。",
+  "description": "SaaS \u5b9a\u4ef7\u5206\u6790\u5de5\u5177\uff0c\u5e2e\u52a9\u5206\u6790\u548c\u6bd4\u8f83\u4e0d\u540c SaaS \u4ea7\u54c1\u7684\u5b9a\u4ef7\u7b56\u7565\u3002",
   "endpoint_name": null,
   "id": "2fdf0fb0-bc36-428a-8f68-6c694b2d05c6",
   "is_component": false,

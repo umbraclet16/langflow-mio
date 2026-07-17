@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-mM5Wa{œdataTypeœ:œTextInputœ,œidœ:œTextInput-mM5Waœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-BlL2w{œfieldNameœ:œinstructionsœ,œidœ:œPrompt-BlL2wœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-mM5Wa{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-mM5Wa\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-BlL2w{\u0153fieldName\u0153:\u0153instructions\u0153,\u0153id\u0153:\u0153Prompt-BlL2w\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TextInput-mM5Wa",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-mM5Waœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-mM5Wa\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-BlL2w",
-        "targetHandle": "{œfieldNameœ: œinstructionsœ, œidœ: œPrompt-BlL2wœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153instructions\u0153, \u0153id\u0153: \u0153Prompt-BlL2w\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -52,12 +52,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParserComponent-YRRd0{œdataTypeœ:œParserComponentœ,œidœ:œParserComponent-YRRd0œ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}-Prompt-BlL2w{œfieldNameœ:œreferencesœ,œidœ:œPrompt-BlL2wœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ParserComponent-YRRd0{\u0153dataType\u0153:\u0153ParserComponent\u0153,\u0153id\u0153:\u0153ParserComponent-YRRd0\u0153,\u0153name\u0153:\u0153parsed_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-BlL2w{\u0153fieldName\u0153:\u0153references\u0153,\u0153id\u0153:\u0153Prompt-BlL2w\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ParserComponent-YRRd0",
-        "sourceHandle": "{œdataTypeœ: œParserComponentœ, œidœ: œParserComponent-YRRd0œ, œnameœ: œparsed_textœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ParserComponent\u0153, \u0153id\u0153: \u0153ParserComponent-YRRd0\u0153, \u0153name\u0153: \u0153parsed_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-BlL2w",
-        "targetHandle": "{œfieldNameœ: œreferencesœ, œidœ: œPrompt-BlL2wœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153references\u0153, \u0153id\u0153: \u0153Prompt-BlL2w\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -83,12 +83,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-URLComponent-DFXG5{œdataTypeœ:œURLComponentœ,œidœ:œURLComponent-DFXG5œ,œnameœ:œpage_resultsœ,œoutput_typesœ:[œTableœ]}-ParserComponent-YRRd0{œfieldNameœ:œinput_dataœ,œidœ:œParserComponent-YRRd0œ,œinputTypesœ:[œDataFrameœ,œTableœ,œDataœ,œJSONœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-URLComponent-DFXG5{\u0153dataType\u0153:\u0153URLComponent\u0153,\u0153id\u0153:\u0153URLComponent-DFXG5\u0153,\u0153name\u0153:\u0153page_results\u0153,\u0153output_types\u0153:[\u0153Table\u0153]}-ParserComponent-YRRd0{\u0153fieldName\u0153:\u0153input_data\u0153,\u0153id\u0153:\u0153ParserComponent-YRRd0\u0153,\u0153inputTypes\u0153:[\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Data\u0153,\u0153JSON\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "URLComponent-DFXG5",
-        "sourceHandle": "{œdataTypeœ: œURLComponentœ, œidœ: œURLComponent-DFXG5œ, œnameœ: œpage_resultsœ, œoutput_typesœ: [œTableœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153URLComponent\u0153, \u0153id\u0153: \u0153URLComponent-DFXG5\u0153, \u0153name\u0153: \u0153page_results\u0153, \u0153output_types\u0153: [\u0153Table\u0153]}",
         "target": "ParserComponent-YRRd0",
-        "targetHandle": "{œfieldNameœ: œinput_dataœ, œidœ: œParserComponent-YRRd0œ, œinputTypesœ: [œDataFrameœ, œTableœ, œDataœ, œJSONœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_data\u0153, \u0153id\u0153: \u0153ParserComponent-YRRd0\u0153, \u0153inputTypes\u0153: [\u0153DataFrame\u0153, \u0153Table\u0153, \u0153Data\u0153, \u0153JSON\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -111,12 +111,12 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__Prompt-BlL2w{œdataTypeœ:œPromptœ,œidœ:œPrompt-BlL2wœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-1gwua{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-1gwuaœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Prompt-BlL2w{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-BlL2w\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-1gwua{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-1gwua\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-BlL2w",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-BlL2wœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-BlL2w\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "LanguageModelComponent-1gwua",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-1gwuaœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-1gwua\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -143,12 +143,12 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__LanguageModelComponent-1gwua{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-1gwuaœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-GOjXV{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-GOjXVœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__LanguageModelComponent-1gwua{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-1gwua\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-GOjXV{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-GOjXV\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "LanguageModelComponent-1gwua",
-        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-1gwuaœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-1gwua\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-GOjXV",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-GOjXVœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-GOjXV\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -775,7 +775,7 @@
         "data": {
           "id": "note-OB8Tz",
           "node": {
-            "description": "# 📖 README\nCreate a blog post by using content fetched from URLs and user-provided instructions.\n\n## Prerequisites\n\n* An [OpenAI API key](https://platform.openai.com/)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n2.  In the **URL** component, enter URLs you want to fetch content from. Ensure they start with `http://` or `https://`.\n3. Open the **Playground**. A blog post is written from the content fetched by the **URL** component.",
+            "description": "# \ud83d\udcd6 README\nCreate a blog post by using content fetched from URLs and user-provided instructions.\n\n## Prerequisites\n\n* An [OpenAI API key](https://platform.openai.com/)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n2.  In the **URL** component, enter URLs you want to fetch content from. Ensure they start with `http://` or `https://`.\n3. Open the **Playground**. A blog post is written from the content fetched by the **URL** component.",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -1511,7 +1511,7 @@
                 "placeholder": "",
                 "real_time_refresh": true,
                 "required": false,
-                "show": true,
+                "show": false,
                 "title_case": false,
                 "track_in_telemetry": false,
                 "type": "str",
@@ -1565,7 +1565,7 @@
                 "show": true,
                 "title_case": false,
                 "type": "code",
-                "value": "from lfx.base.models.model import LCModelComponent\nfrom lfx.base.models.unified_models import (\n    get_llm,\n    handle_model_input_update,\n)\nfrom lfx.base.models.watsonx_constants import IBM_WATSONX_URLS\nfrom lfx.field_typing.constants import LanguageModel\nfrom lfx.field_typing.range_spec import RangeSpec\nfrom lfx.inputs.inputs import BoolInput, DropdownInput, StrInput\nfrom lfx.io import IntInput, MessageInput, ModelInput, MultilineInput, SecretStrInput, SliderInput\n\nDEFAULT_OLLAMA_URL = \"http://localhost:11434\"\n\n\nclass LanguageModelComponent(LCModelComponent):\n    display_name = \"Language Model\"\n    description = \"Runs a language model given a specified provider.\"\n    documentation: str = \"https://docs.langflow.org/components-models\"\n    icon = \"brain-circuit\"\n    category = \"models\"\n\n    inputs = [\n        ModelInput(\n            name=\"model\",\n            display_name=\"Language Model\",\n            info=\"Select your model provider\",\n            real_time_refresh=True,\n            required=True,\n        ),\n        SecretStrInput(\n            name=\"api_key\",\n            display_name=\"API Key\",\n            info=\"Overrides global provider settings. Leave blank to use your pre-configured API Key.\",\n            required=False,\n            show=True,\n            real_time_refresh=True,\n            advanced=True,\n        ),\n        DropdownInput(\n            name=\"base_url_ibm_watsonx\",\n            display_name=\"watsonx API Endpoint\",\n            info=\"The base URL of the API (IBM watsonx.ai only)\",\n            options=IBM_WATSONX_URLS,\n            value=IBM_WATSONX_URLS[0],\n            combobox=True,\n            show=False,\n            real_time_refresh=True,\n        ),\n        StrInput(\n            name=\"project_id\",\n            display_name=\"watsonx Project ID\",\n            info=\"The project ID associated with the foundation model (IBM watsonx.ai only)\",\n            show=False,\n            required=False,\n        ),\n        StrInput(\n            name=\"ollama_base_url\",\n            display_name=\"Ollama API URL\",\n            info=f\"Endpoint of the Ollama API (Ollama only). Defaults to {DEFAULT_OLLAMA_URL}\",\n            value=DEFAULT_OLLAMA_URL,\n            show=False,\n            real_time_refresh=True,\n        ),\n        MessageInput(\n            name=\"input_value\",\n            display_name=\"Input\",\n            info=\"The input text to send to the model\",\n        ),\n        MultilineInput(\n            name=\"system_message\",\n            display_name=\"System Message\",\n            info=\"A system message that helps set the behavior of the assistant\",\n            advanced=False,\n        ),\n        BoolInput(\n            name=\"stream\",\n            display_name=\"Stream\",\n            info=\"Whether to stream the response\",\n            value=False,\n            advanced=True,\n        ),\n        SliderInput(\n            name=\"temperature\",\n            display_name=\"Temperature\",\n            value=0.1,\n            info=\"Controls randomness in responses\",\n            range_spec=RangeSpec(min=0, max=1, step=0.01),\n            advanced=True,\n        ),\n        IntInput(\n            name=\"max_tokens\",\n            display_name=\"Max Tokens\",\n            info=\"Maximum number of tokens to generate. Field name varies by provider.\",\n            advanced=True,\n            range_spec=RangeSpec(min=1, max=128000, step=1, step_type=\"int\"),\n        ),\n    ]\n\n    def build_model(self) -> LanguageModel:\n        return get_llm(\n            model=self.model,\n            user_id=self.user_id,\n            api_key=self.api_key,\n            temperature=self.temperature,\n            stream=self.stream,\n            max_tokens=getattr(self, \"max_tokens\", None),\n            watsonx_url=getattr(self, \"base_url_ibm_watsonx\", None),\n            watsonx_project_id=getattr(self, \"project_id\", None),\n            ollama_base_url=getattr(self, \"ollama_base_url\", None),\n        )\n\n    def update_build_config(self, build_config: dict, field_value: str, field_name: str | None = None):\n        \"\"\"Dynamically update build config with user-filtered model options.\"\"\"\n        return handle_model_input_update(self, build_config, field_value, field_name)\n"
+                "value": "from lfx.base.models.model import LCModelComponent\nfrom lfx.base.models.unified_models import (\n    get_llm,\n    handle_model_input_update,\n)\nfrom lfx.base.models.watsonx_constants import IBM_WATSONX_URLS\nfrom lfx.field_typing.constants import LanguageModel\nfrom lfx.field_typing.range_spec import RangeSpec\nfrom lfx.inputs.inputs import BoolInput, DropdownInput, StrInput\nfrom lfx.io import IntInput, MessageInput, ModelInput, MultilineInput, SecretStrInput, SliderInput\n\nDEFAULT_OLLAMA_URL = \"http://localhost:11434\"\n\n\nclass LanguageModelComponent(LCModelComponent):\n    display_name = \"Language Model\"\n    description = \"Runs a language model given a specified provider.\"\n    documentation: str = \"https://docs.langflow.org/components-models\"\n    icon = \"brain-circuit\"\n    category = \"models\"\n\n    inputs = [\n        ModelInput(\n            name=\"model\",\n            display_name=\"Language Model\",\n            info=\"Select your model provider\",\n            real_time_refresh=True,\n            required=True,\n        ),\n        SecretStrInput(\n            name=\"api_key\",\n            display_name=\"API Key\",\n            info=\"Overrides global provider settings. Leave blank to use your pre-configured API Key.\",\n            required=False,\n            show=False,\n            real_time_refresh=True,\n            advanced=True,\n        ),\n        DropdownInput(\n            name=\"base_url_ibm_watsonx\",\n            display_name=\"watsonx API Endpoint\",\n            info=\"The base URL of the API (IBM watsonx.ai only)\",\n            options=IBM_WATSONX_URLS,\n            value=IBM_WATSONX_URLS[0],\n            combobox=True,\n            show=False,\n            real_time_refresh=True,\n        ),\n        StrInput(\n            name=\"project_id\",\n            display_name=\"watsonx Project ID\",\n            info=\"The project ID associated with the foundation model (IBM watsonx.ai only)\",\n            show=False,\n            required=False,\n        ),\n        StrInput(\n            name=\"ollama_base_url\",\n            display_name=\"Ollama API URL\",\n            info=f\"Endpoint of the Ollama API (Ollama only). Defaults to {DEFAULT_OLLAMA_URL}\",\n            value=DEFAULT_OLLAMA_URL,\n            show=False,\n            real_time_refresh=True,\n        ),\n        MessageInput(\n            name=\"input_value\",\n            display_name=\"Input\",\n            info=\"The input text to send to the model\",\n        ),\n        MultilineInput(\n            name=\"system_message\",\n            display_name=\"System Message\",\n            info=\"A system message that helps set the behavior of the assistant\",\n            advanced=False,\n        ),\n        BoolInput(\n            name=\"stream\",\n            display_name=\"Stream\",\n            info=\"Whether to stream the response\",\n            value=False,\n            advanced=True,\n        ),\n        SliderInput(\n            name=\"temperature\",\n            display_name=\"Temperature\",\n            value=0.1,\n            info=\"Controls randomness in responses\",\n            range_spec=RangeSpec(min=0, max=1, step=0.01),\n            advanced=True,\n        ),\n        IntInput(\n            name=\"max_tokens\",\n            display_name=\"Max Tokens\",\n            info=\"Maximum number of tokens to generate. Field name varies by provider.\",\n            advanced=True,\n            range_spec=RangeSpec(min=1, max=128000, step=1, step_type=\"int\"),\n        ),\n    ]\n\n    def build_model(self) -> LanguageModel:\n        return get_llm(\n            model=self.model,\n            user_id=self.user_id,\n            api_key=self.api_key,\n            temperature=self.temperature,\n            stream=self.stream,\n            max_tokens=getattr(self, \"max_tokens\", None),\n            watsonx_url=getattr(self, \"base_url_ibm_watsonx\", None),\n            watsonx_project_id=getattr(self, \"project_id\", None),\n            ollama_base_url=getattr(self, \"ollama_base_url\", None),\n        )\n\n    def update_build_config(self, build_config: dict, field_value: str, field_name: str | None = None):\n        \"\"\"Dynamically update build config with user-filtered model options.\"\"\"\n        return handle_model_input_update(self, build_config, field_value, field_name)\n"
               },
               "input_value": {
                 "_input_type": "MessageInput",
@@ -1782,7 +1782,7 @@
       "zoom": 0.5264644230411742
     }
   },
-  "description": "根据指令和参考文章自动生成定制博客文章。",
+  "description": "\u6839\u636e\u6307\u4ee4\u548c\u53c2\u8003\u6587\u7ae0\u81ea\u52a8\u751f\u6210\u5b9a\u5236\u535a\u5ba2\u6587\u7ae0\u3002",
   "endpoint_name": null,
   "id": "428f69c6-43ea-4ea3-83cf-0032b5aab816",
   "is_component": false,
