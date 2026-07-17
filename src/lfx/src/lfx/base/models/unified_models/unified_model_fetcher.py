@@ -51,7 +51,7 @@ def fetch_models_from_agent_platform(
         ``id``, ``model_name``, ``base_url``, ``api_key``, ``is_active``).
         Returns an empty list when the API is not configured or unreachable.
     """
-    import requests  # noqa: PLC0415
+    import requests
 
     global _cache, _cache_timestamp
 
@@ -59,10 +59,7 @@ def fetch_models_from_agent_platform(
         api_url = get_agent_platform_api_url()
 
     if not api_url:
-        logger.info(
-            "[AgentPlatform] AGENT_PLATFORM_API_URL is not configured; "
-            "using built-in providers"
-        )
+        logger.info("[AgentPlatform] AGENT_PLATFORM_API_URL is not configured; using built-in providers")
         return []
 
     url = api_url.rstrip("/") + "/models"
@@ -85,9 +82,7 @@ def fetch_models_from_agent_platform(
         response = requests.get(url, timeout=10)
         response.raise_for_status()
     except Exception:
-        logger.exception(
-            "[AgentPlatform] Failed to fetch models from %s", url
-        )
+        logger.exception("[AgentPlatform] Failed to fetch models from %s", url)
         # Fall back to stale cache if available
         if _cache:
             logger.debug("Returning stale cached agent platform models")
@@ -101,13 +96,13 @@ def fetch_models_from_agent_platform(
 
     models: list[dict[str, Any]] = data.get("models", [])
 
-    # Filter out inactive models
-    active_models = [m for m in models if m.get("is_active", True)]
+    # Filter out inactive models and non-LLM models (embeddings have separate endpoint)
+    active_models = [m for m in models if m.get("is_active", True) and m.get("model_type", "") == "llm"]
 
     _cache = active_models
     _cache_timestamp = now
     logger.info(
-        "[AgentPlatform] Fetched %d models (%d active) from %s",
+        "[AgentPlatform] Fetched %d models (%d active LLM) from %s",
         len(models),
         len(active_models),
         url,
@@ -152,7 +147,7 @@ def fetch_embeddings_from_agent_platform(
     Returns:
         List of embedding model dicts.  Empty list when unavailable.
     """
-    import requests  # noqa: PLC0415
+    import requests
 
     global _embeddings_cache, _embeddings_cache_timestamp
 
