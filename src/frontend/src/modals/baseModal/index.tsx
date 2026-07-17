@@ -225,6 +225,7 @@ interface BaseModalProps {
   dialogContentWithouFixed?: boolean;
   height?: string;
   width?: string;
+  style?: React.CSSProperties;
 }
 function BaseModal({
   className,
@@ -241,6 +242,7 @@ function BaseModal({
   dialogContentWithouFixed = false,
   height: customHeight,
   width: customWidth,
+  style: customStyleProp,
 }: BaseModalProps) {
   const headerChild = React.Children.toArray(children).find(
     (child) => (child as React.ReactElement).type === Header,
@@ -274,6 +276,7 @@ function BaseModal({
   const customStyle: React.CSSProperties = {
     ...(customHeight ? { height: customHeight } : {}),
     ...(customWidth ? { width: customWidth, minWidth: customWidth } : {}),
+    ...customStyleProp,
   };
 
   const contentClasses = cn(
@@ -293,7 +296,7 @@ function BaseModal({
           {triggerChild}
           <ModalContent
             className={contentClasses}
-            style={customHeight || customWidth ? customStyle : undefined}
+            style={customHeight || customWidth || customStyleProp ? customStyle : undefined}
           >
             {modalContent}
           </ModalContent>
@@ -312,7 +315,7 @@ function BaseModal({
               onOpenAutoFocus={onOpenAutoFocus}
               className={contentClasses}
               closeButtonClassName={closeButtonClassName}
-              style={customHeight || customWidth ? customStyle : undefined}
+              style={customHeight || customWidth || customStyleProp ? customStyle : undefined}
             >
               {onSubmit ? (
                 <Form.Root
@@ -335,7 +338,7 @@ function BaseModal({
               onOpenAutoFocus={onOpenAutoFocus}
               className={contentClasses}
               closeButtonClassName={closeButtonClassName}
-              style={customHeight || customWidth ? customStyle : undefined}
+              style={customHeight || customWidth || customStyleProp ? customStyle : undefined}
             >
               {onSubmit ? (
                 <Form.Root

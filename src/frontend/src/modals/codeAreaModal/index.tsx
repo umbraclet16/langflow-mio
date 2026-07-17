@@ -58,6 +58,26 @@ export default function CodeAreaModal({
     detail: CodeErrorDataTypeAPI;
   } | null>(null);
 
+  // Calculate modal constraints to stay within ReactFlow pane bounds
+  const [modalStyle, setModalStyle] = useState<React.CSSProperties>({});
+  useEffect(() => {
+    if (open) {
+      // Find the ReactFlow pane element
+      const pane = document.querySelector('.react-flow__pane');
+      if (pane) {
+        const rect = pane.getBoundingClientRect();
+        // Leave 16px padding at top and bottom
+        const maxHeight = rect.height - 32;
+        const topOffset = rect.top + 16;
+        setModalStyle({
+          maxHeight: `${maxHeight}px`,
+          top: `${topOffset}px`,
+          position: 'fixed',
+        });
+      }
+    }
+  }, [open]);
+
   const { mutate: validateComponentCode } = usePostValidateComponentCode();
 
   useEffect(() => {
@@ -205,6 +225,7 @@ export default function CodeAreaModal({
       open={open}
       setOpen={setOpen}
       size={size as "x-large" | "large" | "medium" | "small"}
+      style={modalStyle}
     >
       <BaseModal.Trigger>{children}</BaseModal.Trigger>
       <BaseModal.Header description={t("dialog.codePrompt")}>
