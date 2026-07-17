@@ -48,28 +48,11 @@ const ModelTrigger = ({
   // Check if we're in empty state mode (showEmptyState=true and no options)
   const isEmptyStateMode = showEmptyState && options.length === 0;
 
-  if (!hasEnabledProviders && !showEmptyState && options.length === 0) {
-    return (
-      <Button
-        variant="outline"
-        size="xs"
-        className="dropdown-component-false-outline w-full justify-start gap-2 py-2 font-normal"
-        onClick={onOpenManageProviders}
-      >
-        <ForwardedIconComponent
-          name="Brain"
-          className="h-4 w-4 flex-shrink-0 text-muted-foreground"
-        />
-        <div className="text-[13px] text-muted-foreground">{placeholder}</div>
-      </Button>
-    );
-  }
-
   return (
     <div className="flex w-full flex-col">
       <PopoverTrigger asChild>
         <Button
-          disabled={disabled || (options.length === 0 && !showEmptyState)}
+          disabled={disabled}
           variant="primary"
           size="xs"
           role="combobox"
