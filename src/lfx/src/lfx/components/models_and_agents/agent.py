@@ -61,6 +61,7 @@ class AgentComponent(ToolCallingAgentComponent):
             name="api_key",
             display_name="API Key",
             info="Overrides global provider settings. Leave blank to use your pre-configured API Key.",
+            show=False,
             real_time_refresh=True,
             advanced=True,
         ),

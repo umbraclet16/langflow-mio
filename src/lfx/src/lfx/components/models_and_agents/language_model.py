@@ -32,7 +32,7 @@ class LanguageModelComponent(LCModelComponent):
             display_name="API Key",
             info="Overrides global provider settings. Leave blank to use your pre-configured API Key.",
             required=False,
-            show=True,
+            show=False,
             real_time_refresh=True,
             advanced=True,
         ),
