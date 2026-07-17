@@ -372,9 +372,10 @@ export default function ModelInputComponent({
       if (isUnifiedMode) {
         await api.post(`${getURL("MODEL_OPTIONS")}/refresh`);
       }
+      // Always invalidate React Query cache to ensure fresh data
       await refreshAllModelInputs({
         silent: true,
-        skipProviderRefresh: isUnifiedMode,
+        skipProviderRefresh: false,
       });
     } catch {
       // refreshAllModelInputs handles its own error notifications via alertStore

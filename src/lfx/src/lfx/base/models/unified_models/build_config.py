@@ -211,9 +211,16 @@ def update_model_options_in_build_config(
     # The frontend surfaces a "configure" wrench next to the trigger when it
     # sees this flag so the user can enable the provider without silently
     # losing their selection.
+    #
+    # Skip injection when the freshly-fetched options list is empty — this
+    # means the API returned zero models (e.g. all models were deleted from
+    # the agent platform).  In that case we should show an empty dropdown
+    # instead of resurrecting a stale saved value.
     current_value = build_config.get(model_field_name, {}).get("value")
+    options_list = build_config[model_field_name]["options"]
     if (
-        isinstance(current_value, list)
+        options_list
+        and isinstance(current_value, list)
         and current_value
         and isinstance(current_value[0], dict)
         and current_value[0].get("name")
@@ -221,7 +228,6 @@ def update_model_options_in_build_config(
         saved = current_value[0]
         saved_name = saved["name"]
         saved_provider = saved.get("provider", "")
-        options_list = build_config[model_field_name]["options"]
         already_present = any(
             opt.get("name") == saved_name and opt.get("provider", "") == saved_provider for opt in options_list
         )
