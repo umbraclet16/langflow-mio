@@ -68,7 +68,9 @@ def apply_provider_variable_config_to_build_config(
         if info:
             field_config["info"] = info
 
-        field_config["show"] = True
+        # Skip showing api_key field - credentials are provided by agent platform
+        if field_name != "api_key":
+            field_config["show"] = True
 
         # Pre-populate with the variable name (never the raw secret) when a
         # credential is available in the database or environment.  Setting
