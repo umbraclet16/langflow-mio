@@ -1,8 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { usePostValidateCode } from "@/controllers/API/queries/nodes/use-post-validate-code";
 import { usePostValidateComponentCode } from "@/controllers/API/queries/nodes/use-post-validate-component-code";
 import { useUtilityStore } from "@/stores/utilityStore";
 import { clearHandlesFromAdvancedFields } from "@/utils/reactflowUtils";
-import { useTranslation } from "react-i18next";
 import "ace-builds/src-noconflict/ace";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
@@ -63,7 +63,7 @@ export default function CodeAreaModal({
   useEffect(() => {
     if (open) {
       // Find the ReactFlow pane element
-      const pane = document.querySelector('.react-flow__pane');
+      const pane = document.querySelector(".react-flow__pane");
       if (pane) {
         const rect = pane.getBoundingClientRect();
         // Leave 16px padding at top and bottom
@@ -72,7 +72,7 @@ export default function CodeAreaModal({
         setModalStyle({
           maxHeight: `${maxHeight}px`,
           top: `${topOffset}px`,
-          position: 'fixed',
+          position: "fixed",
         });
       }
     }
@@ -250,7 +250,11 @@ export default function CodeAreaModal({
               readOnly={readonly || isBlocked}
               value={code}
               mode="python"
-              setOptions={{ fontFamily: "monospace" }}
+              setOptions={{
+                fontFamily:
+                  "Consolas, Monaco, Menlo, Ubuntu Mono, Droid Sans Mono, monospace",
+                useWorker: false,
+              }}
               height={height ?? "100%"}
               highlightActiveLine={true}
               showPrintMargin={false}
