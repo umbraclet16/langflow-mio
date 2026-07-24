@@ -252,6 +252,7 @@ class KnowledgeBaseComponent(Component):
                 kwargs["base_url"] = unified_base_url
             if chunk_size is not None:
                 kwargs["chunk_size"] = chunk_size
+            kwargs["check_embedding_ctx_length"] = False
             return embedding_cls(**kwargs)
 
         # Handle various providers
@@ -267,6 +268,7 @@ class KnowledgeBaseComponent(Component):
             openai_kwargs: dict = {"model": model, "api_key": api_key}
             if chunk_size is not None:
                 openai_kwargs["chunk_size"] = chunk_size
+            openai_kwargs["check_embedding_ctx_length"] = False
             return OpenAIEmbeddings(**openai_kwargs)
         if provider == "HuggingFace":
             from langchain_huggingface import HuggingFaceEmbeddings
