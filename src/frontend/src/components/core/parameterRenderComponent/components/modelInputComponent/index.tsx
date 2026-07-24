@@ -376,6 +376,7 @@ export default function ModelInputComponent({
       await refreshAllModelInputs({
         silent: true,
         skipProviderRefresh: false,
+        nodeId,
       });
     } catch {
       // refreshAllModelInputs handles its own error notifications via alertStore

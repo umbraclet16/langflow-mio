@@ -2,6 +2,7 @@ import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import { useCallback, useRef } from "react";
 import { api } from "@/controllers/API/api";
 import { getURL } from "@/controllers/API/helpers/constants";
+import type { EnabledModelsResponse } from "@/controllers/API/queries/models/use-get-enabled-models";
 import useAlertStore from "@/stores/alertStore";
 import useFlowStore from "@/stores/flowStore";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
@@ -22,6 +23,10 @@ export interface RefreshOptions {
   /** Skip invalidation of useGetModelProviders / useGetEnabledModels React Query caches.
    *  Set to true when using the external agent platform API (Unified provider). */
   skipProviderRefresh?: boolean;
+  /** If set, only refresh the model node with this ID instead of all model nodes.
+   *  Used by the per-component refresh button to avoid unintentionally altering
+   *  other components' selected models. */
+  nodeId?: string;
 }
 
 // Prevents concurrent refresh operations; queues the latest request if busy
@@ -110,7 +115,26 @@ export async function refreshAllModelInputs(
       });
     }
 
-    const nodesWithModelFields = allNodes.filter(isModelNode);
+    // Read enabled models data from the (now-fresh) query cache so that
+    // validateModelValue can check individual model enable/disable state
+    // in addition to the backend's options list.
+    let enabledModels: Record<string, Record<string, boolean>> | null = null;
+    if (queryClient) {
+      const cached = queryClient.getQueryData<EnabledModelsResponse>([
+        "useGetEnabledModels",
+      ]);
+      enabledModels = cached?.enabled_models ?? null;
+    }
+
+    let nodesWithModelFields = allNodes.filter(isModelNode);
+
+    // When nodeId is specified, only refresh that specific node instead of all.
+    // The per-component refresh button must not change other components' models.
+    if (options?.nodeId) {
+      nodesWithModelFields = nodesWithModelFields.filter(
+        (n) => n.id === options.nodeId,
+      );
+    }
 
     if (nodesWithModelFields.length === 0) {
       if (showNotifications) {
@@ -120,7 +144,7 @@ export async function refreshAllModelInputs(
     }
 
     const refreshTasks = nodesWithModelFields.map((node) =>
-      refreshSingleNode(node, flowId, folderId, setNode),
+      refreshSingleNode(node, flowId, folderId, setNode, enabledModels),
     );
     await Promise.all(refreshTasks);
 
@@ -148,10 +172,13 @@ export async function refreshAllModelInputs(
   }
 }
 
-/** Validates and corrects model value against available options */
+/** Validates and corrects model value against available options.
+ * Also accounts for individual model enable/disable state when enabledModels is provided.
+ */
 function validateModelValue(
   template: APITemplateType,
   modelFieldKey: string,
+  enabledModels?: Record<string, Record<string, boolean>> | null,
 ): APITemplateType {
   const modelField = template[modelFieldKey];
   if (!modelField) return template;
@@ -164,15 +191,29 @@ function validateModelValue(
     (opt: ModelOptionType) => !opt?.metadata?.is_disabled_provider,
   );
 
+  // Also filter by individual model enable/disable state if available.
+  // The backend's options may include globally disabled models; the frontend
+  // component's groupedOptions applies this same filter, so we must match it
+  // here in order to detect and correct stale selections during refresh.
+  const filteredOptions = enabledModels
+    ? availableOptions.filter((opt: ModelOptionType) => {
+        const providerModels = enabledModels[opt.provider ?? ""];
+        // If we have enabledModels data but this provider isn't in it at all,
+        // treat all its models as NOT enabled (strict mode).
+        // If the provider is known, check the specific model.
+        return providerModels?.[opt.name] === true;
+      })
+    : availableOptions;
+
   // Get current model name from value
   const currentModelName = Array.isArray(currentValue)
     ? currentValue[0]?.name
     : currentValue?.name;
 
-  // Check if current model is still available
+  // Check if current model is still available (in the filtered set)
   const isCurrentModelValid =
     currentModelName &&
-    availableOptions.some(
+    filteredOptions.some(
       (opt: ModelOptionType) => opt.name === currentModelName,
     );
 
@@ -182,9 +223,9 @@ function validateModelValue(
   }
 
   // Current value is invalid - need to update it
-  if (availableOptions.length > 0) {
+  if (filteredOptions.length > 0) {
     // Select the first available model
-    const firstOption = availableOptions[0];
+    const firstOption = filteredOptions[0];
     const newValue = [
       {
         ...(firstOption.id && { id: firstOption.id }),
@@ -219,6 +260,7 @@ async function refreshSingleNode(
   flowId: string | undefined,
   folderId: string | undefined,
   setNode: ReturnType<typeof useFlowStore.getState>["setNode"],
+  enabledModels?: Record<string, Record<string, boolean>> | null,
 ): Promise<void> {
   const nodeData = node.data?.node as APIClassType | undefined;
   if (!nodeData?.template) return;
@@ -276,9 +318,11 @@ async function refreshSingleNode(
     if (!responseData?.template) return;
 
     // Validate and correct the model value against available options
+    // (including individual model enable/disable state when cache is available)
     const validatedTemplate = validateModelValue(
       responseData.template,
       modelFieldKey,
+      enabledModels,
     );
 
     setNode(
