@@ -64,9 +64,11 @@ def get_llm(
     model = model[0]
 
     # Extract model configuration from metadata
-    model_name = model.get("name")
     provider = model.get("provider")
     metadata = model.get("metadata", {})
+
+    # Priority: metadata.model_name_value (from agent platform) > model.name (display name / id)
+    model_name = metadata.get("model_name_value", model.get("name"))
 
     # Get model class and parameter names from metadata
     api_key_param = metadata.get("api_key_param", "api_key")

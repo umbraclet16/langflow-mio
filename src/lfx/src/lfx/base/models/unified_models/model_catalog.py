@@ -336,6 +336,7 @@ def _get_unified_model_options(
                 "context_length": 128000,
                 "model_class": model_class,
                 "model_name_param": "model",
+                "model_name_value": _model_name,
                 "api_key_param": "api_key",
                 "base_url_param": "base_url",
                 "max_tokens_field_name": "max_tokens",
