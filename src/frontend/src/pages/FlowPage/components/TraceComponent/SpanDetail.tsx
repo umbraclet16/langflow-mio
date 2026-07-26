@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import IconComponent from "@/components/common/genericIconComponent";
 import SimplifiedCodeTabComponent from "@/components/core/codeTabsComponent";
 import { Badge } from "@/components/ui/badge";
@@ -17,6 +18,7 @@ import type { SpanDetailProps } from "./types";
  * Includes inputs, outputs, model info, tokens, and errors
  */
 export function SpanDetail({ span }: SpanDetailProps) {
+  const { t } = useTranslation();
   if (!span) {
     return (
       <div
@@ -46,7 +48,7 @@ export function SpanDetail({ span }: SpanDetailProps) {
       {/* Header */}
       <div className="border-b border-border px-4 py-3">
         <div className="flex items-center gap-2">
-          <h3 className="text-lg font-semibold">{span.name}</h3>
+          <h3 className="text-lg font-semibold">{t(span.name, { defaultValue: span.name })}</h3>
           <Badge variant={getStatusVariant(span.status)} size="sm">
             <IconComponent
               name={iconName}

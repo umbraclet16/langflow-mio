@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import IconComponent from "@/components/common/genericIconComponent";
 import useFlowStore from "@/stores/flowStore";
 import { cn } from "@/utils/utils";
@@ -22,6 +23,7 @@ export function SpanNode({
   onToggle,
   onSelect,
 }: SpanNodeProps) {
+  const { t } = useTranslation();
   const nodes = useFlowStore((state) => state.nodes);
   const componentIconMap = useMemo(() => {
     const map = new Map<string, string>();
@@ -97,7 +99,7 @@ export function SpanNode({
           span.status === "error" && "text-error-foreground",
         )}
       >
-        {span.name}
+        {t(span.name, { defaultValue: span.name })}
       </span>
 
       {/* Token count (if applicable) */}
