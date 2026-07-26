@@ -26,8 +26,7 @@ services:
     container_name: langflow
     restart: unless-stopped
     ports:
-      #- "7860:7860"
-      - "7861:7860"
+      - "7860:7860"
     depends_on:
       postgres:
         condition: service_healthy
@@ -35,10 +34,14 @@ services:
       - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
       - LANGFLOW_CONFIG_DIR=/app/langflow
       - LANGFLOW_AUTO_LOGIN=true
-      - AGENT_PLATFORM_API_URL=http://192.168.31.147:18888/v1
+      # Skip API key requirement (deprecated, not recommended
+      - LANGFLOW_SKIP_AUTH_AUTO_LOGIN=true
+      # or set default API key:
+      # LANGFLOW_API_KEY_SOURCE=env
+      # LANGFLOW_API_KEY=sk-123456
+      - AGENT_PLATFORM_API_URL=http://localhost:8000/v1
       # 禁用启动时自动创建和更新 Starter Projects（删除后不会再自动恢复）
       - LANGFLOW_CREATE_STARTER_PROJECTS=true
-      - LANGFLOW_UPDATE_STARTER_PROJECTS=false
       - HIDE_GETTING_STARTED_PROGRESS=true
       # 让系统自动更新模板
       - LANGFLOW_UPDATE_STARTER_PROJECTS=true
