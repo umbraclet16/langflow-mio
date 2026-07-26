@@ -6,6 +6,7 @@ from lfx.components._importing import import_mod
 
 if TYPE_CHECKING:
     from lfx.components.files_and_knowledge.directory import DirectoryComponent
+    from lfx.components.files_and_knowledge.external_kb import ExternalKnowledgeBaseComponent
     from lfx.components.files_and_knowledge.file import FileComponent
     from lfx.components.files_and_knowledge.ingestion import KnowledgeIngestionComponent
     from lfx.components.files_and_knowledge.retrieval import KnowledgeBaseComponent
@@ -17,11 +18,13 @@ _dynamic_imports = {
     "FileComponent": "file",
     "KnowledgeIngestionComponent": "ingestion",
     "KnowledgeBaseComponent": "retrieval",
+    "ExternalKnowledgeBaseComponent": "external_kb",
     "SaveToFileComponent": "save_file",
 }
 
 __all__ = [
     "DirectoryComponent",
+    "ExternalKnowledgeBaseComponent",
     "FileComponent",
     "KnowledgeBaseComponent",
     "KnowledgeIngestionComponent",

@@ -23,3 +23,5 @@ export const ENABLE_MCP_COMPOSER =
 export const ENABLE_NEW_SIDEBAR = true;
 export const ENABLE_FETCH_CREDENTIALS = false;
 export const ENABLE_ASSISTANT = false;
+export const USE_EXTERNAL_KB =
+  import.meta.env.LANGFLOW_USE_EXTERNAL_KB === "true";

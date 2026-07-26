@@ -58,6 +58,9 @@ export default defineConfig(({ mode }) => {
       "import.meta.env.LANGFLOW_MCP_COMPOSER_ENABLED": JSON.stringify(
         envLangflow.LANGFLOW_MCP_COMPOSER_ENABLED ?? "true",
       ),
+      "import.meta.env.LANGFLOW_USE_EXTERNAL_KB": JSON.stringify(
+        envLangflow.LANGFLOW_USE_EXTERNAL_KB ?? "false",
+      ),
     },
     plugins: [
       react(),

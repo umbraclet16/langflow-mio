@@ -26,6 +26,7 @@ import { useGetMCPServers } from "@/controllers/API/queries/mcp/use-get-mcp-serv
 import {
   ENABLE_KNOWLEDGE_BASES,
   ENABLE_NEW_SIDEBAR,
+  USE_EXTERNAL_KB,
 } from "@/customization/feature-flags";
 import { useAddComponent } from "@/hooks/use-add-component";
 import { useShortcutsStore } from "@/stores/shortcuts";
@@ -159,13 +160,22 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
   const { t } = useTranslation();
   const rawData = useTypesStore((state) => state.data);
 
-  // Filter out knowledge components from files_and_knowledge category when ENABLE_KNOWLEDGE_BASES is OFF
+  // Filter out knowledge components from files_and_knowledge category
+  // when ENABLE_KNOWLEDGE_BASES is OFF or USE_EXTERNAL_KB is ON
   const data = useMemo(() => {
-    if (ENABLE_KNOWLEDGE_BASES) {
+    if (ENABLE_KNOWLEDGE_BASES && !USE_EXTERNAL_KB) {
       return rawData;
     }
 
-    const knowledgeComponentNames = ["KnowledgeBase"];
+    const toHide: string[] = [];
+    if (USE_EXTERNAL_KB) {
+      toHide.push("KnowledgeBase", "KnowledgeIngestion");
+    } else {
+      toHide.push("ExternalKnowledgeBase");
+    }
+    if (!ENABLE_KNOWLEDGE_BASES && !toHide.includes("KnowledgeBase")) {
+      toHide.push("KnowledgeBase");
+    }
 
     // Create a deep copy to avoid mutating the original
     const filteredData = cloneDeep(rawData);
@@ -174,7 +184,7 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
       // Filter out knowledge components by creating a new object without them
       const filteredCategory = Object.fromEntries(
         Object.entries(filteredData.files_and_knowledge).filter(
-          ([componentName]) => !knowledgeComponentNames.includes(componentName),
+          ([componentName]) => !toHide.includes(componentName),
         ),
       );
 
