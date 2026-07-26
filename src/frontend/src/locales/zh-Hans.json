@@ -270,6 +270,7 @@
   "misc.fetchError": "无法建立连接。",
   "misc.fetchErrorDesc": "请检查一切是否正常，然后重试。",
   "misc.retry": "重试",
+  "misc.dismiss": "关闭",
   "misc.fsErrorText": "请确保您的文件具有以下其中一种扩展名：",
   "misc.inputHandlerHover": "可用的输入组件：",
   "misc.inputsModalTitle": "输入",
