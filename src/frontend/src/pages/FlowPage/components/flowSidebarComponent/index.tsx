@@ -1,6 +1,5 @@
 import Fuse from "fuse.js";
 import { cloneDeep, debounce } from "lodash";
-import { useTranslation } from "react-i18next";
 import {
   createContext,
   memo,
@@ -12,6 +11,7 @@ import {
   useState,
 } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
+import { useTranslation } from "react-i18next";
 import { useShallow } from "zustand/react/shallow";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
@@ -31,10 +31,10 @@ import { useAddComponent } from "@/hooks/use-add-component";
 import { useShortcutsStore } from "@/stores/shortcuts";
 import { setLocalStorage } from "@/utils/local-storage-util";
 import {
+  HIDDEN_BUNDLE_NAMES,
   nodeColors,
   SIDEBAR_BUNDLES,
   SIDEBAR_CATEGORIES,
-  HIDDEN_BUNDLE_NAMES,
 } from "@/utils/styleUtils";
 import { cn, getBooleanFromStorage } from "@/utils/utils";
 import useFlowStore from "../../../../stores/flowStore";
@@ -457,6 +457,7 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
         "type",
         "category",
         "mcpServerName",
+        "searchable_name",
       ],
       threshold: 0.2,
       includeScore: true,
@@ -467,6 +468,9 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
         ...value,
         category,
         key,
+        searchable_name: t(value.display_name, {
+          defaultValue: value.display_name,
+        }),
       })),
     );
 
