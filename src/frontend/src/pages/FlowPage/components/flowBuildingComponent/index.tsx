@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { normalizeTimeString } from "@/CustomNodes/GenericNode/components/NodeStatus/utils/format-run-time";
@@ -19,6 +20,7 @@ import {
 } from "./helpers/visual-variants";
 
 export default function FlowBuildingComponent() {
+  const { t } = useTranslation();
   const isBuilding = useFlowStore((state) => state.isBuilding);
   const flowBuildStatus = useFlowStore((state) => state.flowBuildStatus);
   const buildInfo = useFlowStore((state) => state.buildInfo);
@@ -198,7 +200,7 @@ export default function FlowBuildingComponent() {
                                   transition={{ duration: 0.2 }}
                                 >
                                   <Button size="sm" onClick={handleRetry}>
-                                    Retry
+                                    {t("misc.retry")}
                                   </Button>
                                 </motion.div>
                                 <motion.div
@@ -214,7 +216,7 @@ export default function FlowBuildingComponent() {
                                     className="text-primary"
                                     onClick={handleDismiss}
                                   >
-                                    Dismiss
+                                    {t("misc.dismiss")}
                                   </Button>
                                 </motion.div>
                               </motion.div>

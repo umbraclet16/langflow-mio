@@ -3,6 +3,10 @@ import { useEffect } from "react";
 import FlowBuildingComponent from "../index";
 
 // Mock dependencies
+jest.mock("react-i18next", () => ({
+  useTranslation: () => ({ t: (key: string) => key }),
+}));
+
 jest.mock("framer-motion", () => {
   const React = require("react");
   return {
@@ -272,8 +276,8 @@ describe("FlowBuildingComponent - Timer Tests", () => {
 
       render(<FlowBuildingComponent />);
 
-      expect(screen.getByText("Retry")).toBeInTheDocument();
-      expect(screen.getByText("Dismiss")).toBeInTheDocument();
+      expect(screen.getByText("misc.retry")).toBeInTheDocument();
+      expect(screen.getByText("misc.dismiss")).toBeInTheDocument();
     });
   });
 
@@ -296,7 +300,7 @@ describe("FlowBuildingComponent - Timer Tests", () => {
 
       render(<FlowBuildingComponent />);
 
-      const retryButton = screen.getByText("Retry");
+      const retryButton = screen.getByText("misc.retry");
       retryButton.click();
 
       expect(mockBuildFlow).toHaveBeenCalledWith({ test: "params" });
@@ -308,7 +312,7 @@ describe("FlowBuildingComponent - Timer Tests", () => {
 
       render(<FlowBuildingComponent />);
 
-      const dismissButton = screen.getByText("Dismiss");
+      const dismissButton = screen.getByText("misc.dismiss");
 
       // Wrap the click in act
       await act(async () => {
