@@ -310,7 +310,7 @@ export default function CodeAreaModal({
                 disabled={isBlocked}
                 data-testid="checkAndSaveBtn"
               >
-                Check & Save
+                {t("codeModal.checkAndSave")}
               </Button>
             )}
           </div>
@@ -325,8 +325,8 @@ export default function CodeAreaModal({
           }}
           size="x-small"
           icon="AlertTriangle"
-          confirmationText="Check & Save"
-          cancelText="Discard Changes"
+          confirmationText={t("codeModal.checkAndSave")}
+          cancelText={t("codeModal.discardChanges")}
           open={openConfirmation}
           onCancel={() => setOpen(false)}
           onConfirm={() => {

@@ -1153,6 +1153,7 @@
   "updateModal.sidebarLatestVersion": "从侧边栏添加的组件始终使用最新版本。",
   "updateModal.createBackup": "更新前创建备份流程",
   "updateModal.updateButton": "更新组件",
+  "updateModal.updateButton_plural": "更新组件",
   "updateModal.componentColumnHeader": "组件",
   "nodeUpdate.customComponentBlocked": "自定义组件在自定义组件禁用时无法运行",
   "nodeUpdate.upgradeRequired": "需要升级才能执行流程",
@@ -1167,5 +1168,9 @@
   "nodeLegacy.legacy": "旧版",
   "nodeLegacy.useReplacement": "使用 {{components}}。",
   "nodeLegacy.noReplacement": "没有直接替代品。",
-  "nodeLegacy.learnMore": "了解有关旧版组件的更多信息。"
+  "nodeLegacy.learnMore": "了解有关旧版组件的更多信息。",
+  "textModal.finishEditing": "完成编辑",
+  "codeModal.checkAndSave": "检查并保存",
+  "codeModal.discardChanges": "放弃更改",
+  "mustachePromptModal.checkAndSave": "检查并保存"
 }

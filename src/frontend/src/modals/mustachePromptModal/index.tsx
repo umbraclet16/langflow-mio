@@ -302,7 +302,7 @@ export default function MustachePromptModal({
             }}
             type="submit"
           >
-            Check & Save
+            {t("mustachePromptModal.checkAndSave")}
           </Button>
         </div>
       </BaseModal.Footer>

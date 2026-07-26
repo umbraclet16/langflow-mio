@@ -544,5 +544,9 @@
   "nodeLegacy.legacy": "Legacy",
   "nodeLegacy.useReplacement": "Use {{components}}.",
   "nodeLegacy.noReplacement": "No direct replacement.",
-  "nodeLegacy.learnMore": "Learn more about legacy components."
+  "nodeLegacy.learnMore": "Learn more about legacy components.",
+  "textModal.finishEditing": "Finish Editing",
+  "codeModal.checkAndSave": "Check & Save",
+  "codeModal.discardChanges": "Discard Changes",
+  "mustachePromptModal.checkAndSave": "Check & Save"
 }
