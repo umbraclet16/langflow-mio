@@ -31,7 +31,7 @@ class ExternalKnowledgeBaseComponent(Component):
             required=True,
         ),
         MessageTextInput(
-            name="query_text",
+            name="search_query",
             display_name="检索内容",
             info="The search query to retrieve from the knowledge base.",
             tool_mode=True,
@@ -71,7 +71,7 @@ class ExternalKnowledgeBaseComponent(Component):
 
     async def query_knowledge_base(self) -> DataFrame:
         kb_id = self.kb_id
-        query_text = self.query_text or ""
+        query_text = self.search_query or ""
         search_mode = _SEARCH_MODE_MAP.get(self.search_mode, "embedding")
         top_number = self.top_number
         similarity = self.similarity

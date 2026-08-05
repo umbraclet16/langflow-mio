@@ -5,9 +5,9 @@
         "className": "",
         "data": {
           "sourceHandle": {
-            "dataType": "KnowledgeBase",
-            "id": "KnowledgeBase-kgwih",
-            "name": "retrieve_data",
+            "dataType": "ExternalKnowledgeBase",
+            "id": "ExternalKnowledgeBase-kgwih",
+            "name": "results",
             "output_types": [
               "Table"
             ]
@@ -25,11 +25,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__KnowledgeBase-kgwih{\u0153dataType\u0153:\u0153KnowledgeBase\u0153,\u0153id\u0153:\u0153KnowledgeBase-kgwih\u0153,\u0153name\u0153:\u0153retrieve_data\u0153,\u0153output_types\u0153:[\u0153Table\u0153]}-ChatOutput-OG4M9{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-OG4M9\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
-        "source": "KnowledgeBase-kgwih",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153KnowledgeBase\u0153, \u0153id\u0153: \u0153KnowledgeBase-kgwih\u0153, \u0153name\u0153: \u0153retrieve_data\u0153, \u0153output_types\u0153: [\u0153Table\u0153]}",
+        "id": "xy-edge__ExternalKnowledgeBase-kgwih{œdataTypeœ:œExternalKnowledgeBaseœ,œidœ:œExternalKnowledgeBase-kgwihœ,œnameœ:œresultsœ,œoutput_typesœ:[œTableœ]}-ChatOutput-OG4M9{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-OG4M9œ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "source": "ExternalKnowledgeBase-kgwih",
+        "sourceHandle": "{œdataTypeœ: œExternalKnowledgeBaseœ, œidœ: œExternalKnowledgeBase-kgwihœ, œnameœ: œresultsœ, œoutput_typesœ: [œTableœ]}",
         "target": "ChatOutput-OG4M9",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-OG4M9\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-OG4M9œ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
       },
       {
         "className": "",
@@ -44,48 +44,21 @@
           },
           "targetHandle": {
             "fieldName": "search_query",
-            "id": "KnowledgeBase-kgwih",
+            "id": "ExternalKnowledgeBase-kgwih",
             "inputTypes": [
               "Message"
             ],
             "type": "str"
           }
         },
-        "id": "xy-edge__TextInput-k48NL{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-k48NL\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-KnowledgeBase-kgwih{\u0153fieldName\u0153:\u0153search_query\u0153,\u0153id\u0153:\u0153KnowledgeBase-kgwih\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "xy-edge__TextInput-k48NL{œdataTypeœ:œTextInputœ,œidœ:œTextInput-k48NLœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-ExternalKnowledgeBase-kgwih{œfieldNameœ:œsearch_queryœ,œidœ:œExternalKnowledgeBase-kgwihœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "source": "TextInput-k48NL",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-k48NL\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
-        "target": "KnowledgeBase-kgwih",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153search_query\u0153, \u0153id\u0153: \u0153KnowledgeBase-kgwih\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-k48NLœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "target": "ExternalKnowledgeBase-kgwih",
+        "targetHandle": "{œfieldNameœ: œsearch_queryœ, œidœ: œExternalKnowledgeBase-kgwihœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
       }
     ],
     "nodes": [
-      {
-        "data": {
-          "id": "note-6CE3d",
-          "node": {
-            "description": "# \ud83d\udcd6 README\nA stand-alone component handles the retrieval of ingested knowledge from existing knowledge bases. To retrieve knowledge:\n\n1. Select your knowledge base from the Knowledge Base dropdown. If you do not see it, choose \"Refresh List\".\n2. (Optional) Enter a Search Query to be performed against the knowledge base.\n\nNote that by default, 5 results are returned, which can be configured by clicking Controls at the top of the component.\n",
-            "display_name": "",
-            "documentation": "",
-            "template": {}
-          },
-          "type": "note"
-        },
-        "dragging": false,
-        "height": 384,
-        "id": "note-6CE3d",
-        "measured": {
-          "height": 384,
-          "width": 371
-        },
-        "position": {
-          "x": -215.63964109627526,
-          "y": -365.1224988685513
-        },
-        "resizing": false,
-        "selected": false,
-        "type": "noteNode",
-        "width": 371
-      },
       {
         "data": {
           "id": "TextInput-k48NL",
@@ -114,7 +87,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -267,7 +240,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 3
@@ -510,87 +483,46 @@
       },
       {
         "data": {
-          "id": "KnowledgeBase-kgwih",
+          "id": "ExternalKnowledgeBase-kgwih",
           "node": {
             "base_classes": [
-              "DataFrame",
               "Table"
             ],
             "beta": false,
             "conditional_paths": [],
             "custom_fields": {},
-            "description": "Search and retrieve data from knowledge.",
-            "display_name": "Knowledge Base",
+            "description": "使用智能体平台的知识库检索API进行知识库检索",
+            "display_name": "外部知识库",
             "documentation": "",
             "edited": false,
             "field_order": [
-              "knowledge_base",
-              "api_key",
+              "kb_id",
               "search_query",
-              "top_k",
-              "include_metadata",
-              "include_embeddings"
+              "search_mode",
+              "top_number",
+              "similarity"
             ],
             "frozen": false,
-            "icon": "download",
-            "last_updated": "2025-08-26T16:19:16.681Z",
+            "icon": "database",
+            "last_updated": "2026-04-10T20:43:25.288Z",
             "legacy": false,
+            "lf_version": "1.9.0",
             "metadata": {
-              "code_hash": "ffac945601ba",
+              "code_hash": "f8973e2301f1",
               "dependencies": {
                 "dependencies": [
                   {
-                    "name": "chromadb",
-                    "version": "1.5.8"
-                  },
-                  {
-                    "name": "cryptography",
-                    "version": "47.0.0"
-                  },
-                  {
-                    "name": "langchain_chroma",
-                    "version": "0.2.6"
-                  },
-                  {
-                    "name": "langflow",
-                    "version": null
-                  },
-                  {
-                    "name": "pydantic",
-                    "version": "2.12.5"
+                    "name": "httpx",
+                    "version": "0.28.1"
                   },
                   {
                     "name": "lfx",
-                    "version": null
-                  },
-                  {
-                    "name": "langchain_openai",
-                    "version": "1.2.1"
-                  },
-                  {
-                    "name": "langchain_huggingface",
-                    "version": "1.2.2"
-                  },
-                  {
-                    "name": "langchain_cohere",
-                    "version": "0.5.1"
-                  },
-                  {
-                    "name": "langchain_google_genai",
-                    "version": "4.1.3"
-                  },
-                  {
-                    "name": "langchain_ollama",
-                    "version": "0.3.10"
-                  },
-                  {
-                    "name": "langchain_ibm",
-                    "version": "1.0.7"
+                    "version": "0.4.3"
                   }
                 ],
-                "total_dependencies": 12
+                "total_dependencies": 2
               },
-              "module": "lfx.components.files_and_knowledge.retrieval.KnowledgeBaseComponent"
+              "module": "lfx.components.files_and_knowledge.external_kb.ExternalKnowledgeBaseComponent"
             },
             "minimized": false,
             "output_types": [],
@@ -600,8 +532,8 @@
                 "cache": true,
                 "display_name": "Results",
                 "group_outputs": false,
-                "method": "retrieve_data",
-                "name": "retrieve_data",
+                "method": "query_knowledge_base",
+                "name": "results",
                 "selected": "Table",
                 "tool_mode": true,
                 "types": [
@@ -613,23 +545,6 @@
             "pinned": false,
             "template": {
               "_type": "Component",
-              "api_key": {
-                "_input_type": "SecretStrInput",
-                "advanced": true,
-                "display_name": "Embedding Provider API Key",
-                "dynamic": false,
-                "info": "API key for the embedding provider to generate embeddings.",
-                "input_types": [],
-                "load_from_db": false,
-                "name": "api_key",
-                "password": true,
-                "placeholder": "",
-                "required": false,
-                "show": false,
-                "title_case": false,
-                "type": "str",
-                "value": ""
-              },
               "code": {
                 "advanced": true,
                 "dynamic": true,
@@ -646,73 +561,69 @@
                 "show": true,
                 "title_case": false,
                 "type": "code",
-                "value": "import json\nimport os\nimport uuid\nfrom pathlib import Path\nfrom typing import Any\n\nimport chromadb\nimport chromadb.api.client\nfrom cryptography.fernet import InvalidToken\nfrom langchain_chroma import Chroma\nfrom langflow.services.auth.utils import decrypt_api_key\nfrom langflow.services.database.models.user.crud import get_user_by_id\nfrom pydantic import SecretStr\n\nfrom lfx.base.knowledge_bases.knowledge_base_utils import get_knowledge_bases\nfrom lfx.base.models.unified_models import (\n    get_model_provider_variable_mapping,\n    get_provider_all_variables,\n)\nfrom lfx.custom import Component\nfrom lfx.io import BoolInput, DropdownInput, IntInput, MessageTextInput, Output, SecretStrInput\nfrom lfx.log.logger import logger\nfrom lfx.schema.data import Data\nfrom lfx.schema.dataframe import DataFrame\nfrom lfx.services.deps import get_settings_service, get_variable_service, session_scope\nfrom lfx.utils.validate_cloud import raise_error_if_astra_cloud_disable_component\n\n_KNOWLEDGE_BASES_ROOT_PATH: Path | None = None\n\n# Error message to raise if we're in Astra cloud environment and the component is not supported.\nastra_error_msg = \"Knowledge retrieval is not supported in Astra cloud environment.\"\n\n\ndef _get_knowledge_bases_root_path() -> Path:\n    \"\"\"Lazy load the knowledge bases root path from settings.\"\"\"\n    global _KNOWLEDGE_BASES_ROOT_PATH  # noqa: PLW0603\n    if _KNOWLEDGE_BASES_ROOT_PATH is None:\n        settings = get_settings_service().settings\n        knowledge_directory = settings.knowledge_bases_dir\n        if not knowledge_directory:\n            msg = \"Knowledge bases directory is not set in the settings.\"\n            raise ValueError(msg)\n        _KNOWLEDGE_BASES_ROOT_PATH = Path(knowledge_directory).expanduser()\n    return _KNOWLEDGE_BASES_ROOT_PATH\n\n\nclass KnowledgeBaseComponent(Component):\n    display_name = \"Knowledge Base\"\n    description = \"Search and retrieve data from knowledge.\"\n    icon = \"download\"\n    name = \"KnowledgeBase\"\n\n    inputs = [\n        DropdownInput(\n            name=\"knowledge_base\",\n            display_name=\"Knowledge\",\n            info=\"Select the knowledge to load data from.\",\n            required=True,\n            options=[],\n            refresh_button=True,\n            real_time_refresh=True,\n        ),\n        SecretStrInput(\n            name=\"api_key\",\n            display_name=\"Embedding Provider API Key\",\n            info=\"API key for the embedding provider to generate embeddings.\",\n            advanced=True,\n            required=False,\n        ),\n        MessageTextInput(\n            name=\"search_query\",\n            display_name=\"Search Query\",\n            info=\"Optional search query to filter knowledge base data.\",\n            tool_mode=True,\n        ),\n        IntInput(\n            name=\"top_k\",\n            display_name=\"Top K Results\",\n            info=\"Number of top results to return from the knowledge base.\",\n            value=5,\n            advanced=True,\n            required=False,\n        ),\n        BoolInput(\n            name=\"include_metadata\",\n            display_name=\"Include Metadata\",\n            info=\"Whether to include all metadata in the output. If false, only content is returned.\",\n            value=True,\n            advanced=False,\n        ),\n        BoolInput(\n            name=\"include_embeddings\",\n            display_name=\"Include Embeddings\",\n            info=\"Whether to include embeddings in the output. Only applicable if 'Include Metadata' is enabled.\",\n            value=False,\n            advanced=True,\n        ),\n    ]\n\n    outputs = [\n        Output(\n            name=\"retrieve_data\",\n            display_name=\"Results\",\n            method=\"retrieve_data\",\n            info=\"Returns the data from the selected knowledge base.\",\n        ),\n    ]\n\n    async def update_build_config(self, build_config, field_value, field_name=None):  # noqa: ARG002\n        # Check if we're in Astra cloud environment and raise an error if we are.\n        raise_error_if_astra_cloud_disable_component(astra_error_msg)\n        if field_name == \"knowledge_base\":\n            # Update the knowledge base options dynamically\n            build_config[\"knowledge_base\"][\"options\"] = await get_knowledge_bases(\n                _get_knowledge_bases_root_path(),\n                user_id=self.user_id,  # Use the user_id from the component context\n            )\n\n            # If the selected knowledge base is not available, reset it\n            if build_config[\"knowledge_base\"][\"value\"] not in build_config[\"knowledge_base\"][\"options\"]:\n                build_config[\"knowledge_base\"][\"value\"] = None\n\n        return build_config\n\n    @property\n    def _user_uuid(self) -> uuid.UUID | None:\n        \"\"\"Return self.user_id as a UUID, converting from str if necessary.\"\"\"\n        if not self.user_id:\n            return None\n        return self.user_id if isinstance(self.user_id, uuid.UUID) else uuid.UUID(self.user_id)\n\n    def _get_kb_metadata(self, kb_path: Path) -> dict:\n        \"\"\"Load and process knowledge base metadata.\"\"\"\n        # Check if we're in Astra cloud environment and raise an error if we are.\n        raise_error_if_astra_cloud_disable_component(astra_error_msg)\n        metadata: dict[str, Any] = {}\n        metadata_file = kb_path / \"embedding_metadata.json\"\n        if not metadata_file.exists():\n            logger.warning(f\"Embedding metadata file not found at {metadata_file}\")\n            return metadata\n\n        try:\n            with metadata_file.open(\"r\", encoding=\"utf-8\") as f:\n                metadata = json.load(f)\n        except json.JSONDecodeError:\n            logger.error(f\"Error decoding JSON from {metadata_file}\")\n            return {}\n\n        # Decrypt API key if it exists\n        if \"api_key\" in metadata and metadata.get(\"api_key\"):\n            settings_service = get_settings_service()\n            try:\n                decrypted_key = decrypt_api_key(metadata[\"api_key\"], settings_service)\n                metadata[\"api_key\"] = decrypted_key\n            except (InvalidToken, TypeError, ValueError) as e:\n                logger.error(f\"Could not decrypt API key. Please provide it manually. Error: {e}\")\n                metadata[\"api_key\"] = None\n        return metadata\n\n    async def _resolve_provider_variables(self, provider: str) -> dict[str, str]:\n        \"\"\"Resolve all global variables for a provider using the async session.\n\n        This avoids the run_until_complete thread dance by doing the lookup\n        directly in the already-running async context.\n        \"\"\"\n        result: dict[str, str] = {}\n        provider_vars = get_provider_all_variables(provider)\n        user_id = self._user_uuid\n        if not provider_vars or not user_id:\n            return result\n\n        async with session_scope() as session:\n            variable_service = get_variable_service()\n            if variable_service is None:\n                return result\n\n            for var_info in provider_vars:\n                var_key = var_info.get(\"variable_key\")\n                if not var_key:\n                    continue\n                try:\n                    value = await variable_service.get_variable(\n                        user_id=user_id,\n                        name=var_key,\n                        field=\"\",\n                        session=session,\n                    )\n                    if value and str(value).strip():\n                        result[var_key] = str(value)\n                except (ValueError, KeyError, AttributeError) as e:\n                    logger.debug(f\"Variable service lookup failed for '{var_key}', falling back to environment: {e}\")\n                    env_value = os.environ.get(var_key)\n                    if env_value and env_value.strip():\n                        result[var_key] = env_value\n        return result\n\n    async def _resolve_api_key(self, provider: str) -> str | None:\n        \"\"\"Resolve the API key for the given provider.\n\n        Priority: user override > metadata (decrypted) > global variable.\n        \"\"\"\n        provider_variable_map = get_model_provider_variable_mapping()\n        variable_name = provider_variable_map.get(provider)\n        user_id = self._user_uuid\n        if not variable_name or not user_id:\n            return None\n\n        async with session_scope() as session:\n            variable_service = get_variable_service()\n            if variable_service is None:\n                return None\n            try:\n                return await variable_service.get_variable(\n                    user_id=user_id,\n                    name=variable_name,\n                    field=\"\",\n                    session=session,\n                )\n            except (ValueError, KeyError, AttributeError):\n                return None\n\n    def _build_embeddings(self, metadata: dict, *, api_key: str | None = None, provider_vars: dict | None = None):\n        \"\"\"Build embedding model from metadata.\n\n        Args:\n            metadata: The knowledge base embedding metadata.\n            api_key: Pre-resolved API key (user override > metadata > global).\n            provider_vars: Pre-resolved provider variables (for Ollama/WatsonX).\n        \"\"\"\n        provider = metadata.get(\"embedding_provider\")\n        model = metadata.get(\"embedding_model\")\n        chunk_size = metadata.get(\"chunk_size\")\n\n        # \u2500\u2500 Embedded credentials (agent platform models) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n        # Must be checked BEFORE the per-provider branches below, because\n        # the provider name is now dynamic (OpenAI, Ollama, \u2026) and the\n        # api_key is embedded in model_selection.metadata, not in global vars.\n        model_selection = metadata.get(\"model_selection\", {})\n        model_metadata = model_selection.get(\"metadata\", {})\n        if \"unified_api_key\" in model_metadata or \"unified_base_url\" in model_metadata:\n            from lfx.base.models.unified_models.class_registry import get_embedding_class\n\n            embedding_cls_name = model_metadata.get(\"embedding_class\", \"OpenAIEmbeddings\")\n            embedding_cls = get_embedding_class(embedding_cls_name)\n            unified_api_key = model_metadata.get(\"unified_api_key\", \"\")\n            unified_base_url = model_metadata.get(\"unified_base_url\", \"\")\n\n            kwargs: dict = {\"model\": model}\n            if unified_api_key is not None:\n                kwargs[\"api_key\"] = unified_api_key\n            if unified_base_url is not None:\n                kwargs[\"base_url\"] = unified_base_url\n            if chunk_size is not None:\n                kwargs[\"chunk_size\"] = chunk_size\n            return embedding_cls(**kwargs)\n\n        # Handle various providers\n        if provider == \"OpenAI\":\n            from langchain_openai import OpenAIEmbeddings\n\n            if not api_key:\n                msg = (\n                    \"OpenAI API key is required. Provide it in the component's advanced settings\"\n                    \" or configure it globally.\"\n                )\n                raise ValueError(msg)\n            openai_kwargs: dict = {\"model\": model, \"api_key\": api_key}\n            if chunk_size is not None:\n                openai_kwargs[\"chunk_size\"] = chunk_size\n            return OpenAIEmbeddings(**openai_kwargs)\n        if provider == \"HuggingFace\":\n            from langchain_huggingface import HuggingFaceEmbeddings\n\n            return HuggingFaceEmbeddings(\n                model=model,\n            )\n        if provider == \"Cohere\":\n            from langchain_cohere import CohereEmbeddings\n\n            if not api_key:\n                msg = \"Cohere API key is required when using Cohere provider\"\n                raise ValueError(msg)\n            return CohereEmbeddings(\n                model=model,\n                cohere_api_key=api_key,\n            )\n        if provider == \"Google Generative AI\":\n            from langchain_google_genai import GoogleGenerativeAIEmbeddings\n\n            if not api_key:\n                msg = (\n                    \"Google API key is required. Provide it in the component's advanced settings\"\n                    \" or configure it globally.\"\n                )\n                raise ValueError(msg)\n            return GoogleGenerativeAIEmbeddings(\n                model=model,\n                google_api_key=api_key,\n            )\n        if provider == \"Ollama\":\n            from langchain_ollama import OllamaEmbeddings\n\n            all_vars = provider_vars or {}\n            base_url = all_vars.get(\"OLLAMA_BASE_URL\")\n            kwargs: dict = {\"model\": model}\n            if base_url:\n                kwargs[\"base_url\"] = base_url\n            return OllamaEmbeddings(**kwargs)\n        if provider == \"IBM WatsonX\":\n            from langchain_ibm import WatsonxEmbeddings\n\n            all_vars = provider_vars or {}\n            watsonx_apikey = api_key or all_vars.get(\"WATSONX_APIKEY\")\n            watsonx_project_id = all_vars.get(\"WATSONX_PROJECT_ID\")\n            watsonx_url = all_vars.get(\"WATSONX_URL\")\n            if not watsonx_apikey:\n                msg = (\n                    \"IBM WatsonX API key is required. Provide it in the component's advanced settings\"\n                    \" or configure it globally.\"\n                )\n                raise ValueError(msg)\n            kwargs = {\"model_id\": model, \"apikey\": watsonx_apikey}\n            if watsonx_project_id:\n                kwargs[\"project_id\"] = watsonx_project_id\n            if watsonx_url:\n                kwargs[\"url\"] = watsonx_url\n            return WatsonxEmbeddings(**kwargs)\n        if provider == \"Custom\":\n            # For custom embedding models, we would need additional configuration\n            msg = \"Custom embedding models not yet supported\"\n            raise NotImplementedError(msg)\n        msg = f\"Embedding provider '{provider}' is not supported for retrieval.\"\n        raise NotImplementedError(msg)\n\n    async def retrieve_data(self) -> DataFrame:\n        \"\"\"Retrieve data from the selected knowledge base by reading the Chroma collection.\n\n        Returns:\n            A DataFrame containing the data rows from the knowledge base.\n        \"\"\"\n        # Check if we're in Astra cloud environment and raise an error if we are.\n        raise_error_if_astra_cloud_disable_component(astra_error_msg)\n        # Get the current user\n        async with session_scope() as db:\n            if not self.user_id:\n                msg = \"User ID is required for fetching Knowledge Base data.\"\n                raise ValueError(msg)\n            current_user = await get_user_by_id(db, self.user_id)\n            if not current_user:\n                msg = f\"User with ID {self.user_id} not found.\"\n                raise ValueError(msg)\n            kb_user = current_user.username\n        kb_path = _get_knowledge_bases_root_path() / kb_user / self.knowledge_base\n\n        metadata = self._get_kb_metadata(kb_path)\n        if not metadata:\n            msg = f\"Metadata not found for knowledge base: {self.knowledge_base}. Ensure it has been indexed.\"\n            raise ValueError(msg)\n\n        # Resolve API key: user override > metadata (decrypted) > global variable\n        provider = metadata.get(\"embedding_provider\")\n        runtime_api_key = self.api_key.get_secret_value() if isinstance(self.api_key, SecretStr) else self.api_key\n        api_key = runtime_api_key or metadata.get(\"api_key\")\n        if not api_key and provider:\n            api_key = await self._resolve_api_key(provider)\n\n        # Resolve provider-specific variables (e.g. base_url for Ollama, project_id for WatsonX)\n        provider_vars: dict[str, str] = {}\n        if provider in {\"Ollama\", \"IBM WatsonX\"}:\n            provider_vars = await self._resolve_provider_variables(provider)\n\n        # Build the embedder for the knowledge base\n        embedding_function = self._build_embeddings(metadata, api_key=api_key, provider_vars=provider_vars)\n\n        # Clear Chroma's singleton client cache to avoid \"different settings\"\n        # conflicts when ingestion and retrieval run in the same process.\n        chromadb.api.client.SharedSystemClient.clear_system_cache()\n        chroma = Chroma(\n            persist_directory=str(kb_path),\n            embedding_function=embedding_function,\n            collection_name=self.knowledge_base,\n        )\n\n        # If a search query is provided, perform a similarity search\n        if self.search_query:\n            # Use the search query to perform a similarity search\n            logger.info(\"Performing similarity search\")\n            results = chroma.similarity_search_with_score(\n                query=self.search_query or \"\",\n                k=self.top_k,\n            )\n        else:\n            results = chroma.similarity_search(\n                query=self.search_query or \"\",\n                k=self.top_k,\n            )\n\n            # For each result, make it a tuple to match the expected output format\n            results = [(doc, 0) for doc in results]  # Assign a dummy score of 0\n\n        # If include_embeddings is enabled, get embeddings for the results\n        id_to_embedding = {}\n        if self.include_embeddings and results:\n            doc_ids = [doc[0].metadata.get(\"_id\") for doc in results if doc[0].metadata.get(\"_id\")]\n\n            # Only proceed if we have valid document IDs\n            if doc_ids:\n                # Access underlying collection to get embeddings\n                collection = chroma._collection  # noqa: SLF001\n                embeddings_result = collection.get(where={\"_id\": {\"$in\": doc_ids}}, include=[\"metadatas\", \"embeddings\"])\n\n                # Create a mapping from document ID to embedding\n                for i, metadata in enumerate(embeddings_result.get(\"metadatas\", [])):\n                    if metadata and \"_id\" in metadata:\n                        id_to_embedding[metadata[\"_id\"]] = embeddings_result[\"embeddings\"][i]\n\n        # Build output data based on include_metadata setting\n        data_list = []\n        for doc in results:\n            kwargs = {\n                \"content\": doc[0].page_content,\n            }\n            if self.search_query:\n                kwargs[\"_score\"] = -1 * doc[1]\n            if self.include_metadata:\n                # Include all metadata, embeddings, and content\n                kwargs.update(doc[0].metadata)\n            if self.include_embeddings:\n                kwargs[\"_embeddings\"] = id_to_embedding.get(doc[0].metadata.get(\"_id\"))\n\n            data_list.append(Data(**kwargs))\n\n        # Return the DataFrame containing the data\n        return DataFrame(data=data_list)\n"
+                "value": "from __future__ import annotations\n\nimport os\nfrom typing import Any\n\nimport httpx\n\nfrom lfx.custom import Component\nfrom lfx.io import DropdownInput, FloatInput, IntInput, MessageTextInput, Output\nfrom lfx.schema.data import Data\nfrom lfx.schema.dataframe import DataFrame\n\n_SEARCH_MODE_MAP: dict[str, str] = {\n    \"向量检索\": \"embedding\",\n    \"全文检索\": \"keywords\",\n    \"混合检索\": \"blend\",\n}\n\n\nclass ExternalKnowledgeBaseComponent(Component):\n    display_name = \"外部知识库\"\n    description = \"使用智能体平台的知识库检索API进行知识库检索\"\n    icon = \"database\"\n    name = \"ExternalKnowledgeBase\"\n\n    inputs = [\n        MessageTextInput(\n            name=\"kb_id\",\n            display_name=\"知识库ID\",\n            info=\"The ID of the knowledge base to query.\",\n            required=True,\n        ),\n        MessageTextInput(\n            name=\"search_query\",\n            display_name=\"检索内容\",\n            info=\"The search query to retrieve from the knowledge base.\",\n            tool_mode=True,\n        ),\n        DropdownInput(\n            name=\"search_mode\",\n            display_name=\"检索模式\",\n            info=\"The retrieval mode for the query.\",\n            options=[\"向量检索\", \"全文检索\", \"混合检索\"],\n            value=\"hybrid\",\n            required=True,\n        ),\n        IntInput(\n            name=\"top_number\",\n            display_name=\"返回条数\",\n            info=\"Number of top results to return.\",\n            value=5,\n            required=True,\n        ),\n        FloatInput(\n            name=\"similarity\",\n            display_name=\"相似度阈值\",\n            info=\"Minimum similarity score (0.0 to 1.0) for results.\",\n            value=0.3,\n            advanced=True,\n        ),\n    ]\n\n    outputs = [\n        Output(\n            name=\"results\",\n            display_name=\"Results\",\n            method=\"query_knowledge_base\",\n            info=\"Retrieved documents from the external knowledge base.\",\n        ),\n    ]\n\n    async def query_knowledge_base(self) -> DataFrame:\n        kb_id = self.kb_id\n        query_text = self.search_query or \"\"\n        search_mode = _SEARCH_MODE_MAP.get(self.search_mode, \"embedding\")\n        top_number = self.top_number\n        similarity = self.similarity\n        api_base_url = os.environ.get(\"AGENT_PLATFORM_API_URL\", \"http://localhost:8000/v1\").rstrip(\"/\")\n        url = f\"{api_base_url}/maxkb/knowledge-bases/{kb_id}/query\"\n\n        payload: dict[str, Any] = {\n            \"query_text\": query_text,\n            \"search_mode\": search_mode,\n            \"top_number\": top_number,\n            \"similarity\": similarity,\n        }\n\n        try:\n            async with httpx.AsyncClient(timeout=60.0) as client:\n                response = await client.post(url, json=payload)\n                response.raise_for_status()\n                result_data = response.json()\n        except httpx.HTTPStatusError as e:\n            msg = f\"API returned error {e.response.status_code}: {e.response.text}\"\n            raise ValueError(msg) from e\n        except httpx.RequestError as e:\n            msg = f\"Failed to connect to API at {url}: {e}\"\n            raise ValueError(msg) from e\n\n        records = result_data.get(\"results\") if isinstance(result_data, dict) else result_data\n        if not records:\n            self.log(f\"No results retrieved from knowledge base {kb_id}\")\n            return DataFrame()\n\n        data_list: list[Data] = []\n        for record in records:\n            content = record.get(\"content\", \"\")\n            data_list.append(\n                Data(\n                    content=content,\n                    data={\n                        \"title\": record.get(\"title\", \"\"),\n                        \"document_name\": record.get(\"document_name\", \"\"),\n                        \"knowledge_name\": record.get(\"knowledge_name\", \"\"),\n                        \"similarity\": record.get(\"similarity\", 0.0),\n                        \"comprehensive_score\": record.get(\"comprehensive_score\", 0.0),\n                        \"document_id\": record.get(\"document_id\", \"\"),\n                        \"knowledge_id\": record.get(\"knowledge_id\", \"\"),\n                        \"hit_num\": record.get(\"hit_num\", 0),\n                    },\n                )\n            )\n\n        self.log(f\"Retrieved {len(data_list)} results from knowledge base {kb_id}\")\n        return DataFrame(data=data_list)\n"
               },
-              "include_embeddings": {
-                "_input_type": "BoolInput",
-                "advanced": true,
-                "display_name": "Include Embeddings",
-                "dynamic": false,
-                "info": "Whether to include embeddings in the output. Only applicable if 'Include Metadata' is enabled.",
-                "list": false,
-                "list_add_label": "Add More",
-                "name": "include_embeddings",
-                "placeholder": "",
-                "required": false,
-                "show": true,
-                "title_case": false,
-                "tool_mode": false,
-                "trace_as_metadata": true,
-                "type": "bool",
-                "value": false
-              },
-              "include_metadata": {
-                "_input_type": "BoolInput",
+              "kb_id": {
+                "_input_type": "MessageTextInput",
                 "advanced": false,
-                "display_name": "Include Metadata",
+                "display_name": "知识库ID",
                 "dynamic": false,
-                "info": "Whether to include all metadata in the output. If false, only content is returned.",
+                "info": "The ID of the knowledge base to query.",
+                "input_types": [
+                  "Message"
+                ],
                 "list": false,
                 "list_add_label": "Add More",
-                "name": "include_metadata",
+                "load_from_db": false,
+                "name": "kb_id",
+                "override_skip": false,
                 "placeholder": "",
-                "required": false,
+                "required": true,
                 "show": true,
                 "title_case": false,
                 "tool_mode": false,
+                "trace_as_input": true,
                 "trace_as_metadata": true,
-                "type": "bool",
-                "value": true
+                "track_in_telemetry": false,
+                "type": "str",
+                "value": ""
               },
-              "knowledge_base": {
+              "search_mode": {
                 "_input_type": "DropdownInput",
                 "advanced": false,
                 "combobox": false,
                 "dialog_inputs": {},
-                "display_name": "Knowledge",
+                "display_name": "检索模式",
                 "dynamic": false,
-                "info": "Select the knowledge to load data from.",
-                "name": "knowledge_base",
-                "options": [],
+                "external_options": {},
+                "info": "The retrieval mode for the query.",
+                "name": "search_mode",
+                "options": [
+                  "向量检索",
+                  "全文检索",
+                  "混合检索"
+                ],
                 "options_metadata": [],
+                "override_skip": false,
                 "placeholder": "",
-                "real_time_refresh": true,
-                "refresh_button": true,
+                "real_time_refresh": false,
+                "refresh_button": false,
                 "required": true,
                 "show": true,
                 "title_case": false,
                 "toggle": false,
                 "tool_mode": false,
                 "trace_as_metadata": true,
+                "track_in_telemetry": true,
                 "type": "str",
-                "value": null
+                "value": "混合检索"
               },
               "search_query": {
                 "_input_type": "MessageTextInput",
                 "advanced": false,
-                "display_name": "Search Query",
+                "display_name": "检索内容",
                 "dynamic": false,
-                "info": "Optional search query to filter knowledge base data.",
+                "info": "The search query to retrieve from the knowledge base.",
                 "input_types": [
                   "Message"
                 ],
@@ -720,6 +631,7 @@
                 "list_add_label": "Add More",
                 "load_from_db": false,
                 "name": "search_query",
+                "override_skip": false,
                 "placeholder": "",
                 "required": false,
                 "show": true,
@@ -727,24 +639,47 @@
                 "tool_mode": true,
                 "trace_as_input": true,
                 "trace_as_metadata": true,
+                "track_in_telemetry": false,
                 "type": "str",
                 "value": ""
               },
-              "top_k": {
-                "_input_type": "IntInput",
+              "similarity": {
+                "_input_type": "FloatInput",
                 "advanced": true,
-                "display_name": "Top K Results",
+                "display_name": "相似度阈值",
                 "dynamic": false,
-                "info": "Number of top results to return from the knowledge base.",
+                "info": "Minimum similarity score (0.0 to 1.0) for results.",
                 "list": false,
                 "list_add_label": "Add More",
-                "name": "top_k",
+                "name": "similarity",
+                "override_skip": false,
                 "placeholder": "",
                 "required": false,
                 "show": true,
                 "title_case": false,
                 "tool_mode": false,
                 "trace_as_metadata": true,
+                "track_in_telemetry": true,
+                "type": "float",
+                "value": 0.3
+              },
+              "top_number": {
+                "_input_type": "IntInput",
+                "advanced": false,
+                "display_name": "返回条数",
+                "dynamic": false,
+                "info": "Number of top results to return.",
+                "list": false,
+                "list_add_label": "Add More",
+                "name": "top_number",
+                "override_skip": false,
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "track_in_telemetry": true,
                 "type": "int",
                 "value": 5
               }
@@ -752,10 +687,10 @@
             "tool_mode": false
           },
           "showNode": true,
-          "type": "KnowledgeBase"
+          "type": "ExternalKnowledgeBase"
         },
         "dragging": false,
-        "id": "KnowledgeBase-kgwih",
+        "id": "ExternalKnowledgeBase-kgwih",
         "measured": {
           "height": 329,
           "width": 320
@@ -774,7 +709,7 @@
       "zoom": 1.0053880437940252
     }
   },
-  "description": "\u5bf9\u77e5\u8bc6\u5e93\u4e2d\u7684\u6570\u636e\u6267\u884c\u5411\u91cf\u641c\u7d22\u4ee5\u68c0\u7d22\u76f8\u5173\u6587\u6863\u7684\u793a\u4f8b\u3002",
+  "description": "对知识库中的数据执行向量搜索以检索相关文档的示例。",
   "endpoint_name": null,
   "id": "e262d49f-c800-4962-948b-c94f79eb5fb8",
   "is_component": false,
