@@ -7,6 +7,7 @@ import httpx
 
 from lfx.custom import Component
 from lfx.io import DropdownInput, FloatInput, IntInput, MessageTextInput, Output
+from lfx.log.logger import logger
 from lfx.schema.data import Data
 from lfx.schema.dataframe import DataFrame
 
@@ -24,11 +25,14 @@ class ExternalKnowledgeBaseComponent(Component):
     name = "ExternalKnowledgeBase"
 
     inputs = [
-        MessageTextInput(
+        DropdownInput(
             name="kb_id",
-            display_name="知识库ID",
-            info="The ID of the knowledge base to query.",
+            display_name="知识库",
+            info="Select the knowledge base to query. List loaded from the agent platform API.",
             required=True,
+            options=[],
+            real_time_refresh=True,
+            refresh_button=True,
         ),
         MessageTextInput(
             name="search_query",
@@ -69,13 +73,55 @@ class ExternalKnowledgeBaseComponent(Component):
         ),
     ]
 
+    async def _get_knowledge_base_list(self) -> list[dict[str, str]]:
+        """Return [{id, name}] from the platform API, or [] when unreachable."""
+        api_base_url = os.environ.get("AGENT_PLATFORM_API_URL", "http://localhost:8000/v1").rstrip("/")
+        url = f"{api_base_url}/maxkb/knowledge-bases"
+        try:
+            async with httpx.AsyncClient(timeout=10.0) as client:
+                response = await client.get(url)
+                response.raise_for_status()
+        except (httpx.HTTPStatusError, httpx.RequestError) as exc:
+            msg = f"Failed to fetch knowledge base list from {url}: {exc}"
+            self.log(msg)
+            logger.warning(msg)
+            return []
+        result_data = response.json()
+        if isinstance(result_data, dict):
+            items = result_data.get("knowledge_bases") or result_data.get("data") or []
+        else:
+            items = result_data
+        if not isinstance(items, list):
+            msg = f"Unexpected knowledge base list response from {url}: {result_data!r:.200}"
+            self.log(msg)
+            logger.warning(msg)
+            return []
+        return [
+            {"id": str(item.get("id", "")), "name": str(item.get("name", ""))}
+            for item in items
+            if isinstance(item, dict) and item.get("id") and item.get("name")
+        ]
+
+    async def update_build_config(self, build_config, field_value, field_name=None):  # noqa: ARG002
+        knowledge_bases = await self._get_knowledge_base_list()
+        build_config["kb_id"]["options"] = [kb["name"] for kb in knowledge_bases]
+        if build_config["kb_id"]["value"] not in build_config["kb_id"]["options"]:
+            build_config["kb_id"]["value"] = None
+
     async def query_knowledge_base(self) -> DataFrame:
-        kb_id = self.kb_id
+        selected = self.kb_id
         query_text = self.search_query or ""
         search_mode = _SEARCH_MODE_MAP.get(self.search_mode, "embedding")
         top_number = self.top_number
         similarity = self.similarity
         api_base_url = os.environ.get("AGENT_PLATFORM_API_URL", "http://localhost:8000/v1").rstrip("/")
+
+        # The dropdown value is the knowledge base name; resolve it to its id.
+        knowledge_bases = await self._get_knowledge_base_list()
+        kb_id = next((kb["id"] for kb in knowledge_bases if kb["name"] == selected), selected)
+        if not kb_id:
+            msg = "No knowledge base selected. Please select a knowledge base."
+            raise ValueError(msg)
         url = f"{api_base_url}/maxkb/knowledge-bases/{kb_id}/query"
 
         payload: dict[str, Any] = {
