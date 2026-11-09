@@ -370,6 +370,43 @@ class MCPToolsComponent(ComponentWithCache):
         else:
             return tool_list, {"name": server_name, "config": server_config}
 
+    async def _ensure_tool_schema_inputs(self, build_config: dict, *, allow_fetch: bool = True) -> None:
+        """Re-add the selected tool's schema inputs when they are missing.
+
+        Flows saved while the reload bug was active lost the dynamically
+        generated tool parameter fields (e.g. base64_encode's "text" input)
+        while keeping ``tool.value``; regenerating them on load restores the
+        parameter fields. Existing values are preserved by
+        ``_update_tool_config``.
+        """
+        # Tool mode does not use schema inputs.
+        if build_config.get("tools_metadata", {}).get("show", False):
+            return
+        tool_value = build_config.get("tool", {}).get("value")
+        # Skip when nothing is selected, or when the value is the uuid sentinel
+        # set after a genuine server switch (the frontend will re-post "tool").
+        if not tool_value or not isinstance(tool_value, str):
+            return
+        if not self.tools:
+            if not allow_fetch:
+                return
+            try:
+                self.tools, build_config["mcp_server"]["value"] = await self.update_tool_list()
+            except Exception:  # noqa: BLE001
+                await logger.awarning("Skipping tool schema self-heal: failed to fetch tools")
+                return
+        tool_obj = next((tool for tool in self.tools if tool.name == tool_value), None)
+        if tool_obj is None:
+            # Tool no longer exists on the server — keep the saved template untouched.
+            return
+        try:
+            schema_inputs = await self._validate_schema_inputs(tool_obj)
+        except ValueError:
+            return
+        if all(getattr(schema_input, "name", None) in build_config for schema_input in schema_inputs):
+            return  # All parameter fields already present.
+        await self._update_tool_config(build_config, tool_value)
+
     async def update_build_config(self, build_config: dict, field_value: str, field_name: str | None = None) -> dict:
         """Toggle the visibility of connection-specific fields based on the selected mode."""
         try:
@@ -459,6 +496,7 @@ class MCPToolsComponent(ComponentWithCache):
                         if not is_in_tool_mode:
                             build_config["tool"]["show"] = True
                         safe_cache_set(self._shared_component_cache, "last_selected_server", current_server_name)
+                        await self._ensure_tool_schema_inputs(build_config)
                         return build_config
 
                 # To avoid unnecessary updates, only proceed if the server has actually changed
@@ -472,8 +510,10 @@ class MCPToolsComponent(ComponentWithCache):
                                 cached_tools = cached["tool_names"]
                                 current_tools = build_config["tool"]["options"]
                                 if current_tools == cached_tools:
+                                    await self._ensure_tool_schema_inputs(build_config)
                                     return build_config
                     else:
+                        await self._ensure_tool_schema_inputs(build_config)
                         return build_config
                 safe_cache_set(self._shared_component_cache, "last_selected_server", current_server_name)
 
@@ -548,6 +588,9 @@ class MCPToolsComponent(ComponentWithCache):
                     # server_changed is only True for real user-initiated changes (not initial load).
                     if server_changed:
                         build_config["tool"]["value"] = uuid.uuid4()
+                    else:
+                        # The tool list was just fetched above; don't re-fetch in the self-heal.
+                        await self._ensure_tool_schema_inputs(build_config, allow_fetch=False)
                 else:
                     # Keep the tool dropdown hidden if in tool_mode
                     self._not_load_actions = True

@@ -261,3 +261,113 @@ class TestMCPComponentFlowReload(ComponentTestBaseWithoutClient):
         # Assert — template still functional, schema input preserved
         assert updated_config["tool"]["value"] == "saved_tool"
         assert "text" in updated_config
+
+    # ---------------------------------------------------------------------------
+    # Self-heal: flows saved while the reload bug was active lost the selected
+    # tool's schema inputs (e.g. base64_encode's "text") but kept tool.value.
+    # Reloading such a flow must regenerate the missing parameter fields.
+    # ---------------------------------------------------------------------------
+
+    @pytest.fixture
+    def fake_tool(self):
+        """A StructuredTool stand-in whose args_schema declares a "text" input."""
+        from pydantic import BaseModel
+
+        class FakeToolArgs(BaseModel):
+            text: str
+
+        class FakeTool:
+            name = "saved_tool"
+            args_schema = FakeToolArgs
+
+        return FakeTool()
+
+    def _mock_tool_fetch(self, component, fake_tool):
+        """Make update_tool_list return the fake tool without touching the network."""
+        from unittest.mock import AsyncMock
+
+        component.update_tool_list = AsyncMock(return_value=([fake_tool], {"name": "test_server", "config": {}}))
+
+    @pytest.mark.asyncio
+    async def test_should_regenerate_missing_schema_inputs_on_reload(self, component_class, default_kwargs, fake_tool):
+        """A saved flow that lost the tool's schema inputs must get them back on reload."""
+        # Arrange — warm cache, same server; template WITHOUT the text input
+        component = await self.component_setup(component_class, default_kwargs)
+        self._mock_tool_fetch(component, fake_tool)
+        safe_cache_set(component._shared_component_cache, "last_selected_server", "test_server")
+        build_config = {
+            "mcp_server": {"value": {"name": "test_server"}},
+            "tool": {
+                "show": True,
+                "options": ["saved_tool"],
+                "value": "saved_tool",
+                "placeholder": "Select a tool",
+            },
+            "tool_placeholder": {"tool_mode": False},
+            "tools_metadata": {"show": False},
+            "use_cache": {"value": False},
+        }
+
+        # Act
+        updated_config = await component.update_build_config(build_config, {"name": "test_server"}, "mcp_server")
+
+        # Assert — the schema input was regenerated
+        assert "text" in updated_config
+        assert updated_config["tool"]["value"] == "saved_tool"
+
+    @pytest.mark.asyncio
+    async def test_should_keep_schema_input_values_through_self_heal(
+        self, component_class, default_kwargs, saved_flow_build_config_with_schema_input, fake_tool
+    ):
+        """Self-heal must not clobber existing schema input values."""
+        # Arrange — warm cache, same server; template WITH the text input and a value
+        component = await self.component_setup(component_class, default_kwargs)
+        self._mock_tool_fetch(component, fake_tool)
+        safe_cache_set(component._shared_component_cache, "last_selected_server", "test_server")
+        build_config = saved_flow_build_config_with_schema_input.copy()
+
+        # Act
+        updated_config = await component.update_build_config(build_config, {"name": "test_server"}, "mcp_server")
+
+        # Assert
+        assert "text" in updated_config
+        assert updated_config["text"]["value"] == "hello world"
+
+    @pytest.mark.asyncio
+    async def test_should_leave_template_untouched_when_tool_missing_from_list(self, component_class, default_kwargs):
+        """If the saved tool no longer exists on the server, keep the template as saved."""
+        from unittest.mock import AsyncMock
+
+        from pydantic import BaseModel
+
+        class OtherToolArgs(BaseModel):
+            other: str
+
+        class OtherTool:
+            name = "other_tool"
+            args_schema = OtherToolArgs
+
+        # Arrange — warm cache, same server; server only offers a different tool
+        component = await self.component_setup(component_class, default_kwargs)
+        component.update_tool_list = AsyncMock(return_value=([OtherTool()], {"name": "test_server", "config": {}}))
+        safe_cache_set(component._shared_component_cache, "last_selected_server", "test_server")
+        build_config = {
+            "mcp_server": {"value": {"name": "test_server"}},
+            "tool": {
+                "show": True,
+                "options": ["saved_tool"],
+                "value": "saved_tool",
+                "placeholder": "Select a tool",
+            },
+            "tool_placeholder": {"tool_mode": False},
+            "tools_metadata": {"show": False},
+            "use_cache": {"value": False},
+        }
+
+        # Act
+        updated_config = await component.update_build_config(build_config, {"name": "test_server"}, "mcp_server")
+
+        # Assert — no schema inputs injected, selection untouched
+        assert "text" not in updated_config
+        assert "other" not in updated_config
+        assert updated_config["tool"]["value"] == "saved_tool"
