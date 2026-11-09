@@ -4,14 +4,6 @@ This package replaces the former monolithic ``unified_models.py`` module while
 preserving the import surface used across the codebase.
 """
 
-from .unified_model_fetcher import (
-    AGENT_PLATFORM_API_URL_ENV,
-    fetch_embeddings_from_agent_platform,
-    fetch_models_from_agent_platform,
-    get_agent_platform_api_url,
-    invalidate_agent_platform_cache,
-    invalidate_agent_platform_embeddings_cache,
-)
 from .build_config import (
     _MODEL_OPTIONS_CACHE_TTL_SECONDS,
     _get_all_provider_mapped_fields,
@@ -35,6 +27,8 @@ from .instantiation import get_embeddings, get_llm
 from .model_catalog import (
     get_embedding_model_options,
     get_language_model_options,
+    get_unified_enabled_models,
+    get_unified_models_by_provider,
     get_unified_models_detailed,
     normalize_model_names_to_dicts,
 )
@@ -50,21 +44,27 @@ from .provider_queries import (
     get_provider_required_variable_keys,
     model_provider_metadata,
 )
+from .unified_model_fetcher import (
+    AGENT_PLATFORM_API_URL_ENV,
+    fetch_embeddings_from_agent_platform,
+    fetch_models_from_agent_platform,
+    get_agent_platform_api_url,
+    invalidate_agent_platform_cache,
+    invalidate_agent_platform_embeddings_cache,
+)
 
 __all__ = [
     "AGENT_PLATFORM_API_URL_ENV",
     "EMBEDDING_PROVIDER_CLASS_MAPPING",
     "MODELS_DETAILED",
-    "fetch_embeddings_from_agent_platform",
-    "fetch_models_from_agent_platform",
-    "get_agent_platform_api_url",
-    "invalidate_agent_platform_cache",
-    "invalidate_agent_platform_embeddings_cache",
     "_EMBEDDING_CLASS_IMPORTS",
     "_MODEL_CLASS_IMPORTS",
     "_MODEL_OPTIONS_CACHE_TTL_SECONDS",
     "_get_all_provider_mapped_fields",
     "apply_provider_variable_config_to_build_config",
+    "fetch_embeddings_from_agent_platform",
+    "fetch_models_from_agent_platform",
+    "get_agent_platform_api_url",
     "get_all_variables_for_provider",
     "get_api_key_for_provider",
     "get_embedding_class",
@@ -81,8 +81,12 @@ __all__ = [
     "get_provider_for_model_name",
     "get_provider_from_variable_key",
     "get_provider_required_variable_keys",
+    "get_unified_enabled_models",
+    "get_unified_models_by_provider",
     "get_unified_models_detailed",
     "handle_model_input_update",
+    "invalidate_agent_platform_cache",
+    "invalidate_agent_platform_embeddings_cache",
     "model_provider_metadata",
     "normalize_model_names_to_dicts",
     "update_model_options_in_build_config",

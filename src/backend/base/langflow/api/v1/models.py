@@ -10,6 +10,8 @@ from lfx.base.models.unified_models import (
     get_model_provider_variable_mapping,
     get_model_providers,
     get_provider_all_variables,
+    get_unified_enabled_models,
+    get_unified_models_by_provider,
     get_unified_models_detailed,
 )
 from loguru import logger
@@ -162,6 +164,17 @@ async def list_models(
         }.items()
         if v is not None
     }
+
+    # Unified agent-platform mode: models come from the platform API, not the
+    # built-in catalogs. All platform models are configured/enabled for the
+    # user (the platform applies per-user availability), so this stays
+    # consistent with what the component dropdowns show.
+    unified_models = get_unified_models_by_provider()
+    if unified_models is not None:
+        for provider_dict in unified_models:
+            provider_dict["is_configured"] = True
+            provider_dict["is_enabled"] = True
+        return unified_models
 
     # Get enabled providers status (now just checks if variables exist)
     enabled_providers_result = await get_enabled_providers(session=session, current_user=current_user)
@@ -528,6 +541,25 @@ async def get_enabled_models(
     model_names: Annotated[list[str] | None, Query()] = None,
 ):
     """Get enabled models for the current user."""
+    # Unified agent-platform mode: every platform model is available to the
+    # user, so report all as enabled. Without this, consumers that strictly
+    # filter by enabled_models (e.g. the frontend flow-load refresh path)
+    # would reset saved model selections that reference platform models.
+    unified_enabled = get_unified_enabled_models()
+    if unified_enabled is not None:
+        result = {"enabled_models": unified_enabled}
+
+        if model_names:
+            # Filter enabled_models by requested models
+            filtered_unified: dict[str, dict[str, bool]] = {}
+            for provider, models_dict in unified_enabled.items():
+                filtered_models = {m: v for m, v in models_dict.items() if m in model_names}
+                if filtered_models:
+                    filtered_unified[provider] = filtered_models
+            return {"enabled_models": filtered_unified}
+
+        return result
+
     # Get all models - this returns a list of provider dicts with nested models
     all_models_by_provider = get_unified_models_detailed(
         include_unsupported=True,

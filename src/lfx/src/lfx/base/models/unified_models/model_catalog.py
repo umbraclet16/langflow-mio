@@ -14,6 +14,7 @@ from lfx.utils.async_helpers import run_until_complete
 from .class_registry import EMBEDDING_PROVIDER_CLASS_MAPPING
 from .credentials import _fetch_enabled_providers_for_user, _get_model_status
 from .provider_queries import MODELS_DETAILED, model_provider_metadata
+from .unified_model_fetcher import get_agent_platform_api_url
 
 if TYPE_CHECKING:
     from uuid import UUID
@@ -426,6 +427,77 @@ def _get_unified_embedding_options(api_url: str) -> list[dict[str, Any]]:
         len(options),
     )
     return options
+
+
+def get_unified_models_by_provider() -> list[dict[str, Any]] | None:
+    """Return agent-platform models grouped by provider, or None if not in unified mode.
+
+    Serves as the catalog data source for ``GET /api/v1/models`` when
+    ``AGENT_PLATFORM_API_URL`` is configured, so that endpoint reflects the
+    same models the component dropdowns show (via
+    ``get_language_model_options`` / ``get_embedding_model_options``)
+    instead of the built-in provider catalogs.
+    """
+    agent_platform_url = get_agent_platform_api_url()
+    if not agent_platform_url:
+        return None
+
+    from .unified_model_fetcher import (
+        fetch_embeddings_from_agent_platform,
+        fetch_models_from_agent_platform,
+    )
+
+    raw_models = fetch_models_from_agent_platform(agent_platform_url)
+    raw_embeddings = fetch_embeddings_from_agent_platform(agent_platform_url)
+
+    provider_map: dict[str, list[dict[str, Any]]] = {}
+    for m in raw_models:
+        provider = _AGENT_LLM_PROVIDER_MAP.get(m.get("provider", "").lower(), _FALLBACK_LLM)[0]
+        provider_map.setdefault(provider, []).append(m)
+    for m in raw_embeddings:
+        provider = _AGENT_EMBEDDING_PROVIDER_MAP.get(m.get("provider", "").lower(), _FALLBACK_EMBEDDING)[0]
+        provider_map.setdefault(provider, []).append(m)
+
+    # Tag each model as llm/embeddings by which endpoint it came from — use
+    # ids instead of object identity since dicts compare by value.
+    embedding_ids = {m.get("id", "") for m in raw_embeddings}
+
+    return [
+        {
+            "provider": provider,
+            "models": [
+                {
+                    "model_name": m.get("id", ""),
+                    "metadata": {
+                        "model_type": "embeddings" if m.get("id", "") in embedding_ids else "llm",
+                    },
+                }
+                for m in models
+            ],
+            "num_models": len(models),
+        }
+        for provider, models in provider_map.items()
+    ]
+
+
+def get_unified_enabled_models() -> dict[str, dict[str, bool]] | None:
+    """Return enabled-models map for agent-platform models, or None if not in unified mode.
+
+    All models served by the agent platform are available to the user (the
+    platform has already applied per-user model availability), so every model
+    is reported as enabled.  This keeps frontend consumers that strictly
+    filter by ``enabled_models`` — e.g. ``validateModelValue`` during flow
+    load, which would otherwise reset saved model selections — consistent
+    with the platform-backed options list.
+    """
+    models_by_provider = get_unified_models_by_provider()
+    if models_by_provider is None:
+        return None
+
+    return {
+        provider_dict["provider"]: {model["model_name"]: True for model in provider_dict["models"]}
+        for provider_dict in models_by_provider
+    }
 
 
 def get_embedding_model_options(

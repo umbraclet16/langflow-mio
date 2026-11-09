@@ -1,5 +1,7 @@
 """Tests for model provider enabled_providers endpoint and credential redaction."""
 
+import contextlib
+import os
 from unittest import mock
 
 import pytest
@@ -515,6 +517,10 @@ async def test_list_models_returns_live_ollama_models_when_configured(client: As
         return []
 
     with (
+        # These tests exercise the built-in catalog path, so disable unified
+        # mode explicitly — the dev .env may point AGENT_PLATFORM_API_URL at
+        # a live platform, which would reroute /models to platform data.
+        mock.patch.dict(os.environ, {"AGENT_PLATFORM_API_URL": ""}),
         mock.patch(
             "langflow.api.v1.models.get_enabled_providers",
             side_effect=mock_get_enabled_providers,
@@ -547,6 +553,9 @@ async def test_list_models_ollama_empty_when_live_fetch_returns_empty(client: As
         }
 
     with (
+        # Disable unified mode explicitly (dev .env may configure it) so this
+        # exercises the built-in catalog path.
+        mock.patch.dict(os.environ, {"AGENT_PLATFORM_API_URL": ""}),
         mock.patch(
             "langflow.api.v1.models.get_enabled_providers",
             side_effect=mock_get_enabled_providers,
@@ -564,3 +573,151 @@ async def test_list_models_ollama_empty_when_live_fetch_returns_empty(client: As
     assert ollama_provider is not None
     assert len(ollama_provider["models"]) == 0
     assert ollama_provider["num_models"] == 0
+
+
+@pytest.fixture
+def unified_platform_models():
+    """Simulated agent-platform /models and /embeddings payloads."""
+    return [
+        # /models endpoint (LLMs)
+        {
+            "id": "platform-gpt-4o",
+            "model_name": "gpt-4o",
+            "provider": "openai",
+            "base_url": "http://platform:8000/v1",
+            # fixture value, not a real credential
+            "api_key": "test-placeholder-key",  # pragma: allowlist secret
+            "is_active": True,
+            "model_type": "llm",
+        },
+        {
+            "id": "platform-claude",
+            "model_name": "claude-3-5-sonnet",
+            "provider": "anthropic",
+            "base_url": "http://platform:8000/v1",
+            # fixture value, not a real credential
+            "api_key": "test-placeholder-key",  # pragma: allowlist secret
+            "is_active": True,
+            "model_type": "llm",
+        },
+    ]
+
+
+@pytest.fixture
+def unified_platform_embeddings():
+    """Simulated agent-platform /embeddings payload."""
+    return [
+        {
+            "id": "platform-text-embedding",
+            "model_name": "text-embedding-3-small",
+            "provider": "openai",
+            "base_url": "http://platform:8000/v1",
+            # fixture value, not a real credential
+            "api_key": "test-placeholder-key",  # pragma: allowlist secret
+            "is_active": True,
+        },
+    ]
+
+
+@contextlib.contextmanager
+def unified_mode(llm_models, embeddings):
+    """Patch the agent-platform fetchers so the catalog uses platform data.
+
+    The fetchers are imported lazily inside the catalog functions, so patch
+    them on their source module ``unified_model_fetcher``.
+    """
+    with (
+        mock.patch(
+            "lfx.base.models.unified_models.unified_model_fetcher.get_agent_platform_api_url",
+            return_value="http://platform:8000/v1",
+        ),
+        mock.patch(
+            "lfx.base.models.unified_models.unified_model_fetcher.fetch_models_from_agent_platform",
+            return_value=llm_models,
+        ),
+        mock.patch(
+            "lfx.base.models.unified_models.unified_model_fetcher.fetch_embeddings_from_agent_platform",
+            return_value=embeddings,
+        ),
+    ):
+        yield
+
+
+@pytest.mark.usefixtures("active_user")
+async def test_list_models_returns_platform_models_in_unified_mode(
+    client: AsyncClient, logged_in_headers, unified_platform_models, unified_platform_embeddings
+):
+    """GET /models must return agent-platform models (not the built-in catalog) in unified mode."""
+    with unified_mode(unified_platform_models, unified_platform_embeddings):
+        response = await client.get("api/v1/models", headers=logged_in_headers)
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()
+    providers = {p["provider"] for p in data}
+    # Platform models map to built-in provider names for display
+    assert "OpenAI" in providers
+    assert "Anthropic" in providers
+
+    openai_provider = next(p for p in data if p["provider"] == "OpenAI")
+    model_names = [m["model_name"] for m in openai_provider["models"]]
+    assert "platform-gpt-4o" in model_names
+    assert "platform-text-embedding" in model_names
+    # Platform models are always available
+    assert openai_provider["is_configured"] is True
+    assert openai_provider["is_enabled"] is True
+
+    # A built-in catalog model id must NOT leak in as an enabled platform model
+    assert "gpt-4o" not in model_names or "platform-gpt-4o" in model_names
+
+
+@pytest.mark.usefixtures("active_user")
+async def test_enabled_models_all_true_in_unified_mode(
+    client: AsyncClient, logged_in_headers, unified_platform_models, unified_platform_embeddings
+):
+    """GET /models/enabled_models must report every platform model as enabled in unified mode."""
+    with unified_mode(unified_platform_models, unified_platform_embeddings):
+        response = await client.get("api/v1/models/enabled_models", headers=logged_in_headers)
+
+    assert response.status_code == status.HTTP_200_OK
+    enabled = response.json()["enabled_models"]
+
+    assert enabled["OpenAI"]["platform-gpt-4o"] is True
+    assert enabled["OpenAI"]["platform-text-embedding"] is True
+    assert enabled["Anthropic"]["platform-claude"] is True
+
+
+@pytest.mark.usefixtures("active_user")
+async def test_enabled_models_filter_by_names_in_unified_mode(
+    client: AsyncClient, logged_in_headers, unified_platform_models, unified_platform_embeddings
+):
+    """GET /models/enabled_models?model_names= filtering still applies in unified mode."""
+    with unified_mode(unified_platform_models, unified_platform_embeddings):
+        response = await client.get(
+            "api/v1/models/enabled_models",
+            params=[("model_names", "platform-claude")],
+            headers=logged_in_headers,
+        )
+
+    assert response.status_code == status.HTTP_200_OK
+    enabled = response.json()["enabled_models"]
+
+    assert enabled == {"Anthropic": {"platform-claude": True}}
+
+
+@pytest.mark.usefixtures("active_user")
+async def test_models_endpoints_use_builtin_catalog_when_platform_not_configured(
+    client: AsyncClient, logged_in_headers
+):
+    """Without AGENT_PLATFORM_API_URL the endpoints keep serving the built-in catalog."""
+    with mock.patch.dict(os.environ, {"AGENT_PLATFORM_API_URL": ""}):
+        models_response = await client.get("api/v1/models", headers=logged_in_headers)
+        enabled_response = await client.get("api/v1/models/enabled_models", headers=logged_in_headers)
+
+    assert models_response.status_code == status.HTTP_200_OK
+    assert enabled_response.status_code == status.HTTP_200_OK
+    # Built-in catalog is provider-detailed (contains OpenAI with static entries)
+    models_data = models_response.json()
+    assert any(p.get("provider") == "OpenAI" for p in models_data)
+    # Every model id from the built-in catalog is a static name, not a platform id
+    enabled_data = enabled_response.json()["enabled_models"]
+    assert all("platform-" not in model for models in enabled_data.values() for model in models)
