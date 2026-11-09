@@ -22,7 +22,10 @@ services:
       retries: 5
 
   langflow:
-    image: langflow-custom:latest
+    #image: langflow-custom:latest
+    image: langflowai/langflow:1.9.3
+    command: ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]  # 官方镜像命令为langflow run
+    user: root  # 官方镜像以非root用户运行
     container_name: langflow
     restart: unless-stopped
     ports:
@@ -39,7 +42,8 @@ services:
       # or set default API key:
       # LANGFLOW_API_KEY_SOURCE=env
       # LANGFLOW_API_KEY=sk-123456
-      - AGENT_PLATFORM_API_URL=http://localhost:8000/v1
+      # 从同目录 .env 读取（docker-compose v2 按 compose 文件所在目录查找 .env）
+      - AGENT_PLATFORM_API_URL=${AGENT_PLATFORM_API_URL:-http://localhost:8000/v1}
       # 禁用启动时自动创建和更新 Starter Projects（删除后不会再自动恢复）
       - LANGFLOW_CREATE_STARTER_PROJECTS=true
       - HIDE_GETTING_STARTED_PROGRESS=true
