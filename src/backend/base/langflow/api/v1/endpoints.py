@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
+import re
 import time
 from collections.abc import AsyncGenerator
 from http import HTTPStatus
@@ -1057,11 +1059,81 @@ async def get_version():
     return get_version_info()
 
 
+# ---------------------------------------------------------------------------
+# Built-in component code sync
+# ---------------------------------------------------------------------------
+# Flows persist the component's source code at save time and the update
+# endpoints execute that frozen snapshot, so bug fixes to built-in components
+# never reach existing flows. When a snapshot's class matches a currently
+# registered built-in component, prefer the live implementation instead.
+_SYNC_BUILTIN_COMPONENT_CODE = os.getenv("LANGFLOW_SYNC_BUILTIN_COMPONENT_CODE", "true").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+}
+_CLASS_NAME_RE = re.compile(r"^class (\w+)\(", re.MULTILINE)
+_builtin_code_by_class: dict[str, str] | None = None
+
+
+def _get_builtin_code_by_class() -> dict[str, str]:
+    """Build a class-name -> current-source index from the component cache."""
+    global _builtin_code_by_class  # noqa: PLW0603 — module-level memoized index
+    if _builtin_code_by_class is None:
+        index: dict[str, str] = {}
+        all_types = component_cache.all_types_dict or {}
+        for components in all_types.values():
+            if not isinstance(components, dict):
+                continue
+            for component in components.values():
+                if not isinstance(component, dict):
+                    continue
+                code = (component.get("template", {}).get("code", {}) or {}).get("value", "")
+                if not code:
+                    continue
+                match = _CLASS_NAME_RE.search(code)
+                if match:
+                    index.setdefault(match.group(1), code)
+        if all_types:
+            # Only cache once the registry is actually populated, so an early
+            # call during startup doesn't pin an empty index forever.
+            _builtin_code_by_class = index
+    return _builtin_code_by_class or {}
+
+
+def _sync_builtin_component_code(code: str) -> str:
+    """Return the current built-in implementation for a component code snapshot.
+
+    Snapshots whose class matches a registered built-in component are replaced
+    with that component's live source, so fixes to built-in components apply to
+    existing flows. Anything else (user custom components, unknown classes) is
+    returned untouched. Never raises.
+    """
+    if not _SYNC_BUILTIN_COMPONENT_CODE or not code:
+        return code
+    try:
+        match = _CLASS_NAME_RE.search(code)
+        if not match:
+            return code
+        current_code = _get_builtin_code_by_class().get(match.group(1))
+        if current_code and current_code != code:
+            logger.info(
+                "Syncing built-in component code snapshot (class=%s) to current implementation",
+                match.group(1),
+            )
+            return current_code
+    except Exception:  # noqa: BLE001 — sync is best-effort; never block the request
+        logger.debug("Built-in component code sync skipped", exc_info=True)
+    return code
+
+
 @router.post("/custom_component", status_code=HTTPStatus.OK, include_in_schema=False)
 async def custom_component(
     raw_code: CustomComponentRequest,
     user: CurrentActiveUser,
 ) -> CustomComponentResponse:
+    # Sync stale built-in component snapshots to the live implementation BEFORE
+    # the hash check, so an outdated snapshot passes as the current template.
+    raw_code.code = _sync_builtin_component_code(raw_code.code)
     settings_service = get_settings_service()
     if not settings_service.settings.allow_custom_components:
         # Lazily compute hash lookups if they haven't been built yet
@@ -1113,6 +1185,13 @@ async def custom_component_update(
         HTTPException: If an error occurs during component building or updating.
         SerializationError: If serialization of the updated component node fails.
     """
+    # Sync stale built-in component snapshots to the live implementation BEFORE
+    # the hash check, so an outdated snapshot passes as the current template.
+    # Without this, update_build_config executes the code frozen at save time
+    # and fixes to built-in components never reach existing flows.
+    original_code = code_request.code
+    code_request.code = _sync_builtin_component_code(code_request.code)
+    code_was_synced = code_request.code != original_code
     settings_service = get_settings_service()
     if not settings_service.settings.allow_custom_components:
         get_component_hash_lookups_for_validation()
@@ -1178,6 +1257,10 @@ async def custom_component_update(
         )
         if "code" not in updated_build_config or not updated_build_config.get("code", {}).get("value"):
             updated_build_config = add_code_field_to_build_config(updated_build_config, code_request.code)
+        elif code_was_synced:
+            # Persist the synced implementation back into the template so the
+            # flow stops carrying the stale snapshot.
+            updated_build_config["code"]["value"] = code_request.code
         component_node["template"] = updated_build_config
 
         if isinstance(cc_instance, Component):
