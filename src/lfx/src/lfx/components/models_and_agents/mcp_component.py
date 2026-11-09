@@ -358,7 +358,7 @@ class MCPToolsComponent(ComponentWithCache):
             msg = f"Timeout updating tool list: {e!s}"
             await logger.aexception(msg)
             raise TimeoutError(msg) from e
-        except ExceptionGroup as eg:
+        except ExceptionGroup as eg:  # noqa: F821 — builtin on py3.11+ (ruff target py310)
             sub_exceptions = "\n".join(f"  - {ex!r}" for ex in eg.exceptions)
             msg = f"Error updating tool list ({len(eg.exceptions)} sub-exception(s)):\n{sub_exceptions}"
             await logger.aerror(msg)
@@ -386,7 +386,8 @@ class MCPToolsComponent(ComponentWithCache):
                         except (TimeoutError, asyncio.TimeoutError) as e:
                             msg = f"Timeout updating tool list: {e!s}"
                             await logger.aexception(msg)
-                            if not build_config["tools_metadata"]["show"]:
+                            # Use .get() — non-tool-mode saved templates have no tools_metadata key
+                            if not build_config.get("tools_metadata", {}).get("show"):
                                 build_config["tool"]["show"] = True
                                 build_config["tool"]["options"] = []
                                 build_config["tool"]["value"] = ""
@@ -394,7 +395,7 @@ class MCPToolsComponent(ComponentWithCache):
                             else:
                                 build_config["tool"]["show"] = False
                         except ValueError:
-                            if not build_config["tools_metadata"]["show"]:
+                            if not build_config.get("tools_metadata", {}).get("show"):
                                 build_config["tool"]["show"] = True
                                 build_config["tool"]["options"] = []
                                 build_config["tool"]["value"] = ""
@@ -440,7 +441,8 @@ class MCPToolsComponent(ComponentWithCache):
                 server_changed = bool(_last_selected_server and current_server_name != _last_selected_server)
 
                 # Determine if "Tool Mode" is active by checking if the tool dropdown is hidden.
-                is_in_tool_mode = build_config["tools_metadata"]["show"]
+                # Use .get() — non-tool-mode saved templates have no tools_metadata key.
+                is_in_tool_mode = build_config.get("tools_metadata", {}).get("show", False)
 
                 # Get use_cache setting to determine if we should use cached data
                 use_cache = getattr(self, "use_cache", False)
@@ -506,10 +508,12 @@ class MCPToolsComponent(ComponentWithCache):
                 if not cached_tools or not use_cache:
                     self.tools = []  # Clear previous tools to force refresh
 
-                # Clear previous tool inputs if:
-                # 1. Server actually changed
-                # 2. Cache is disabled (meaning tool list will be refreshed)
-                if server_changed or not use_cache:
+                # Clear previous tool inputs only when the user actually switched servers.
+                # A flow reload (same server, cache disabled) must NOT drop the saved
+                # schema inputs of the selected tool (e.g. base64_encode's "text" param) —
+                # they are part of the flow's persisted state and _update_tool_config
+                # re-adds them (with preserved values) only on a genuine tool change.
+                if server_changed:
                     self.remove_non_default_keys(build_config)
 
                 # Only show the tool dropdown if not in tool_mode
@@ -577,7 +581,7 @@ class MCPToolsComponent(ComponentWithCache):
             elif field_name == "tools_metadata":
                 self._not_load_actions = False
 
-        except ExceptionGroup as eg:
+        except ExceptionGroup as eg:  # noqa: F821 — builtin on py3.11+ (ruff target py310)
             sub_exceptions = "\n".join(f"  - {ex!r}" for ex in eg.exceptions)
             msg = f"Error in update_build_config ({len(eg.exceptions)} sub-exception(s)):\n{sub_exceptions}"
             await logger.aerror(msg)

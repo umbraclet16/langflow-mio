@@ -53,6 +53,23 @@ class TestMCPComponentFlowReload(ComponentTestBaseWithoutClient):
     async def component_setup(self, component_class: type[Any], default_kwargs: dict[str, Any]) -> MCPToolsComponent:
         component_instance = await super().component_setup(component_class, default_kwargs)
         component_instance._user_id = str(uuid4())
+        # The shared component cache service is None in unit tests, which turns
+        # safe_cache_set/get into silent no-ops — every test then runs with a
+        # permanently cold cache and cannot exercise warm-cache branches.
+        # Install a dict-backed cache so last_selected_server actually persists.
+        from lfx.services.cache.utils import CacheMiss
+
+        cache_dict: dict = {}
+
+        class MockCache:
+            def get(self, key):
+                return cache_dict.get(key, CacheMiss())
+
+            def set(self, key, value):
+                cache_dict[key] = value
+                return value
+
+        component_instance._shared_component_cache = MockCache()
         return component_instance
 
     @pytest.mark.asyncio
@@ -152,10 +169,95 @@ class TestMCPComponentFlowReload(ComponentTestBaseWithoutClient):
         updated_config = await component.update_build_config(build_config, new_server_value, "mcp_server")
 
         # Assert — options must be cleared (new server has different tools)
-        # The backend now attempts to fetch tools immediately; since "new_server"
-        # doesn't exist in the database, it will fail with an error placeholder.
         assert updated_config["tool"]["options"] == []
+        # The placeholder depends on how the server lookup fails:
+        # - file-based config source: user lookup errors -> "Error on MCP Server"
+        # - agent_platform source: clean "server not found" early return keeps
+        #   the default "Select a tool" placeholder set before the fetch.
         assert updated_config["tool"]["placeholder"] in (
             "Error on MCP Server",
             "Timeout on MCP server",
+            "Select a tool",
         )
+
+    @pytest.fixture
+    def saved_flow_build_config_with_schema_input(self):
+        """Simulates build_config from a saved flow where a tool with schema inputs is selected."""
+        return {
+            "mcp_server": {"value": {"name": "test_server"}},
+            "tool": {
+                "show": True,
+                "options": ["saved_tool", "other_tool"],
+                "value": "saved_tool",
+                "placeholder": "Select a tool",
+            },
+            "tool_placeholder": {"tool_mode": False},
+            "tools_metadata": {"show": False},
+            "use_cache": {"value": False},
+            # Schema inputs of the selected tool (e.g. base64_encode's "text" param)
+            "text": {"value": "hello world", "show": True, "display_name": "文本"},
+        }
+
+    @pytest.mark.asyncio
+    async def test_should_preserve_schema_inputs_on_flow_reload_with_warm_cache(
+        self, component_class, default_kwargs, saved_flow_build_config_with_schema_input
+    ):
+        """Flow reload (same server, warm cache, use_cache=False) must keep tool schema inputs.
+
+        Bug: re-opening a flow removed the selected tool's parameter fields (e.g.
+        the "文本" input of base64_encode) because the mcp_server branch dropped
+        non-default keys whenever use_cache was disabled, even though the user
+        never switched servers.
+        """
+        # Arrange — warm cache: backend saw this server in a previous session
+        component = await self.component_setup(component_class, default_kwargs)
+        safe_cache_set(component._shared_component_cache, "last_selected_server", "test_server")
+        build_config = saved_flow_build_config_with_schema_input.copy()
+        server_value = {"name": "test_server"}
+
+        # Act — simulate the mount-time mcp_server update
+        updated_config = await component.update_build_config(build_config, server_value, "mcp_server")
+
+        # Assert — the schema input must survive with its saved value
+        assert "text" in updated_config
+        assert updated_config["text"]["value"] == "hello world"
+        assert updated_config["tool"]["value"] == "saved_tool"
+
+    @pytest.mark.asyncio
+    async def test_should_clear_schema_inputs_when_server_genuinely_changes(
+        self, component_class, default_kwargs, saved_flow_build_config_with_schema_input
+    ):
+        """When the user switches servers, the old tool's schema inputs must be removed."""
+        # Arrange — warm cache with a different server
+        component = await self.component_setup(component_class, default_kwargs)
+        safe_cache_set(component._shared_component_cache, "last_selected_server", "old_server")
+        build_config = saved_flow_build_config_with_schema_input.copy()
+
+        # Act
+        updated_config = await component.update_build_config(build_config, {"name": "new_server"}, "mcp_server")
+
+        # Assert — old tool's schema inputs are gone
+        assert "text" not in updated_config
+
+    @pytest.mark.asyncio
+    async def test_should_tolerate_missing_tools_metadata_key(
+        self, component_class, default_kwargs, saved_flow_build_config_with_schema_input
+    ):
+        """Non-tool-mode templates have no tools_metadata key; updates must not crash.
+
+        Bug: update_build_config accessed build_config["tools_metadata"]["show"]
+        directly, raising KeyError for non-tool-mode saved templates and failing
+        the whole request with a 400.
+        """
+        # Arrange — warm cache, same server
+        component = await self.component_setup(component_class, default_kwargs)
+        safe_cache_set(component._shared_component_cache, "last_selected_server", "test_server")
+        build_config = saved_flow_build_config_with_schema_input.copy()
+        del build_config["tools_metadata"]
+
+        # Act — must not raise
+        updated_config = await component.update_build_config(build_config, {"name": "test_server"}, "mcp_server")
+
+        # Assert — template still functional, schema input preserved
+        assert updated_config["tool"]["value"] == "saved_tool"
+        assert "text" in updated_config
