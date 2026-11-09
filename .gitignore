@@ -297,3 +297,6 @@ tmp_toolguard/
 #whitesource
 whitesource/
 .sisyphus/
+
+# git worktrees
+.worktrees/
