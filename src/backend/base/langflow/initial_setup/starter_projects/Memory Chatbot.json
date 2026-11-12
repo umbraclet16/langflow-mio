@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Memory-MKGtC{\u0153dataType\u0153:\u0153Memory\u0153,\u0153id\u0153:\u0153Memory-MKGtC\u0153,\u0153name\u0153:\u0153messages_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-9wc4j{\u0153fieldName\u0153:\u0153memory\u0153,\u0153id\u0153:\u0153Prompt-9wc4j\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Memory-MKGtC{œdataTypeœ:œMemoryœ,œidœ:œMemory-MKGtCœ,œnameœ:œmessages_textœ,œoutput_typesœ:[œMessageœ]}-Prompt-9wc4j{œfieldNameœ:œmemoryœ,œidœ:œPrompt-9wc4jœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "Memory-MKGtC",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Memory\u0153, \u0153id\u0153: \u0153Memory-MKGtC\u0153, \u0153name\u0153: \u0153messages_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œMemoryœ, œidœ: œMemory-MKGtCœ, œnameœ: œmessages_textœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-9wc4j",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153memory\u0153, \u0153id\u0153: \u0153Prompt-9wc4j\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œmemoryœ, œidœ: œPrompt-9wc4jœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -51,12 +51,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-9wc4j{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-9wc4j\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-n8KRg{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153LanguageModelComponent-n8KRg\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-9wc4j{œdataTypeœ:œPromptœ,œidœ:œPrompt-9wc4jœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-n8KRg{œfieldNameœ:œsystem_messageœ,œidœ:œLanguageModelComponent-n8KRgœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "Prompt-9wc4j",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-9wc4j\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-9wc4jœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "LanguageModelComponent-n8KRg",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153LanguageModelComponent-n8KRg\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œLanguageModelComponent-n8KRgœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -79,12 +79,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-xLWhw{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-xLWhw\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-n8KRg{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-n8KRg\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-xLWhw{œdataTypeœ:œChatInputœ,œidœ:œChatInput-xLWhwœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-n8KRg{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-n8KRgœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "ChatInput-xLWhw",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-xLWhw\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-xLWhwœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "LanguageModelComponent-n8KRg",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-n8KRg\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-n8KRgœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -111,12 +111,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-n8KRg{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-n8KRg\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-2ljRT{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-2ljRT\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-LanguageModelComponent-n8KRg{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-n8KRgœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-2ljRT{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-2ljRTœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "LanguageModelComponent-n8KRg",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-n8KRg\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-n8KRgœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-2ljRT",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-2ljRT\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-2ljRTœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
       }
     ],
     "nodes": [
@@ -153,7 +153,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -433,7 +433,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 3
@@ -673,7 +673,7 @@
         "data": {
           "id": "note-hLqzd",
           "node": {
-            "description": "# \ud83d\udcd6 README\nThis flow extends the **Basic Prompting** template by adding a **Message History** component that can retrieve up to 100 previous chat messages as context for the current conversation.\n\n## Quick start\n1. Configure your **Model Provider** with your API credentials.\n2. Open the **Playground**, and then tell the LLM your name.\n3. Start a new chat session in the Playground, and then ask, `what is my name`. The LLM is able to retrieve your name from the stored chat history.\n\n## About the Message History component\nThe **Language Model** and **Agent** components have built-in chat memory that is enabled by default and functionally the same as the **Message History** component.\nOnly use the **Message History** component when you want to store or retrieve chat memory from an external chat memory database, or when you need to retrieve chat memory outside of the current session context, such as in a non-chat flow or by supplying memories from other chats to a different session. For more information, see [Store chat memory](https://docs.langflow.org/memory#store-chat-memory).",
+            "description": "# 📖 README\nThis flow extends the **Basic Prompting** template by adding a **Message History** component that can retrieve up to 100 previous chat messages as context for the current conversation.\n\n## Quick start\n1. Configure your **Model Provider** with your API credentials.\n2. Open the **Playground**, and then tell the LLM your name.\n3. Start a new chat session in the Playground, and then ask, `what is my name`. The LLM is able to retrieve your name from the stored chat history.\n\n## About the Message History component\nThe **Language Model** and **Agent** components have built-in chat memory that is enabled by default and functionally the same as the **Message History** component.\nOnly use the **Message History** component when you want to store or retrieve chat memory from an external chat memory database, or when you need to retrieve chat memory outside of the current session context, such as in a non-chat flow or by supplying memories from other chats to a different session. For more information, see [Store chat memory](https://docs.langflow.org/memory#store-chat-memory).",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -742,7 +742,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -934,7 +934,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -1650,7 +1650,7 @@
       "zoom": 0.6492225868554724
     }
   },
-  "description": "\u521b\u5efa\u4e00\u4e2a\u4fdd\u5b58\u548c\u5f15\u7528\u5148\u524d\u6d88\u606f\u7684\u804a\u5929\u673a\u5668\u4eba\uff0c\u4f7f\u6a21\u578b\u80fd\u591f\u5728\u5bf9\u8bdd\u4e2d\u4fdd\u6301\u4e0a\u4e0b\u6587\u3002",
+  "description": "创建一个保存和引用先前消息的聊天机器人，使模型能够在对话中保持上下文。",
   "endpoint_name": null,
   "id": "abdc8216-e400-48c4-8d11-0f21441b50ea",
   "is_component": false,

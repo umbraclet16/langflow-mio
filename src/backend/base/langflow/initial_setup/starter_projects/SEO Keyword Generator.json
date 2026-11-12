@@ -59,7 +59,7 @@
         "source": "LanguageModelComponent-zY7m0",
         "sourceHandle": "{\"dataType\": \"LanguageModelComponent\", \"id\": \"LanguageModelComponent-zY7m0\", \"name\": \"text_output\", \"output_types\": [\"Message\"]}",
         "target": "ChatOutput-S7Bzs",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-S7Bzs\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-S7Bzsœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œstrœ}"
       },
       {
         "data": {
@@ -128,7 +128,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -399,7 +399,7 @@
         "data": {
           "id": "note-z1798",
           "node": {
-            "description": "# \ud83d\udcd6 README\nThis template creates strategic keywords based on your product and audience profile.\n\n### Prerequisites\n\n* [OpenAI API Key](https://platform.openai.com/)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n\n2. In the **Prompt** component, complete the following fields. Optionally, just run the flow with the included example values.\n\n* Product Information\n*  Pain Points\n* Goals\n* Target Audience\n* Expertise Level\n* Review Output \n\n3. Open the **Playground**, and then click **Run Flow**. The LLM generates keywords based on your inputs.",
+            "description": "# 📖 README\nThis template creates strategic keywords based on your product and audience profile.\n\n### Prerequisites\n\n* [OpenAI API Key](https://platform.openai.com/)\n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n\n2. In the **Prompt** component, complete the following fields. Optionally, just run the flow with the included example values.\n\n* Product Information\n*  Pain Points\n* Goals\n* Target Audience\n* Expertise Level\n* Review Output \n\n3. Open the **Playground**, and then click **Run Flow**. The LLM generates keywords based on your inputs.",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -463,7 +463,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -524,7 +524,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "You are a digital marketing strategist specialized in generating highly relevant, optimized keywords for a product\u2019s specific target audience. Your task is to create a list of keywords that are not only attractive and impactful but also resonate with the needs and desires of the customers, capturing the core motivations driving them to seek a solution.\n\nBelow are details about the product, including its target audience, the pain points faced by this audience, and the current solutions they consider or use. Use this information to generate precise keywords that connect directly with the unique value of the product and with the customers' goals. Consider factors like the customer\u2019s level of expertise and major market trends to create a powerful and well-grounded keyword list.\n\n### Product Information:\n- **Product:** \u2013 A brief description of the product, including what sets it apart in the market.\n- **Customer Pain Points:** \u2013 Specific pain points that the audience faces and that the product aims to address.\n- **Customer Goals:** \u2013 The primary goals and aspirations of the target audience that the product helps to achieve.\n- **Current Solutions Used:** \u2013 How the audience currently tries to address these pain points, including competitor solutions or alternatives.\n- **Specific Target Audience:** \u2013 A detailed description of the target audience, including demographics, interests, lifestyle, and behavioral profile.\n- **Customer Expertise Level:**\u2013 The level of familiarity or experience the audience has with similar or related solutions.\n\n### Guidelines for Keyword Generation:\n1. **Focus on Pain Points and Solutions**: Generate keywords that accurately reflect the customers\u2019 pain points, clearly conveying how the product offers an effective and unique solution.\n2. **Emphasize Goals and Benefits**: Highlight keywords aligned with customer goals, emphasizing the positive impact and achievable results of the product.\n3. **Consider Competition and Differentiators**: Think about existing solutions and how the product stands out. Create keywords that emphasize differentiators and help the product stand out in a competitive landscape.\n4. **Tailor to Target Audience**: Use terms and phrases that resonate directly with the target audience\u2019s profile, utilizing language and themes most appealing to this segment.\n5. **Customize to Expertise Level**: Adjust the complexity of the keywords according to the audience\u2019s experience level, ensuring they are appealing and accessible.\n6. **Incorporate Market Trends**: Where possible, include keywords that reflect the latest trends in the sector, increasing the content\u2019s relevance and timeliness.\n\n### Example Keyword Suggestions:\n- **For customer pain points:**  \u2013 Use keywords that reinforce customer pain points, making it clear how the product can be a solution.\n- **For goals and aspirations:**  \u2013 Keywords that symbolize the outcomes and goals desired by customers, such as \u2018stress relief,\u2019 \u2018productivity boost.\u2019\n- **For product differentiators:** \u2013 Keywords that contrast the product with current solutions, highlighting its unique advantages.\n\nFor each keyword generated, provide a brief explanation of how it connects with the product details and the target audience, ensuring the final list is powerful, strategic, and well-founded for maximum market impact."
+                "value": "You are a digital marketing strategist specialized in generating highly relevant, optimized keywords for a product’s specific target audience. Your task is to create a list of keywords that are not only attractive and impactful but also resonate with the needs and desires of the customers, capturing the core motivations driving them to seek a solution.\n\nBelow are details about the product, including its target audience, the pain points faced by this audience, and the current solutions they consider or use. Use this information to generate precise keywords that connect directly with the unique value of the product and with the customers' goals. Consider factors like the customer’s level of expertise and major market trends to create a powerful and well-grounded keyword list.\n\n### Product Information:\n- **Product:** – A brief description of the product, including what sets it apart in the market.\n- **Customer Pain Points:** – Specific pain points that the audience faces and that the product aims to address.\n- **Customer Goals:** – The primary goals and aspirations of the target audience that the product helps to achieve.\n- **Current Solutions Used:** – How the audience currently tries to address these pain points, including competitor solutions or alternatives.\n- **Specific Target Audience:** – A detailed description of the target audience, including demographics, interests, lifestyle, and behavioral profile.\n- **Customer Expertise Level:**– The level of familiarity or experience the audience has with similar or related solutions.\n\n### Guidelines for Keyword Generation:\n1. **Focus on Pain Points and Solutions**: Generate keywords that accurately reflect the customers’ pain points, clearly conveying how the product offers an effective and unique solution.\n2. **Emphasize Goals and Benefits**: Highlight keywords aligned with customer goals, emphasizing the positive impact and achievable results of the product.\n3. **Consider Competition and Differentiators**: Think about existing solutions and how the product stands out. Create keywords that emphasize differentiators and help the product stand out in a competitive landscape.\n4. **Tailor to Target Audience**: Use terms and phrases that resonate directly with the target audience’s profile, utilizing language and themes most appealing to this segment.\n5. **Customize to Expertise Level**: Adjust the complexity of the keywords according to the audience’s experience level, ensuring they are appealing and accessible.\n6. **Incorporate Market Trends**: Where possible, include keywords that reflect the latest trends in the sector, increasing the content’s relevance and timeliness.\n\n### Example Keyword Suggestions:\n- **For customer pain points:**  – Use keywords that reinforce customer pain points, making it clear how the product can be a solution.\n- **For goals and aspirations:**  – Keywords that symbolize the outcomes and goals desired by customers, such as ‘stress relief,’ ‘productivity boost.’\n- **For product differentiators:** – Keywords that contrast the product with current solutions, highlighting its unique advantages.\n\nFor each keyword generated, provide a brief explanation of how it connects with the product details and the target audience, ensuring the final list is powerful, strategic, and well-founded for maximum market impact."
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -636,7 +636,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 3
@@ -1283,7 +1283,7 @@
       "zoom": 0.6859801102324296
     }
   },
-  "description": "SEO \u5173\u952e\u8bcd\u751f\u6210\u5668\uff0c\u5e2e\u52a9\u4f18\u5316\u7f51\u7ad9\u5185\u5bb9\u4ee5\u63d0\u9ad8\u641c\u7d22\u5f15\u64ce\u6392\u540d\u3002",
+  "description": "SEO 关键词生成器，帮助优化网站内容以提高搜索引擎排名。",
   "endpoint_name": null,
   "id": "77064cce-d437-42be-a7bb-f0dedf93a75a",
   "is_component": false,

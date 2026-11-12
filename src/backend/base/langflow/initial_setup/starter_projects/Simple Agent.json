@@ -205,7 +205,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -373,7 +373,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -660,7 +660,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 3
@@ -947,7 +947,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   },
                   {
                     "name": "langchain_core",
@@ -1543,7 +1543,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 5

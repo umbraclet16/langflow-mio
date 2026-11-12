@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-eo1g2{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-eo1g2\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-cMwv1{\u0153fieldName\u0153:\u0153USER_INPUT\u0153,\u0153id\u0153:\u0153Prompt-cMwv1\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-eo1g2{œdataTypeœ:œChatInputœ,œidœ:œChatInput-eo1g2œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-cMwv1{œfieldNameœ:œUSER_INPUTœ,œidœ:œPrompt-cMwv1œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "ChatInput-eo1g2",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-eo1g2\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-eo1g2œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-cMwv1",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153USER_INPUT\u0153, \u0153id\u0153: \u0153Prompt-cMwv1\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œUSER_INPUTœ, œidœ: œPrompt-cMwv1œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -52,12 +52,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Memory-4gSCw{\u0153dataType\u0153:\u0153Memory\u0153,\u0153id\u0153:\u0153Memory-4gSCw\u0153,\u0153name\u0153:\u0153messages_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-cMwv1{\u0153fieldName\u0153:\u0153CHAT_HISTORY\u0153,\u0153id\u0153:\u0153Prompt-cMwv1\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Memory-4gSCw{œdataTypeœ:œMemoryœ,œidœ:œMemory-4gSCwœ,œnameœ:œmessages_textœ,œoutput_typesœ:[œMessageœ]}-Prompt-cMwv1{œfieldNameœ:œCHAT_HISTORYœ,œidœ:œPrompt-cMwv1œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "Memory-4gSCw",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Memory\u0153, \u0153id\u0153: \u0153Memory-4gSCw\u0153, \u0153name\u0153: \u0153messages_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œMemoryœ, œidœ: œMemory-4gSCwœ, œnameœ: œmessages_textœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-cMwv1",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153CHAT_HISTORY\u0153, \u0153id\u0153: \u0153Prompt-cMwv1\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œCHAT_HISTORYœ, œidœ: œPrompt-cMwv1œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -81,12 +81,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-URL-h1gAB{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-h1gAB\u0153,\u0153name\u0153:\u0153raw_results\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-cMwv1{\u0153fieldName\u0153:\u0153EXAMPLE_COMPONENTS\u0153,\u0153id\u0153:\u0153Prompt-cMwv1\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-URL-h1gAB{œdataTypeœ:œURLœ,œidœ:œURL-h1gABœ,œnameœ:œraw_resultsœ,œoutput_typesœ:[œMessageœ]}-Prompt-cMwv1{œfieldNameœ:œEXAMPLE_COMPONENTSœ,œidœ:œPrompt-cMwv1œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "URL-h1gAB",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-h1gAB\u0153, \u0153name\u0153: \u0153raw_results\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-h1gABœ, œnameœ: œraw_resultsœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-cMwv1",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153EXAMPLE_COMPONENTS\u0153, \u0153id\u0153: \u0153Prompt-cMwv1\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œEXAMPLE_COMPONENTSœ, œidœ: œPrompt-cMwv1œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -110,12 +110,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-URL-G5J7i{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-G5J7i\u0153,\u0153name\u0153:\u0153raw_results\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-cMwv1{\u0153fieldName\u0153:\u0153CUSTOM_COMPONENT_CODE\u0153,\u0153id\u0153:\u0153Prompt-cMwv1\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-URL-G5J7i{œdataTypeœ:œURLœ,œidœ:œURL-G5J7iœ,œnameœ:œraw_resultsœ,œoutput_typesœ:[œMessageœ]}-Prompt-cMwv1{œfieldNameœ:œCUSTOM_COMPONENT_CODEœ,œidœ:œPrompt-cMwv1œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "URL-G5J7i",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-G5J7i\u0153, \u0153name\u0153: \u0153raw_results\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-G5J7iœ, œnameœ: œraw_resultsœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-cMwv1",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153CUSTOM_COMPONENT_CODE\u0153, \u0153id\u0153: \u0153Prompt-cMwv1\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œCUSTOM_COMPONENT_CODEœ, œidœ: œPrompt-cMwv1œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -138,12 +138,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-cMwv1{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-cMwv1\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-LanguageModelComponent-SCqm9{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153LanguageModelComponent-SCqm9\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-cMwv1{œdataTypeœ:œPromptœ,œidœ:œPrompt-cMwv1œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-SCqm9{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-SCqm9œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "Prompt-cMwv1",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-cMwv1\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-cMwv1œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "LanguageModelComponent-SCqm9",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153LanguageModelComponent-SCqm9\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œLanguageModelComponent-SCqm9œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -170,12 +170,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-SCqm9{\u0153dataType\u0153:\u0153LanguageModelComponent\u0153,\u0153id\u0153:\u0153LanguageModelComponent-SCqm9\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-VoIob{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-VoIob\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153JSON\u0153,\u0153DataFrame\u0153,\u0153Table\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-LanguageModelComponent-SCqm9{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-SCqm9œ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-VoIob{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-VoIobœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
         "selected": false,
         "source": "LanguageModelComponent-SCqm9",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageModelComponent\u0153, \u0153id\u0153: \u0153LanguageModelComponent-SCqm9\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œLanguageModelComponentœ, œidœ: œLanguageModelComponent-SCqm9œ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-VoIob",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-VoIob\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153, \u0153JSON\u0153, \u0153DataFrame\u0153, \u0153Table\u0153, \u0153Message\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-VoIobœ, œinputTypesœ: [œDataœ, œJSONœ, œDataFrameœ, œTableœ, œMessageœ], œtypeœ: œotherœ}"
       },
       {
         "animated": false,
@@ -199,12 +199,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-URL-gEE5N{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-gEE5N\u0153,\u0153name\u0153:\u0153raw_results\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-cMwv1{\u0153fieldName\u0153:\u0153BASE_COMPONENT_CODE\u0153,\u0153id\u0153:\u0153Prompt-cMwv1\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-URL-gEE5N{œdataTypeœ:œURLœ,œidœ:œURL-gEE5Nœ,œnameœ:œraw_resultsœ,œoutput_typesœ:[œMessageœ]}-Prompt-cMwv1{œfieldNameœ:œBASE_COMPONENT_CODEœ,œidœ:œPrompt-cMwv1œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
         "selected": false,
         "source": "URL-gEE5N",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-gEE5N\u0153, \u0153name\u0153: \u0153raw_results\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-gEE5Nœ, œnameœ: œraw_resultsœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-cMwv1",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153BASE_COMPONENT_CODE\u0153, \u0153id\u0153: \u0153Prompt-cMwv1\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œBASE_COMPONENT_CODEœ, œidœ: œPrompt-cMwv1œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       }
     ],
     "nodes": [
@@ -249,7 +249,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -607,7 +607,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -855,7 +855,7 @@
         "data": {
           "id": "note-yh0aK",
           "node": {
-            "description": "# \ud83d\udcd6 README\nHi! I'm here to help you create custom components for Langflow. Think of me as your technical partner who can help turn your ideas into working components! \n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n\n2. \ud83d\udcad Tell Me What You Want to Build.\nSimply describe what you want your component to do in plain English. For example:\n- \"I need a component that sends Slack messages\"\n- \"I want to create a tool that can process CSV files\"\n- \"I need something that can translate text\"\n\n\nReady to build something awesome? \ud83d\ude80 Let's get started!",
+            "description": "# 📖 README\nHi! I'm here to help you create custom components for Langflow. Think of me as your technical partner who can help turn your ideas into working components! \n\n## Quick start\n\n1. Configure your **Model Provider** with your API credentials.\n\n2. 💭 Tell Me What You Want to Build.\nSimply describe what you want your component to do in plain English. For example:\n- \"I need a component that sends Slack messages\"\n- \"I want to create a tool that can process CSV files\"\n- \"I need something that can translate text\"\n\n\nReady to build something awesome? 🚀 Let's get started!",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -941,7 +941,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 5
@@ -1338,7 +1338,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 5
@@ -1741,7 +1741,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 5
@@ -2118,7 +2118,7 @@
                 "dependencies": [
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 1
@@ -2404,7 +2404,7 @@
                   },
                   {
                     "name": "lfx",
-                    "version": null
+                    "version": "0.4.3"
                   }
                 ],
                 "total_dependencies": 3
@@ -3030,7 +3030,7 @@
       "zoom": 0.5114416779009183
     }
   },
-  "description": "\u6839\u636e Langflow \u89c4\u8303\u751f\u6210\u7ed3\u6784\u826f\u597d\u7684\u81ea\u5b9a\u4e49\u7ec4\u4ef6\u4ee3\u7801\u3002",
+  "description": "根据 Langflow 规范生成结构良好的自定义组件代码。",
   "endpoint_name": null,
   "id": "a1bdea51-5dc4-44af-a8d2-d07cdafa8f31",
   "is_component": false,

@@ -300,3 +300,6 @@ whitesource/
 
 # git worktrees
 .worktrees/
+
+# local agent session artifacts (ZCode)
+.zcode/
