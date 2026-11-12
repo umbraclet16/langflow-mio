@@ -1,0 +1,76 @@
+# 开发形态:官方镜像 + 本地源码挂载,改代码后重启容器即生效,无需重新 build 镜像
+# 部署形态(代码打进镜像)见 ../deploy/docker-compose.yml
+services:
+  postgres:
+    image: postgres:16-bookworm
+    container_name: langflow-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: langflow
+      POSTGRES_PASSWORD: langflow  # pragma: allowlist secret
+      POSTGRES_DB: langflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - langflow-postgres:/var/lib/postgresql/data
+    networks:
+      - langflow-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U langflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  langflow:
+    image: langflowai/langflow:1.9.3
+    command: ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]  # 官方镜像命令为langflow run
+    user: root  # 官方镜像以非root用户运行
+    container_name: langflow
+    restart: unless-stopped
+    ports:
+      - "7860:7860"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
+      - LANGFLOW_CONFIG_DIR=/app/langflow
+      - LANGFLOW_AUTO_LOGIN=true
+      # Skip API key requirement (deprecated, not recommended
+      - LANGFLOW_SKIP_AUTH_AUTO_LOGIN=true
+      # or set default API key:
+      # LANGFLOW_API_KEY_SOURCE=env
+      # LANGFLOW_API_KEY=sk-123456
+      # 从同目录 .env 读取（docker-compose v2 按 compose 文件所在目录查找 .env）
+      - AGENT_PLATFORM_API_URL=${AGENT_PLATFORM_API_URL:-http://localhost:8000/v1}
+      # 禁用启动时自动创建和更新 Starter Projects（删除后不会再自动恢复）
+      - LANGFLOW_CREATE_STARTER_PROJECTS=true
+      - HIDE_GETTING_STARTED_PROGRESS=true
+      # 让系统自动更新模板
+      - LANGFLOW_UPDATE_STARTER_PROJECTS=true
+      - LANGFLOW_MCP_SERVER_SOURCE=agent_platform  # / local
+      - MCP_SERVER_WORKDIR=/root/projects/deep-agent  # for stdio mcp servers
+    volumes:
+      - langflow-data:/app/langflow
+      # ========== 后端代码 mounts ==========
+      # 把本地修改的后端代码覆盖到容器的 site-packages
+      - ../../src/backend/base/langflow/:/app/.venv/lib/python3.14/site-packages/langflow/
+      # 如果修改了 lfx 或 sdk，也 mount 上：
+      - ../../src/lfx/src/lfx/:/app/.venv/lib/python3.14/site-packages/lfx/
+      #- ../../src/sdk/src/langflow_sdk/:/app/.venv/lib/python3.14/site-packages/langflow_sdk/
+      # ========== 前端产物 mount ==========
+      - ../../src/frontend/build/:/app/.venv/lib/python3.14/site-packages/langflow/frontend/
+      # ========== MCP stdio 脚本 mount ==========
+      # 平台 API 返回的 stdio 服务使用相对路径 mcp-scripts/*.py，
+      # MCP_SERVER_WORKDIR 指向 /root/projects/deep-agent，需将脚本目录以相同路径挂入容器
+      - /root/projects/deep-agent/mcp-scripts:/root/projects/deep-agent/mcp-scripts
+    networks:
+      - langflow-net
+
+volumes:
+  langflow-postgres:
+  langflow-data:
+
+networks:
+  langflow-net:
+    driver: bridge

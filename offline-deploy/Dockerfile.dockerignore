@@ -1,0 +1,9 @@
+# 仅对 offline-deploy/Dockerfile 生效(BuildKit 按 <Dockerfile 名>.dockerignore 查找),
+# 用于精简构建上下文,不影响仓库其他 docker build
+.git
+**/__pycache__
+**/*.pyc
+**/node_modules
+**/.venv
+docs
+test-results

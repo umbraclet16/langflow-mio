@@ -1,128 +1,34 @@
-# 离线部署 Dockerfile - 所有依赖都包含在镜像中
-# 使用国内镜像源构建
+# 二次开发镜像 Dockerfile（离线构建）
+# 用法: 在项目根目录执行 docker build -t langflow-custom:latest -f offline-deploy/Dockerfile .
+# 原理: 以官方镜像为底,把仓库源码与宿主机已构建好的前端产物直接覆盖进 site-packages,
+#       不执行 npm ci / npm run build / uv install,构建全程无需网络。
+# 前置条件:
+#   1. 本机已有 langflowai/langflow:1.9.3 基础镜像（离线机先在有网机器 docker save,再 docker load）
+#   2. src/frontend/build/ 已存在（仓库根目录 make frontend 的产物）
+# 说明: 与 dev/docker-compose.yml 的挂载目录一一对应;版本元数据仍为官方 1.9.3（与 dev 挂载一致）
 
-################################
-# BUILDER - 构建阶段
-################################
-FROM python:3.12-bookworm AS builder
-#FROM docker.xuanyuan.run/library/python:3.12-bookworm AS builder
+FROM langflowai/langflow:1.9.3
 
-# 使用国内 apt 源
-RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources
+USER root
 
-# 安装构建依赖
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    build-essential \
-    gcc \
-    git \
-    curl \
-    gnupg \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# 干净替换三个后端包:先删除镜像内自带代码,再复制仓库源码（避免残留已删除的旧文件）
+RUN rm -rf /app/.venv/lib/python3.14/site-packages/langflow \
+           /app/.venv/lib/python3.14/site-packages/lfx \
+           /app/.venv/lib/python3.14/site-packages/langflow_sdk
 
-# 安装 Node.js 20.x (使用国内镜像)
-RUN ARCH=$(dpkg --print-architecture) \
-    && if [ "$ARCH" = "amd64" ]; then NODE_ARCH="x64"; \
-       elif [ "$ARCH" = "arm64" ]; then NODE_ARCH="arm64"; \
-       else NODE_ARCH="$ARCH"; fi \
-    && curl -fsSL "https://npmmirror.com/mirrors/node/v20.19.0/node-v20.19.0-linux-${NODE_ARCH}.tar.xz" \
-    | tar -xJ -C /usr/local --strip-components=1
+COPY src/backend/base/langflow/ /app/.venv/lib/python3.14/site-packages/langflow/
+COPY src/lfx/src/lfx/ /app/.venv/lib/python3.14/site-packages/lfx/
+COPY src/sdk/src/langflow_sdk/ /app/.venv/lib/python3.14/site-packages/langflow_sdk/
 
-# 配置 npm 使用国内镜像
-RUN npm config set registry https://registry.npmmirror.com
+# 前端:直接使用宿主机已构建好的产物（src/frontend/build）,不在镜像内构建。
+# 仓库源码里 langflow/frontend 是旧产物,先 COPY 到临时目录,再整体替换,避免新旧产物混杂
+COPY src/frontend/build/ /app/.venv/lib/python3.14/site-packages/langflow/frontend.tmp/
+RUN rm -rf /app/.venv/lib/python3.14/site-packages/langflow/frontend \
+    && mv /app/.venv/lib/python3.14/site-packages/langflow/frontend.tmp \
+          /app/.venv/lib/python3.14/site-packages/langflow/frontend
 
-# 安装 uv 包管理器 (使用国内镜像)
-RUN curl -LsSf https://gitee.com/mirrors_astral-sh/uv/raw/main/install.sh | sh
-ENV PATH="/root/.local/bin:$PATH"
-
-WORKDIR /app
-
-# 设置环境变量
-ENV UV_COMPILE_BYTECODE=1
-ENV UV_LINK_MODE=copy
-ENV RUSTFLAGS='--cfg reqwest_unstable'
-
-# 复制依赖定义文件
-COPY pyproject.toml uv.lock README.md ./
-COPY src/backend/base/pyproject.toml src/backend/base/README.md src/backend/base/
-COPY src/lfx/pyproject.toml src/lfx/README.md src/lfx/
-COPY src/sdk/pyproject.toml src/sdk/README.md src/sdk/
-
-# 安装 Python 依赖
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-install-project --no-editable --extra postgresql --no-group dev
-
-# 复制源代码
-COPY src/backend src/backend
-COPY src/lfx src/lfx
-COPY src/sdk src/sdk
-
-# 构建前端
-COPY src/frontend /tmp/src/frontend
-WORKDIR /tmp/src/frontend
-RUN npm ci \
-    && NODE_OPTIONS="--max-old-space-size=4096" npm run build \
-    && cp -r build /app/src/backend/langflow/frontend \
-    && rm -rf /tmp/src/frontend
-
-WORKDIR /app
-
-# 安装项目本身
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-editable --extra postgresql --no-group dev
-
-################################
-# RUNTIME - 运行阶段
-################################
-FROM python:3.12-bookworm AS runtime
-#FROM docker.xuanyuan.run/library/python:3.12-bookworm AS runtime
-
-# 使用国内 apt 源
-RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources
-
-# 安装运行时依赖
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    curl \
-    git \
-    libpq5 \
-    gnupg \
-    xz-utils \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# 安装 Node.js (使用国内镜像)
-RUN ARCH=$(dpkg --print-architecture) \
-    && if [ "$ARCH" = "amd64" ]; then NODE_ARCH="x64"; \
-       elif [ "$ARCH" = "arm64" ]; then NODE_ARCH="arm64"; \
-       else NODE_ARCH="$ARCH"; fi \
-    && curl -fsSL "https://npmmirror.com/mirrors/node/v20.19.0/node-v20.19.0-linux-${NODE_ARCH}.tar.xz" \
-    | tar -xJ -C /usr/local --strip-components=1
-
-# 复制 uv 工具
-COPY --from=builder /root/.local/bin/uv /usr/local/bin/uv
-COPY --from=builder /root/.local/bin/uvx /usr/local/bin/uvx
-
-# 从构建阶段复制虚拟环境
-COPY --from=builder /app/.venv /app/.venv
-
-# 设置 PATH
-ENV PATH="/app/.venv/bin:$PATH"
-
-# 设置标签
-LABEL org.opencontainers.image.title=langflow-offline
-LABEL org.opencontainers.image.description="Langflow 离线部署镜像"
-LABEL org.opencontainers.image.licenses=MIT
-
-WORKDIR /app/data
-
-# 暴露端口
-EXPOSE 7860
-
-# 健康检查
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+# 全程 root 运行,避免 volume 挂载权限问题
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
     CMD curl -f http://localhost:7860/health || exit 1
 
-# 启动命令
 CMD ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]

@@ -1,5 +1,5 @@
-version: '3.8'
-
+# 部署形态:使用二次开发镜像 langflow-custom:latest(由 ../Dockerfile 构建),代码已打进镜像,无源码挂载
+# 开发形态(源码挂载、改代码即生效)见 ../dev/docker-compose.yml
 services:
   postgres:
     image: postgres:16-bookworm
@@ -22,10 +22,7 @@ services:
       retries: 5
 
   langflow:
-    #image: langflow-custom:latest
-    image: langflowai/langflow:1.9.3
-    command: ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]  # 官方镜像命令为langflow run
-    user: root  # 官方镜像以非root用户运行
+    image: langflow-custom:latest
     container_name: langflow
     restart: unless-stopped
     ports:
@@ -39,9 +36,6 @@ services:
       - LANGFLOW_AUTO_LOGIN=true
       # Skip API key requirement (deprecated, not recommended
       - LANGFLOW_SKIP_AUTH_AUTO_LOGIN=true
-      # or set default API key:
-      # LANGFLOW_API_KEY_SOURCE=env
-      # LANGFLOW_API_KEY=sk-123456
       # 从同目录 .env 读取（docker-compose v2 按 compose 文件所在目录查找 .env）
       - AGENT_PLATFORM_API_URL=${AGENT_PLATFORM_API_URL:-http://localhost:8000/v1}
       # 禁用启动时自动创建和更新 Starter Projects（删除后不会再自动恢复）
@@ -50,21 +44,21 @@ services:
       # 让系统自动更新模板
       - LANGFLOW_UPDATE_STARTER_PROJECTS=true
       - LANGFLOW_MCP_SERVER_SOURCE=agent_platform  # / local
+      # 部署机上若使用 stdio MCP 服务，需将 mcp-scripts 目录放到此路径（或按实际路径修改），
+      # 并启用下方挂载；平台 API 返回的 stdio 服务使用相对路径 mcp-scripts/*.py
       - MCP_SERVER_WORKDIR=/root/projects/deep-agent  # for stdio mcp servers
     volumes:
       - langflow-data:/app/langflow
-      # ========== 后端代码 mounts ==========
-      # 把本地修改的后端代码覆盖到容器的 site-packages
-      - ../../src/backend/base/langflow/:/app/.venv/lib/python3.14/site-packages/langflow/
-      # 如果修改了 lfx 或 sdk，也 mount 上：
-      - ../../src/lfx/src/lfx/:/app/.venv/lib/python3.14/site-packages/lfx/
-      #- ../../src/sdk/src/langflow_sdk/:/app/.venv/lib/python3.14/site-packages/langflow_sdk/
-      # ========== 前端产物 mount ==========
-      - ../../src/frontend/build/:/app/.venv/lib/python3.14/site-packages/langflow/frontend/
-      # ========== MCP stdio 脚本 mount ==========
+      # ========== MCP stdio 脚本挂载（按需启用） ==========
       # 平台 API 返回的 stdio 服务使用相对路径 mcp-scripts/*.py，
-      # MCP_SERVER_WORKDIR 指向 /root/projects/deep-agent，需将脚本目录以相同路径挂入容器
-      - /root/projects/deep-agent/mcp-scripts:/root/projects/deep-agent/mcp-scripts
+      # 需将脚本目录以 MCP_SERVER_WORKDIR 指向的相同路径挂入容器
+      # - /root/projects/deep-agent/mcp-scripts:/root/projects/deep-agent/mcp-scripts
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
     networks:
       - langflow-net
 
